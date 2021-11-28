@@ -4,7 +4,6 @@
 <head>
   <base href="./">
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta name="description"
       content="Tenha na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento das receitas do financeiro, desespesas e muito mais">
@@ -25,16 +24,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
+    <link rel="manifest" href="assets/favicon/manifest.webmanifest">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('assets/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
 
     <!-- Compartilhamento no whats-->
     <meta property="og:site_name" content="DeskApps">
     <meta property="og:title" content="Gestão de Igrejas">
     <meta property="og:description" content="Desenvolvedora de sistemas web e app para a gestão de igrejas.">
-    <meta property="og:image" itemprop="image" content="http://deskapps.net/logo1.jpg">
+    <meta property="og:image" itemprop="image" content="https://deskapp.online/logo1.jpg">
     <meta property="og:type" content="website">
 
     <!-- Icons-->
