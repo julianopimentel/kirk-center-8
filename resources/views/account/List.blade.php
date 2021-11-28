@@ -35,10 +35,10 @@
                                         <a href="{{ route('account.edit', $institution->AccountList->id) }}"
                                             class="btn btn-primary-outline"><i
                                                 class="c-icon c-icon-sm cil-pencil text-success"></i></a>
-                                @endif
+                                    @endif
                                 </td>
-                                    <td width="1%">
-                                        @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
+                                <td width="1%">
+                                    @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
                                         <form action="{{ route('account.destroy', $institution->AccountList->id) }}"
                                             method="POST">
                                             @method('DELETE')
@@ -47,8 +47,8 @@
                                                 title='Delete'><i
                                                     class="c-icon c-icon-sm cil-trash text-danger"></i></button>
                                         </form>
-                                
-                                        @endif
+
+                                    @endif
                                 </td>
                                 <td width="1%">
                                     <form method="post"
@@ -71,7 +71,7 @@
 @else
 
 
-            <h4><strong>Você não possui nenhum cadastro associado</strong></h4>
+    <h4><strong>Você não possui nenhum cadastro associado</strong></h4>
     </div>
     <div class="card-body">
         Seja Bem-vindo! <br>
