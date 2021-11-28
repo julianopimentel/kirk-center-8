@@ -69,7 +69,10 @@
         </div>
     </div>
 @else
-    <i class="fa fa-align-justify"></i>Você não possui nenhum cadastro associado</div>
+
+
+            <h4><strong>Você não possui nenhum cadastro associado</strong></h4>
+    </div>
     <div class="card-body">
         Seja Bem-vindo! <br>
         Gostaria de criar um pré-cadastro a sua igreja?
