@@ -43,7 +43,7 @@
 
                 <div class="form-group col-sm-3">
                     <label>Forma de Pagamento</label>
-                    <select class="form-control" id="pag" name="pag" disabled>
+                    <select class="form-control" id="pag" name="pag">
                         @foreach($statuspag as $statuspags)
                         <option value="{{ $statuspags->id }}">{{ $statuspags->name }}</option>
                         @endforeach

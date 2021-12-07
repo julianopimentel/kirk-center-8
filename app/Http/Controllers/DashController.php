@@ -141,12 +141,12 @@ class DashController extends Controller
         $despesaatual = Historic::where('tipo', '12')->where('date', 'like', "%$date%")->sum('amount');
 
         //grafico financeiro da forma de pagamento do mês atual
-        $formapag_dinheiro = Historic::where('pag', '15')->where('date', 'like', "%$date%")->sum('amount');
-        $formapag_cheque = Historic::where('pag', '16')->where('date', 'like', "%$date%")->sum('amount');
-        $formapag_credito = Historic::where('pag', '17')->where('date', 'like', "%$date%")->sum('amount');
-        $formapag_debito = Historic::where('pag', '18')->where('date', 'like', "%$date%")->sum('amount');
-        $formapag_boleto = Historic::where('pag', '19')->where('date', 'like', "%$date%")->sum('amount');
-        $formapag_pix = Historic::where('pag', '20')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_dinheiro = Historic::where('pag', '15')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_cheque = Historic::where('pag', '16')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_credito = Historic::where('pag', '17')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_debito = Historic::where('pag', '18')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_boleto = Historic::where('pag', '19')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        $formapag_pix = Historic::where('pag', '20')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
 
         return view(
             'dashboard.homepage',
