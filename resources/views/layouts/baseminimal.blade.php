@@ -64,11 +64,8 @@
     
 
   </head>
-
-  <!-- retirar minimized fica minimizado c-sidebar-minimized-->
-  
-  <body  id="app" class="c-app">
-  <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+<body class="c-app">
+   <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
       @include('layouts.shared.nav-minimal')
 
       @include('layouts.shared.header')
@@ -83,31 +80,37 @@
       </div>
     </div>
 
-    <!-- CoreUI and necessary plugins-->
-    <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
-    <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+     <!-- CoreUI and necessary plugins-->
+   <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
+   <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-    <script type="text/javascript">
-     $('.show_confirm').click(function(event) {
-          var form =  $(this).closest("form");
-          var name = $(this).data("name");
-          event.preventDefault();
-          swal({
-              title: `Are you sure you want to delete this record?`,
-              text: "If you delete this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              form.submit();
-            }
-          });
-      });
-    </script>
-@yield('javascript')
+   <script type="text/javascript">
+       $('.show_confirm').click(function(event) {
+           var form = $(this).closest("form");
+           var name = $(this).data("name");
+           event.preventDefault();
+           swal({
+                   title: `Are you sure you want to delete this record?`,
+                   text: "If you delete this, it will be gone forever.",
+                   icon: "warning",
+                   buttons: true,
+                   dangerMode: true,
+               })
+               .then((willDelete) => {
+                   if (willDelete) {
+                       form.submit();
+                   }
+               });
+       });
+   </script>
+   @yield('javascript')
+
 </body>
+
 </html>

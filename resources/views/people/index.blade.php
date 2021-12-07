@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="form-groups row">
                         <div class="col-10">
-                            <h3>Pessoas</h3>
+                            <h4>Pessoas</h4>
                         </div>
                         <div class="col-2">
                             @if ($appPermissao->add_people == true)

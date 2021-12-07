@@ -16,7 +16,7 @@ return [
     'add' => 'Adicionar',
 
     //menu
-    'account' => 'Conta',
+    'account' => 'Contas',
     'license' => 'Licença',
     'available' => 'Disponível',
     'used' => 'Usado',

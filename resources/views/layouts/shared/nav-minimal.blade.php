@@ -20,5 +20,6 @@
             {{ __('account.license') }}</a>
     </li>
     @endif
-</nav>
+</ul>
 </div>
+</nav>
