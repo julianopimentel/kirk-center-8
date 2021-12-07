@@ -7,8 +7,6 @@
               <img src="{{ url('assets/favicon/android-chrome-96x96.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
             <div class="card card-primary">
-              <div class="card-header"><h4>Login</h4></div>
-
               <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -20,10 +18,10 @@
 
                   <div class="form-group">
                     <div class="d-block">
-                    	<label for="password" class="control-label">Password</label>
+                    	<label for="password" class="control-label">Senha</label>
                       <div class="float-right">
                         <a href="{{ route('password.request') }}" class="text-small">
-                          Forgot Password?
+                          Esqueceu sua senha?
                         </a>
                       </div>
                     </div>
@@ -38,7 +36,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="{{ route('register') }}">Create One</a>
+              Não tem conta? <a href="{{ route('register') }}">Crie uma</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; DeskApps

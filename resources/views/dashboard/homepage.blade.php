@@ -14,7 +14,7 @@
                                     </svg>
                                 </div>
                                 <div class="text-value-lg">{{ $peopleativo }} </div><small
-                                    class="text-muted text-uppercase font-weight-bold">People</small>
+                                    class="text-muted text-uppercase font-weight-bold">Pessoas</small>
                             </div>
                             <div class="card-footer px-3 py-2">
                                 <a class="btn-block text-muted d-flex justify-content-between align-items-center"
@@ -54,7 +54,7 @@
                                     </svg>
                                 </div>
                                 <div class="text-value-lg">{{ $peoplevisitor }}</div><small
-                                    class="text-muted text-uppercase font-weight-bold"> New Visitors</small>
+                                    class="text-muted text-uppercase font-weight-bold">Visitantes</small>
                             </div>
                             <div class="card-footer px-3 py-2">
                                 <a class="btn-block text-muted d-flex justify-content-between align-items-center"
@@ -74,7 +74,7 @@
                                     </svg>
                                 </div>
                                 <div class="text-value-lg">{{ number_format($porcentage_total, 2) }}%</div><small
-                                    class="text-muted text-uppercase font-weight-bold">Transactions</small>
+                                    class="text-muted text-uppercase font-weight-bold">Transações</small>
                             </div>
                             <div class="card-footer px-3 py-2">
                                 <a class="btn-block text-muted d-flex justify-content-between align-items-center"
@@ -94,7 +94,7 @@
                                     </svg>
                                 </div>
                                 <div class="text-value-lg">{{ $eventos }}</div><small
-                                    class="text-muted text-uppercase font-weight-bold">Calendar</small>
+                                    class="text-muted text-uppercase font-weight-bold">Calendários</small>
                             </div>
                             <div class="card-footer px-3 py-2">
                                 <a class="btn-block text-muted d-flex justify-content-between align-items-center"
@@ -114,7 +114,7 @@
                                     </svg>
                                 </div>
                                 <div class="text-value-lg">{{ $notes }}</div><small
-                                    class="text-muted text-uppercase font-weight-bold">Message</small>
+                                    class="text-muted text-uppercase font-weight-bold">Recados</small>
                             </div>
                             <div class="card-footer px-3 py-2">
                                 <a class="btn-block text-muted d-flex justify-content-between align-items-center"
@@ -132,7 +132,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-5">
-                                <h4 class="card-title mb-0">Perido</h4>
+                                <h4 class="card-title mb-0">Período</h4>
                                 <div class="small text-muted">Anual</div>
                             </div>
                             <!--
@@ -205,10 +205,12 @@
             @endif
             @if ($appPermissao->view_detail == true)
                 <!-- /.row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <h4 class="card-title mb-0">Informações gerais</h4>
+            <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h4 class="card-title mb-0">Informações gerais</h4>
+                            </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -229,9 +231,7 @@
                                         </div>
                                         <hr class="mt-0">
                                         /.row-->
-
-                                        Meta Anual
-
+                                        <div class="small text-muted">Membresia x Meta Anual</div>
                                         <div class="progress-group">
                                             <div class="progress-group-header align-items-end">
                                                 <svg class="c-icon progress-group-icon">
@@ -327,6 +327,7 @@
                                                     <div class="c-chart-wrapper">
                                                         <canvas id="chats-tipo-pessoa"></canvas>
                                                     </div>
+                                                    <div class="small text-muted">Gráfico da membresia</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,7 +352,7 @@
                                         </div>
                                         <hr class="mt-0">
                                                                                  /.row-->
-
+                                        <div class="small text-muted">Gênero</div>
                                         <div class="progress-group">
                                             <div class="progress-group-header">
                                                 <svg class="c-icon progress-group-icon">
@@ -390,13 +391,13 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <!-- /.col-->
                                 </div>
-
                             </div>
-                        </div>
+                            </div>
+                            </div>
+                            </div>
             @endif
             @if ($appPermissao->view_resumo_financeiro == true)
                 <div class="card">
@@ -404,13 +405,13 @@
 
                         <div class="col-sm-5">
                             <h4 class="card-title mb-0">Financeiro</h4>
-                            <div class="small text-muted">Movimento mensal</div>
+                            <div class="small text-muted">Transações do mês atual</div>
                         </div>
                         <br>
                         <div class="row">
                             <!-- /.col-->
                             <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                Tipo de movimento
+                                Tipo de transação
                                 <div class="row">
                                     <!-- /.col-->
                                     <div class="card-body">
@@ -423,7 +424,7 @@
                             </div>
                             <!-- /.col-->
                             <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                Formas de pagamento
+                                Formas de pagamento de entradas
                                 <div class="row">
                                     <!-- /.col-->
                                     <div class="card-body">
