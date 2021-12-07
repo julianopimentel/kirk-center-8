@@ -8,11 +8,13 @@
             FreelyPositionedMenus::render($appMenus['top menu'], 'c-header-', 'd-md-down-none');
         }
         ?>
+
+
         <ul class="c-header-nav ml-auto mr-4">
-
-            <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link">
-
+            <li class="c-header-nav-item d-md-down-none mx-2">
+                <a class="c-header-nav-link">
                     <strong>{{ Auth::user()->name }} </strong> &nbsp
+                </a>
             <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
                     role="button" aria-haspopup="true" aria-expanded="false">
 
@@ -22,8 +24,8 @@
                     @endif
 
                     @if (!empty(Auth::user()->image))
-                        <div class="c-avatar"><img class="c-avatar-img"
-                                src="{{ auth()->user()->image }}" style="width: 40px;height: 40px"></div>
+                        <div class="c-avatar"><img class="c-avatar-img" src="{{ auth()->user()->image }}"
+                                style="width: 40px;height: 40px"></div>
                     @endif
 
                 </a>
@@ -39,17 +41,21 @@
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-user') }}"></use>
                         </svg> Profile</a>
-                    @if(Auth::user()->isAdmin() === true)
-                    <a class="dropdown-item">
-                        <svg class="c-icon mr-2">
-                            <use xlink:href="{{ url('/icons/sprites/free.svg#cil-credit-card') }}"></use>
-                        </svg>Payments</a>  
+                    @if (Auth::user()->isAdmin() === true)
+                        <a class="dropdown-item">
+                            <svg class="c-icon mr-2">
+                                <use xlink:href="{{ url('/icons/sprites/free.svg#cil-credit-card') }}"></use>
+                            </svg>Payments</a>
                         <a class="dropdown-item" href="/logs">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-history') }}"></use>
-                        </svg>Auditoria</a>  
+                            </svg>Auditoria</a>
                     @endif
                     <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('account.index') }}">
+                        <svg class="c-icon mr-2">
+                            <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>
+                        </svg>Selecionar a conta</a>
                     <a class="dropdown-item">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-account-logout') }}"></use>

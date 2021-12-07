@@ -34,81 +34,81 @@
     <meta property="og:image" itemprop="image" content="https://deskapp.online/logo1.jpg">
     <meta property="og:type" content="website">
 
-    <!-- Calendar -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    <!-- Icons-->
-    <link href="{{ asset('css/free.min.css?v=1') }}" rel="stylesheet">
-    <!-- Main styles for this application-->
-    <link href="{{ asset('css/style.css?v=1') }}" rel="stylesheet">
+   <!-- Calendar -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+   <!-- Icons-->
+   <link href="{{ asset('css/free.min.css?v=1') }}" rel="stylesheet">
+   <!-- Main styles for this application-->
+   <link href="{{ asset('css/style.css?v=1') }}" rel="stylesheet">
 
-    <!-- Layout-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/components.css') }}" rel="stylesheet">
+   <!-- Layout-->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/components.css') }}" rel="stylesheet">
 
-    <!-- Alert-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+   <!-- Alert-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    <!-- Select2-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+   <!-- Select2-->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-    @yield('css')
+   @yield('css')
 
-    <link href="{{ asset('css/coreui-chartjs.css?v=1') }}" rel="stylesheet">
+   <link href="{{ asset('css/coreui-chartjs.css?v=1') }}" rel="stylesheet">
 </head>
 
 <!-- retirar minimized fica minimizado c-sidebar-minimized-->
 <body class="c-app">
-    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-        @include('layouts.shared.nav-builder')
+   <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+       @include('layouts.shared.nav-builder')
 
-        @include('layouts.shared.header')
+       @include('layouts.shared.header')
 
-        <div class="c-body">
+       <div class="c-body">
 
-            <main class="c-main">
-                @include('layouts.shared.flash-message')
-                @yield('content')
+           <main class="c-main">
+               @include('layouts.shared.flash-message')
+               @yield('content')
 
-            </main>
-        </div>
-    </div>
-    <!-- CoreUI and necessary plugins-->
-    <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
-    <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+           </main>
+       </div>
+   </div>
+   <!-- CoreUI and necessary plugins-->
+   <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
+   <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script type="text/javascript">
-        $('.show_confirm').click(function(event) {
-            var form = $(this).closest("form");
-            var name = $(this).data("name");
-            event.preventDefault();
-            swal({
-                    title: `Are you sure you want to delete this record?`,
-                    text: "If you delete this, it will be gone forever.",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-                    }
-                });
-        });
-    </script>
-    @yield('javascript')
+   <script type="text/javascript">
+       $('.show_confirm').click(function(event) {
+           var form = $(this).closest("form");
+           var name = $(this).data("name");
+           event.preventDefault();
+           swal({
+                   title: `Are you sure you want to delete this record?`,
+                   text: "If you delete this, it will be gone forever.",
+                   icon: "warning",
+                   buttons: true,
+                   dangerMode: true,
+               })
+               .then((willDelete) => {
+                   if (willDelete) {
+                       form.submit();
+                   }
+               });
+       });
+   </script>
+   @yield('javascript')
 
 </body>
 

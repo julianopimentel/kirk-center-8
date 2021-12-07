@@ -2,7 +2,6 @@
 /*
     $data = $menuel['elements']
 */
-
 if (!function_exists('renderDropdown')) {
     function renderDropdown($data)
     {
@@ -45,7 +44,7 @@ if (!function_exists('renderDropdown')) {
             <i class="c-icon cil-house c-sidebar-nav-icon"></i>
             Home</a>
     </li>
-    @if ($appPermissao->home_financeiro_valores == true)
+        @if ($appPermissao->home_financeiro_valores == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexDizimos') }}">
                 <i class="c-icon cil-cash c-sidebar-nav-icon"></i>
@@ -102,32 +101,21 @@ if (!function_exists('renderDropdown')) {
         </li>
     @endif
     @if ($appPermissao->report_view == true)
-        <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#"><i
+        <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle"><i
                     class="c-icon cil-chart c-sidebar-nav-icon"></i>Relatórios</a>
             <ul class="c-sidebar-nav-dropdown-items">
-                @if ($appPermissao->view_people == true)
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                            href="{{ route('people.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem
-                            das
-                            Pessoas</a></li>
-                @endif
-                @if ($appPermissao->view_people == true)
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                            href="{{ route('location.index') }}"><span
-                                class="c-sidebar-nav-icon"></span>Localizações</a>
-                    </li>
-                @endif
-                @if ($appPermissao->view_group == true)
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                            href="{{ route('group.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem de
-                            Grupos</a></li>
-                @endif
-                @if ($appPermissao->view_financial == true)
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                            href="{{ route('financial.Financial') }}"><span
-                                class="c-sidebar-nav-icon"></span>Histórico
-                            Financeiro</a></li>
-                @endif
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                        href="{{ route('people.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem
+                        das
+                        Pessoas</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                        href="{{ route('location.index') }}"><span class="c-sidebar-nav-icon"></span>Localizações</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                        href="{{ route('group.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem de
+                        Grupos</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
+                        href="{{ route('financial.Financial') }}"><span class="c-sidebar-nav-icon"></span>Histórico
+                        Financeiro</a></li>
             </ul>
         </li>
     @endif
@@ -139,14 +127,4 @@ if (!function_exists('renderDropdown')) {
         </li>
     @endif
 </ul>
-<ul class="c-sidebar-minimizer">
-    <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link"  href="{{ route('account.index') }}">
-         <i class="c-icon cil-building c-sidebar-nav-icon"></i>
-            List Accounts</a>
-    </li>
-</ul>
-<!-- remover o minimized do menu principal
-        <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
-        -->
 </div>

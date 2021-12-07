@@ -135,6 +135,7 @@ Route::get('wizard', 'WizardController@create')->name('wizard.create');
 Route::post('/tenantWizard/{id}', 'WizardController@tenantWizard')->name('tenantWizard');
 
 //reports
+Route::get('report', 'ReportController@index')->name('report.index');
 Route::any('report/financial/search', 'ReportController@searchFinancial')->name('financialrep.search');
 Route::get('report/financial', 'ReportController@Financial')->name('financial.Financial');
 Route::any('report/people/search', 'ReportController@searchPeople')->name('peoplerep.search');

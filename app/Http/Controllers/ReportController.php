@@ -20,6 +20,13 @@ class ReportController extends Controller
         $this->middleware('permission');
     }
 
+    public function index()
+    {
+        //pegar o tenant
+        $this->get_tenant();
+        return view('reports.Report');
+    }
+
     public function Financial(Historic $historic)
     {
         //pegar tenant
