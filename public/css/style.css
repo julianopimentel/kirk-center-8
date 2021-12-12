@@ -10771,7 +10771,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
 
 .c-sidebar {
   color: #fff;
-  background: rgb(24, 114, 250)
+  background: #636f83
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-right {
@@ -13092,7 +13092,7 @@ html:not([dir="rtl"]) .list-inline {
 }
 
 .bg-primary {
-  background-color: #1872fa !important;
+  background-color: #636f83 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus, button.bg-primary:hover, button.bg-primary:focus {

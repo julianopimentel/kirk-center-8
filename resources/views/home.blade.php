@@ -2,6 +2,8 @@
 @section('content')
 
     <div class="container-fluid">
+
+    <!--
         <div class="fade-in">
             <div class="row">
                 <div class="col-12 mb-4">
@@ -14,6 +16,7 @@
                 </div>
             </div>
         </div>
+-->
 
         @if ($precadastro >= 1 and $appPermissao->edit_precadastro == true)
             <div class="card card-accent-success mb-12" style="max-width: 18rem;">
@@ -44,9 +47,8 @@
                 @if (($social->facebook_link !== null) | ($social->twitter_link !== null) | ($social->linkedin_link !== null) | ($social->youtube_link !== null) | ($social->instagram_link !== null) | ($social->vk_link !== null) | ($social->site_link !== null) | ($social->telegram_link !== null) | ($social->whatsapp_link !== null))
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+                        <h6>Rede Sociais</h6>
                                 <div class="card-body">
-                                    <h6>Rede Sociais</h6>
                                     <p>
                                         @if ($social->facebook_link !== null)
                                             <a class="btn btn-sm btn-facebook" type="button"
@@ -133,13 +135,12 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 @endif
             @endif
             @if ($appPermissao->home_message == true)
                 @if (!$notes->isEmpty())
-                    <h3 class="section-title">Recados</h3>
+                    <h6>Mural de Recados</h6>
                     <div class="row">
                         @foreach ($notes as $note)
                        

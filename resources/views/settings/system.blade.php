@@ -31,18 +31,13 @@
                                                         <input type="hidden" name="logo"
                                                             value="assets/img/2e79d6b2095794bd62b0155dae20ac08.jpg">
                                                     </div>
-                                                    -->
+                                                    
                                     <div class="form-group">
                                         <label class="control-label">Nome da aplicação</label>
                                         <input type="text" class="form-control" name="name" placeholder="Application name"
                                             value="{{ $settings->name }}" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Timezone</label>
-                                        <input type="text" class="form-control" name="timezone" placeholder="timezone"
-                                            value="{{ $settings->timezone }}" required>
-                                        <a href="http://php.net/manual/en/timezones.php" target="_blank">Timezone</a>
-                                    </div>
+                                    -->
                                     <!--
                                                             <div class="form-group">
                                                                 <label class="control-label">Linguagem padrão</label>
@@ -53,7 +48,7 @@
                                                             </div>
                                                             -->
                                     <div class="form-group">
-                                        <label class="control-label">Moeda</label>
+                                        <label class="control-label"><strong>Moeda</strong></label>
                                         <input type="text" class="form-control" name="currency" placeholder="currency"
                                             value="{{ $settings->currency }}" required>
                                     </div>
@@ -123,10 +118,17 @@
                                                     {{ $settings->geolocation == true ? 'checked' : '' }}>
                                                 <label
                                                     title="Caso ative a opção de localização, os campos de endereço nas pessoas ficam ocultos até a desativação dessa opção"
-                                                    class="form-check-label" for="check1">Utilizar geolocalização <span
-                                                        class="badge badge-info">Beta</span></label>
+                                                    class="form-check-label" for="check1">Utilizar geolocalização<span
+                                                        class="badge badge-info">Beta</span><small>Usado para implantação de igrejas, mas necessário configurar cada pessoa</small></label>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>Timezone</strong></label>
+                                        <input type="text" class="form-control" name="timezone" placeholder="timezone"
+                                            value="{{ $settings->timezone }}" required>
+                                        <a href="http://php.net/manual/en/timezones.php" target="_blank">Timezone</a>
                                     </div>
                                     <!-- /.row-->
                                     <button class="btn btn-primary" type="submit">Save</button>
