@@ -42,7 +42,6 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        $this->pegar_tenant();
         $validatedData = $request->validate([
             'name'    => 'required|min:1|max:64',
             'subject' => 'required|min:1|max:128',
@@ -65,7 +64,6 @@ class MailController extends Controller
      */
     public function show($id)
     {
-        $this->pegar_tenant();
         $template = EmailTemplate::find($id);
         return view('admin.email.show', [ 'template' => $template ]);
     }
@@ -78,7 +76,6 @@ class MailController extends Controller
      */
     public function edit($id)
     {
-        $this->pegar_tenant();
         $template = EmailTemplate::find($id);
         return view('admin.email.edit', [ 'template' => $template ]);
     }
@@ -92,7 +89,6 @@ class MailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->pegar_tenant();
         $validatedData = $request->validate([
             'name'    => 'required|min:1|max:64',
             'subject' => 'required|min:1|max:128',
@@ -115,7 +111,6 @@ class MailController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        $this->pegar_tenant();
         $template = EmailTemplate::find($id);
         if($template){
             $template->delete();
@@ -125,13 +120,11 @@ class MailController extends Controller
     }
 
     public function prepareSend($id){
-        $this->pegar_tenant();
         $template = EmailTemplate::find($id);
         return view('admin.email.send', [ 'template' => $template ]);
     }
 
     public function send($id, Request $request){
-        $this->pegar_tenant();
         $template = EmailTemplate::find($id);
         Mail::send([], [], function ($message) use ($request, $template)
         {
