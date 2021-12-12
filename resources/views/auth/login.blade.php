@@ -6,7 +6,7 @@
             <div class="login-brand">
               <img src="{{ url('assets/favicon/android-chrome-96x96.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
-            <div class="card card-primary">
+            <div class="card card-dark">
               <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -29,7 +29,7 @@
                     name="password" tabindex="2" required>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target=".cd-load"
+                    <button type="submit" class="btn btn-dark btn-lg btn-block" data-toggle="modal" data-target=".cd-load"
                     type="submit" minlength="6" id="botao" disabled>{{ __('auth.login') }}</button>
                   </div>
                 </form>
@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <script> 
+        <script>
           $("#password").on("input", function() {
               $("#botao").prop('disabled', $(this).val().length < 6);
           });

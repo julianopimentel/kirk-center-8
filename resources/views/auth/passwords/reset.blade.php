@@ -8,7 +8,7 @@
           <img src="../assets/favicon/android-chrome-96x96.png" alt="logo" width="100" class="shadow-light rounded-circle">
         </div>
 
-        <div class="card card-primary">
+        <div class="card card-dark">
           <div class="card-header"><h4>{{ __('Reset Password') }}</h4></div>
 
           <div class="card-body">
@@ -38,7 +38,7 @@
             </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                <button type="submit" class="btn btn-dark btn-lg btn-block" tabindex="4">
                     {{ __('Reset Password') }}
                 </button>
               </div>
