@@ -11,6 +11,8 @@ class Users extends Model
     use SoftDeletes;
     use HasFactory;
 
+    protected $connection = 'pgsql';
+
     /**
      * Get the notes for the users.
      */

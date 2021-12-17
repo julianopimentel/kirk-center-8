@@ -21,7 +21,7 @@ class User extends Authenticatable implements ReactsInterface
     use HasRoles;
     use HasFactory;
 
-
+    protected $connection = 'pgsql';
     protected $table = 'users';
 
 

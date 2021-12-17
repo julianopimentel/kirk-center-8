@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menurole extends Model
 {
-    protected $table = 'admin.menu_role';
+    protected $connection = 'pgsql';
+    protected $table = 'menu_role';
     public $timestamps = false; 
 }

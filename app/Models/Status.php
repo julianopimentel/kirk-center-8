@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Status extends Model
 {
     use HasFactory;
-
-    protected $table = 'status';
+    protected $table = 'admin.status';
     public $timestamps = false;
     /**
      * Get the notes for the status.

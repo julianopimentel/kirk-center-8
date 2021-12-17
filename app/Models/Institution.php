@@ -10,6 +10,7 @@ class Institution extends Model
 
     use HasFactory;
 
+    protected $connection = 'pgsql';
     protected $table = 'accounts';
 
     /**

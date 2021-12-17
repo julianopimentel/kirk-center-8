@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmailTemplate extends Model
 {
-    public $table = 'admin.email_template';
+    protected $connection = 'pgsql';
+    public $table = 'email_template';
     
 }

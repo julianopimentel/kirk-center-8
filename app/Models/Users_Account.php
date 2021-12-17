@@ -9,6 +9,7 @@ class Users_Account extends Model
 {
     use HasFactory;
 
+    protected $connection = 'pgsql';
     protected $table = 'users_account';
     public $timestamps = false;
     /**
