@@ -42,7 +42,7 @@
                                                             </span>
                                                         </div>
                                                         <input class="form-control" type="text"
-                                                            placeholder="{{ __('Name') }}" name="name_company" required>
+                                                            placeholder="{{ __('Name') }}" id="name_company" name="name_company" required>
                                                     </div>
                                                 </div>
                                                 <label for="city">CNPJ</label>
@@ -194,12 +194,36 @@
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-2">
                                         <a href="{{ route('account.index') }}"
                                             class="btn btn-block btn-primary">{{ __('Return') }}</a>
-                                        <button class="btn btn-block btn-success" type="submit" name="enviar" value="Enviar">{{ __('Save') }}</button>
+                                        <button id="botao" class="btn btn-block btn-success" type="submit" name="enviar" value="Enviar" data-toggle="modal" data-target="#exampleModalScrollable" disabled>{{ __('Save') }}</button>
                         </form>
                     </div>
                 </div>
             </div>
 
+            <!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          Sua conta está sendo criada, por favor aguarde um momento.
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+$(document).ready(function(){
+  $('#name_company').on('input', function(){
+    $('#botao').prop('disabled', $(this).val().length < 6);
+  });
+});
+  </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
         @endsection
 
         @section('javascript')
