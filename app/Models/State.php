@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class State extends Model
 {
     use HasFactory;
-    protected $table = 'admin.states';
+    protected $table = 'states';
 
 }

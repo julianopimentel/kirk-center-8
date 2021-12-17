@@ -21,8 +21,8 @@ class User extends Authenticatable implements ReactsInterface
     use HasRoles;
     use HasFactory;
 
-    
-    protected $table = 'admin.users';
+
+    protected $table = 'users';
 
 
     /**
@@ -56,7 +56,7 @@ class User extends Authenticatable implements ReactsInterface
         'deleted_at', 'expire',
     ];
 
-    protected $attributes = [ 
+    protected $attributes = [
         'menuroles' => 'user',
     ];
     public function getImageAttribute()

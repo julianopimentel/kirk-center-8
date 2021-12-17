@@ -130,13 +130,13 @@ class InstitutionsController extends Controller
             $request->session()->flash("error", 'events.error_license');
             return redirect('account');
         };
-        //valida se tem os dados essencial 
+        //valida se tem os dados essencial
         $validatedData = $request->validate([
             'name_company'             => 'required|min:1|max:150',
-            'email'           => 'required',
-            'doc'   => 'required',
-            'mobile'         => 'required'
+            'type'           => 'required',
         ]);
+
+        $request->session()->flash("danger", 'Aguarde um momento');
 
         //tratamento no nome para criar o esquema
         $string = $request->input('name_company');
@@ -167,7 +167,7 @@ class InstitutionsController extends Controller
         $institution->cep       = $request->input('cep');
         $institution->lat       = $request->input('lat');
         $institution->lng       = $request->input('lng');
-        $institution->status_id = '5';
+        $institution->status_id = $request->input('type');
         $institution->country       = $request->input('country');
         $institution->integrador = $user->id;
         $institution->save();
@@ -180,6 +180,7 @@ class InstitutionsController extends Controller
 
         //criar o esquema (gambiarra)
         DB::select('CREATE SCHEMA ' . $institution->tenant);
+        DB::select('DELETE FROM migration.migrations');
 
         $tenant = (object) array('host' => '127.0.0.1', 'port' => '5432', 'account_name' => 'postgres', 'password' => 'ajvv6679');
 
@@ -193,8 +194,9 @@ class InstitutionsController extends Controller
         //dump(config::get('database.connections.tenant'));
         DB::reconnect('tenant');
 
-        $migrated = Artisan::call('migrate:fresh --seed');
+        $migrated = Artisan::call('migrate --seed --force');
         if (!$migrated) {
+            $request->session()->flash("danger", 'Aguarde um momento');
             //salvar vinculo com a conta se ocorrer tudo bem
             $useraccount->save();
             //adicionar log

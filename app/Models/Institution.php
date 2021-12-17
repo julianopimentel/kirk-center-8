@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\Permission\Traits\HasRoles;
 
 class Institution extends Model
 {
 
     use HasFactory;
-     
-    protected $table = 'admin.accounts';
+
+    protected $table = 'accounts';
 
     /**
      * The attributes that are mass assignable.
@@ -59,7 +58,7 @@ class Institution extends Model
         return $this->where(function ($query) use ($data){
             if (isset($data['name']))
                 $query->where('name_company',  'LIKE','%' . $data['name']. '%');
-       
+
         })
         ->paginate($totalPagesPaginate);
     }

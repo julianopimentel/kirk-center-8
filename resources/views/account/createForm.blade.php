@@ -29,7 +29,7 @@
                                         <div class="tab-content no-padding" id="myTab2Content">
                                             <div class="tab-pane fade show active" id="home" role="tabpanel"
                                                 aria-labelledby="home-tab4">
-                                                <label for="city">Nome da Conta</label>
+                                                <label for="city">Nome da Conta*</label>
                                                 <div class="input-group">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
@@ -60,7 +60,7 @@
                                                         <input class="form-control" type="text"
                                                             placeholder="01.452.25/0001-19"
                                                             pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}"
-                                                            name="doc" required>
+                                                            name="doc">
                                                     </div>
                                                 </div>
                                                 <label for="city">E-mail</label>
@@ -87,13 +87,13 @@
                                                         </div>
                                                         <input class="form-control" name="mobile" type="tel"
                                                             placeholder="11 99999-9999"
-                                                            pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}" required>
+                                                            pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label>Type</label>
-                                                        <select class="form-control" name="status_id" disabled>
+                                                        <label>Tipo *</label>
+                                                        <select class="form-control" name="type">
                                                             @foreach ($statuses as $status)
                                                                 <option value="{{ $status->id }}">{{ $status->name }}
                                                                 </option>
