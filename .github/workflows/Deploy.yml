@@ -1,7 +1,16 @@
-- name: Gitstart Pull
-  # You may pin to the exact commit or the version.
-  # uses: GitStartHQ/actions@e76d417ef13311c47779b8e0bea97c9e5003def5
-  uses: GitStartHQ/actions@v0.0.6
-  with:
-    # URL of the Repo which you are forking
-    upstream: 
+name: remote ssh command
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: 'cd / laravel_0a9ee3 && ./server_deploy.sh'
