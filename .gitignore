@@ -24,3 +24,6 @@ Homestead.json
 
 #remover as imagens
 storage/app/public
+
+#ocuttar token
+server_deploy.sh
