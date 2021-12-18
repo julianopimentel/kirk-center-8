@@ -22,5 +22,3 @@ jobs:
         git config --local user.email "juliano_pimentel@live.com"
         git config --local user.name "GitHub Action"
         git pull
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      run: vendor/bin/phpunit
