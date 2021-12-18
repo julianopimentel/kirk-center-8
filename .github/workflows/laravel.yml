@@ -15,11 +15,13 @@ jobs:
       with:
         php-version: '7.4'
     - uses: actions/checkout@v2
-      with:
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
     - name: Commit built assets
       run: |
         git config --local user.email "juliano_pimentel@live.com"
-        git checkout -f 
+        git config --local user.name "GitHub Action"
+        git config --local user.password "ajvv6679"
         git pull
-
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      run: vendor/bin/phpunit
