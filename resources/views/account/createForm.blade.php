@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create new Account</h4>
+                            <h4>Criar nova Conta</h4>
                         </div>
                         <form method="POST" action="{{ route('account.store') }}" onsubmit="this.enviar.value='Enviando...'; this.enviar.disabled=true;">
                             @csrf

@@ -85,9 +85,11 @@ class InstitutionsController extends Controller
         $you = auth()->user();
         //buscar a conta
         $institution = Institution::find($id);
+        //carregar status
+        $statuses = Status::all()->where("type", 'system');
         //se o usuario for integrador ele abre a edição da conta
         if ($institution->integrador == $you->id and $institution->deleted_at == null) {
-            return view('account.EditForm', compact('institution'));
+            return view('account.EditForm', compact('institution'), ['statuses' => $statuses]);
         };
         //se não for, retorna um erro generico
         session()->flash("error", 'Error interno');
@@ -228,10 +230,8 @@ class InstitutionsController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'email'           => 'required',
-            'mobile'         => 'required',
-            'doc'         => 'required',
-            'name_company'         => 'required',
+            'name_company'             => 'required|min:1|max:150',
+            'type'           => 'required',
         ]);
         $institution = Institution::find($id);
         $institution->name_company      = $request->input('name_company');
@@ -245,6 +245,7 @@ class InstitutionsController extends Controller
         $institution->lat       = $request->input('lat');
         $institution->lng       = $request->input('lng');
         $institution->cep       = $request->input('cep');
+        $institution->status_id = $request->input('type');
         //adicionar log
         $this->adicionar_log_global('9', 'U', $institution);
         $institution->save();

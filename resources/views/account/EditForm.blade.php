@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Editar Account</h4>
+                        <h4>Editar a Conta</h4>
                     </div>
                     <form method="POST" action="{{ route('account.update',$institution->id) }}">
                         @csrf
@@ -32,7 +32,7 @@
                                     <div class="tab-content no-padding" id="myTab2Content">
                                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                                             aria-labelledby="home-tab4">
-                                            <label for="city">Nome da Conta</label>
+                                            <label for="city">Nome da Conta*</label>
                                             <div class="input-group">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
@@ -62,7 +62,7 @@
                                                 </div>
                                                 <input class="form-control" type="text" placeholder="{{ __('CNPJ') }}" name="doc"
                                                 pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}"
-                                                value="{{ $institution->doc }}" required>
+                                                value="{{ $institution->doc }}">
                                             </div>
                                         </div>
                                         <label for="city">E-mail</label>
@@ -72,7 +72,7 @@
                                                     <span class="input-group-text">@</span>
                                                 </div>
                                                 <input class="form-control" type="email" placeholder="{{ __('E-Mail Address') }}"
-                                                name="email" value="{{ $institution->email }}" required>
+                                                name="email" value="{{ $institution->email }}">
                                             </div>
                                         </div>
                                     <label for="city">Telefone</label>
@@ -89,7 +89,24 @@
                                                 </div>
                                                 <input class="form-control" name="mobile" type="tel"
                                                 placeholder="11 99999-9999" value="{{ $institution->mobile }}"
-                                                pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}" required>
+                                                pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label>Tipo *</label>
+                                                    <select class="form-control" name="type">
+                                                        @foreach ($statuses as $status)
+                                                        @if ($status->id == $institution->status_id)
+                                                            <option value="{{ $status->id }}" selected="true">
+                                                                {{ $status->name }}</option>
+                                                        @else
+                                                            <option value="{{ $status->id }}">
+                                                                {{ $status->name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                     </div>
 
