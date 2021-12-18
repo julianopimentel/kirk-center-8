@@ -148,7 +148,7 @@ Route::get('/license', 'InstitutionsController@license_index')->name('license_in
 
 Route::get('email-test', function () {
 
-    $details['email'] = 'contato@deskapps.net';
+    $details['email'] = 'julianopimentel7@gmail.com';
 
     dispatch(new App\Jobs\SendEmailJob($details));
 

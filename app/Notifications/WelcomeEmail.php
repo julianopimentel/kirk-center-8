@@ -42,9 +42,10 @@ class WelcomeEmail extends Notification
      */
     public function toMail($notifiable)
     {
-        $template = EmailTemplate::find(4);
         return (new MailMessage)
-                    ->attach($template->content);
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**
