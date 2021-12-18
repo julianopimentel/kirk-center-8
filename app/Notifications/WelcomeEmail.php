@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\EmailTemplate;
+
 
 class WelcomeEmail extends Notification
 {
@@ -40,10 +42,9 @@ class WelcomeEmail extends Notification
      */
     public function toMail($notifiable)
     {
+        $template = EmailTemplate::find(4);
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line($template->subject);
     }
 
     /**
