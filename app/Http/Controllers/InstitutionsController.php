@@ -25,7 +25,6 @@ class InstitutionsController extends Controller
         $this->middleware('auth');
         $this->middleware('throttle:1,0.001');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +38,6 @@ class InstitutionsController extends Controller
         session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
-
         //consultar contas associada ao usuario
         $institutions = Users_Account::where('user_id', $you->id)
             ->with('accountlist')
@@ -95,7 +93,6 @@ class InstitutionsController extends Controller
         session()->flash("error", 'Error interno');
         return redirect('account');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -119,7 +116,6 @@ class InstitutionsController extends Controller
         return view('account.createForm', ['statuses' => $statuses]);
     }
 
-
     public function store(Request $request)
     {
         //user data
@@ -137,7 +133,6 @@ class InstitutionsController extends Controller
             'name_company'             => 'required|min:1|max:150',
             'type'           => 'required',
         ]);
-
         //tratamento no nome para criar o esquema
         $string = $request->input('name_company');
         $string_novo = strtolower(preg_replace(
@@ -182,7 +177,6 @@ class InstitutionsController extends Controller
         DB::select('CREATE SCHEMA ' . $institution->tenant);
         //limpar o migration (gambiarra)
         Config::set('database.connections.tenant.schema',  $institution->tenant);
-
         //conexao do tenant
         //DB::reconnect('tenant');
         set_time_limit(160);
@@ -195,7 +189,6 @@ class InstitutionsController extends Controller
             $request->session()->flash("success", 'events.change_create');
             //adicionar log
             $this->adicionar_log_global('9', 'C', '{"schema":"' . $institution->tenant . '"}');
-
             //adicionar pessoa na conta como admin e assim acessar sem erro de vinculo
             DB::table($institution->tenant . '.people')->insert([
                 'user_id' => $user->id,
@@ -205,7 +198,6 @@ class InstitutionsController extends Controller
                 'is_admin' => 'true',
                 'role' => '1',
             ]);
-
             //finalizar a conexao do tenant
             DB::purge('tenant');
             //reconectar a base
@@ -218,7 +210,6 @@ class InstitutionsController extends Controller
         $request->session()->flash("danger", 'Erro ao rodar migrations');
         return redirect()->route('account.index');
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -252,7 +243,6 @@ class InstitutionsController extends Controller
         $request->session()->flash("success", 'events.change_update');
         return redirect()->route('account.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
