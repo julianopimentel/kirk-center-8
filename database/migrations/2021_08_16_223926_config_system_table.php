@@ -18,7 +18,7 @@ class ConfigSystemTable extends Migration
 			$table->bigInteger('id', true);
 			$table->string('logo')->nullable();
 			$table->string('favicon')->nullable();
-			$table->string('name');
+			$table->string('name')->nullable();
 			$table->string('timezone');
 			$table->integer('default_language')->nullable();
 			$table->string('currency')->nullable();
