@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
 
+    protected $connection = 'tenant';
+
     /**
      * Seed the application's database.
      *

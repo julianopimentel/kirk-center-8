@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class BaseSeeder extends Seeder
 {
+    protected $connection = 'tenant';
     /**
      * Run the database seeds.
      *
@@ -17,22 +18,22 @@ class BaseSeeder extends Seeder
     public function run()
     {
         //
-        DB::table(config::get('database.connections.tenant.schema').'.config_system')->insert([
+        DB::table('config_system')->insert([
             'name' => 'This page is a place to view posts, their groups, and more.',
             'timezone' => 'America/Manaus',
             'currency' => 'R$',
             'obg_last_name' => '1',
         ]);
         
-        DB::table(config::get('database.connections.tenant.schema').'.config_meta')->insert([
+        DB::table('config_meta')->insert([
             'ano' => date('Y'),
         ]);
 
-        DB::table(config::get('database.connections.tenant.schema').'.config_email')->insert([
+        DB::table('config_email')->insert([
             'created_at' => date('Y/m/d'),
         ]);
 
-        DB::table(config::get('database.connections.tenant.schema').'.roles')->insert([
+        DB::table('roles')->insert([
             'name' => 'Admin',
             'add_people' => '1',
 			'edit_people' => '1',
@@ -84,7 +85,7 @@ class BaseSeeder extends Seeder
             'report_view' => '1',
         ]);
 
-        DB::table(config::get('database.connections.tenant.schema').'.roles')->insert([
+        DB::table('roles')->insert([
             'name' => 'Membro',
             //home
             'home_financeiro_valores' => '1',
@@ -93,7 +94,7 @@ class BaseSeeder extends Seeder
             'home_location' => '1',
             'home_message' => '1',
         ]);
-        DB::table(config::get('database.connections.tenant.schema').'.roles')->insert([
+        DB::table('roles')->insert([
             'name' => 'Financeiro',
             //home
             'home_financeiro' => '1',
@@ -105,7 +106,7 @@ class BaseSeeder extends Seeder
             'view_financial' => '1',
             'delete_financial' => '1',
         ]);
-        DB::table(config::get('database.connections.tenant.schema').'.roles')->insert([
+        DB::table('roles')->insert([
             'name' => 'Secretaria',
             'add_people' => '1',
 			'edit_people' => '1',
@@ -131,7 +132,7 @@ class BaseSeeder extends Seeder
             'home_message' => '1',
         ]);
 
-        DB::table(config::get('database.connections.tenant.schema').'.config_social')->insert([
+        DB::table('config_social')->insert([
             'created_at' => date('Y/m/d'),
         ]);
     }

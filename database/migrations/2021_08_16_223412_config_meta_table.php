@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Config;
 
 class ConfigMetaTable extends Migration
 {
@@ -14,7 +13,7 @@ class ConfigMetaTable extends Migration
      */
 	public function up()
 	{
-		Schema::create(config::get('database.connections.tenant.schema').'.config_meta', function(Blueprint $table)
+		Schema::connection('tenant')->create('config_meta', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
             $table->string('ano')->nullable();

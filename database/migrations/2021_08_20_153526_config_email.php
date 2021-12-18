@@ -15,7 +15,7 @@ class ConfigEmail extends Migration
      */
     public function up()
     {
-        Schema::create(config::get('database.connections.tenant.schema').'.config_email', function(Blueprint $table)
+        Schema::connection('tenant')->create('config_email', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
 			$table->string('email_from')->nullable();

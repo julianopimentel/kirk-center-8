@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Config;
-
 
 class ConfigSystemTable extends Migration
 {
@@ -15,7 +13,7 @@ class ConfigSystemTable extends Migration
      */
     public function up()
     {
-        Schema::create(config::get('database.connections.tenant.schema').'.config_system', function(Blueprint $table)
+        Schema::connection('tenant')->create('config_system', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
 			$table->string('logo')->nullable();

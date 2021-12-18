@@ -16,7 +16,7 @@ class groupsTable extends Migration {
 	public function up()
 	{
 		
-		Schema::create(config::get('database.connections.tenant.schema').'.groups', function(Blueprint $table)
+		Schema::connection('tenant')->create('groups', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
 			$table->string('name_group');

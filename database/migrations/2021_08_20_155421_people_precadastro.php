@@ -14,7 +14,7 @@ class PeoplePrecadastro extends Migration
      */
 	public function up()
 	{
-		Schema::create(config::get('database.connections.tenant.schema').'.people_precadastro', function(Blueprint $table)
+		Schema::connection('tenant')->create('people_precadastro', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
 			$table->integer('user_id')->nullable();

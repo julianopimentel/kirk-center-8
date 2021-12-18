@@ -174,27 +174,17 @@ class InstitutionsController extends Controller
         //adicionar vinculo com a conta
         $useraccount = new Users_Account();
         $useraccount->user_id = $user->id;
-        $useraccount->account_id = Institution::latest('id')->get()->first()->id;
-
-        $request->session()->flash("danger", 'Aguarde um momento');
+        //Getting Last inserted id
+        $useraccount->account_id = $institution->id;
         //criar o esquema (gambiarra)
         DB::select('CREATE SCHEMA ' . $institution->tenant);
         //limpar o migration (gambiarra)
-        DB::select('DROP TABLE '. ' migration.migrations');
-
-        $tenant = (object) array('host' => '127.0.0.1', 'port' => '5432', 'account_name' => 'postgres', 'password' => 'ajvv6679');
-
-        Config::set('database.connections.tenant.host', $tenant->host);
-        Config::set('database.connections.tenant.port', $tenant->port);
-        Config::set('database.connections.tenant.database', 'tenant');
-        Config::set('database.connections.tenant.username', $tenant->account_name);
-        Config::set('database.connections.tenant.password', $tenant->password);
         Config::set('database.connections.tenant.schema',  $institution->tenant);
 
-        //finalizar a conexao do tenant
-        DB::reconnect('tenant');
-
-        $migrated = Artisan::call('migrate --seed');
+        //conexao do tenant
+        //DB::reconnect('tenant');
+        set_time_limit(160);
+        $migrated = Artisan::call('migrate --seed --database=tenant');
         if (!$migrated) {
             //salvar vinculo com a conta se ocorrer tudo bem
             $useraccount->save();
@@ -205,7 +195,7 @@ class InstitutionsController extends Controller
             $this->adicionar_log_global('9', 'C', '{"schema":"' . $institution->tenant . '"}');
 
             //adicionar pessoa na conta como admin e assim acessar sem erro de vinculo
-            DB::table(config::get('database.connections.tenant.schema') . '.people')->insert([
+            DB::table($institution->tenant . '.people')->insert([
                 'user_id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
@@ -218,6 +208,8 @@ class InstitutionsController extends Controller
             DB::purge('tenant');
             //reconectar a base
             DB::reconnect('pgsql');
+            // Back to the default
+            set_time_limit(30);
             return redirect()->route('account.index');
         }
         //retornar com mensagem de erro

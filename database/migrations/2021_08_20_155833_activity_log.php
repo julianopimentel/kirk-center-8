@@ -16,7 +16,7 @@ class ActivityLog extends Migration
     public function up()
     {
         
-        Schema::create(config::get('database.connections.tenant.schema').'.activity_log', function(Blueprint $table)
+        Schema::connection('tenant')->create('activity_log', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);
 			$table->string('activity_id')->nullable();
