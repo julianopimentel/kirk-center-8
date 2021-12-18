@@ -14,12 +14,12 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '7.4'
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
     - uses: actions/checkout@v2
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
+      with:
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Commit built assets
       run: |
         git config --local user.email "juliano_pimentel@live.com"
         git checkout -f 
         git pull
+
