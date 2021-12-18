@@ -46,31 +46,6 @@ class InstitutionsController extends Controller
 
         return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
-
-    public function license_index(Request $request)
-    {
-        //user data
-        $you = auth()->user();
-        //consulta de contas ativas
-        $countinst = Institution::where('integrador', $you->id)->whereNull('deleted_at')->count();
-
-        if ($request->ajax()) {
-            //consulta de contas ativas
-            $data = Institution::select('*')->where('integrador', $you->id)->whereNull('deleted_at');
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-
-                    $btn = '<a href="{{route(tenant,[id =>' . $row->id . ']) }}" data-toggle="tooltip" data-id=" class="btn btn-primary-outline edit"><i class="c-icon c-icon-sm cil-pencil text-success"></i></a>';
-
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-
-        return view('account.License', compact('countinst'));
-    }
     /**
      * Show the form for editing the specified resource.
      *
