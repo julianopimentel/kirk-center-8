@@ -46,6 +46,16 @@ class InstitutionsController extends Controller
 
         return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
+
+    public function license_index(Request $request)
+    {
+        //user data
+        $you = auth()->user();
+        //consulta de contas ativas
+        $countinst = Institution::where('integrador', $you->id)->whereNull('deleted_at')->count();
+
+        return view('account.License', compact('countinst'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
