@@ -44,7 +44,7 @@ class WelcomeEmail extends Notification
     {
         $template = EmailTemplate::find(4);
         return (new MailMessage)
-                    ->line($template->subject);
+                    ->line($template->content);
     }
 
     /**
