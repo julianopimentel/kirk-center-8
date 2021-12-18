@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: 'cd /laravel_0a9ee3 && ./server_deploy.sh'
+        script: 'cd laravel_0a9ee3 && ./server_deploy.sh'
