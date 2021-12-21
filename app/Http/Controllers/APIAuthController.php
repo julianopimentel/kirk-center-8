@@ -88,7 +88,7 @@ class APIAuthController extends Controller
         auth()->user()->update([
             'name' => $attrs['name'],
             //'mobile' => $attrs['mobile'],
-            'image' => $image
+            'profile_image' => $image
         ]);
 
         return response([
