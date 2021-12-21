@@ -42,7 +42,7 @@ class APIPostController extends Controller
         $post = Post::create([
             'body' => $attrs['body'],
             'user_id' => auth()->user()->id,
-            'profile_image' => $image
+            'image' => $image
         ]);
 
         // for now skip for post image

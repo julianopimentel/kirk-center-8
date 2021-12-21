@@ -21,7 +21,7 @@ class APICommentController extends Controller
         }
 
         return response([
-            'comments' => $post->comments()->with('user:id,name,image')->get()
+            'comments' => $post->comments()->with('user:id,name,profile_image')->get()
         ], 200);
     }
 
