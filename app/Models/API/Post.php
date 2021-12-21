@@ -4,13 +4,14 @@ namespace App\Models\API;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\API\User;
+use App\Models\User;
 use App\Models\API\Comment;
 use App\Models\API\Like;
 
 class Post extends Model
 {
     use HasFactory;
+    protected $connection = 'pgsql';
 
     protected $fillable = [
         'body',

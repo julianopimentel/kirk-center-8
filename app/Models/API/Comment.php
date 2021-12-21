@@ -9,6 +9,7 @@ use App\Models\API\User;
 class Comment extends Model
 {
     use HasFactory;
+    protected $connection = 'pgsql';
 
     protected $fillable = [
         'comment',

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use App\Models\API\User_Account;
 
-class AccountController extends Controller
+class APIAccountController extends Controller
 {
     // get all account
     public function index()

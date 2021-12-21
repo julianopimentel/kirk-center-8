@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\API\Post;
 use App\Models\API\Comment;
 
-class CommentController extends Controller
+class APICommentController extends Controller
 {
     // get all comments of a post
     public function index($id)

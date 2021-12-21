@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Qirolab\Laravel\Reactions\Contracts\ReactableInterface;
-use Qirolab\Laravel\Reactions\Traits\Reactable;
-use Overtrue\LaravelLike\Traits\Likeable;
+use App\Models\User;
+use App\Models\API\Comment;
+use App\Models\API\Like;
 
 
 class Post extends Model

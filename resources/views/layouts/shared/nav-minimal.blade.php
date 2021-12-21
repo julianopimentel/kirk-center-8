@@ -6,7 +6,7 @@
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
             <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
-            {{ __('Timeline') }}<span class="badge badge-info">Beta</span></a>
+            {{ __('Novidades') }}<span class="badge badge-info">Beta</span></a>
     </li>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('account') }}">

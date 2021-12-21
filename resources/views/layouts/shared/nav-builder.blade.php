@@ -11,6 +11,16 @@
             <i class="c-icon cil-house c-sidebar-nav-icon"></i>
             Home</a>
     </li>
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
+            <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
+            {{ __('Timeline') }}</a>
+    </li>
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
+            <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
+            {{ __('Pedidos de oração') }}</a>
+    </li>
         @if ($appPermissao->home_financeiro_valores == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexDizimos') }}">

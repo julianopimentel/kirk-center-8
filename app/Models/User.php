@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Qirolab\Laravel\Reactions\Contracts\ReactsInterface;
 use Qirolab\Laravel\Reactions\Traits\Reacts;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements ReactsInterface
 {
@@ -20,6 +21,7 @@ class User extends Authenticatable implements ReactsInterface
     use SoftDeletes;
     use HasRoles;
     use HasFactory;
+    use HasApiTokens;
 
     protected $connection = 'pgsql';
     protected $table = 'users';
@@ -31,7 +33,7 @@ class User extends Authenticatable implements ReactsInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'license', 'mobile', 'image', 'profile_image'
+        'name', 'email', 'password', 'license', 'mobile', 'image', 'profile_image', 'menuroles'
     ];
 
     /**

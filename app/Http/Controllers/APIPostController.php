@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\API\User;
+use App\Models\User;
 use App\Models\API\Post;
 
-class PostController extends Controller
+class APIPostController extends Controller
 {
     // get all posts
     public function index()

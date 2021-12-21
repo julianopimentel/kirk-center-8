@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\API\Post;
 use App\Models\API\Like;
 
-class LikeController extends Controller
+class APILikeController extends Controller
 {
     // like or unlike
     public function likeOrUnlike($id)

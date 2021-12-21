@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
-class PeopleController extends Controller
+class APIPeopleController extends Controller
 {
     // get all posts
     public function index($id)
