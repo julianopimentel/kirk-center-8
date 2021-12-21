@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Like;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class APILikeController extends Controller
 {
     // like or unlike
     public function likeOrUnlike($id)
     {
+        Config::set('database.connections.tenant.schema', 'demo_100003');
         $post = Post::find($id);
 
         if(!$post)

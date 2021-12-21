@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class APICommentController extends Controller
 {
     // get all comments of a post
     public function index($id)
     {
+        Config::set('database.connections.tenant.schema', 'demo_100003');
         $post = Post::find($id);
 
         if(!$post)
@@ -28,6 +31,7 @@ class APICommentController extends Controller
     // create a comment
     public function store(Request $request, $id)
     {
+        Config::set('database.connections.tenant.schema', 'demo_100003');
         $post = Post::find($id);
 
         if(!$post)
@@ -56,6 +60,7 @@ class APICommentController extends Controller
     // update a comment
     public function update(Request $request, $id)
     {
+        Config::set('database.connections.tenant.schema', 'demo_100003');
         $comment = Comment::find($id);
 
         if(!$comment)
@@ -89,6 +94,7 @@ class APICommentController extends Controller
     // delete a comment
     public function destroy($id)
     {
+        Config::set('database.connections.tenant.schema', 'demo_100003');
         $comment = Comment::find($id);
 
         if(!$comment)
