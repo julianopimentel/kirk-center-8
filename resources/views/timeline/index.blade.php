@@ -45,7 +45,7 @@
                 })
                 .done(function (response) {
                     if (response.length == 0) {
-                        $('.auto-load').html("We don't have more data to display :(");
+                        $('.auto-load').html("Não temos dados para exibir :)");
                         return;
                     }
                     $('.auto-load').hide();

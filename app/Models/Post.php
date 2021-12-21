@@ -14,7 +14,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $connection = 'pgsql';
+    protected $connection = 'tenant';
     protected $table = 'posts';
 
     protected $fillable = [

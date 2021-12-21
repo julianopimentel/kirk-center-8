@@ -34,6 +34,7 @@ Route::group(['middleware' => ['role:user']], function () {
         return view('updates');
     });
     Route::resource('message', 'NotesController');
+    Route::resource('prayer', 'Requests_PrayerController');
 
     //para pegar a localizacao via ajax
     Route::post('api/fetch-states', [LocalidadeController::class, 'fetchState']);

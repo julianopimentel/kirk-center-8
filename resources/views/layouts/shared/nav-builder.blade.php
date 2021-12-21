@@ -59,7 +59,7 @@
         </li>
     @endif
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
+        <a class="c-sidebar-nav-link" href="{{ url('prayer') }}">
             <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
             {{ __('Pedido de oração') }}</a>
     </li>
