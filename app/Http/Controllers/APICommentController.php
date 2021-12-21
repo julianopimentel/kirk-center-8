@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\API\Post;
-use App\Models\API\Comment;
+use App\Models\Post;
+use App\Models\Comment;
 
 class APICommentController extends Controller
 {

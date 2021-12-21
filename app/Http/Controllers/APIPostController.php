@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\API\Post;
+use App\Models\Post;
 
 class APIPostController extends Controller
 {

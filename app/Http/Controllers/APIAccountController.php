@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
-use App\Models\API\User_Account;
+use App\Models\Users_Account;
 
 class APIAccountController extends Controller
 {
@@ -14,7 +14,7 @@ class APIAccountController extends Controller
     {
         $you = auth()->user();
         return response([
-            'account' => User_Account::where('user_id', $you->id)
+            'account' => Users_Account::where('user_id', $you->id)
             ->with('accountlist')
             ->get()
         ], 200);
