@@ -12,7 +12,7 @@ class APIPostController extends Controller
     public function index()
     {
         return response([
-            'posts' => Post::orderBy('created_at', 'desc')->with('user:id,name,image')->withCount('comments', 'likes')
+            'posts' => Post::orderBy('created_at', 'desc')->with('user:id,name,profile_image')->withCount('comments', 'likes')
             ->with('likes', function($like){
                 return $like->where('user_id', auth()->user()->id)
                     ->select('id', 'user_id', 'post_id')->get();
@@ -42,7 +42,7 @@ class APIPostController extends Controller
         $post = Post::create([
             'body' => $attrs['body'],
             'user_id' => auth()->user()->id,
-            'image' => $image
+            'profile_image' => $image
         ]);
 
         // for now skip for post image
