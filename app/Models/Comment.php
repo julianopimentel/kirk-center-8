@@ -11,6 +11,7 @@ class Comment extends Model
     use HasFactory;
 
     protected $connection = 'pgsql';
+    protected $table = 'comments';
     
     protected $fillable = [
         'comment',

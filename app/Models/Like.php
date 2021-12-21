@@ -9,6 +9,7 @@ class Like extends Model
 {
     use HasFactory;
     protected $connection = 'pgsql';
+    protected $table = 'likes';
 
     protected $fillable = [
         'user_id',
