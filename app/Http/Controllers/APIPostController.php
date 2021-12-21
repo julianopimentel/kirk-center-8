@@ -15,7 +15,7 @@ class APIPostController extends Controller
     // get all posts
     public function index()
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         return response([
             'posts' => Post::orderBy('created_at', 'desc')->with('user:id,name,profile_image')->withCount('comments', 'likes')
             ->with('likes', function($like){
@@ -29,7 +29,7 @@ class APIPostController extends Controller
     // get single post
     public function show($id)
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         return response([
             'post' => Post::where('id', $id)->withCount('comments', 'likes')->get()
         ], 200);
@@ -38,7 +38,7 @@ class APIPostController extends Controller
     // create a post
     public function store(Request $request)
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         //validate fields
         $attrs = $request->validate([
             'body' => 'required|string'
@@ -63,7 +63,7 @@ class APIPostController extends Controller
     // update a post
     public function update(Request $request, $id)
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         $post = Post::find($id);
 
         if(!$post)
@@ -100,7 +100,7 @@ class APIPostController extends Controller
     //delete post
     public function destroy($id)
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         $post = Post::find($id);
 
         if(!$post)

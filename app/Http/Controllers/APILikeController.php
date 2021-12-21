@@ -13,7 +13,7 @@ class APILikeController extends Controller
     // like or unlike
     public function likeOrUnlike($id)
     {
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
         $post = Post::find($id);
 
         if(!$post)

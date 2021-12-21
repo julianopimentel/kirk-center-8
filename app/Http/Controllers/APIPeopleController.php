@@ -13,7 +13,7 @@ class APIPeopleController extends Controller
     public function index($id)
     {
 
-        Config::set('database.connections.tenant.schema', 'demo_100003');
+        Config::set('database.connections.tenant.schema', 'demo_timeline_100003');
 
         return response([
             'people' => People::all()
