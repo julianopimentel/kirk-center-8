@@ -16,11 +16,6 @@
             <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
             {{ __('Timeline') }}</a>
     </li>
-    <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
-            <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
-            {{ __('Pedidos de oração') }}</a>
-    </li>
         @if ($appPermissao->home_financeiro_valores == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexDizimos') }}">
@@ -58,11 +53,16 @@
     @endif
     @if ($appPermissao->view_message == true)
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('message.index') }}">
+            <a class="c-sidebar-nav-link" href="#">
                 <i class="c-icon cil-speech c-sidebar-nav-icon"></i>
                 Recados</a>
         </li>
     @endif
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
+            <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
+            {{ __('Pedido de oração') }}</a>
+    </li>
     @if ($appPermissao->view_calendar == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ url('calender') }}">

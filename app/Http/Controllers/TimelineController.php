@@ -10,6 +10,12 @@ use Response;
 
 class TimelineController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('permission');
+    }
+    
     public function show(Post $post)
     {
         $comments = $post->comments()->with('user:id,name,profile_image')->get();
