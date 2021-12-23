@@ -1,4 +1,4 @@
-@extends('dashboard.base')
+@extends('layouts.base')
 
 @section('css')
     <link href="{{ asset('css/cropper.css') }}" rel="stylesheet">

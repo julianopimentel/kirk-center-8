@@ -10,19 +10,25 @@ use App\Services\RemoveFolderService;
 
 class MediaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('permission');
+    }
     
     public function index(Request $request){
         if($request->has('id')){
             $thisFolder = Folder::where('id', '=', $request->input('id'))->first();
             if($thisFolder->folder_id == null){
-                $result = view('admin.media.index', array(
+                $result = view('media.index', array(
                     'medias' => $thisFolder->getMedia(),
                     'mediaFolders' =>  Folder::where('folder_id', '=', $thisFolder->id)->get(),
                     'thisFolder' => $thisFolder->id,
                     'parentFolder' => 'disable'
                 ));
             }else{
-                $result = view('admin.media.index', array(
+                $result = view('media.index', array(
                     'medias' => $thisFolder->getMedia(),
                     'mediaFolders' =>  Folder::where('folder_id', '=', $request->input('id'))->get(),
                     'thisFolder' => $request->input('id'),
@@ -31,7 +37,7 @@ class MediaController extends Controller
             }
         }else{
             $rootFolder = Folder::whereNull('folder_id')->first();
-            $result = view('admin.media.index', array(
+            $result = view('media.index', array(
                 'medias' => $rootFolder->getMedia(),
                 'mediaFolders' =>  Folder::where('folder_id', '=', $rootFolder->id)->get(),
                 'thisFolder' => $rootFolder->id,

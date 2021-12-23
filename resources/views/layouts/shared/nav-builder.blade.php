@@ -70,6 +70,11 @@
                 Calendários</a>
         </li>
     @endif
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ route('media.folder.index') }}">
+            <i class="c-icon cil-file c-sidebar-nav-icon"></i>
+            Media</a>
+    </li>
     @if ($appPermissao->view_financial == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('deposit.balance') }}">

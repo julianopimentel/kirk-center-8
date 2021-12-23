@@ -10,7 +10,7 @@ class Folder extends Model implements HasMedia
 {
     use InteractsWithMedia;
 
-    protected $connection = 'pgsql';
+    protected $connection = 'tenant';
     protected $table = 'folder';
     
     /**

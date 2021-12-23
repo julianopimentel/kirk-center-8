@@ -135,5 +135,10 @@ class BaseSeeder extends Seeder
         DB::table('config_social')->insert([
             'created_at' => date('Y/m/d'),
         ]);
+    
+        DB::table('media')->insert([
+            'name' => 'root',
+            'resource' => '1',
+        ]);
     }
 }
