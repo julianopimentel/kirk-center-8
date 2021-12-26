@@ -68,6 +68,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::resource('home',        'HomeController');
     Route::get('dados/meus-dizimos', 'HomeController@indexDizimos')->name('indexDizimos');
     Route::get('dados/meus-grupos', 'HomeController@indexGrupos')->name('indexGrupos');
+    Route::get('dados/meus-dados', 'HomeController@indexDados')->name('indexDados');
+    Route::get('dados/oracoes', 'HomeController@indexOracoes')->name('indexOracores');
     Route::get('recado/{id}', 'NotesController@showUser')->name('Notes.show');
 
     //importar e exportar pessoas

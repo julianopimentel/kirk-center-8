@@ -1,4 +1,4 @@
-@if ($appPermissao->view_message == true)
+@if ($appPermissao->view_prayer == true)
 @extends('layouts.base')
 @section('content')
         <div class="container-fluid">

@@ -184,7 +184,7 @@
                                                 </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Recado</td>
+                                                    <td>Mural de Recados</td>
                                                     <td>
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
@@ -222,6 +222,50 @@
                                                             <input class="c-switch-input" name="delete_message"
                                                                 type="checkbox"
                                                                 {{ $role->delete_message == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pedido de oração</td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="add_prayer" type="checkbox"
+                                                                {{ $role->add_prayer == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="view_prayer"
+                                                                type="checkbox"
+                                                                {{ $role->view_prayer == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="edit_prayer"
+                                                                type="checkbox"
+                                                                {{ $role->edit_prayer == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="delete_prayer"
+                                                                type="checkbox"
+                                                                {{ $role->delete_prayer == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
                                                         </label>
@@ -395,6 +439,8 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
+                                                    <th>Meus Dados</th>
+                                                    <th>Orações</th>
                                                     <th>Recados</th>
                                                     <th>Grupos</th>
                                                     <th>Finaceiro Mensal</th>
@@ -406,6 +452,26 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Mostrar</td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_dados"
+                                                                type="checkbox"
+                                                                {{ $role->home_dados == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_oracao"
+                                                                type="checkbox"
+                                                                {{ $role->home_oracao == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
                                                     <td>
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">

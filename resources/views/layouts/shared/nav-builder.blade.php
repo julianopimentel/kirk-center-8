@@ -16,7 +16,7 @@
             <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
             {{ __('Timeline') }}</a>
     </li>
-        @if ($appPermissao->home_financeiro_valores == true)
+    @if ($appPermissao->home_financeiro_valores == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexDizimos') }}">
                 <i class="c-icon cil-cash c-sidebar-nav-icon"></i>
@@ -28,6 +28,20 @@
             <a class="c-sidebar-nav-link" href="{{ route('indexGrupos') }}">
                 <i class="c-icon cil-chat-bubble c-sidebar-nav-icon"></i>
                 Meus Grupos</a>
+        </li>
+    @endif
+    @if ($appPermissao->home_oracao == true)
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('indexGrupos') }}">
+                <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
+                Pedido de oração</a>
+        </li>
+    @endif
+    @if ($appPermissao->home_dados == true)
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('indexGrupos') }}">
+                <i class="c-icon cil-user c-sidebar-nav-icon"></i>
+                Meus Dados</a>
         </li>
     @endif
     @if (($appPermissao->view_periodo or $appPermissao->view_dash or $appPermissao->view_detail or $appPermissao->view_resumo_financeiro) == true)
@@ -53,16 +67,18 @@
     @endif
     @if ($appPermissao->view_message == true)
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="#">
+            <a class="c-sidebar-nav-link" href="{{ route('message.index') }}">
                 <i class="c-icon cil-speech c-sidebar-nav-icon"></i>
-                Recados</a>
+                Mural de Recados</a>
         </li>
     @endif
+    @if ($appPermissao->view_prayer == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('prayer') }}">
             <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
             {{ __('Pedido de oração') }}</a>
     </li>
+    @endif
     @if ($appPermissao->view_calendar == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ url('calender') }}">
@@ -70,11 +86,13 @@
                 Calendários</a>
         </li>
     @endif
+    @if ($appPermissao->view_media == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('media.folder.index') }}">
             <i class="c-icon cil-file c-sidebar-nav-icon"></i>
             Media</a>
     </li>
+    @endif
     @if ($appPermissao->view_financial == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('deposit.balance') }}">
@@ -91,7 +109,8 @@
                         das
                         Pessoas</a></li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                        href="{{ route('location.index') }}"><span class="c-sidebar-nav-icon"></span>Localizações</a></li>
+                        href="{{ route('location.index') }}"><span class="c-sidebar-nav-icon"></span>Localizações</a>
+                </li>
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
                         href="{{ route('group.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem de
                         Grupos</a></li>

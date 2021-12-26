@@ -73,6 +73,7 @@ class Requests_PrayerController extends Controller
         $prayer->content   = $request->input('content');
         $prayer->status_id = $request->input('status_id');
         $prayer->note_type = $request->input('note_type');
+        $prayer->public    = $request->has('public') ? 1 : 0;
         $prayer->user_id = $user->id;
 
         //tratamento da imagem se tiver
@@ -92,14 +93,14 @@ class Requests_PrayerController extends Controller
             $prayer->image = URL::to('/') . '/storage/messages/' . $filePath;
             $prayer->save();
             //adicionar log
-            $this->adicionar_log('3', 'U', $prayer);
+            $this->adicionar_log('15', 'U', $prayer);
             $request->session()->flash('message', 'Successfully edited note');
             return redirect()->route('prayer.index');
         } else
             //salva sem o tratamento da imagem
             $prayer->save();
         //adicionar log
-        $this->adicionar_log('3', 'U', $prayer);
+        $this->adicionar_log('15', 'U', $prayer);
         $request->session()->flash('message', 'Successfully edited note');
         return redirect()->route('prayer.index');
     }
@@ -172,9 +173,10 @@ class Requests_PrayerController extends Controller
         $prayer->content   = $request->input('content');
         $prayer->status_id = $request->input('status_id');
         $prayer->note_type = $request->input('note_type');
+        $prayer->public    = $request->has('public') ? 1 : 0;
         $prayer->save();
         //adicionar log
-        $this->adicionar_log('3', 'U', $prayer);
+        $this->adicionar_log('15', 'U', $prayer);
         $request->session()->flash('message', 'Successfully edited note');
         return redirect()->route('prayer.index');
     }
@@ -194,7 +196,7 @@ class Requests_PrayerController extends Controller
             $prayer->delete();
         }
         //adicionar
-        $this->adicionar_log('3', 'D', $prayer);
+        $this->adicionar_log('15', 'D', $prayer);
         return redirect()->route('prayer.index');
     }
 }

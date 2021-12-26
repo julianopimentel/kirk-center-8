@@ -84,6 +84,16 @@ class RolesController extends Controller
         $role->edit_calendar       = $request->has('edit_calendar') ? 1 : 0;
         $role->view_calendar       = $request->has('view_calendar') ? 1 : 0;
         $role->delete_calendar       = $request->has('delete_calendar') ? 1 : 0;
+        //oracao
+        $role->add_prayer       = $request->has('add_prayer') ? 1 : 0;
+        $role->edit_prayer       = $request->has('edit_prayer') ? 1 : 0;
+        $role->view_prayer       = $request->has('view_prayer') ? 1 : 0;
+        $role->delete_prayer       = $request->has('delete_prayer') ? 1 : 0;
+        //media
+        $role->add_media       = $request->has('add_media') ? 1 : 0;
+        $role->edit_media       = $request->has('edit_media') ? 1 : 0;
+        $role->view_media       = $request->has('view_media') ? 1 : 0;
+        $role->delete_media       = $request->has('delete_media') ? 1 : 0;
         //settings
         $role->settings_general       = $request->has('settings_general') ? 1 : 0;
         $role->settings_email       = $request->has('settings_email') ? 1 : 0;
@@ -102,6 +112,8 @@ class RolesController extends Controller
         $role->home_financeiro_valores       = $request->has('home_financeiro_valores') ? 1 : 0;
         $role->home_location       = $request->has('home_location') ? 1 : 0;
         $role->home_message       = $request->has('home_message') ? 1 : 0;
+        $role->home_dados       = $request->has('home_dados') ? 1 : 0;
+        $role->home_oracao       = $request->has('home_oracao') ? 1 : 0;
         //relatorio
         $role->report_view       = $request->has('report_view') ? 1 : 0;
         $role->save();
@@ -188,6 +200,16 @@ class RolesController extends Controller
         $role->edit_calendar       = $request->has('edit_calendar') ? 1 : 0;
         $role->view_calendar       = $request->has('view_calendar') ? 1 : 0;
         $role->delete_calendar       = $request->has('delete_calendar') ? 1 : 0;
+        //oracao
+        $role->add_prayer       = $request->has('add_prayer') ? 1 : 0;
+        $role->edit_prayer       = $request->has('edit_prayer') ? 1 : 0;
+        $role->view_prayer       = $request->has('view_prayer') ? 1 : 0;
+        $role->delete_prayer       = $request->has('delete_prayer') ? 1 : 0;
+        //media
+        $role->add_media       = $request->has('add_media') ? 1 : 0;
+        $role->edit_media       = $request->has('edit_media') ? 1 : 0;
+        $role->view_media       = $request->has('view_media') ? 1 : 0;
+        $role->delete_media       = $request->has('delete_media') ? 1 : 0;
         //settings
         $role->settings_general       = $request->has('settings_general') ? 1 : 0;
         $role->settings_email       = $request->has('settings_email') ? 1 : 0;
@@ -206,6 +228,8 @@ class RolesController extends Controller
         $role->home_financeiro_valores       = $request->has('home_financeiro_valores') ? 1 : 0;
         $role->home_location       = $request->has('home_location') ? 1 : 0;
         $role->home_message       = $request->has('home_message') ? 1 : 0;
+        $role->home_dados       = $request->has('home_dados') ? 1 : 0;
+        $role->home_oracao       = $request->has('home_oracao') ? 1 : 0;
         //relatorio
         $role->report_view       = $request->has('report_view') ? 1 : 0;
         $role->save();

@@ -19,6 +19,7 @@ class RequestsPrayer extends Migration
             $table->string('title');
 			$table->text('content');
             $table->string('note_type')->nullable();
+            $table->boolean('public')->nullable()->default(1);
 			$table->integer('status_id');
             $table->timestamps(10);
         });

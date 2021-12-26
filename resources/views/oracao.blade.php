@@ -1,4 +1,4 @@
-@if ($appPermissao->view_prayer == true)
+@if ($appPermissao->home_oracao == true)
 @extends('layouts.base')
 @section('content')
     <div class="container-fluid">

@@ -43,6 +43,12 @@ class RolesTable extends Migration
             $table->boolean('view_message')->nullable()->default(0);
             $table->boolean('delete_message')->nullable()->default(0);
 
+            //pedidodeoracao
+			$table->boolean('add_prayer')->nullable()->default(0);
+            $table->boolean('edit_prayer')->nullable()->default(0);
+            $table->boolean('view_prayer')->nullable()->default(0);
+            $table->boolean('delete_prayer')->nullable()->default(0);
+
             //financeiro
 			$table->boolean('add_entrada_financial')->nullable()->default(0);
             $table->boolean('add_retirada_financial')->nullable()->default(0);
@@ -56,6 +62,12 @@ class RolesTable extends Migration
             $table->boolean('view_calendar')->nullable()->default(0);
 			$table->boolean('delete_calendar')->nullable()->default(0);
 
+            //media
+            $table->boolean('add_media')->nullable()->default(0);
+            $table->boolean('edit_media')->nullable()->default(0);
+            $table->boolean('view_media')->nullable()->default(0);
+            $table->boolean('delete_media')->nullable()->default(0);
+
             //home
             $table->boolean('home_financeiro')->nullable()->default(0);
             $table->boolean('home_financeiro_valores')->nullable()->default(0);
@@ -63,6 +75,8 @@ class RolesTable extends Migration
             $table->boolean('home_social')->nullable()->default(0);
             $table->boolean('home_location')->nullable()->default(0);
             $table->boolean('home_message')->nullable()->default(0);
+            $table->boolean('home_dados')->nullable()->default(0);
+            $table->boolean('home_oracao')->nullable()->default(0);
 
             //dash
             $table->boolean('view_periodo')->nullable()->default(0);
