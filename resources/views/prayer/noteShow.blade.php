@@ -16,8 +16,8 @@
                         <p> {{ $prayer->title }}</p>
                         <h4>Content:</h4> 
                         <p>{{ $prayer->content }}</p>
-                        <h4>Applies to date:</h4> 
-                        <p>{{ $prayer->applies_to_date }}</p>
+                        <h4>Data de criação:</h4> 
+                        <p>{{ $prayer->created_at }}</p>
                         <h4> Status: </h4>
                         <p>
                             <span class="{{ $prayer->status->class }}">
@@ -26,7 +26,7 @@
                         </p>
                         <h4>Note type:</h4>
                         <p>{{ $prayer->note_type }}</p>
-                        <a class="btn btn-dark" href="{{ route('message.index') }}">Return</a>
+                        <a class="btn btn-dark" href="{{ route('prayer.index') }}">Return</a>
                       </div>
                 </div>
               </div>

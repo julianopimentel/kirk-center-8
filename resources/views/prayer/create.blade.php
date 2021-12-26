@@ -26,7 +26,7 @@
                                             </div>
                                             <!-- /.row-->
                                             <div class="row">
-                                                @if ($appPermissao->prayer_edit == true)
+                                                @if ($appPermissao->edit_prayer == true)
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
                                                         <label for="ccnumber">Status</label>

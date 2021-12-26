@@ -40,7 +40,7 @@
                     @else
                     <div class="container-fluid">
                         <div class="fade-in">
-                        Você ainda não possui dizimos informados ao seu usuário!
+                        Você ainda não possui dizimos/ofertas associados ao seu usuário!
                         </div>
                     </div>
                     @endif

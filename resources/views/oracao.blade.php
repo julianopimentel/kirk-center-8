@@ -30,6 +30,7 @@
                                         <th>Texto</th>
                                         <th>Status</th>
                                         <th>Público?</th>
+                                        <th>Data de criação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,6 +52,7 @@
                                                     data-checked="&#x2713" data-unchecked="&#x2715"></span>
                                             </label>
                                             </td>
+                                            <td><strong>{{ $prayer->created_at }}</strong></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

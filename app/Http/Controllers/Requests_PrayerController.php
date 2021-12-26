@@ -63,15 +63,21 @@ class Requests_PrayerController extends Controller
         $validatedData = $request->validate([
             'title'             => 'required|min:1|max:64',
             'content'           => 'required',
-            'status_id'         => 'required',
-            'note_type'         => 'required'
         ]);
         //user data
         $user = auth()->user();
         $prayer = new Requests_Prayer();
         $prayer->title     = $request->input('title');
         $prayer->content   = $request->input('content');
-        $prayer->status_id = $request->input('status_id');
+        if($request->input('status_id') == null)
+        {
+            $prayer->status_id = 25;
+        }
+        else
+        {
+            $prayer->status_id = $request->input('status_id');
+
+        }
         $prayer->note_type = $request->input('note_type');
         $prayer->public    = $request->has('public') ? 1 : 0;
         $prayer->user_id = $user->id;

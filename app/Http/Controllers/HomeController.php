@@ -225,7 +225,7 @@ class HomeController extends Controller
         //dados do usuario
         $you = auth()->user();
         //consulta da message
-        $prayers = Requests_Prayer::with('user')->with('status')->where('user_id', $you->id)->paginate(20);
+        $prayers = Requests_Prayer::with('user')->with('status')->where('user_id', $you->id)->orderby('id', 'desc')->paginate(20);
         return view('oracao', ['prayers' => $prayers]);
     }
 }
