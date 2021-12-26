@@ -26,6 +26,7 @@
                                             </div>
                                             <!-- /.row-->
                                             <div class="row">
+                                                @if ($appPermissao->prayer_edit == true)
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
                                                         <label for="ccnumber">Status</label>
@@ -50,6 +51,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endif
                                                 <div class="form-group col-sm-2">
                                                     <div class="form-group">
                                                         <label for="public">Público</label>
@@ -64,8 +66,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary" type="submit">Save</button>
-                                            <a class="btn btn-dark" href="{{ route('prayer.index') }}">Return</a>
+                                            <button class="btn btn-success" type="submit">Salvar</button>
                                 </form>
                             </div>
                         </div>

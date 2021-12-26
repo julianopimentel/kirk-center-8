@@ -27,10 +27,9 @@
                                     <tr>
                                         <th>Autor</th>
                                         <th>Titulo</th>
+                                        <th>Texto</th>
                                         <th>Status</th>
-                                        <th colspan="3">
-                                            <Center>{{ __('account.action') }}</Center>
-                                        </th>
+                                        <th>Público?</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,33 +37,19 @@
                                         <tr>
                                             <td><strong>{{ $prayer->user->name }}</strong></td>
                                             <td><strong>{{ $prayer->title }}</strong></td>
+                                            <td><strong>{{ $prayer->content }}</strong></td>
                                             <td>
                                                 <span class="{{ $prayer->status->class }}">
                                                     {{ $prayer->status->name }}
                                                 </span>
                                             </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->view_message == true)
-                                                    <a href="{{ route('prayer.show', $prayer->id) }}"><i
-                                                            class="c-icon c-icon-sm cil-notes text-primary"></i></a>
-                                                @endif
-                                            </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->edit_prayer == true)
-                                                    <a href="{{ route('prayer.edit', $prayer->id) }}"><i
-                                                            class="c-icon c-icon-sm cil-pencil text-success"></i></a>
-                                                @endif
-                                            </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->delete_prayer == true)
-                                                    <form action="{{ route('prayer.destroy', $prayer->id) }}"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <a class="show_confirm" data-toggle="tooltip" title='Delete'><i
-                                                                class="c-icon c-icon-sm cil-trash text-danger"></i></a>
-                                                    </form>
-                                                @endif
+                                            <td>
+                                                <label
+                                                class="c-switch c-switch-label c-switch-pill c-switch-primary">
+                                                <input class="c-switch-input" name="public"
+                                                    type="checkbox" {{ $prayer->public == true ? 'checked' : '' }} disabled><span class="c-switch-slider"
+                                                    data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                                            </label>
                                             </td>
                                         </tr>
                                     @endforeach

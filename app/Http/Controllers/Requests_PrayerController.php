@@ -46,7 +46,7 @@ class Requests_PrayerController extends Controller
     public function create()
     {
         //carregar status
-        $statuses = Status::all()->where("type", 'status');
+        $statuses = Status::all()->where("type", 'prayer');
         return view('prayer.create', ['statuses' => $statuses]);
     }
 
@@ -76,33 +76,11 @@ class Requests_PrayerController extends Controller
         $prayer->public    = $request->has('public') ? 1 : 0;
         $prayer->user_id = $user->id;
 
-        //tratamento da imagem se tiver
-        if ($request->has('image')) {
-            // Get image file
-            $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-
-            $name = Str::slug($request->input('name')) . '_' . time();
-            // Define folder path
-            $folder = '';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'messages', $name);
-            // Set user profile image path in database to filePath
-            $prayer->image = URL::to('/') . '/storage/messages/' . $filePath;
-            $prayer->save();
-            //adicionar log
-            $this->adicionar_log('15', 'U', $prayer);
-            $request->session()->flash('message', 'Successfully edited note');
-            return redirect()->route('prayer.index');
-        } else
-            //salva sem o tratamento da imagem
-            $prayer->save();
+        $prayer->save();
         //adicionar log
         $this->adicionar_log('15', 'U', $prayer);
         $request->session()->flash('message', 'Successfully edited note');
-        return redirect()->route('prayer.index');
+        return redirect()->back();
     }
 
     /**
@@ -145,7 +123,7 @@ class Requests_PrayerController extends Controller
             return redirect()->route('group.index');
         }
         //carregar status
-        $statuses = Status::all()->where("type", 'status');
+        $statuses = Status::all()->where("type", 'prayer');
         return view('prayer.edit', ['statuses' => $statuses, 'prayer' => $prayer]);
     }
 

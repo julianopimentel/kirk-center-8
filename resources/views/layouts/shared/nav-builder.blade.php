@@ -32,14 +32,14 @@
     @endif
     @if ($appPermissao->home_oracao == true)
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('indexGrupos') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('indexOracao') }}">
                 <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
                 Pedido de oração</a>
         </li>
     @endif
     @if ($appPermissao->home_dados == true)
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('indexGrupos') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('indexDados') }}">
                 <i class="c-icon cil-user c-sidebar-nav-icon"></i>
                 Meus Dados</a>
         </li>

@@ -104,6 +104,8 @@ class BaseSeeder extends Seeder
             'home_message' => '1',
             'home_dados' => '1',
             'home_oracao' => '1',
+            //adicionar oracao
+            'add_prayer' => '1',
         ]);
         DB::table('roles')->insert([
             'name' => 'Financeiro',

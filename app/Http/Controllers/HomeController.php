@@ -14,6 +14,11 @@ use App\Models\Config_social;
 use App\Models\Institution;
 use App\Models\People_Groups;
 use App\Models\People_Precadastro;
+use App\Models\Requests_Prayer;
+use App\Models\Country;
+use App\Models\City;
+use App\Models\State;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -48,8 +53,8 @@ class HomeController extends Controller
             return redirect()->route('account.index');
         } else
 
-        //pegar informações complementares 
-        $meta = Config_meta::orderBy('id', 'desc')->first();
+            //pegar informações complementares 
+            $meta = Config_meta::orderBy('id', 'desc')->first();
         $auditoria = Auditoria::orderBy('id', 'desc')->first();
 
         //se for o primeiro acesso da conta, vai inserir no log o primeiro acesso e adicionar a conta no financeiro
@@ -104,7 +109,7 @@ class HomeController extends Controller
         $locations = Institution::find(session()->get('key'));
 
         //carregamento as message com os dados do usuário que publicou + filtrado para o somente status "public"  
-        $notes = Notes::with('user:name,profile_image')->with('status:name')->take(4)->orderby('applies_to_date', 'desc')->whereIn('status_id', [1,2])->get();
+        $notes = Notes::with('user:name,profile_image')->with('status:name')->take(4)->orderby('applies_to_date', 'desc')->whereIn('status_id', [1, 2])->get();
 
         return view(
             'home',
@@ -154,7 +159,7 @@ class HomeController extends Controller
         $groups = People_Groups::with('grupo')
             ->where('user_id', $user->id)->get();
 
-            return view(
+        return view(
             'grupos',
             compact(
                 'you',
@@ -162,6 +167,27 @@ class HomeController extends Controller
             ),
             ['groups' => $groups]
         );
+    }
+
+    public function indexDados()
+    {
+        //pegar schema
+        $this->get_tenant();
+        $you = auth()->user();
+        //consulta
+        $people = People::all()->where("user_id", $you->id)->first();
+
+        //localidade normal
+        $countries = Country::get(["name", "id"]);
+        $state = State::get(["name", "id"]);
+        $city = City::get(["name", "id"]);
+
+        return view('dados', [
+            'people' => $people,
+            'countries' => $countries,
+            'state' => $state,
+            'city' => $city
+        ]);
     }
 
     public function indexDizimos()
@@ -183,7 +209,7 @@ class HomeController extends Controller
             ->where('user_id_transaction', $user->id)
             ->paginate('10');
 
-            return view(
+        return view(
             'ofertas',
             compact(
                 'you',
@@ -191,5 +217,15 @@ class HomeController extends Controller
             ),
             ['dizimos' => $dizimos]
         );
+    }
+    public function indexOracao()
+    {
+        //pegar tenant
+        $this->get_tenant();
+        //dados do usuario
+        $you = auth()->user();
+        //consulta da message
+        $prayers = Requests_Prayer::with('user')->with('status')->where('user_id', $you->id)->paginate(20);
+        return view('oracao', ['prayers' => $prayers]);
     }
 }
