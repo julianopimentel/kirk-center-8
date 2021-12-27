@@ -17,7 +17,7 @@ class eventsTable extends Migration {
 		{
 			$table->bigInteger('id', true);
 			$table->string('title');
-			$table->string('body');
+			$table->string('body')->nullable();
 			$table->date('start');
 			$table->date('end');
             $table->integer('user_id')->nullable();
