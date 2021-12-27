@@ -109,6 +109,7 @@ class FullCalenderController extends Controller
         $user = auth()->user();
         $event = new Event();
         $event->title     = $request->input('title');
+        $event->body     = $request->input('body');
         $event->start   = $request->input('start');
         $event->end = $request->input('end');
         $event->user_id = $user->id;
@@ -158,6 +159,7 @@ class FullCalenderController extends Controller
 
         $event = Event::find($id);
         $event->title     = $request->input('title');
+        $event->body     = $request->input('body');
         $event->start   = $request->input('start');
         $event->end = $request->input('end');
 
