@@ -4,42 +4,26 @@
     <div class="container-fluid">
         <div class="animated fadeIn">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Calender</h4>
+                            <h4>Calendário</h4>
                         </div>
-
                         <div id='calendar'></div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                    <!--<div class="card">
-                        <div class="card-header"><strong>Adicionar agendamento</strong> <small>detalhado</small></div>
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-sm-12">
-                              <div class="form-group">
-                                <label for="name">Titulo</label>
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name">
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div class="row">
-                            <div class="col-sm-12">
-                                 <label for="ccyear">Inicio</label>
-                                  <input class="form-control" name="birth_at" type="date" placeholder="date">
-                              </div>
-                              <div class="col-sm-12">
-                                 <label for="ccyear">Fim</label>
-                                  <input class="form-control" name="birth_at" type="date" placeholder="date">
-                            </div>
-                          </div>
-                        </div>
-                      </div>/.row-->
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
                     <div class="card">
-                        <div class="card-header"><strong>Histórico</strong> <small>últimos agendamentos</small></div>
+                        <div class="card-header"><strong>Histórico</strong> <small> últimos agendamentos</small>
+                            <div class="col-2">
+                                @if ($appPermissao->add_calendar == true)
+                                    <div class="row">
+                                        <a href="{{ route('calender.create') }}"
+                                            class="btn btn-primary">{{ __('Adicionar') }}</a>
+                                    </div>
+                                @endif
+                            </div>
+                          </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -48,8 +32,11 @@
                                             <thead>
                                                 <tr>
                                                     <th>{{ __('Titulo') }}</th>
-                                                    <th>{{ __('Start') }}</th>
-                                                    <th>{{ __('End') }}</th>
+                                                    <th>{{ __('Inicio') }}</th>
+                                                    <th>{{ __('Fim') }}</th>
+                                                    <th colspan="2">
+                                                        <Center>{{ __('account.action') }}</Center>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -58,6 +45,13 @@
                                                         <td>{{ $eventos->title }}</td>
                                                         <td>{{ $eventos->start }}</td>
                                                         <td>{{ $eventos->end }}</td>
+                                                        <td width="1%">
+                                                            @if ($appPermissao->edit_calendar == true)
+                    
+                                                                <a href="{{ route('calender.edit', $eventos->id) }}"><i
+                                                                        class="c-icon c-icon-sm cil-pencil text-success"></i></a>
+                    
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -100,8 +94,8 @@
                         select: function(start, end, allDay) {
                             var title = prompt('Event Title:');
                             if (title) {
-                                var start = $.fullCalendar.formatDate(start, "Y-MM-DD");
-                                var end = $.fullCalendar.formatDate(end, "Y-MM-DD");
+                                var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                        var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
                                 $.ajax({
                                     url: SITEURL + "/fullcalenderAjax",
                                     data: {

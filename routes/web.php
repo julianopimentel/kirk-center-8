@@ -70,6 +70,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('dados/meus-grupos', 'HomeController@indexGrupos')->name('indexGrupos');
     Route::get('dados/meus-dados', 'HomeController@indexDados')->name('indexDados');
     Route::get('dados/oracoes', 'HomeController@indexOracao')->name('indexOracao');
+    Route::get('eventos', 'HomeController@indexEventos')->name('indexEventos');
     Route::get('recado/{id}', 'NotesController@showUser')->name('Notes.show');
 
     //importar e exportar pessoas
@@ -78,8 +79,12 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::post('import',        'BackupController@import')->name('import');
 
     //calendar
-    Route::get('calender', [FullCalenderController::class, 'index']);
+    Route::get('calender', [FullCalenderController::class, 'index'])->name('calender.index');
     Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
+    Route::get('calender/create', 'FullCalenderController@create')->name('calender.create');
+    Route::post('calender', 'FullCalenderController@store')->name('calender.store');
+    Route::get('calender/{id}', 'FullCalenderController@edit')->name('calender.edit');
+    Route::put('calender/{id}', 'FullCalenderController@update')->name('calender.update');
 
     //sistema financeiro
     Route::any('historic-search', 'BalanceController@searchHistoric')->name('historic.search');

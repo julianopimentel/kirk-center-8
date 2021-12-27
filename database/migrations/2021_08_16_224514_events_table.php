@@ -17,10 +17,8 @@ class eventsTable extends Migration {
 		{
 			$table->bigInteger('id', true);
 			$table->string('title');
-			$table->string('description')->nullable();
-			$table->string('img')->nullable();
-			$table->date('start');
-			$table->date('end');
+			$table->timestamps('start');
+			$table->timestamps('end');
             $table->integer('user_id')->nullable();
 			$table->timestamps(10);
 			$table->softDeletes('deleted_at')->nullable();

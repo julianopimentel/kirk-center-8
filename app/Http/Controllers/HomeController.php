@@ -228,4 +228,12 @@ class HomeController extends Controller
         $prayers = Requests_Prayer::with('user')->with('status')->where('user_id', $you->id)->orderby('id', 'desc')->paginate(20);
         return view('oracao', ['prayers' => $prayers]);
     }
+    public function indexEventos()
+    {
+       //pegar tenant
+       $this->get_tenant();
+       //consulta de eventos
+       $eventos = Event::all();
+       return view('eventos', compact('eventos'));
+    }
 }
