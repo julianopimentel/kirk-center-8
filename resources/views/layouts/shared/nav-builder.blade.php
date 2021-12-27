@@ -113,7 +113,7 @@
             </ul>
         </li>
     @endif
-    @if ($appPermissao->home_dados == true)
+    @if ($appPermissao->home_eventos == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('indexEventos') }}">
             <i class="c-icon cil-calendar c-sidebar-nav-icon"></i>

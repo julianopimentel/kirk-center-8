@@ -104,6 +104,7 @@ class BaseSeeder extends Seeder
             'home_message' => '1',
             'home_dados' => '1',
             'home_oracao' => '1',
+            'home_eventos' => '1',
             //adicionar oracao
             'add_prayer' => '1',
         ]);
@@ -112,6 +113,7 @@ class BaseSeeder extends Seeder
             //home
             'home_financeiro' => '1',
             'home_message' => '1',
+            'home_eventos' => '1',
             //financeiro
             'add_entrada_financial' => '1',
             'add_retirada_financial' => '1',
@@ -145,6 +147,11 @@ class BaseSeeder extends Seeder
             'edit_prayer' => '1',
             'view_prayer' => '1',
             'delete_prayer' => '1',
+            //calendar
+            'add_calendar' => '1',
+            'edit_calendar' => '1',
+            'view_calendar' => '1',
+            'delete_calendar' => '1',
             //media
             'add_media' => '1',
             'edit_media' => '1',

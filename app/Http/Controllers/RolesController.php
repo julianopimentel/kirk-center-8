@@ -114,6 +114,7 @@ class RolesController extends Controller
         $role->home_message       = $request->has('home_message') ? 1 : 0;
         $role->home_dados       = $request->has('home_dados') ? 1 : 0;
         $role->home_oracao       = $request->has('home_oracao') ? 1 : 0;
+        $role->home_eventos       = $request->has('home_eventos') ? 1 : 0;
         //relatorio
         $role->report_view       = $request->has('report_view') ? 1 : 0;
         $role->save();
@@ -230,6 +231,7 @@ class RolesController extends Controller
         $role->home_message       = $request->has('home_message') ? 1 : 0;
         $role->home_dados       = $request->has('home_dados') ? 1 : 0;
         $role->home_oracao       = $request->has('home_oracao') ? 1 : 0;
+        $role->home_eventos       = $request->has('home_eventos') ? 1 : 0;
         //relatorio
         $role->report_view       = $request->has('report_view') ? 1 : 0;
         $role->save();

@@ -1,16 +1,13 @@
 @if ($appPermissao->home_dados == true)
     @extends('layouts.base')
     @section('content')
-        <div class="container-fluid">
-            <div class="animated fadeIn">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <div class="invoice">
-                            <div class="invoice-print">
-                                <div class="row">
-                                    <div class="row g-0">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h4><strong>Eventos</strong></h4>
+            </div>
+                                        @if (!$eventos->isEmpty())
                                         @foreach ($eventos as $eventos)
-                             
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $eventos->title }}</h5>
@@ -21,6 +18,13 @@
                                             </div>
                                         </div>
                                         @endforeach
+                                        @else
+                                        <div class="container-fluid">
+                                            <div class="fade-in">
+                                            Nenhum evento publicado até o momento.
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
                                    
                                 </div>

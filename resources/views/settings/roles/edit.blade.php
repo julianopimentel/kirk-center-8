@@ -441,6 +441,7 @@
                                                     <th></th>
                                                     <th>Meus Dados</th>
                                                     <th>Orações</th>
+                                                    <th>Eventos</th>
                                                     <th>Recados</th>
                                                     <th>Grupos</th>
                                                     <th>Finaceiro Mensal</th>
@@ -468,6 +469,16 @@
                                                             <input class="c-switch-input" name="home_oracao"
                                                                 type="checkbox"
                                                                 {{ $role->home_oracao == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_eventos"
+                                                                type="checkbox"
+                                                                {{ $role->home_eventos == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
                                                         </label>
