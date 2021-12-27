@@ -101,9 +101,11 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('financial/{id}', 'BalanceController@show')->name('financial.show');
 
     //post e timeline em testes
-    Route::get('/timeline', [TimelineController::class, 'getArticles']);
+    Route::get('/timeline', [TimelineController::class, 'getArticles'])->name('timeline.index');
     Route::get('timeline/{post}', [TimelineController::class, 'show'])->name('timeline.show');
     Route::post('timeline/{post}/reaction', [ReactionsController::class, 'toggle'])->middleware('auth');
+    Route::post('timeline', 'TimelineController@store')->name('post.store');
+
 });
 
 //pessoas

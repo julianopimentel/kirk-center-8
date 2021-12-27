@@ -99,4 +99,22 @@ class TimelineController extends Controller
 
         return view('timeline.index', compact('posts'));
     }
+    public function store(Request $request)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        $validatedData = $request->validate([
+            'body'           => 'required',
+        ]);
+        //user data
+        $user = auth()->user();
+        $posts = new Post();
+        $posts->body     = $request->input('body');
+        $posts->user_id = $user->id;
+        $posts->save();
+        //adicionar log
+        $this->adicionar_log('17', 'C', $posts);
+        $request->session()->flash('message', 'Successfully edited note');
+        return redirect()->route('timeline.index');
+    }
 }

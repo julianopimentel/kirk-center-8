@@ -2,7 +2,20 @@
 
 @section('content')
 
-    <div class="container mt-5" style="max-width: 550px">
+    <div class="container" style="max-width: 550px">
+     
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('post.store') }}">
+                        @csrf
+                        <div class="form-group row">
+                            <textarea class="form-control"  id='body' name="body" rows="1" placeholder="Content.."></textarea>
+                        </div>
+                    <button class="btn btn-sm btn-success" type="submit">Publicar</button>
+                </div>
+                </form>
+           
+        </div>
         <div id="data-wrapper">
             <!-- Results -->
         </div>
