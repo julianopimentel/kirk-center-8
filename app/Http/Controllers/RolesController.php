@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Models\Menurole;
+use App\Models\People;
 use App\Models\RoleHierarchy;
 use App\Models\Roles;
 
@@ -249,28 +250,24 @@ class RolesController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        //pegar tenant
         $this->get_tenant();
 
-
-        ////
-        //// precisa criar filtro para não escluir os padroes
-        ////
-
-
-        $role = Role::where('id', '=', $id)->first();
-        $roleHierarchy = RoleHierarchy::where('role_id', '=', $id)->first();
-        $menuRole = Menurole::where('role_name', '=', $role->name)->first();
-        if (!empty($menuRole)) {
-            $request->session()->flash('message', "Can't delete. Role has assigned one or more menu elements.");
-            $request->session()->flash('back', 'roles.index');
-            return view('dashboard.shared.universal-info');
-        } else {
-            $role->delete();
-            $roleHierarchy->delete();
-            $request->session()->flash('message', "Successfully deleted role");
-            $request->session()->flash('back', 'roles.index');
-            return view('dashboard.shared.universal-info');
+        $people = People::all()->where('role', $id)->count();
+        if ($id <= 4) {
+            $request->session()->flash('message', "Não é possivel excluir grupo padrão");
+            return redirect()->route('roles.index');
         }
+        if ($people >= 1) {
+            $request->session()->flash('message', "Necessário desvincular usuários");
+            return redirect()->route('roles.index');
+        }
+        //pegar tenant
+        $role = Roles::find($id);
+
+        $role->delete();
+        //adicionar log
+        $this->adicionar_log('13', 'D', $people);
+        $request->session()->flash('message', "Successfully deleted role");
+        return redirect()->route('roles.index');
     }
 }
