@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventConfirm;
 
 class FullCalenderController extends Controller
 {
@@ -166,5 +167,20 @@ class FullCalenderController extends Controller
         $request->session()->flash('message', 'Successfully edited event');
         return redirect()->route('calender.index');
     }
+    public function storeConfirm(Request $request, $id)
+    {
+        //pegar tenant
+        $this->get_tenant();
 
+        //user data
+        $user = auth()->user();
+        $event = new EventConfirm();
+        $event->event_id = $id;
+        $event->user_id = $user->id;
+        $event->save();
+        //adicionar log
+        $this->adicionar_log('18', 'C', $event);
+        $request->session()->flash('message', 'Presença confirmada');
+        return redirect()->route('indexEventos');
+    }
 }

@@ -18,6 +18,7 @@ use App\Models\Requests_Prayer;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\State;
+use App\Models\EventConfirm;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -230,10 +231,13 @@ class HomeController extends Controller
     }
     public function indexEventos()
     {
+        $you = auth()->user();
        //pegar tenant
        $this->get_tenant();
        //consulta de eventos
        $eventos = Event::all();
-       return view('eventos', compact('eventos'));
+       $eventos_confirm = EventConfirm::all()->where('user_id', $you->id);
+       
+       return view('eventos', ['eventos' => $eventos, 'eventos_confirm' => $eventos_confirm]);
     }
 }

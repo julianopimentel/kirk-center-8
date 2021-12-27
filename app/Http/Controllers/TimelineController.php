@@ -15,9 +15,11 @@ class TimelineController extends Controller
         $this->middleware('auth');
         $this->middleware('permission');
     }
-    
+
     public function show(Post $post)
     {
+        //pegar tenant
+        $this->get_tenant();
         $comments = $post->comments()->with('user:id,name,profile_image')->get();
         return view('timeline.show', compact('post', 'comments'));
     }
@@ -88,17 +90,6 @@ class TimelineController extends Controller
         return view('timeline.index');
     }
 
-    public function indexantigo()
-    {
-        $posts = Post::orderBy('created_at', 'desc')->with('user:id,name,profile_image')->withCount('comments', 'likes')
-            ->with('likes', function ($like) {
-                return $like->where('user_id', auth()->user()->id)
-                    ->select('id', 'user_id', 'post_id')->get();
-            })
-            ->get();
-
-        return view('timeline.index', compact('posts'));
-    }
     public function store(Request $request)
     {
         //pegar tenant
