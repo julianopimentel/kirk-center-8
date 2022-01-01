@@ -221,6 +221,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     ]);
     //logs
     Route::get('logs', 'LogsController@index')->name('logs.index');
+    Route::get('logs/{id}', 'LogsController@show')->name('logs.show');
     Route::get('log', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     //cache teste

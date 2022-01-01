@@ -105,7 +105,7 @@ class DashController extends Controller
 
 
         //soma das metas anual /12
-        $metadash = ($meta->first()->fin_dizimo_ano + $meta->first()->fin_oferta_ano + $meta->first()->fin_acao_ano + $meta->first()->fin_despesa_ano) / 12;
+        $metadash = ($meta->fin_dizimo_ano + $meta->fin_oferta_ano + $meta->fin_acao_ano + $meta->fin_despesa_ano) / 12;
         //grafico grande do ano atual
         $fin_atual_jan = Historic::whereYear('date', date('Y'))->whereMonth('date', date('01'))->sum('amount');
         $fin_atual_fev = Historic::whereYear('date', date('Y'))->whereMonth('date', date('02'))->sum('amount');

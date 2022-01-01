@@ -152,58 +152,62 @@
                             <canvas class="chart" id="chats-periodo-ano" height="300"></canvas>
                         </div>
                     </div>
+                    @if ($meta->fin_dizimo_ano !== 0)
                     <div class="card-footer">
+                        <div class="small text-muted">Financeiro x Meta Anual</div>
                         <div class="row text-center">
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                <div class="text-muted">Dizimos</div><strong>R$
+                                <div>Dizimos</div><strong>R$
                                     {{ number_format($anodizimo, 2) }}</strong>
                                 <div class="progress progress-xs mt-2">
                                     <div class="progress-bar bg-success" role="progressbar"
                                         style="width: {{ $porcentage_dizimo }}%" aria-valuenow="40" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
-                                <div class="small text-muted">{{$meta->first()->fin_dizimo_ano }}</div>
+                                <div class="small text-muted">{{ number_format($meta->fin_dizimo_ano, 2) }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                <div class="text-muted">Ofertas</div><strong>R$
+                                <div>Ofertas</div><strong>R$
                                     {{ number_format($anooferta, 2) }}</strong>
                                 <div class="progress progress-xs mt-2">
                                     <div class="progress-bar bg-info" role="progressbar"
                                         style="width: {{ $porcentage_oferta }}%" aria-valuenow="20" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
-                                <div class="small text-muted">{{$meta->first()->fin_oferta_ano }}</div>
+                                <div class="small text-muted">{{ number_format($meta->fin_oferta_ano, 2) }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                <div class="text-muted">Doações</div><strong>R$
+                                <div>Doações</div><strong>R$
                                     {{ number_format($anodoacao, 2) }}</strong>
                                 <div class="progress progress-xs mt-2">
                                     <div class="progress-bar bg-warning" role="progressbar"
                                         style="width: {{ $porcentage_doacao }}%" aria-valuenow="60" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
-                                <div class="small text-muted">{{$meta->first()->fin_acao_ano }}</div>
+                                <div class="small text-muted">{{ number_format($meta->fin_acao_ano, 2) }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                <div class="text-muted">Despesas</div><strong>R$
+                                <div>Despesas</div><strong>R$
                                     {{ number_format($anodespesa, 2) }}</strong>
                                 <div class="progress progress-xs mt-2">
                                     <div class="progress-bar bg-danger" role="progressbar"
                                         style="width: {{ $porcentage_despesa }}%" aria-valuenow="80" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
-                                <div class="small text-muted">{{$meta->first()->fin_despesa_ano }}</div>
+                                <div class="small text-muted">{{ number_format($meta->fin_despesa_ano, 2) }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                <div class="text-muted">Total</div><strong>R$
+                                <div>Total</div><strong>R$
                                     {{ number_format($totalfinanceiro, 2) }}</strong>
                                 <div class="progress progress-xs mt-2">
                                     <div class="progress-bar" role="progressbar" style="width: {{ $porcentage_total }}%"
                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
+                                <div class="small text-muted">{{ number_format($metadash, 2) }}</div>
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <!-- /.card-->
             @endif
@@ -326,36 +330,10 @@
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                                <div class="card-body">
-                                                    <div class="c-chart-wrapper">
-                                                        <canvas id="chats-tipo-pessoa"></canvas>
-                                                    </div>
-                                                    <div class="small text-muted">Gráfico da membresia</div>
-                                                </div>
-                                            </div>
+
+
                                         </div>
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-sm-6">
-                                        <!--
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="c-callout c-callout-warning"><small class="text-muted">Total de
-                                                        Batismos</small>
-                                                    <div class="text-value-lg">{{ $totalbatismo }}</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-6">
-                                                <div class="c-callout c-callout-success"><small class="text-muted">Total de
-                                                        Likes</small>
-                                                    <div class="text-value-lg"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="mt-0">
-                                                                                 /.row-->
+                                        <br>
                                         <div class="small text-muted">Gênero</div>
                                         <div class="progress-group">
                                             <div class="progress-group-header">
@@ -395,6 +373,38 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <!--
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="c-callout c-callout-warning"><small class="text-muted">Total de
+                                                        Batismos</small>
+                                                    <div class="text-value-lg">{{ $totalbatismo }}</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <div class="c-callout c-callout-success"><small class="text-muted">Total de
+                                                        Likes</small>
+                                                    <div class="text-value-lg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="mt-0">
+                                                                                 /.row-->
+                                        <div class="small text-muted">Gráfico da membresia</div>
+                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="card-body">
+                                                <div class="c-chart-wrapper">
+                                                    <canvas id="chats-tipo-pessoa"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        
                                     </div>
                                     <!-- /.col-->
                                 </div>

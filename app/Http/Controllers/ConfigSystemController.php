@@ -146,6 +146,14 @@ class ConfigSystemController extends Controller
     }
     public function updateMeta(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'dizimo_ano'             => 'numeric',
+            'oferta_ano'         => 'numeric',
+            'despesa_ano'         => 'numeric',
+            'acoes_ano'         => 'numeric',
+        ]);
+
         //pegar tenant
         $this->get_tenant();
         //pegar os dados e salvar em um novo ID
@@ -178,10 +186,10 @@ class ConfigSystemController extends Controller
         (int)$settings->fin_despesa_mes       = intval($request->input('fin_despesa_ano') / 12);
         (int)$settings->fin_acao_mes       = intval($request->input('fin_acao_ano') / 12);
         //financeiro anual
-        (float)$settings->fin_dizimo_ano       = $request->input('fin_dizimo_ano');
-        (float)$settings->fin_oferta_ano       = $request->input('fin_oferta_ano');
-        (float)$settings->fin_despesa_ano       = $request->input('fin_despesa_ano');
-        (float)$settings->fin_acao_ano       = $request->input('fin_acao_ano');
+        (float)$settings->fin_dizimo_ano       = $request->input('dizimo_ano');
+        (float)$settings->fin_oferta_ano       = $request->input('oferta_ano');
+        (float)$settings->fin_despesa_ano       = $request->input('despesa_ano');
+        (float)$settings->fin_acao_ano       = $request->input('acoes_ano');
         $settings->save();
         //adicionar log 
         $this->adicionar_log('7', 'U', $settings);

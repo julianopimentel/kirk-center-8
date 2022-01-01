@@ -130,24 +130,24 @@
                                             </div>
                                         -->
                                     <div class="col-sm-3">
-                                        <label for="name">Dizimo Ano</label>
-                                        <input class="form-control" id="fin_dizimo_ano" name="fin_dizimo_ano" type="float"
-                                            value="{{ $settings->fin_dizimo_ano }}">
+                                        <label for="name">Dizimo Ano*</label>
+                                        <input class="form-control" id="dizimo_ano" name="dizimo_ano" type="float"
+                                            value="{{ $settings->fin_dizimo_ano }}" required>
                                     </div>
                                     <div class="col-sm-3">
-                                        <label for="name">Oferta Ano</label>
-                                        <input class="form-control" id="fin_oferta_ano" name="fin_oferta_ano" type="float"
-                                            value="{{ $settings->fin_oferta_ano }}">
+                                        <label for="name">Oferta Ano*</label>
+                                        <input class="form-control" id="oferta_ano" name="oferta_ano" type="float"
+                                            value="{{ $settings->fin_oferta_ano }}" required>
                                     </div>
                                     <div class="col-sm-3">
-                                        <label for="name">Despesa Ano</label>
-                                        <input class="form-control" id="fin_despesa_ano" name="fin_despesa_ano" type="float"
-                                            value="{{ $settings->fin_despesa_ano }}">
+                                        <label for="name">Despesa Ano*</label>
+                                        <input class="form-control" id="despesa_ano" name="despesa_ano" type="float"
+                                            value="{{ $settings->fin_despesa_ano }}" required>
                                     </div>
                                     <div class="col-sm-3">
-                                        <label for="name">Ações Ano</label>
-                                        <input class="form-control" id="fin_acao_ano" name="fin_acao_ano" type="float"
-                                            value="{{ $settings->fin_acao_ano }}">
+                                        <label for="name">Ações Ano*</label>
+                                        <input class="form-control" id="acoes_ano" name="acoes_ano" type="float"
+                                            value="{{ $settings->fin_acao_ano }}" required>
                                     </div>
                                 </div>
                                 <!-- /.row-->
