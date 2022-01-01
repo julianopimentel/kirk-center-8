@@ -360,7 +360,7 @@
                                                     </use>
                                                 </svg>
                                                 <div>Masculino</div>
-                                                <div class="ml-auto font-weight-bold">{{ $sexmascu }}%</div>
+                                                <div class="ml-auto font-weight-bold">{{ $porcentage_m }}%</div>
                                             </div>
                                             <div class="progress-group-bars">
                                                 <div class="progress progress-xs">
@@ -378,7 +378,7 @@
                                                     </use>
                                                 </svg>
                                                 <div>Feminino</div>
-                                                <div class="ml-auto font-weight-bold">{{ $sexfemin }}%</div>
+                                                <div class="ml-auto font-weight-bold">{{ $porcentage_f }}%</div>
                                             </div>
                                             <div class="progress-group-bars">
                                                 <div class="progress progress-xs">
@@ -490,8 +490,8 @@
                     data: [{{ $formapag_dinheiro }}, {{ $formapag_cheque }}, {{ $formapag_credito }},
                         {{ $formapag_debito }}, {{ $formapag_boleto }}, {{ $formapag_pix }}
                     ],
-                    backgroundColor: ['#2eb85c', '#e55353', '##321fdb', '#39f', '#ebedef', '#e55353'],
-                    hoverBackgroundColor: ['#2eb85c', '#e55353', '##321fdb', '#39f', '#ebedef', '#e55353']
+                    backgroundColor: ['#2eb85c', '#FFCE56', '##321fdb', '#39f', '#ebedef', '#e55353'],
+                    hoverBackgroundColor: ['#2eb85c', '#FFCE56', '##321fdb', '#39f', '#ebedef', '#e55353']
                 }]
             },
             options: {

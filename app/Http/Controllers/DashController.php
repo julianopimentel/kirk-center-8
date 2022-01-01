@@ -57,7 +57,7 @@ class DashController extends Controller
         $totalconversao = $people->where('is_conversion', true)->count();
         $sexmascu = $people->where('sex', 'm')->count();
         $sexfemin = $people->where('sex', 'f')->count();
-        $totalsex = $people->where('sex')->count();
+        $totalsex = $people->whereIn('sex', ['m', 'f'])->count();
         //porcentagem pelo sexo de pessoas
         $porcentage_m = $this->porcentagem_nx($sexmascu, $totalsex);
         $porcentage_f = $this->porcentagem_nx($sexfemin, $totalsex);
