@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <base href="./">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta name="description"
-      content="Tenha na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento das receitas do financeiro, desespesas e muito mais">
-  <meta name="author" content="deskapps.net">
-  <meta name="keyword" content="deskapps,igreja">
+    <base href="./">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description"
+        content="Tenha na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento das receitas do financeiro, desespesas e muito mais">
+    <meta name="author" content="deskapps.net">
+    <meta name="keyword" content="deskapps,igreja">
     <title>{{ __('general.logo') }} - Error</title>
     <!--favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
@@ -49,20 +49,37 @@
     <link href="{{ asset('css/components.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-    <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80RW918J90"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-80RW918J90');
+    </script>
+    
 </head>
 
 <body>
-  <body class="c-app flex-row align-items-center">
-    <br><br><br><br><br><br><br>
-    @yield('content') 
 
-    <!-- CoreUI and necessary plugins-->
-    <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
+    <body class="c-app flex-row align-items-center">
+        <br><br><br><br><br><br><br>
+        @yield('content')
 
-    @yield('javascript')
+        <!-- CoreUI and necessary plugins-->
+        <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
 
-  </body>
+        @yield('javascript')
+
+    </body>
+
 </html>
