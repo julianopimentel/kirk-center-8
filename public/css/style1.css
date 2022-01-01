@@ -538,7 +538,7 @@ select.form-control:not([size]):not([multiple]) {
       .card .card-header .form-control + .input-group-btn .btn {
         margin-top: -1px; }
     .card .card-header h4 {
-      font-size: 22px;
+      font-size: 19px;
       line-height: 28px;
       color: #6777ef;
       padding-right: 10px;
@@ -1054,8 +1054,8 @@ h6 .badge {
 
 .btn {
   font-weight: 600;
-  font-size: 12px;
-  line-height: 24px;
+  font-size: 11px;
+  line-height: 19px;
   padding: .3rem .8rem;
   letter-spacing: .5px; }
   .btn.btn-icon-split {
