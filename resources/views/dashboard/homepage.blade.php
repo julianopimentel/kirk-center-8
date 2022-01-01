@@ -162,6 +162,7 @@
                                         style="width: {{ $porcentage_dizimo }}%" aria-valuenow="40" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
+                                <div class="small text-muted">{{$meta->first()->fin_dizimo_ano }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
                                 <div class="text-muted">Ofertas</div><strong>R$
@@ -171,6 +172,7 @@
                                         style="width: {{ $porcentage_oferta }}%" aria-valuenow="20" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
+                                <div class="small text-muted">{{$meta->first()->fin_oferta_ano }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
                                 <div class="text-muted">Doações</div><strong>R$
@@ -180,6 +182,7 @@
                                         style="width: {{ $porcentage_doacao }}%" aria-valuenow="60" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
+                                <div class="small text-muted">{{$meta->first()->fin_acao_ano }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
                                 <div class="text-muted">Despesas</div><strong>R$
@@ -189,6 +192,7 @@
                                         style="width: {{ $porcentage_despesa }}%" aria-valuenow="80" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
+                                <div class="small text-muted">{{$meta->first()->fin_despesa_ano }}</div>
                             </div>
                             <div class="col-sm-12 col-md mb-sm-2 mb-0">
                                 <div class="text-muted">Total</div><strong>R$
