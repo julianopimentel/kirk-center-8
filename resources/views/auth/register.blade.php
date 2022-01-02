@@ -67,7 +67,7 @@
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" name="agree" class="custom-control-input" id="agree" required>
-                    <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                    <label class="custom-control-label" for="agree">I agree with the <a href="https://deskapp.online/terms.php">Terms & Conditions</a> and  <a href="https://deskapp.online/privacy.php">Privacy Policy</a></label>
                   </div>
                 </div>
 
