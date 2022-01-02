@@ -9,6 +9,8 @@ use App\Models\People_Precadastro;
 use App\Models\Config_system;
 use App\Models\People;
 use App\Models\Users_Account;
+use App\Mail\SendMailLiberar;
+use Illuminate\Support\Facades\Mail;
 
 class Peoples_PrecadastroController extends Controller
 {
@@ -115,6 +117,11 @@ class Peoples_PrecadastroController extends Controller
             //adicionar log
             $this->adicionar_log('6', 'C', $people_pre);
             $this->adicionar_log('1', 'C', $people);
+
+            //disparar o email
+            $conta_name = session()->get('conta_name');
+            Mail::to($people->email)->send(new SendMailLiberar($conta_name));
+
             return redirect('peopleList')
                 ->with('success', $response['message']);
         }
@@ -122,7 +129,7 @@ class Peoples_PrecadastroController extends Controller
             ->back()
             ->with('error', $response['message']);
 
-        $request->session()->flash("success", "Successfully created people");
+        $request->session()->flash("success", "Cadastro aprovado");
         return redirect()->route('people_precadastro.index');
     }
 

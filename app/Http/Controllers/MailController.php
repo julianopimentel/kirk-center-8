@@ -135,4 +135,5 @@ class MailController extends Controller
         $request->session()->flash('message', 'Successfully sended Email');
         return redirect()->route('mail.index');
     }
+
 }

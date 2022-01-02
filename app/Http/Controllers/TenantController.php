@@ -12,12 +12,13 @@ class TenantController extends Controller
     public function tenant(Request $request, $id)
     {
         //mater toda a sessao
-        $request->session()->forget('schema');
-        $request->session()->forget('key');
-        $request->session()->forget('conexao');
+        session()->forget('schema');
+        session()->forget('key');
+        session()->forget('conexao');
+        session()->forget('conexao');
 
         //consultar o schema
-        $results = DB::select('select * from admin.accounts where id = ?', [$id]);
+        $results = DB::select('select * from admin.accounts where id = ?', [$id] , 'limit 1');
 
         //inserir na array dos dados
         $request->session()->put('schema', $results);
@@ -32,11 +33,13 @@ class TenantController extends Controller
         foreach ($tenant as $element) {
             $a = $element->tenant;
         }
+        //inserir o nome do schema
+        $request->session()->put('conexao', $a);
         // Setando os dados da nova conexão.
         Config::set('database.connections.tenant.schema', $a);
 
-        //inserir o nome da conexão
-        $request->session()->put('conexao', $a);
+        //inserir o nome da conta para envio do email
+        $request->session()->put('conta_name', $element->name_company);
 
         return redirect()->route('home.index');
     }

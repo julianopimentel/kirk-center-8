@@ -93,7 +93,7 @@ class WizardController extends Controller
         //adicionar log
         $this->adicionar_log('10', 'C', $people);
         
-        $request->session()->flash("success", 'Cadastrado com sucesso, aguardar aprovação do administrador');
+        $request->session()->flash("success", 'Cadastrado com sucesso, aguarde aprovação do administrador');
         return redirect()->route('account.index');
         }
         else{

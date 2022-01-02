@@ -143,7 +143,7 @@
                                     <div class="row setup-content" id="step-2">
                                         <div class="col-md-12">
                                             <center>
-                                                <h3>Dados Pessoais</h3>
+                                                <h3>Endereço</h3>
                                             </center>
                                             <div class="form-group">
                                                 <label for="street">Street</label>

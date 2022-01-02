@@ -157,14 +157,6 @@ Route::get('report/peoplelocation', 'ReportController@Location')->name('location
 
 Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
 
-Route::get('email-test', function () {
-
-    $details['email'] = 'julianopimentel7@gmail.com';
-
-    dispatch(new App\Jobs\SendEmailJob($details));
-
-    dd('done');
-});
 Route::prefix('media')->group(function () {
     Route::get('/',                 'MediaController@index')->name('media.folder.index');
     Route::get('/folder/store',     'MediaController@folderAdd')->name('media.folder.add');

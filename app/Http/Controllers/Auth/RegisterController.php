@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendMailBemVindo;
+use App\Mail\SendMailNovaConta;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Notifications\WelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -75,7 +77,7 @@ class RegisterController extends Controller
         ]);
         $user->assignRole('user');
 
-        $user->notify(new WelcomeEmail($user));
+        Mail::to($user->email)->queue(new SendMailNovaConta());
         return $user;
     }
 }

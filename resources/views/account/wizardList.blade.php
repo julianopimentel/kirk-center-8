@@ -1,97 +1,96 @@
 @extends('layouts.baseminimal')
 @section('content')
 
-
+<div class="loader loader-default is-active"></div>
 <div class="container-fluid">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="card">
             <div class="card-header">
-
-
-
-                                    <div class="col-md-12">
-                                        <center>
-                                            <h3>Selecionar uma comunidade</h3>
-                                        </center>
-                                        <form action="{{ route('wizard.search') }}" method="POST"
-                                            class="form form-inline">
-                                            {!! csrf_field() !!}
-                                            <div class="card-body">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-12 col-md-2 col-lg-2 col-xl-4">
-                                                        <div class="inner">
-                                                            <input type="text" id='name' name="name" class="form-control"
-                                                                placeholder="Nome">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8 col-md-2 col-lg-2 col-xl-4">
-                                                        <div class="box-header">
-                                                            <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="box-body">
-                                            <table class="table table-responsive-sm table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Instituição</th>
-                                                        <th>E-mail</th>
-                                                        <th>Telefone</th>
-                                                        <th>Address</th>
-                                                        <th>CEP</th>
-                                                        <th>Localidade</th>
-                                                        <th>Selecionar</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @forelse($institutions as $institution)
-                                                        <tr>
-                                                            <td width="30%">{{ $institution->id }} -
-                                                                {{ $institution->name_company }}</td>
-                                                            <td>{{ $institution->email }}</td>
-                                                            <td>{{ $institution->mobile }}</td>
-                                                            <td>{{ $institution->address1 }}</td>
-                                                            <td>{{ $institution->cep }}</td>
-                                                            <td>
-                                                                @if ($institution->city && $institution->state != null)
-                                                                    {{ $institution->city }} / {{ $institution->state }}
-                                                                @elseif($institution->city != null)
-                                                                    {{ $institution->city }}
-                                                                @elseif($institution->state != null)
-                                                                    {{ $institution->state }}
-                                                                @elseif($institution->country != null)
-                                                                    {{ $institution->country }}
-                                                                @endif
-                                                            </td>
-                                                            <td width="1%">
-                                                                <form method="post" action="{{route('tenantWizard',['id' => $institution->tenant]) }}">
-                                                                    @method('POST')
-                                                                    @csrf
-                                                                      <button class="btn btn-primary-outline" data-toggle="modal" data-target=".cd-deskapps"><i class="c-icon c-icon-sm cil-room text-dark"></i></button>
-                                                                  </form>
-                                                                </td>
-                                                            </td>
-                                                        </tr>
-                                                    @empty
-                                                    @endforelse
-                                                </tbody>
-                                            </table>
+                            <h4>Selecionar uma instituição</h4>
+            </div>
+                        <form action="{{ route('wizard.search') }}" method="POST" class="form form-inline">
+                            {!! csrf_field() !!}
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col-sm-12 col-md-2 col-lg-2 col-xl-4">
+                                        <div class="inner">
+                                            <input type="text" id='name' name="name" class="form-control"
+                                                placeholder="Nome">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-md-2 col-lg-2 col-xl-1">
+                                        <div class="box-header">
+                                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
+                                        <div class="box-header">
+                                            <a href="{{ url('wizardList') }}"
+                                                class="btn btn-danger">{{ __('Limpar') }}</a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.row-->
                             </div>
+                        </form>
+                        <div class="box-body">
+                            <table class="table table-responsive-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Instituição</th>
+                                        <th>Telefone</th>
+                                        <th>Address</th>
+                                        <th>Localidade</th>
+                                        <th>Selecionar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($institutions as $institution)
+                                        <tr>
+                                            <td width="30%">{{ $institution->id }} -
+                                                {{ $institution->name_company }}</td>
+                                            <td>{{ $institution->mobile }}</td>
+                                            <td>{{ $institution->address1 }}</td>
+                                            <td>
+                                                @if ($institution->city && $institution->state != null)
+                                                    {{ $institution->city }} / {{ $institution->state }}
+                                                @elseif($institution->city != null)
+                                                    {{ $institution->city }}
+                                                @elseif($institution->state != null)
+                                                    {{ $institution->state }}
+                                                @elseif($institution->country != null)
+                                                    {{ $institution->country }}
+                                                @endif
+                                            </td>
+                                            <td width="1%">
+                                                <form method="post"
+                                                    action="{{ route('tenantWizard', ['id' => $institution->tenant]) }}">
+                                                    @method('POST')
+                                                    @csrf
+                                                    <button class="btn btn-primary-outline" data-toggle="modal"
+                                                        data-target=".cd-deskapps"><i
+                                                            class="c-icon c-icon-sm cil-room text-dark"></i></button>
+                                                </form>
+                                            </td>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                    @endforelse
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- /.col-->
                 </div>
                 <!-- /.row-->
             </div>
         </div>
-        <!-- /.row-->
-        <!-- /.col-->
+    </div>
+    <!-- /.col-->
+    </div>
+    <!-- /.row-->
+    </div>
+    </div>
+    <!-- /.row-->
+    <!-- /.col-->
     </div>
     <!-- /.row-->
     </div>

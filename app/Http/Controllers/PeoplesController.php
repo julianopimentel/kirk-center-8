@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMailCancelar;
+use App\Mail\SendMailLiberar;
 use App\Models\City;
 use App\Models\Config_system;
 use App\Models\Country;
@@ -16,6 +18,7 @@ use App\Models\Roles;
 use App\Models\State;
 use App\Models\Users_Account;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class PeoplesController extends Controller
 {
@@ -153,6 +156,10 @@ class PeoplesController extends Controller
                 $associar->user_id = $validaruser->first()->id;
                 $associar->save();
 
+                //disparar email
+                $conta_name = session()->get('conta_name');
+                Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
+
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
                 $request->session()->flash("success", "Successfully created people");
@@ -287,6 +294,9 @@ class PeoplesController extends Controller
                 $associar->save();
                 //adicionar log
                 $this->adicionar_log('1', 'U', $people);
+                //disparar o email
+                $conta_name = session()->get('conta_name');
+                Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
                 $request->session()->flash("success", "Successfully updated people");
@@ -352,6 +362,9 @@ class PeoplesController extends Controller
                 $validaracesso->delete();
                 //adicionar log
                 $this->adicionar_log_global('11', 'D', '{"people_id":"' . $id . '","account_id":"' . session()->get('key') . '","user_id":"' . $user_id . '"}');
+                //disparar o email
+                $conta_name = session()->get('conta_name');
+                Mail::to($people->email)->queue(new SendMailCancelar($conta_name));
             }
             session()->flash("warning", "Sucessfully deleted people");
             return redirect()->route('people.index');
