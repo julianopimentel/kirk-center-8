@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use App\Models\EmailTemplate;
 
 
-class WelcomeEmail extends Notification
+class AllowAcesso extends Notification
 {
     use Queueable;
 
@@ -45,8 +45,8 @@ class WelcomeEmail extends Notification
         return (new MailMessage)
             ->subject("Bem-vindo a plataforma Kirk")
             ->greeting('Bem-vindo a Igreja Digital!')
-            ->line('Sua conta foi criada, porém ainda não possui vinculo com nenhuma instituição.')
-            ->line('Vincule o seu acesso pelo o Pré-cadastro a sua Igreja.')
+            ->line('Seu acesso foi vinculado a blablabla')
+            ->line('<b>Atenção:</b> Como você já possui acesso à outra conta, sua senha permanece a mesma e você poderá trocar de conta após acessar o sistema.')
             ->action('Acessar', url('/'));
     }
 

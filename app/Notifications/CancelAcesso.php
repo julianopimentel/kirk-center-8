@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use App\Models\EmailTemplate;
 
 
-class WelcomeEmail extends Notification
+class CancelAcesso extends Notification
 {
     use Queueable;
 
@@ -43,11 +43,9 @@ class WelcomeEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject("Bem-vindo a plataforma Kirk")
+            ->subject("Cancelamento de acesso")
             ->greeting('Bem-vindo a Igreja Digital!')
-            ->line('Sua conta foi criada, porém ainda não possui vinculo com nenhuma instituição.')
-            ->line('Vincule o seu acesso pelo o Pré-cadastro a sua Igreja.')
-            ->action('Acessar', url('/'));
+            ->line('Seu acesso à conta blablabla foi cancelado pelo Administrador');
     }
 
     /**
