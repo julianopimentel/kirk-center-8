@@ -53,8 +53,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-success" type="submit">Save</button>
-                                    <a class="btn btn-info" href="{{ route('message.index') }}">Return</a>
+                                        <button class="btn btn-success" type="submit">Salvar</button>
+                                    <a class="btn btn-primary" href="{{ route('calender.index') }}">Retornar</a>
                             </form>
                         </div>
                     </div>

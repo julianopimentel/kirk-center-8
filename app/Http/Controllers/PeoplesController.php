@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMailBemVindo;
 use App\Mail\SendMailCancelar;
 use App\Mail\SendMailLiberar;
 use App\Models\City;
@@ -9,7 +10,8 @@ use App\Models\Config_system;
 use App\Models\Country;
 use App\Models\Institution;
 use DB;
-use Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Status;
 use App\Models\People;
@@ -124,11 +126,13 @@ class PeoplesController extends Controller
         if ($criaracesso == true) {
             //se o email nao estiver sido cadastro
             if ($validaruser->first() == null) {
+                //gerar hash
+                $pwa = Str::random(8);
                 //criar o usuario
                 $user =  User::create([
                     'name' => $people->name,
                     'email' => $people->email,
-                    'password' => Hash::make(\Illuminate\Support\Str::random(8)), //gerar senha
+                    'password' => Hash::make($pwa), //gerar senha
                     'country' =>  $people->country,
                     'mobile' => $people->mobile
                 ]);
@@ -147,8 +151,11 @@ class PeoplesController extends Controller
 
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
+                //disparar o email
+                $conta_name = session()->get('conta_name');
+                Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-                $request->session()->flash("success", "Successfully created people");
+                $request->session()->flash("success", "Pessoa criada com sucesso.");
                 return redirect()->back();
             } else {
                 //associar ao usuario com o email ja cadastrado
@@ -162,14 +169,14 @@ class PeoplesController extends Controller
 
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
-                $request->session()->flash("success", "Successfully created people");
+                $request->session()->flash("success", "Pessoa criada com sucesso.");
                 return redirect()->back();
             }
         } else {
             //se estiver desmarcado o criar conta, apenas adiciona a pessoa
             //adicionar log
             $this->adicionar_log('1', 'C', $people);
-            $request->session()->flash("success", "Successfully created people");
+            $request->session()->flash("success", "Pessoa criada com sucesso.");
             return redirect()->back();
         }
     }
@@ -262,11 +269,13 @@ class PeoplesController extends Controller
         if ($criaracesso == true) {
             //se usuario for novo
             if ($validaruser->first() == null) {
+                //gerar hash
+                $pwa = Str::random(8);
                 //criar o usuario
                 $user =  User::create([
                     'name' => $people->name,
                     'email' => $people->email,
-                    'password' => Hash::make(\Illuminate\Support\Str::random(8)), //gerar senha
+                    'password' => Hash::make($pwa), //gerar senha
                     'country' =>  $people->country,
                     'mobile' => $people->mobile
                 ]);
@@ -283,8 +292,11 @@ class PeoplesController extends Controller
                 $associar->save();
                 //criar o vinculo a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
+                //disparar o email
+                $conta_name = session()->get('conta_name');
+                Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-                $request->session()->flash("success", "Successfully updated people");
+                $request->session()->flash("success", "Pessoa editada com sucesso.");
                 return redirect()->route('people.index');
             } else {
                 //se tiver o usuario
@@ -299,14 +311,14 @@ class PeoplesController extends Controller
                 Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
-                $request->session()->flash("success", "Successfully updated people");
+                $request->session()->flash("success", "Pessoa editada com sucesso.");
                 return redirect()->route('people.index');
             }
         } else {
             //se estiver desmarcado o criar conta, apenas atualizar a pessoa
             //adicionar log
             $this->adicionar_log('1', 'U', $people);
-            $request->session()->flash("success", "Successfully updated people");
+            $request->session()->flash("success", "Pessoa editada com sucesso.");
             return redirect()->route('people.index');
         }
     }
@@ -366,7 +378,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->queue(new SendMailCancelar($conta_name));
             }
-            session()->flash("warning", "Sucessfully deleted people");
+            session()->flash("warning", "Pessoa deletada com sucesso.");
             return redirect()->route('people.index');
         }
     }

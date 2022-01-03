@@ -72,8 +72,8 @@
                                     </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-sm btn-primary" type="submit">Adicionar</button>
-                                <a href="{{ route('group.index') }}" class="btn btn-sm btn-dark">{{ __('Return') }}</a>
+                                <button class="btn btn-sm btn-success" type="submit">Adicionar</button>
+                                <a href="{{ route('group.index') }}" class="btn btn-sm btn-primary">{{ __('Retornar') }}</a>
                             </div>
                             </form>
                         </div>

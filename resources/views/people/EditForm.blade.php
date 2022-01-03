@@ -384,8 +384,8 @@
                 </div>
         </div>
     </div>
-    <button id="btn" class="btn btn-primary" type="submit">Save</button>
-    <a class="btn btn-dark" href="{{ route('people.index') }}">Return</a>
+    <button id="btn" class="btn btn-success" type="submit">Salvar</button>
+    <a class="btn btn-primary" href="{{ route('people.index') }}">Retornar</a>
     </div>
     </div>
     </form>

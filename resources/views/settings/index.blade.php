@@ -4,9 +4,9 @@
           <div class="col-sm-12">
                         <div class="card-body">
                             <div class="section-body">
-                                <h4 class="section-title">Settings</h4>
+                                <h4 class="section-title">Configurações</h4>
                                 <p class="section-lead">
-                                    Organize and adjust all settings about this site.
+                                    Organize e ajuste todas as configurações desta conta
                                 </p>
                                 <div class="row">
                                     @if ($appPermissao->settings_general == true)
@@ -16,9 +16,9 @@
                                                 <i class="fas fa-cog"></i>
                                             </div>
                                             <div class="card-body">
-                                                <h4>General</h4>
-                                                <p>Informações gereais e configurações da conta</p>
-                                                <a href="{{ route('indexSystem') }}" class="card-cta">Change Setting <i
+                                                <h4>Geral</h4>
+                                                <p>Informações gerais, campos obrigatórios e configurações da conta</p>
+                                                <a href="{{ route('indexSystem') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -32,8 +32,8 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4>SEO</h4>
-                                                <p>Configurações de Rede Sociais</p>
-                                                <a href="{{ route('indexSocial') }}" class="card-cta">Change Setting <i
+                                                <p>Configurações de Rede Sociais para fácil acesso de seus membros</p>
+                                                <a href="{{ route('indexSocial') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -47,8 +47,8 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4>Email</h4>
-                                                <p>Configuração do SMTP e templetas.</p>
-                                                <a href="{{ route('indexEmail') }}" class="card-cta">Change Setting <i
+                                                <p>Configuração do SMTP personalizado para o disparo dos e-mails</p>
+                                                <a href="{{ route('indexEmail') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -61,9 +61,9 @@
                                                 <i class="fas fa-users"></i>
                                             </div>
                                             <div class="card-body">
-                                                <h4>Roles</h4>
-                                                <p>Configurações de grupos e permissões</p>
-                                                <a href="{{ url('settings/roles') }}" class="card-cta">Change Setting <i
+                                                <h4>Permissões</h4>
+                                                <p>Configurações de permissões para grupos e ativações de recursos.</p>
+                                                <a href="{{ url('settings/roles') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -76,9 +76,9 @@
                                                 <i class="fas fa-chart-line"></i>
                                             </div>
                                             <div class="card-body">
-                                                <h4>Meta</h4>
+                                                <h4>Metas</h4>
                                                 <p>Configurar metas para o uso do Dashboard</p>
-                                                <a href="{{ route('indexMeta') }}" class="card-cta">Change Setting <i
+                                                <a href="{{ route('indexMeta') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -92,9 +92,8 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4>Backup</h4>
-                                                <p>Importar ou gerar backup.</p>
-                                                <a href={{ url('settings/backup') }} class="card-cta text-primary">Change
-                                                    Setting <i class="fas fa-chevron-right"></i></a>
+                                                <p>Importar ou exportar dados da Pessoa.</p>
+                                                <a href={{ url('settings/backup') }} class="card-cta">Acessar<i class="fas fa-chevron-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

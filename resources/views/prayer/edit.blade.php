@@ -66,8 +66,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" type="submit">Save</button>
-                                    <a class="btn btn-dark" href="{{ route('prayer.index') }}">Return</a>
+                                        <button class="btn btn-success" type="submit">Salvar</button>
+                                    <a class="btn btn-primary" href="{{ route('prayer.index') }}">Retornar</a>
                             </form>
                         </div>
                     </div>

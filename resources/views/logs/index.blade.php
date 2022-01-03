@@ -17,7 +17,7 @@
                                         <div class="form-floating">
                                             <pre> {{$logs->manipulations}}</pre>
                                           </div>
-                                        <a class="btn btn-dark" href="{{ route('logs.index') }}">Return</a>
+                                        <a class="btn btn-primary" href="{{ route('logs.index') }}">Retornar</a>
                                       </div>
                                 </div>
                               </div>

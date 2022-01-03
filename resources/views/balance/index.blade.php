@@ -104,7 +104,7 @@
                                     <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
                                         <div class="box-header">
                                             <a href="{{ url('historic') }}"
-                                                class="btn btn-dark">Ver Histórico</a>
+                                                class="btn btn-primary">Ver Histórico</a>
                                         </div>
                                     </div>
                                     @endif

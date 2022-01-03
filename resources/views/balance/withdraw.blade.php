@@ -57,7 +57,7 @@
                 </div>
             </div>
             <button class="btn btn-danger" type="submit">Retirar</button>
-            <a href="{{ url('financial') }}" class="btn btn-dark">Voltar</a>
+            <a href="{{ url('financial') }}" class="btn btn-primary">Retornar</a>
         </div>
         
     </form>

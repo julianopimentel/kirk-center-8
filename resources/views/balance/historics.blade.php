@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
                                                 <div class="box-header">
-                                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                                    <button type="submit" class="btn btn-success">Buscar</button>
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
@@ -44,7 +44,7 @@
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
                                                 <div class="box-header">
                                                     <a href="{{ url('financial') }}"
-                                                        class="btn btn-dark">{{ __('Voltar') }}</a>
+                                                        class="btn btn-primary">{{ __('Voltar') }}</a>
                                                 </div>
                                             </div>
                                         </div>

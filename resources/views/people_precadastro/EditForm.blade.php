@@ -287,7 +287,7 @@
                                 @if ($people->status_id == '21' and $appPermissao->edit_precadastro == true)
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <button class="btn btn-primary" type="submit">Aprovar</button>
+                                            <button class="btn btn-success" type="submit">Aprovar</button>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
@@ -302,7 +302,7 @@
                                
                                 @endif
                                 <div class="col-sm-2">
-                                <a class="btn btn-dark" href="{{ route('peopleList.index') }}">Return</a>
+                                <a class="btn btn-primary" href="{{ route('peopleList.index') }}">Retornar</a>
                                 </div>
                             </div>
                     </div>

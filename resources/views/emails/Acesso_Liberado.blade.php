@@ -423,7 +423,7 @@
                                                             style="overflow-wrap:break-word;word-break:break-word;padding:60px 0px 10px 10px;font-family:arial,helvetica,sans-serif;"
                                                             align="left">
                                                             <h1 class="v-text-align v-font-size"
-                                                                style="margin: 0px; color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial black,avant garde,arial; font-size: 19px;">
+                                                                style="margin: 0px; color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: arial black,avant garde,arial; font-size: 18px;">
                                                                 Bem-vindo a Igreja Digital!
                                                             </h1>
                                                         </td>
@@ -442,7 +442,7 @@
                                                                 style="color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-family: Raleway, sans-serif; font-size: 14px; line-height: 19.6px;">
-                                                                        Seu acesso foi vinculado a {{ $conta_name }}</span>
+                                                                        Seu acesso foi vinculado em uma conta por um Administrador</span>
                                                                 </p>
                                                             </div>
                                                         </td>

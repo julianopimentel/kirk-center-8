@@ -120,7 +120,7 @@ class Peoples_PrecadastroController extends Controller
 
             //disparar o email
             $conta_name = session()->get('conta_name');
-            Mail::to($people->email)->send(new SendMailLiberar($conta_name));
+            Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
 
             return redirect('peopleList')
                 ->with('success', $response['message']);

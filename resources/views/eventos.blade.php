@@ -15,7 +15,7 @@
                                     {{ $eventos->end }}</p>
                                 <form method="POST" action="{{ route('calendar.storeConfirm', $eventos->id) }}">
                                     @csrf
-                                    <button class="btn btn-sm btn-primary" type="submit"
+                                    <button class="btn btn-sm btn-success" type="submit"
                             
                             
                                     >Confirmar presença</button>                                       

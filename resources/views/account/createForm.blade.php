@@ -193,8 +193,8 @@
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-2">
                                         <a href="{{ route('account.index') }}"
-                                            class="btn btn-block btn-primary">{{ __('Return') }}</a>
-                                        <button id="botao" class="btn btn-block btn-success" type="submit" name="enviar" value="Enviar" data-toggle="modal" data-target="#exampleModalScrollable" disabled>{{ __('Save') }}</button>
+                                            class="btn btn-block btn-primary">{{ __('Retornar') }}</a>
+                                        <button id="botao" class="btn btn-block btn-success" type="submit" name="enviar" value="Enviar" data-toggle="modal" data-target="#exampleModalScrollable" disabled>{{ __('Salvar') }}</button>
                         </form>
                     </div>
                 </div>

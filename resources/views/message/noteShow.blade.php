@@ -26,7 +26,7 @@
                         </p>
                         <h4>Note type:</h4>
                         <p>{{ $note->note_type }}</p>
-                        <a class="btn btn-dark" href="{{ route('message.index') }}">Return</a>
+                        <a class="btn btn-primary" href="{{ route('message.index') }}">Retornar</a>
                       </div>
                 </div>
               </div>

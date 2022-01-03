@@ -443,8 +443,8 @@
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-family: Raleway, sans-serif; font-size: 14px; line-height: 19.6px;">
                                                                         Foi criado o acesso a conta {{ $conta_name }} pelo o Administrador.
-                                                                        <p><b>Email: </b> </p>
-                                                                        <p><b>Senha: </b> </p>
+                                                                        <p><b>Email: {{ $email }}</b> </p>
+                                                                        <p><b>Senha: {{ $pwa }}</b> </p>
                                                                     </span>
                                                     
                                                                 </p>

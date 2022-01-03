@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                                 <button class="btn btn-success" type="submit">Depositar</button>
-                                <a href="{{ url('financial') }}" class="btn btn-dark">Voltar</a>
+                                <a href="{{ url('financial') }}" class="btn btn-primary">Retornar</a>
                             </form>
                             <!-- /.row-->
                         </div>

@@ -17,10 +17,13 @@ class SendMailBemVindo extends Mailable
      *
      * @return void
      */
-    public function __construct(string $conta_name)
+    public function __construct(string $conta_name, string $email, string $pwa)
     {
         //
+        $this->subject('Bem-vindo a plataforma Kirk - '. $conta_name);
         $this->conta_name = $conta_name;
+        $this->email = $email;
+        $this->pwa = $pwa;
     }
 
     /**
@@ -31,6 +34,8 @@ class SendMailBemVindo extends Mailable
     public function build()
     {
         $conta_name = $this->conta_name;
-        return $this->view('emails.Bem-Vindo', compact('conta_name'));
+        $email = $this->email;
+        $pwa = $this->pwa;
+        return $this->view('emails.Bem-Vindo', compact('conta_name', 'email', 'pwa'));
     }
 }
