@@ -13,15 +13,16 @@
                             </div>
 
                             <div class="card-body">
+                                @if($people == 0)
+                                Você pode baixar o arquivo csv de demonstração aqui:<br>
+                                <a class="btn btn-primary" href="{{ url('/public/backup/empty.csv') }} ">Download</a>
+                                <br><br>
                                 <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @if($people == 0)
                                     <input type="file" name="file" class="form-control">
                                     <br>
-                                    You can download demo csv file from here: CSV File.<br>
-                                    <a class="btn btn-dark" href="{{ url('/public/backup/empty.csv') }} ">Download</a>
-                                    <br><br>
-                                    <button class="btn btn-success">Import User Data</button>
+
+                                    <button class="btn btn-success">Importar</button>
                                     @else
                                     <a class="btn btn-info" href="{{ route('export') }}">Export User Data</a>
                                     @endif
