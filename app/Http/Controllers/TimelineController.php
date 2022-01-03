@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Validator;
@@ -16,10 +17,19 @@ class TimelineController extends Controller
         $this->middleware('permission');
     }
 
-    public function show(Post $post)
+    public function show($id)
     {
         //pegar tenant
         $this->get_tenant();
+
+        $post = Post::find($id);
+
+        if(!$post)
+        {
+            session()->flash("info", "Post não encontrado");
+            return view('timeline.index');
+        }
+
         $comments = $post->comments()->with('user:id,name,profile_image')->get();
         return view('timeline.show', compact('post', 'comments'));
     }
@@ -43,7 +53,7 @@ class TimelineController extends Controller
                     <div class="profile-thumb">
                         <a href="#">
                             <figure class="profile-thumb-middle">
-                                    <div class="c-avatar"><img class="c-avatar-img" src="' . $result->user->image . '"
+                                    <div class="c-avatar"><img alt="image" class="mr-3 rounded-circle" width="70" height="70" src="' . $result->user->image . '"
                                             alt="profile picture"></div>
                             </figure>
                         </a>
@@ -59,12 +69,13 @@ class TimelineController extends Controller
                 <div class="post-content">
                     <p class="post-desc">
                         ' . $result->body . '
-                    </p>.
-                    <div class="post-thumb-gallery">
+                    </p>
+                        <div class="post-thumb-gallery">
                         <figure class="post-thumb img-popup">
-                                <img src="' . $result->image . '" alt="post image">
+                                <img src="' . $result->image . '">
                         </figure>
                     </div>
+
                     <div class="post-meta">
                         <a class="post-meta-like">
                             <i class="c-icon c-icon-sm cil-cat"></i>
@@ -105,7 +116,31 @@ class TimelineController extends Controller
         $posts->save();
         //adicionar log
         $this->adicionar_log('17', 'C', $posts);
-        $request->session()->flash('message', 'Successfully edited note');
         return redirect()->route('timeline.index');
     }
+
+
+        //adicionar nova pessoa ao grupo
+        public function storecomentario($id, Request $request)
+        {
+            //pegar tenant
+            $this->get_tenant();
+
+            $post = Post::find($id);
+
+            if(!$post)
+            {
+                session()->flash("info", "Post não encontrado");
+                return view('timeline.index');
+            }
+
+            Comment::create([
+                'comment' => $request->input('comment'),
+                'post_id' => $id,
+                'user_id' => auth()->user()->id
+            ]);
+
+            return redirect()->back();
+        }
+
 }

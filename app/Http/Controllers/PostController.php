@@ -30,6 +30,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        //pegar tenant
+        $this->get_tenant();
         return view('post.posts');
     }
 
@@ -39,9 +41,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function posts()
+    public function posts($id)
     {
-        $posts = Post::get();
+        $posts = Post::find($id);
         return view('post.posts', compact('posts'));
     }
 
