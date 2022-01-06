@@ -159,9 +159,9 @@
                                                 <td>
                                                     <label
                                                         class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                        <input class="c-switch-input" name="delete_group_people"
+                                                        <input class="c-switch-input" name="add_group_people"
                                                             type="checkbox"
-                                                            {{ $role->delete_group_people == true ? 'checked' : '' }}><span
+                                                            {{ $role->add_group_people == true ? 'checked' : '' }}><span
                                                             class="c-switch-slider" data-checked="&#x2713"
                                                             data-unchecked="&#x2715"></span>
                                                     </label>

@@ -97,7 +97,7 @@ class ReportController extends Controller
         //consulta da pesquisa
         $peoples =  $peoples->search($dataForm, $this->totalPagesPaginate);
 
-        return view('reports.People', compact('peoples', 'dataForm', 'date', 'statuses'));
+        return view('reports.People', compact('peoples', 'dataForm', 'statuses'));
     }
 
     public function Group(Group $group)

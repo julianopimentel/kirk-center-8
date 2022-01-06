@@ -30,7 +30,7 @@ class LogsController extends Controller
         $logs = Auditoria::orderBy('id', 'desc')->with('status_log')->with('user')->paginate($this->totalPagesPaginate);
         //carregar os tipos da auditoria
         $types = $auditoria->type();  
-        return view('logs.list', compact('logs', 'types'));
+        return view('logs.List', compact('logs', 'types'));
     }
 
     public function show($id)

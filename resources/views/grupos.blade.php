@@ -11,9 +11,10 @@
                     <table class="table table-responsive-sm table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Pessoas</th>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Pessoas nesse grupo</th>
+                                <th>Responsável</th>
                             </tr>
                         </thead>
                         <tbody>
