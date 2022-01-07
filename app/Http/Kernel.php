@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'get.menu' => \App\Http\Middleware\GetMenu::class,
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \App\Http\Middleware\GetPermission::class,
+        'system' => \App\Http\Middleware\GetSystem::class,
     ];
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,

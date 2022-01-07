@@ -23,8 +23,9 @@ class DashController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
-
+    
     /**
      * Display a listing of the resource.
      *
@@ -106,6 +107,7 @@ class DashController extends Controller
 
         //soma das metas anual /12
         $metadash = ($meta->fin_dizimo_ano + $meta->fin_oferta_ano + $meta->fin_acao_ano + $meta->fin_despesa_ano) / 12;
+        
         //grafico grande do ano atual
         $fin_atual_jan = Historic::whereYear('date', date('Y'))->whereMonth('date', date('01'))->sum('amount');
         $fin_atual_fev = Historic::whereYear('date', date('Y'))->whereMonth('date', date('02'))->sum('amount');
@@ -139,6 +141,11 @@ class DashController extends Controller
         $ofertaatual = Historic::where('tipo', '10')->where('date', 'like', "%$date%")->sum('amount');
         $doacaoatual = Historic::where('tipo', '11')->where('date', 'like', "%$date%")->sum('amount');
         $despesaatual = Historic::where('tipo', '12')->where('date', 'like', "%$date%")->sum('amount');
+        //ano anterior
+        $dizimo_anterior = Historic::where('tipo', '9')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $oferta_anterior = Historic::where('tipo', '10')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $doacao_anterior = Historic::where('tipo', '11')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $despesa_anterior = Historic::where('tipo', '12')->where('date', 'like', "%$anoanterior%")->sum('amount');
 
         //grafico financeiro da forma de pagamento do mês atual
         $formapag_dinheiro = Historic::where('pag', '15')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
@@ -147,6 +154,13 @@ class DashController extends Controller
         $formapag_debito = Historic::where('pag', '18')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
         $formapag_boleto = Historic::where('pag', '19')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
         $formapag_pix = Historic::where('pag', '20')->where('type', 'I')->where('date', 'like', "%$date%")->sum('amount');
+        //ano anterior
+        $formapag_dinheiro_anterior = Historic::where('pag', '15')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $formapag_cheque_anterior = Historic::where('pag', '16')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $formapag_credito_anterior = Historic::where('pag', '17')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $formapag_debito_anterior = Historic::where('pag', '18')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $formapag_boleto_anterior = Historic::where('pag', '19')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
+        $formapag_pix_anterior = Historic::where('pag', '20')->where('type', 'I')->where('date', 'like', "%$anoanterior%")->sum('amount');
 
         return view(
             'dashboard.homepage',
@@ -172,6 +186,12 @@ class DashController extends Controller
                 'formapag_debito',
                 'formapag_boleto',
                 'formapag_pix',
+                'formapag_dinheiro_anterior',
+                'formapag_cheque_anterior',
+                'formapag_credito_anterior',
+                'formapag_debito_anterior',
+                'formapag_boleto_anterior',
+                'formapag_pix_anterior',
                 'porcentage_visitante',
                 'porcentage_batismo',
                 'porcentage_conversao',
@@ -217,6 +237,10 @@ class DashController extends Controller
                 'ofertaatual',
                 'doacaoatual',
                 'despesaatual',
+                'dizimo_anterior',
+                'oferta_anterior',
+                'doacao_anterior',
+                'despesa_anterior',
                 'anogrupo',
                 'porcentage_grupo',
                 'precadastro'

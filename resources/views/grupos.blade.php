@@ -13,7 +13,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Tipo</th>
-                                <th>Pessoas nesse grupo</th>
+                                <th>Integrantes do grupo</th>
                                 <th>Responsável</th>
                             </tr>
                         </thead>
