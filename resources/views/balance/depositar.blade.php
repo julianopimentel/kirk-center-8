@@ -49,9 +49,9 @@
                                         <tr>
                                             <th>Ação</th>
                                             <th width="40%">Item</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Tax</th>
+                                            <th>Quatidade</th>
+                                            <th>Preço</th>
+                                            <th>Taxa</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
@@ -90,7 +90,7 @@
                                             <td>
                                                 <input type="hidden" name="total[]"
                                                     class="form-control calcEvent item_total" placeholder="" required>
-                                                <strong class="item_total">0.00</strong>
+                                                    <strong class="item_total">0.00</strong>
                                             </td>
 
                                         </tr>
@@ -99,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
 
-                                                <label for="ccmonth">Payment Note</label>
+                                                <label for="ccmonth">Observação</label>
                                                 <textarea class="form-control" name="observacao" rows="2"
                                                     placeholder="Content.."></textarea>
         
@@ -109,18 +109,18 @@
                                             <tr>
                                                 <th><strong>Subtotal: </strong></th>
                                                 <input type="hidden" name="sub_total" class="sub_total">
-                                                <td class="text"><span class="sub_total">0.00</span></td>
+                                                <td class="text">{{ $appSystem->currency }} <span class="sub_total">0.00</span></td>
                                             </tr>
                                             <tr>
-                                                <th><strong>Tax: </strong></th>
+                                                <th><strong>Taxa: </strong></th>
                                                 <input type="hidden" name="total_tax" class="total_tax">
-                                                <td class="text"><span class="total_tax">0.00</span></td>
+                                                <td class="text">{{ $appSystem->currency }} <span class="total_tax">0.00</span></td>
                                             </tr>
                                             <tr>
-                                                <th><strong>Discount: </strong></th>
+                                                <th><strong>Desconto: </strong></th>
                                                 <td class="text">
                                                     <div class="form-group">
-                                                        <input type="text" name="discount" value="0"
+                                                        <input type="number" name="discount" value="0"
                                                             class="form-control calcEvent text-md-right input-sm"
                                                             id="discount" placeholder="" required style="width: 40%">
                                                     </div>
@@ -128,8 +128,8 @@
                                             </tr>
                                             <tr>
                                                 <input type="hidden" name="valor" class="valor" value="">
-                                                <th><strong>Total: </strong></th>
-                                                <td class="text"><span id="valor">0.00</span></td>
+                                                <th><strong>Total:</strong></th>
+                                                <td class="text">{{ $appSystem->currency }} <span id="valor">0.00</span></td>
                                             </tr>
                                         </table>
                                     </div>

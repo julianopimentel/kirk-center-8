@@ -96,7 +96,7 @@
                                                 <label class="form-check-label" for="check1">Observação obrigatório</label>
                                             </div>
                                         </div>
-                                        <label class="control-label"><strong>Localização</strong></label>
+                                        
                                         <div class="inner">
                                             <div class="form-check form-check-inline mr-1">
                                                 <input class="form-check-input" name="obg_city" type="checkbox"
@@ -111,7 +111,8 @@
                                                 <label class="form-check-label" for="check1">Estado obrigatório</label>
                                             </div>
                                         </div>
-
+                                        <br>
+                                        <label class="control-label"><strong>Localização</strong></label>
                                         <div class="inner">
                                             <div class="form-check form-check-inline mr-1">
                                                 <input class="form-check-input" name="geolocation" type="checkbox"
@@ -119,9 +120,9 @@
                                                 <label
                                                     title="Caso ative a opção de localização, os campos de endereço nas pessoas ficam ocultos até a desativação dessa opção"
                                                     class="form-check-label" for="check1">Utilizar geolocalização<span
-                                                        class="badge badge-info">Beta</span><small>Usado para implantação de igrejas, mas necessário configurar cada pessoa</small></label>
+                                                        class="badge badge-info">Beta</span></label>
                                             </div>
-                                        </div>
+                                        </div><small>Usado para implantação de igrejas, mas é necessário informar a latitude e longitude para cada pessoa</small>
                                     </div>
 
                                     <div class="form-group">
@@ -130,6 +131,7 @@
                                             value="{{ $settings->timezone }}" required>
                                         <a href="http://php.net/manual/en/timezones.php" target="_blank">Timezone</a>
                                     </div>
+                                    
                                     <!-- /.row-->
                                     <button class="btn btn-success" type="submit">Salvar</button>
                                     <a class="btn btn-primary" href="{{ route('settings') }}">Retornar</a>

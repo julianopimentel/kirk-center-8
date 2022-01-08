@@ -125,7 +125,7 @@
                                         <tr>
                                             <td>{{ $historic->id }}</td>
                                             <td>{{ $historic->type($historic->type) }}</td>
-                                            <td>R$ {{ number_format($historic->amount), 2, '.', ',' }}</td>
+                                            <td>{{ $appSystem->currency }} {{ number_format($historic->amount), 2, '.', ',' }}</td>
                                             <td>
                                                 @if ($historic->tipo)
                                                     <span class="{{ $historic->status->class }}">
@@ -174,12 +174,10 @@
                                     @endforelse
                                 </tbody>
                             </table>
-
                             @if (isset($dataForm))
                                 {!! $historics->appends($dataForm)->links() !!}
                             @else
                                 {!! $historics->links() !!}
-
                             @endif
                         </div>
                     </div>

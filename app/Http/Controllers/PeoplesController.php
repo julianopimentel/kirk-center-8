@@ -82,7 +82,7 @@ class PeoplesController extends Controller
         //localidade normal
         $countries = Country::get(["name", "id"]);
 
-        return view('people.createForm', compact('campo', 'locations'), ['statuses' => $statuses, 'roles' => $roles, 'countries' => $countries]);
+        return view('people.createForm', compact('locations'), ['statuses' => $statuses, 'roles' => $roles, 'countries' => $countries]);
     }
 
     public function store(Request $request)
@@ -218,7 +218,7 @@ class PeoplesController extends Controller
         $state = State::get(["name", "id"]);
         $city = City::get(["name", "id"]);
 
-        return view('people.EditForm', compact('campo', 'locations'), ['statuses' => $statuses, 'people' => $people, 'roles' => $roles, 'countries' => $countries, 'state' => $state, 'city' => $city]);
+        return view('people.EditForm', compact('locations'), ['statuses' => $statuses, 'people' => $people, 'roles' => $roles, 'countries' => $countries, 'state' => $state, 'city' => $city]);
     }
     /**
      * Update the specified resource in storage.

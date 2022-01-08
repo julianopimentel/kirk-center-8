@@ -60,7 +60,7 @@ class Peoples_PrecadastroController extends Controller
         $campo = Config_system::find('1')->first();
         //carregar o status
         $statuses = Status::all()->where("type", 'precadastro');
-        return view('people_precadastro.EditForm', compact('campo'), ['statuses' => $statuses, 'people' => $people]);
+        return view('people_precadastro.EditForm', ['statuses' => $statuses, 'people' => $people]);
     }
 
     public function update(Request $request, $id)

@@ -7,7 +7,7 @@
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                      <h4>Saida financeira</h4></div>
+                      <h4>Saída financeira</h4></div>
                     <div class="card-body">
                         <br>  
             <form action="{{ route('withdraw.store') }}" method="post">
@@ -37,7 +37,7 @@
             <!-- /.row-->
             <div class="row">
                 <div class="form-group col-sm-3">
-                    <label for="ccmonth">Valor</label>
+                    <label for="ccmonth">Valor</label> em {{ $appSystem->currency }}
                     <input type="number" name="valor" class="form-control" placeholder="Valor do depósito" data-thousands="." data-decimal="," data-prefix="R$ " maxlength="18"  required>
                 </div>
 

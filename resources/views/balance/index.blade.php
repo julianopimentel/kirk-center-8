@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="form-groups row">
                         <div class="col-sm-2 col-md-2 col-lg-4 col-xl-10">
-                                <h4>Balance</h4>
+                                <h4>Financeiro</h4>
                             
                             <div class="card-body">
                                 <div class="form-group row">
@@ -16,7 +16,7 @@
 
                                         <div class="inner">
 
-                                            <h3><i class="c-icon c-icon-2xl cil-cash text-dark"></i> R$ {{ $amount }}
+                                            <h3><i class="c-icon c-icon-2xl cil-cash text-dark"></i> {{ $appSystem->currency }} {{ $amount }}
                                             </h3>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                                 <tr>
                                                     <td>{{ $historic->id }}</td>
                                                     <td>{{ $historic->type($historic->type) }}</td>
-                                                    <td>R$ {{ number_format($historic->amount), 2, '.', ',' }}</td>
+                                                    <td>{{ $appSystem->currency }} {{ number_format($historic->amount), 2, '.', ',' }}</td>
                                                     <td>
                                                         @if ($historic->tipo)
                                                             <span class="{{ $historic->status->class }}">
