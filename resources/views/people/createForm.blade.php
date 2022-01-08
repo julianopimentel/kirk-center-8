@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="name">Sobrenome @if ($campo->obg_last_name == true)
+                                                    <label for="name">Sobrenome @if ($appSystem->obg_last_name == true)
                                                             *
                                                         @endif</label>
                                                     <div class="input-group">
@@ -55,7 +55,7 @@
                                                                 </svg>
                                                         </div>
                                                         <input class="form-control" id='last_name' name="last_name"
-                                                            type="text" placeholder="Silva" @if ($campo->obg_last_name == true)
+                                                            type="text" placeholder="Silva" @if ($appSystem->obg_last_name == true)
                                                         required
                                                         @endif
                                                         >
@@ -67,7 +67,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Email @if ($campo->obg_email == true)
+                                                    <label for="ccnumber">Email @if ($appSystem->obg_email == true)
                                                             *
                                                         @endif</label>
                                                     <div class="input-group">
@@ -80,7 +80,7 @@
                                                         </div>
                                                         <input class="form-control" name="email" type="email"
                                                             placeholder="joao@live.com" autocomplete="joao@live.com"
-                                                            @if ($campo->obg_email == true)
+                                                            @if ($appSystem->obg_email == true)
                                                         required
                                                         @endif
                                                         >
@@ -93,7 +93,7 @@
                                         <div class="row">
                                             <div class="form-group col-sm-3">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Celular @if ($campo->obg_mobile == true)
+                                                    <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
                                                             *
                                                         @endif</label>
                                                     <div class="input-group">
@@ -106,7 +106,7 @@
                                                         </div>
                                                         <input class="form-control" name="mobile" type="tel"
                                                             placeholder="11 99999-9999" pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}"
-                                                            @if ($campo->obg_mobile == true)
+                                                            @if ($appSystem->obg_mobile == true)
                                                         required
                                                         @endif
                                                         >
@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="form-group col-sm-3">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Data de Nascimento @if ($campo->obg_birth == true)
+                                                    <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
                                                             *
                                                         @endif</label>
                                                     <div class="input-group">
@@ -127,7 +127,7 @@
                                                                 </svg>
                                                         </div>
                                                         <input class="form-control" name="birth_at" type="date"
-                                                            placeholder="date" @if ($campo->obg_birth == true)
+                                                            placeholder="date" @if ($appSystem->obg_birth == true)
                                                         required
                                                         @endif
                                                         >
@@ -135,13 +135,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-3">
-                                                <label class="col-md-3 col-form-label">Sexo @if ($campo->obg_sex == true)
+                                                <label class="col-md-3 col-form-label">Sexo @if ($appSystem->obg_sex == true)
                                                         *
                                                     @endif</label>
                                                 <div class="col-md-12 col-form-label">
                                                     <div class="form-check form-check-inline mr-1">
                                                         <input class="form-check-input" type="radio" value="m" name="sex"
-                                                            @if ($campo->sex == true)
+                                                            @if ($appSystem->sex == true)
                                                         required
                                                         @endif
                                                         >
@@ -154,7 +154,7 @@
                                                     </div>
                                                     <div class="form-check form-check-inline mr-1">
                                                         <input class="form-check-input" type="radio" value="f" name="sex"
-                                                            @if ($campo->sex == true)
+                                                            @if ($appSystem->sex == true)
                                                         required
                                                         @endif
                                                         >
@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="tab-pane" id="endereco" role="tabpanel">
                                     <div class="card-body">
-                                        @if ($campo->geolocation == true)       
+                                        @if ($appSystem->geolocation == true)       
                                         <div id="map"></div>
                                         <ul id="geoData">
                                             <div class="row">
@@ -253,7 +253,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-sm-4">
-                                                <label for="city">Country @if ($campo->obg_city == true)
+                                                <label for="city">Country @if ($appSystem->obg_city == true)
                                                         *
                                                     @endif</label>
                                                 <div class="input-group">
@@ -275,7 +275,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="country">State @if ($campo->obg_state == true)
+                                                <label for="country">State @if ($appSystem->obg_state == true)
                                                         *
                                                     @endif</label>
                                                 <div class="input-group">
@@ -287,14 +287,14 @@
                                                             </svg>
                                                     </div>
                                                     <select name="state-dd" id="state-dd" class="form-control">
-                                                    </select @if ($campo->obg_state == true)
+                                                    </select @if ($appSystem->obg_state == true)
                                                     required
                                                     @endif
                                                     >
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="city">City @if ($campo->obg_city == true)
+                                                <label for="city">City @if ($appSystem->obg_city == true)
                                                         *
                                                     @endif</label>
                                                 <div class="input-group">
@@ -306,7 +306,7 @@
                                                             </svg>
                                                     </div>
                                                     <select id="city-dd" name="city-dd" class="form-control">
-                                                    </select @if ($campo->obg_city == true)
+                                                    </select @if ($appSystem->obg_city == true)
                                                     required
                                                     @endif
                                                     >
@@ -345,13 +345,13 @@
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="textarea-input">Anotações
-                                                @if ($campo->obg_note == true)
+                                                @if ($appSystem->obg_note == true)
                                                     *
                                                 @endif
                                             </label>
                                             <div class="col-md-9">
                                                 <textarea class="form-control" name="note" rows="9"
-                                                    placeholder="Content.." @if ($campo->obg_note == true)
+                                                    placeholder="Content.." @if ($appSystem->obg_note == true)
                                                                                     required
                                                                                     @endif
                                                                                     ></textarea>
@@ -386,7 +386,7 @@
             $("#botao").prop('disabled', $(this).val().length < 3);
         });
     </script>
-    @if ($campo->geolocation == true)  
+    @if ($appSystem->geolocation == true)  
     <style type="text/css">
         #map {
             width: 100%;

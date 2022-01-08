@@ -15,6 +15,7 @@ class CommentController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
 
     // get all comments of a post

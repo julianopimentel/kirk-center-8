@@ -24,6 +24,7 @@ class GroupsController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
 
     /**

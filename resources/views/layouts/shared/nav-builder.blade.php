@@ -101,9 +101,11 @@
                         href="{{ route('people.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem
                         das
                         Pessoas</a></li>
+                        @if ($appSystem->geolocation == true)
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
                         href="{{ route('location.index') }}"><span class="c-sidebar-nav-icon"></span>Localizações</a>
                 </li>
+                @endif
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
                         href="{{ route('group.Financial') }}"><span class="c-sidebar-nav-icon"></span>Listagem de
                         Grupos</a></li>

@@ -21,6 +21,7 @@ class BalanceController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
 
     //index

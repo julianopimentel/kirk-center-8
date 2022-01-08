@@ -22,6 +22,7 @@ class Requests_PrayerController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
 
     /**

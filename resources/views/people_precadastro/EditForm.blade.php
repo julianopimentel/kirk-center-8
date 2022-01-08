@@ -47,7 +47,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Email @if ($campo->obg_email == true)
+                                                    <label for="ccnumber">Email @if ($appSystem->obg_email == true)
                                                         *
                                                     @endif</label>
                                                     <div class="input-group">
@@ -58,7 +58,7 @@
                                                                     </use>
                                                                 </svg> </div>
                                                         <input class="form-control" id="email" name="email" type="text"
-                                                            placeholder="joao@live.com" value="{{ $people->email }}" @if ($people->status_id != '21') disabled @endif @if ($campo->obg_email == true)
+                                                            placeholder="joao@live.com" value="{{ $people->email }}" @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_email == true)
                                                             required
                                                             @endif
                                                             >
@@ -71,7 +71,7 @@
                                         <div class="row">
                                             <div class="form-group col-sm-3">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Celular @if ($campo->obg_mobile == true)
+                                                    <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
                                                         *
                                                     @endif</label>
                                                     <div class="input-group">
@@ -83,7 +83,7 @@
                                                                 </svg> </div>
                                                         <input class="form-control" id="mobile" name="mobile" type="tel"
                                                             pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}"
-                                                            value="{{ $people->mobile }}" @if ($people->status_id != '21') disabled @endif @if ($campo->obg_mobile == true)
+                                                            value="{{ $people->mobile }}" @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_mobile == true)
                                                             required
                                                             @endif
                                                             >
@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="form-group col-sm-3">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Data de Nascimento @if ($campo->obg_birth == true)
+                                                    <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
                                                         *
                                                     @endif</label>
                                                     <div class="input-group">
@@ -104,7 +104,7 @@
                                                                 </svg> </div>
                                                         <input class="form-control" id="birth_at" name="birth_at"
                                                             type="date" placeholder="date"
-                                                            value="{{ $people->birth_at }}" @if ($people->status_id != '21') disabled @endif @if ($campo->obg_birth == true)
+                                                            value="{{ $people->birth_at }}" @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_birth == true)
                                                             required
                                                             @endif
                                                             >
@@ -112,13 +112,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-3">
-                                                <label class="col-md-4 col-form-label">Sexo @if ($campo->obg_sex == true)
+                                                <label class="col-md-4 col-form-label">Sexo @if ($appSystem->obg_sex == true)
                                                     *
                                                 @endif</label>
                                                 <div class="col-md-12 col-form-label">
                                                     <div class="form-check form-check-inline mr-1">
                                                         <input class="form-check-input" id="sex" type="radio" value="m"
-                                                            name="sex" {{ $people->sex == 'm' ? 'checked' : '' }} @if ($people->status_id != '21') disabled @endif @if ($campo->sex == true)
+                                                            name="sex" {{ $people->sex == 'm' ? 'checked' : '' }} @if ($people->status_id != '21') disabled @endif @if ($appSystem->sex == true)
                                                             required
                                                             @endif
                                                             >
@@ -130,7 +130,7 @@
                                                     </div>
                                                     <div class="form-check form-check-inline mr-1">
                                                         <input class="form-check-input" id="sex" type="radio" value="f"
-                                                            name="sex" {{ $people->sex == 'f' ? 'checked' : '' }} @if ($people->status_id != '21') disabled @endif @if ($campo->sex == true)
+                                                            name="sex" {{ $people->sex == 'f' ? 'checked' : '' }} @if ($people->status_id != '21') disabled @endif @if ($appSystem->sex == true)
                                                             required
                                                             @endif
                                                             >
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-sm-5">
-                                                <label for="city">City @if ($campo->obg_city == true)
+                                                <label for="city">City @if ($appSystem->obg_city == true)
                                                     *
                                                 @endif</label>
                                                 <div class="input-group">
@@ -174,14 +174,14 @@
                                                                 </use>
                                                             </svg> </div>
                                                     <input class="form-control" id="city" name="city" type="text"
-                                                        placeholder="Enter your city" value="{{ $people->city }}" @if ($people->status_id != '21') disabled @endif  @if ($campo->obg_city == true)
+                                                        placeholder="Enter your city" value="{{ $people->city }}" @if ($people->status_id != '21') disabled @endif  @if ($appSystem->obg_city == true)
                                                         required
                                                         @endif
                                                         >
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-3">
-                                                <label for="country">State @if ($campo->obg_state == true)
+                                                <label for="country">State @if ($appSystem->obg_state == true)
                                                     *
                                                 @endif</label>
                                                 <div class="input-group">
@@ -192,7 +192,7 @@
                                                                 </use>
                                                             </svg> </div>
                                                     <input class="form-control" id="state" name="state" type="text"
-                                                        placeholder="State" placeholder="SP" value="{{ $people->state }}" @if ($people->status_id != '21') disabled @endif  @if ($campo->obg_state == true)
+                                                        placeholder="State" placeholder="SP" value="{{ $people->state }}" @if ($people->status_id != '21') disabled @endif  @if ($appSystem->obg_state == true)
                                                         required
                                                         @endif
                                                         >
@@ -267,12 +267,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="textarea-input">Anotações  @if ($campo->obg_note == true)
+                                            <label class="col-md-3 col-form-label" for="textarea-input">Anotações  @if ($appSystem->obg_note == true)
                                                 *
                                             @endif</label>
                                             <div class="col-md-9">
                                                 <textarea class="form-control" id="note" name="note" rows="9"
-                                                    placeholder="Content.." @if ($people->status_id != '21') disabled @endif @if ($campo->obg_note == true)
+                                                    placeholder="Content.." @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_note == true)
                                                     required
                                                     @endif
                                                     >{{ $people->note }}</textarea >

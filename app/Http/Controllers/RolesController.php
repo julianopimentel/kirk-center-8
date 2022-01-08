@@ -16,6 +16,7 @@ class RolesController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('permission');
+        $this->middleware('system');
     }
     /**
      * Display a listing of the resource.
