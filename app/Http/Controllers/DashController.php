@@ -11,6 +11,7 @@ use App\Models\Config_meta;
 use App\Models\People_Groups;
 use App\Models\People_Precadastro;
 use Overtrue\LaravelLike\Traits\Likeable;
+use PeoplePrecadastro;
 
 class DashController extends Controller
 {
@@ -69,6 +70,9 @@ class DashController extends Controller
         $anoconversao = People::where('is_conversion', true)->whereYear('created_at', date('Y'))->count();
         $anopessoa = People::whereYear('created_at', date('Y'))->count();
         $anogrupo = People_Groups::whereYear('registered', date('Y'))->count();
+        $anorecado = Notes::whereYear('created_at', date('Y'))->count();
+        $anocalendario = Event::whereYear('created_at', date('Y'))->count();
+        $anoprecadastro = People_Precadastro::whereYear('created_at', date('Y'))->count();
 
         //porcentagem por pessoas com status x meta anual
         $porcentage_visitante = $this->porcentagem_nx($anovisitante, $meta->visitante_ano);
@@ -76,6 +80,9 @@ class DashController extends Controller
         $porcentage_conversao = $this->porcentagem_nx($anoconversao, $meta->conversao_ano);
         $porcentage_pessoa = $this->porcentagem_nx($anopessoa, $meta->pessoa_ano);
         $porcentage_grupo = $this->porcentagem_nx($anogrupo, $meta->grupo_ativo_ano);
+        $porcentage_recado = $this->porcentagem_nx($anorecado, $meta->recado_ano);
+        $porcentage_calendario = $this->porcentagem_nx($anocalendario, $meta->calendario_ano);
+        $porcentage_precadastro = $this->porcentagem_nx($anoprecadastro, $meta->precadastro_ano);
 
         //soma de financeiro por tipo de movimento anual
         $anodizimo = Historic::where('tipo', '9')->whereYear('date', date('Y'))->sum('amount');
@@ -243,7 +250,10 @@ class DashController extends Controller
                 'despesa_anterior',
                 'anogrupo',
                 'porcentage_grupo',
-                'precadastro'
+                'precadastro',
+                'porcentage_recado',
+                'porcentage_calendario',
+                'porcentage_precadastro'
             )
         );
     }

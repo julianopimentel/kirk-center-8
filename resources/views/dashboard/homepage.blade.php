@@ -9,19 +9,28 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-primary">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-people"></use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ $peopleativo }} </div><small
                                         class="text-muted text-uppercase font-weight-bold">Pessoas</small>
+                                    @if ($meta->pessoa_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-primary" role="progressbar"
+                                                style="width: {{ $porcentage_pessoa }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('people') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_people == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('people') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -29,20 +38,29 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-success">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-user-follow">
                                             </use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ $precadastro }}</div><small
                                         class="text-muted text-uppercase font-weight-bold"> Pré-cadastros</small>
+                                    @if ($meta->pessoa_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-success" role="progressbar"
+                                                style="width: {{ $porcentage_precadastro }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('peopleList') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_precadastro == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('peopleList') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -50,19 +68,28 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-info">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-mood-good"></use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ $peoplevisitor }}</div><small
                                         class="text-muted text-uppercase font-weight-bold">Visitantes</small>
+                                    @if ($meta->visitante_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-info" role="progressbar"
+                                                style="width: {{ $porcentage_visitante }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('people') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_people == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('people') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -70,20 +97,29 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-danger">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-speedometer">
                                             </use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ number_format($porcentage_total, 2) }}%</div><small
                                         class="text-muted text-uppercase font-weight-bold">Transações</small>
+                                    @if ($meta->fin_dizimo_ano or $meta->fin_oferta_ano or $meta->fin_despesa_ano or $meta->fin_acao_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-danger" role="progressbar"
+                                                style="width: {{ $porcentage_total }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('financial') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_financial == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('financial') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -91,19 +127,28 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-warning">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-calendar"></use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ $eventos }}</div><small
                                         class="text-muted text-uppercase font-weight-bold">Calendários</small>
+                                    @if ($meta->calendario_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                style="width: {{ $porcentage_calendario }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('calender') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_calendar == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('calender') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -111,19 +156,28 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-muted text-right mb-4">
-                                        <svg class="c-icon c-icon-2xl">
+                                        <svg class="c-icon c-icon-2xl text-secondary">
                                             <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-speech"></use>
                                         </svg>
                                     </div>
                                     <div class="text-value-lg">{{ $notes }}</div><small
                                         class="text-muted text-uppercase font-weight-bold">Recados</small>
+                                    @if ($meta->recado_ano != 0)
+                                        <div class="progress progress-xs mt-3 mb-0">
+                                            <div class="progress-bar bg-secondary" role="progressbar"
+                                                style="width: {{ $porcentage_recado }}%" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @endif
                                 </div>
-                                <div class="card-footer px-3 py-2">
-                                    <a class="btn-block text-muted d-flex justify-content-between align-items-center"
-                                        href="{{ url('message') }}">
-                                        <span class="small font-weight-bold">Acessar</span>
-                                    </a>
-                                </div>
+                                @if ($appPermissao->view_message == true)
+                                    <div class="card-footer px-3 py-2">
+                                        <a class="btn-block text-muted d-flex justify-content-between align-items-center"
+                                            href="{{ url('message') }}">
+                                            <span class="small font-weight-bold">Acessar</span>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.col-->
@@ -137,17 +191,13 @@
                                     <h4 class="card-title mb-0">Período Financeiro</h4>
                                     <div class="small text-muted">Movimento de entrada e saída</div>
                                 </div>
-                                <!--
-                                                <div class="col-sm-7 d-none d-md-block">
-                                                    <button class="btn btn-primary float-right" type="button">
-                                                        <svg class="c-icon">
-                                                            <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-cloud-download"></use>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
-                                                    </div>
-                                                </div>
-                                                 /.col-->
+                                @if ($appPermissao->view_financial == true)
+                                <div class="col-sm-7 d-none d-md-block">
+                                    <button class="btn btn-info float-right" type="button">
+                                        <a class="c-icon c-icon-sm cil-money" href="{{ route('deposit.balance') }}"></a>
+                                    </button>
+                                </div>
+                                @endif
                             </div>
                             <!-- /.row-->
                             <div class="c-chart-wrapper" style="height:300px;margin-top:40px;">
@@ -160,55 +210,60 @@
                                 <div class="small text-muted">Financeiro x Meta Anual</div>
                                 <div class="row text-center">
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                        <div>Dizimos</div><strong> {{$appSystem->currency}}
+                                        <div>Dizimos</div><strong> {{ $appSystem->currency }}
                                             {{ number_format($anodizimo, 2) }}</strong>
                                         <div class="progress progress-xs mt-2">
                                             <div class="progress-bar bg-success" role="progressbar"
                                                 style="width: {{ $porcentage_dizimo }}%" aria-valuenow="40"
                                                 aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="small text-muted">{{$appSystem->currency}} {{ number_format($meta->fin_dizimo_ano, 2) }}</div>
+                                        <div class="small text-muted">{{ $appSystem->currency }}
+                                            {{ number_format($meta->fin_dizimo_ano, 2) }}</div>
                                     </div>
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                        <div>Ofertas</div><strong> {{$appSystem->currency}}
+                                        <div>Ofertas</div><strong> {{ $appSystem->currency }}
                                             {{ number_format($anooferta, 2) }}</strong>
                                         <div class="progress progress-xs mt-2">
                                             <div class="progress-bar bg-info" role="progressbar"
                                                 style="width: {{ $porcentage_oferta }}%" aria-valuenow="20"
                                                 aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="small text-muted">{{$appSystem->currency}} {{ number_format($meta->fin_oferta_ano, 2) }}</div>
+                                        <div class="small text-muted">{{ $appSystem->currency }}
+                                            {{ number_format($meta->fin_oferta_ano, 2) }}</div>
                                     </div>
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                        <div>Doações</div><strong> {{$appSystem->currency}}
+                                        <div>Doações</div><strong> {{ $appSystem->currency }}
                                             {{ number_format($anodoacao, 2) }}</strong>
                                         <div class="progress progress-xs mt-2">
                                             <div class="progress-bar bg-warning" role="progressbar"
                                                 style="width: {{ $porcentage_doacao }}%" aria-valuenow="60"
                                                 aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="small text-muted">{{$appSystem->currency}} {{ number_format($meta->fin_acao_ano, 2) }}</div>
+                                        <div class="small text-muted">{{ $appSystem->currency }}
+                                            {{ number_format($meta->fin_acao_ano, 2) }}</div>
                                     </div>
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                        <div>Despesas</div><strong> {{$appSystem->currency}}
+                                        <div>Despesas</div><strong> {{ $appSystem->currency }}
                                             {{ number_format($anodespesa, 2) }}</strong>
                                         <div class="progress progress-xs mt-2">
                                             <div class="progress-bar bg-danger" role="progressbar"
                                                 style="width: {{ $porcentage_despesa }}%" aria-valuenow="80"
                                                 aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="small text-muted">{{$appSystem->currency}} {{ number_format($meta->fin_despesa_ano, 2) }}
+                                        <div class="small text-muted">{{ $appSystem->currency }}
+                                            {{ number_format($meta->fin_despesa_ano, 2) }}
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
-                                        <div>Total</div><strong> {{$appSystem->currency}}
+                                        <div>Total</div><strong> {{ $appSystem->currency }}
                                             {{ number_format($totalfinanceiro, 2) }} </strong>
                                         <div class="progress progress-xs mt-2">
                                             <div class="progress-bar" role="progressbar"
                                                 style="width: {{ $porcentage_total }}%" aria-valuenow="40"
                                                 aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="small text-muted">{{$appSystem->currency}} {{ number_format($metadash * 12, 2) }}</div>
+                                        <div class="small text-muted">{{ $appSystem->currency }}
+                                            {{ number_format($metadash * 12, 2) }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -226,24 +281,24 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-5">
                                             <!--
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <div class="c-callout c-callout-info"><small class="text-muted">Total de
-                                                                            Visitantes</small>
-                                                                        <div class="text-value-lg">{{ $totalvisitante }}</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <div class="c-callout c-callout-danger"><small class="text-muted">Total de
-                                                                            Conversões</small>
-                                                                        <div class="text-value-lg"> {{ $totalconversao }}</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <hr class="mt-0">
-                                                            /.row-->
+                                                                                <div class="row">
+                                                                                    <div class="col-6">
+                                                                                        <div class="c-callout c-callout-info"><small class="text-muted">Total de
+                                                                                                Visitantes</small>
+                                                                                            <div class="text-value-lg">{{ $totalvisitante }}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-6">
+                                                                                        <div class="c-callout c-callout-danger"><small class="text-muted">Total de
+                                                                                                Conversões</small>
+                                                                                            <div class="text-value-lg"> {{ $totalconversao }}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <hr class="mt-0">
+                                                                                /.row-->
                                             <div class="small text-muted">Membresia x Meta Anual</div>
                                             <div class="progress-group">
                                                 <div class="progress-group-header align-items-end">
@@ -373,7 +428,7 @@
                                                 </div>
                                                 <div class="progress-group-bars">
                                                     <div class="progress progress-xs">
-                                                        <div class="progress-bar bg-secondary" role="progressbar"
+                                                        <div class="progress-bar bg-light" role="progressbar"
                                                             style="width: {{ $porcentage_m }}%" aria-valuenow="43"
                                                             aria-valuemin="0" aria-valuemax="100"></div>
                                                         <div class="progress-bar bg-warning" role="progressbar"
@@ -384,25 +439,25 @@
                                             </div>
                                         </div>
                                         <!-- /.col -->
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <!--
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <div class="c-callout c-callout-warning"><small class="text-muted">Total de
-                                                                            Batismos</small>
-                                                                        <div class="text-value-lg">{{ $totalbatismo }}</div>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="col-6">
-                                                                    <div class="c-callout c-callout-success"><small class="text-muted">Total de
-                                                                            Likes</small>
-                                                                        <div class="text-value-lg"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <hr class="mt-0">
-                                                                                                     /.row-->
+                                                                                <div class="row">
+                                                                                    <div class="col-6">
+                                                                                        <div class="c-callout c-callout-warning"><small class="text-muted">Total de
+                                                                                                Batismos</small>
+                                                                                            <div class="text-value-lg">{{ $totalbatismo }}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    
+                                                                                    <div class="col-6">
+                                                                                        <div class="c-callout c-callout-success"><small class="text-muted">Total de
+                                                                                                Likes</small>
+                                                                                            <div class="text-value-lg"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <hr class="mt-0">
+                                                                                                                         /.row-->
                                             <div class="small text-muted">Gráfico da membresia</div>
                                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                                 <div class="card-body">
@@ -435,7 +490,7 @@
                             <h4 class="card-title mb-0">Tipos de Transações</h4>
                             <div class="row">
                                 <!-- /.col-->
-                                <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
 
                                     <div class="row">
                                         <!-- /.col-->
@@ -447,26 +502,26 @@
                                     </div>
                                     <!-- /.row-->
                                 </div>
-                                @if ( $dizimo_anterior or $oferta_anterior or $doacao_anterior or $despesa_anterior !== 0)
-                                <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
-                                    <h4 class="card-title mb-0"> </h4>
-                                    <div class="row">
-                                        <!-- /.col-->
-                                        <div class="card-body">
-                                            <div class="c-chart-wrapper">Ano Anterior
-                                                <canvas id="chats-tipo-movimento-anterior"></canvas>
+                                @if ($dizimo_anterior or $oferta_anterior or $doacao_anterior or $despesa_anterior !== 0)
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                                        <h4 class="card-title mb-0"> </h4>
+                                        <div class="row">
+                                            <!-- /.col-->
+                                            <div class="card-body">
+                                                <div class="c-chart-wrapper">Ano Anterior
+                                                    <canvas id="chats-tipo-movimento-anterior"></canvas>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- /.row-->
                                     </div>
-                                    <!-- /.row-->
-                                </div>
                                 @endif
                             </div>
                             <br>
                             <h4 class="card-title mb-0">Formas de pagamento de entradas</h4>
                             <div class="row">
                                 <!-- /.col-->
-                                <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                     <div class="row">
                                         <!-- /.col-->
                                         <div class="card-body">
@@ -477,7 +532,7 @@
                                     </div>
                                 </div>
                                 @if ($formapag_dinheiro_anterior or $formapag_cheque_anterior or $formapag_credito_anterior or $formapag_debito_anterior or $formapag_boleto_anterior or $formapag_pix !== 0)
-                                    <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
                                         <div class="row">
                                             <!-- /.col-->
                                             <div class="card-body">

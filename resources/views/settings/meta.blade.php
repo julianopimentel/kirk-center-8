@@ -57,30 +57,45 @@
                                         </div>
                                           -->
                                 <div class="row">
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="name">Visitante</label>
                                         <input class="form-control" id="visitante_ano" name="visitante_ano" type="number"
                                             value="{{ $settings->visitante_ano }}">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="name">Grupos</label>
                                         <input class="form-control" id="grupo_ativo_ano" name="grupo_ativo_ano"
                                             type="number" value="{{ $settings->grupo_ativo_ano }}">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="name">Batismo</label>
                                         <input class="form-control" id="batismo_ano" name="batismo_ano" type="number"
                                             value="{{ $settings->batismo_ano }}">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="name">Conversão</label>
                                         <input class="form-control" id="conversao_ano" name="conversao_ano" type="number"
                                             value="{{ $settings->conversao_ano }}">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="name">Pessoa</label>
                                         <input class="form-control" id="pessoa_ano" name="pessoa_ano" type="number"
                                             value="{{ $settings->pessoa_ano }}">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="name">Eventos</label>
+                                        <input class="form-control" id="calendario_ano" name="calendario_ano"
+                                            type="number" value="{{ $settings->calendario_ano }}">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="name">Recados</label>
+                                        <input class="form-control" id="recado_ano" name="recado_ano"
+                                            type="number" value="{{ $settings->recado_ano }}">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="name">Pré-cadastro</label>
+                                        <input class="form-control" id="precadastro_ano" name="precadastro_ano"
+                                            type="number" value="{{ $settings->precadastro_ano }}">
                                     </div>
                                     <!--
                                             <div class="col-sm-2">

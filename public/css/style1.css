@@ -82,9 +82,6 @@ p, ul:not(.list-unstyled), ol {
 .shadow {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); }
 
-.text-muted {
-  color: #98a6ad !important; }
-
 /* 3.2 Form */
 .form-control,
 .input-group-text,
@@ -1427,16 +1424,6 @@ h6 .badge {
 
 /* 4. Theme Style */
 /* 4.1 Misc */
-:root {
-  /* Colors */
-  --primary:  #6777ef;
-  --secondary:  #34395e;
-  --success:  #47c363;
-  --info:  #3abaf4;
-  --warning:  #ffa426;
-  --danger:  #fc544b;
-  --light:  #e3eaef;
-  --dark:  #191d21; }
 
 body, html {
   min-height: 100%; }

@@ -98,7 +98,7 @@ class ConfigSystemController extends Controller
         $settings->save();
         //adicionar log
         $this->adicionar_log('7', 'U', $settings);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         //reload do index
         return redirect()->back();
     }
@@ -117,7 +117,7 @@ class ConfigSystemController extends Controller
         $settings->save();
         //adicionar log 
         $this->adicionar_log('7', 'U', $settings);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         //reload do index
         return redirect()->back();
     }
@@ -140,7 +140,7 @@ class ConfigSystemController extends Controller
         $settings->save();
         //adicionar log 
         $this->adicionar_log('7', 'U', $settings);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         //reload do index
         return redirect()->back();
     }
@@ -179,6 +179,9 @@ class ConfigSystemController extends Controller
         //$settings->visualizacao_ano       = $request->input('visualizacao_ano');
         //$settings->publicacao_ano       = $request->input('publicacao_ano');
         //$settings->comentario_ano       = $request->input('comentario_ano');
+        $settings->calendario_ano       = $request->input('calendario_ano');
+        $settings->recado_ano       = $request->input('recado_ano');
+        $settings->precadastro_ano       = $request->input('precadastro_ano');
 
         //valores do ano dividido por meses em valor inteiro /financeiro
         (int)$settings->fin_dizimo_mes       = intval($request->input('fin_dizimo_ano') / 12);
@@ -193,7 +196,7 @@ class ConfigSystemController extends Controller
         $settings->save();
         //adicionar log 
         $this->adicionar_log('7', 'U', $settings);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         //reload do index
         return redirect()->back();
     }

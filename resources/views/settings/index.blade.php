@@ -12,7 +12,7 @@
                                     @if ($appPermissao->settings_general == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-cog"></i>
                                             </div>
                                             <div class="card-body">
@@ -27,7 +27,7 @@
                                     @if ($appPermissao->settings_social == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-search"></i>
                                             </div>
                                             <div class="card-body">
@@ -42,7 +42,7 @@
                                     @if ($appPermissao->settings_email == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-envelope"></i>
                                             </div>
                                             <div class="card-body">
@@ -57,7 +57,7 @@
                                     @if ($appPermissao->settings_roles == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-users"></i>
                                             </div>
                                             <div class="card-body">
@@ -72,7 +72,7 @@
                                     @if ($appPermissao->settings_meta == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-chart-line"></i>
                                             </div>
                                             <div class="card-body">
@@ -87,7 +87,7 @@
                                     @if ($appPermissao->add_people == true)
                                     <div class="col-lg-6">
                                         <div class="card card-large-icons">
-                                            <div class="card-icon bg-primary text-white">
+                                            <div class="card-icon bg-dark text-white">
                                                 <i class="fas fa-cloud"></i>
                                             </div>
                                             <div class="card-body">
