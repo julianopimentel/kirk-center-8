@@ -13,7 +13,7 @@
 
                     @if (empty(Auth::user()->image))
                         <div class="c-avatar"><img class="c-avatar-img"
-                                src="{{ url('/public/uploads/images/user.png?v=1') }}"></div>
+                                src="{{ url('/public/user.png?v=1') }}"></div>
                     @endif
 
                     @if (!empty(Auth::user()->image))
