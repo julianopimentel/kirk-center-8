@@ -20,13 +20,13 @@
                             @if($parentFolder !== 'disable')
                                 <a class="btn btn-primary mt-2" href="{{ route('media.folder.index', [ 'id' => $parentFolder ]) }}">
                                     <i class="cil-level-up"></i>
-                                    back
+                                    Voltar
                                 </a>
                             @endif
                             <a class="btn btn-primary mt-2" href="{{ route('media.folder.add', [ 'thisFolder' => $thisFolder ]) }}">
                                 <i class="cil-plus"></i> 
                                 <i class="cil-folder"></i>
-                                New folder
+                                Nova Pasta
                             </a>
                         </div>
                         <div style="float:left;">
@@ -36,7 +36,7 @@
                                 <label class="btn btn-primary mt-2 ml-1">
                                     <i class="cil-plus"></i>
                                     <i class="cil-file"></i>
-                                    New file <input type="file" name="file" id="file-file-input" hidden>
+                                    Upload do Arquivo <input type="file" name="file" id="file-file-input" hidden>
                                 </label> 
                                 
                             </form>
@@ -74,7 +74,7 @@
                                                 class="btn btn-primary file-move-folder"
                                                 atr="{{ $mediaFolder->id }}"
                                             >
-                                                Move
+                                                Mover
                                             </button>
                                         </td>
                                         <td>
@@ -86,7 +86,7 @@
                                                     class="btn btn-danger file-delete-folder"
                                                     atr="{{ $mediaFolder->id }}"
                                                 >
-                                                    Delete
+                                                    Deletar
                                                 </button>
                                             @endif
                                         </td>
@@ -103,7 +103,7 @@
                                                 href="<?php echo $media->getUrl(); ?>"
                                                 class="btn btn-primary"
                                             >
-                                                Open
+                                                Abrir
                                             </a>
                                         </td>
                                         <td>
@@ -111,7 +111,7 @@
                                                 class="btn btn-primary file-change-file-name"
                                                 atr="{{ $media->id }}"
                                             >
-                                                Rename
+                                                Renomear
                                             </button>
                                         </td>
                                         <td>
@@ -119,7 +119,7 @@
                                                 href="{{ route('media.file.copy', ['id' => $media->id, 'thisFolder' => $thisFolder]) }}"
                                                 class="btn btn-primary"
                                             >   
-                                                Copy
+                                                Cópiar
                                             </a>
                                         </td>
                                         <td>
@@ -127,7 +127,7 @@
                                                 class="btn btn-primary file-move-file"
                                                 atr="{{ $media->id }}"
                                             >
-                                                Move
+                                                Mover
                                             </button>
                                         </td>
                                         <td>
@@ -139,7 +139,7 @@
                                                     class="btn btn-success file-cropp-file"
                                                     atr="{{ $media->id }}"
                                                 >
-                                                    Cropp
+                                                    Cortar
                                                 </button>
                                             <?php 
                                                 }
@@ -150,7 +150,7 @@
                                                 class="btn btn-danger file-delete-file"
                                                 atr="{{ $media->id }}"
                                             >
-                                                Delete
+                                                Deletar
                                             </button>
 
                                             <!--
@@ -171,7 +171,7 @@
 
                     <div class="card border-primary" id="file-move-folder">
                             <div class="card-header">
-                                <h4>Move folder</h4>
+                                <h4>Mover Pasta</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{ route('media.folder.move') }}">
@@ -185,7 +185,7 @@
                                                     <input type="radio" name="folder" value="moveUp">
                                                 </td>
                                                 <td>
-                                                    Move up
+                                                    Subir
                                                 </td>
                                             </tr>
                                         @endif
@@ -205,15 +205,15 @@
                                             </tr>
                                         @endforeach
                                     </table>
-                                    <button type="submit" class="btn btn-primary mt-3">Save</button>
-                                    <button type="button" class="btn btn-primary mt-3" id="file-move-folder-cancel">Cancel</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+                                    <button type="button" class="btn btn-primary mt-3" id="file-move-folder-cancel">Cancelar</button>
                                 </form>
                             </div>
                         </div>
 
                         <div class="card border-primary" id="file-move-file">
                             <div class="card-header">
-                                <h4>Move file</h4>
+                                <h4>Mover arquivo</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{ route('media.file.move') }}">
@@ -227,7 +227,7 @@
                                                     <input type="radio" name="folder" value="moveUp">
                                                 </td>
                                                 <td>
-                                                    Move up
+                                                   Subir
                                                 </td>
                                             </tr>
                                         @endif
@@ -242,15 +242,15 @@
                                             </tr>
                                         @endforeach
                                     </table>
-                                    <button type="submit" class="btn btn-primary mt-3">Save</button>
-                                    <button type="button" class="btn btn-primary mt-3" id="file-move-file-cancel">Cancel</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+                                    <button type="button" class="btn btn-primary mt-3" id="file-move-file-cancel">Cancelar</button>
                                 </form>
                             </div>
                         </div>
 
                         <div class="card border-primary" id="file-rename-file-card">
                             <div class="card-header">
-                                <h4>Rename file</h4>
+                                <h4>Renomear arquivo</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{ route('media.file.update') }}">
@@ -263,14 +263,14 @@
                                         id="file-rename-file-name"
                                         class="form-control"
                                     >
-                                    <button type="submit" class="btn btn-primary mt-3">Save</button>
-                                    <button type="button" class="btn btn-primary mt-3" id="file-rename-file-cancel">Cancel</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+                                    <button type="button" class="btn btn-primary mt-3" id="file-rename-file-cancel">Cancelar</button>
                                 </form>
                             </div>
                         </div>
                         <div class="card border-primary" id="file-rename-folder-card">
                             <div class="card-header">
-                                <h4>Rename folder</h4>
+                                <h4>Renomear Pasta</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{ route('media.folder.update') }}">
@@ -283,8 +283,8 @@
                                         id="file-rename-folder-name"
                                         class="form-control"
                                     >
-                                    <button type="submit" class="btn btn-primary mt-3">Save</button>
-                                    <button type="button" class="btn btn-primary mt-3" id="file-rename-folder-cancel">Cancel</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+                                    <button type="button" class="btn btn-primary mt-3" id="file-rename-folder-cancel">Cancelar</button>
                                 </form>
                             </div>
                         </div>
@@ -297,7 +297,7 @@
                                 <table class="table table-striped table-bordered">
                                     <tr>
                                         <td>
-                                            Name
+                                            Nome
                                         </td>
                                         <td id="file-div-name">
                                             
@@ -305,7 +305,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Real Name
+                                            Nome Real
                                         </td>
                                         <td id="file-div-real-name">
 
@@ -329,7 +329,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Size
+                                            Tamanho
                                         </td>
                                         <td id="file-div-size">
 
@@ -337,7 +337,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Created at
+                                            Criado em
                                         </td>
                                         <td id="file-div-created-at">
 
@@ -345,7 +345,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            Updated at
+                                            Atualizado em
                                         </td>
                                         <td id="file-div-updated-at">
 
@@ -360,19 +360,19 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Delete file</h4>
+                                    <h4 class="modal-title">Deletar arquivo</h4>
                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Are you sure?</p>
+                                    <p>Você tem certeza?</p>
                                 </div>
                                 <div class="modal-footer">
                                     <form action="{{ route('media.file.delete') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="thisFolder" value="{{ $thisFolder }}">
                                         <input type="hidden" name="id" value="" id="file-delete-file-id">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-primary" type="submit">Delete</button>
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-primary" type="submit">Deletar</button>
                                     </form>
                                 </div>
                             </div>
@@ -385,19 +385,19 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Delete folder</h4>
+                                    <h4 class="modal-title">Deletar Pasta</h4>
                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>If you delete a folder, all subfolders and files will also be deleted</p>
+                                    <p>Se você excluir uma pasta, todas as subpastas e arquivos também serão excluídos</p>
                                 </div>
                                 <div class="modal-footer">
                                     <form action="{{ route('media.folder.delete') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="thisFolder" value="{{ $thisFolder }}">
                                         <input type="hidden" name="id" value="" id="file-delete-folder-id">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                        <button class="btn btn-primary" type="submit">Delete</button>
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-primary" type="submit">Deletar</button>
                                     </form>
                                 </div>
                             </div>
@@ -410,7 +410,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Cropp image</h4>
+                                    <h4 class="modal-title">Cortar imagem</h4>
                                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 </div>
                                 <div class="modal-body">
@@ -420,8 +420,8 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary" type="button" id="cropp-img-save-button">Save</button>
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                    <button class="btn btn-primary" type="button" id="cropp-img-save-button">Salvar</button>
                                 </div>
                             </div>
                             <!-- /.modal-content-->
@@ -442,8 +442,8 @@
 
 <style>
     #cropp-img-img{
-        max-width:500px;
-        max-height:500px;
+        max-width:300px;
+        max-height:300px;
     }
 
 </style>
