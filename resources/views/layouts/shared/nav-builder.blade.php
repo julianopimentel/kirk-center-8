@@ -34,7 +34,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexOracao') }}">
                 <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
-                Pedido de oração</a>
+                Pedido de Oração</a>
         </li>
     @endif
     @if (($appPermissao->view_periodo or $appPermissao->view_dash or $appPermissao->view_detail or $appPermissao->view_resumo_financeiro) == true)
@@ -69,7 +69,7 @@
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('prayer') }}">
             <i class="c-icon cil-assistive-listening-system c-sidebar-nav-icon"></i>
-            {{ __('Pedido de oração') }}</a>
+            {{ __('Pedido de Oração') }}</a>
     </li>
     @endif
     @if ($appPermissao->view_calendar == true)

@@ -86,7 +86,7 @@ class Requests_PrayerController extends Controller
         $prayer->save();
         //adicionar log
         $this->adicionar_log('15', 'U', $prayer);
-        $request->session()->flash('message', 'Successfully edited note');
+        $request->session()->flash('message', 'Pedido salvo com sucesso');
         return redirect()->back();
     }
 
@@ -162,7 +162,7 @@ class Requests_PrayerController extends Controller
         $prayer->save();
         //adicionar log
         $this->adicionar_log('15', 'U', $prayer);
-        $request->session()->flash('message', 'Successfully edited note');
+        $request->session()->flash('message', 'Pedido atualizado');
         return redirect()->route('prayer.index');
     }
 
@@ -182,6 +182,8 @@ class Requests_PrayerController extends Controller
         }
         //adicionar
         $this->adicionar_log('15', 'D', $prayer);
+        session()->flash('warning', 'Pedido deletado');
+
         return redirect()->route('prayer.index');
     }
 }
