@@ -207,12 +207,25 @@ Illuminate\Database\QueryException
 SQLSTATE[42P01]: Undefined table: 7 ERROR: relation "roles" does not exist LINE 1: ...as_roles"."model_type" as "pivot_model_type" from "roles" in... ^ (SQL: select "roles".*, "model_has_roles"."model_id" as "pivot_model_id", "model_has_roles"."role_id" as "pivot_role_id", "model_has_roles"."model_type" as "pivot_model_type" from "roles" inner join "model_has_roles" on "roles"."id" = "model_has_roles"."role_id" where "model_has_roles"."model_id" = 1 and
 ```
 
-Adicionar a linha em vendor\laravel\framework\src\Illuminate\Database\Migrations\Migration.php
+Adicionar a linha em vendor\laravel\framework\src\Illuminate\Database\Migrations\Migration.php (nao e necessario)
 ``` bash
         class Role extends Model implements RoleContract
         {
         -       protected $connection;
 $       +    protected $connection = 'adminaccount';
+
+```
+
+Adicionar a linha em vendor\Spatie\MediaLibrary\MediaCollections\Models\media.php
+``` bash
+class Media extends Model implements Responsable, Htmlable
+{
+    use IsSorted,
+        CustomMediaProperties,
+        HasUuid;
+
+        -    
+$       +    protected $connection = 'tenant';
 
 ```
 

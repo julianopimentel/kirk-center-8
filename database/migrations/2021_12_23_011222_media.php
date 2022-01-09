@@ -14,6 +14,7 @@ class Media extends Migration
         Schema::connection('tenant')->create('media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('model');
+            $table->uuid('uuid')->nullable();
             $table->string('collection_name');
             $table->string('name');
             $table->string('file_name');
@@ -21,9 +22,9 @@ class Media extends Migration
             $table->string('disk');
             $table->string('conversions_disk');
             $table->unsignedBigInteger('size');
-            $table->unsignedBigInteger('uuid');
             $table->json('manipulations');
             $table->json('custom_properties');
+            $table->json('generated_conversions');
             $table->json('responsive_images');
             $table->unsignedInteger('order_column')->nullable();
             $table->nullableTimestamps();
