@@ -58,6 +58,7 @@ class MediaController extends Controller
             $mediaFolder->folder_id = $request->input('thisFolder');
         }
         $mediaFolder->save();
+        $this->adicionar_log('16', 'C', $mediaFolder);
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
@@ -69,6 +70,8 @@ class MediaController extends Controller
         $thisFolder = Folder::where('id', '=', $request->input('id'))->first();
         $thisFolder->name = $request->input('name');
         $thisFolder->save();
+        $this->adicionar_log('16', 'U', $thisFolder);
+
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
     }
 
@@ -110,6 +113,7 @@ class MediaController extends Controller
         ]);
         $removeFolderService = new RemoveFolderService();
         $removeFolderService->folderDelete($request->input('id'), $request->input('thisFolder'));
+        $this->adicionar_log('16', 'D', $removeFolderService);
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }  
 
@@ -125,6 +129,7 @@ class MediaController extends Controller
             $oryginalName = $file->getClientOriginalName();
             if(!empty($mediaFolder)){
                 $mediaFolder->addMedia($path)->usingFileName( date('YmdHis') . $oryginalName )->usingName($oryginalName)->toMediaCollection();
+                $this->adicionar_log('16', 'C', $mediaFolder);
             }
         }
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
@@ -157,6 +162,7 @@ class MediaController extends Controller
         $mediaFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $mediaFolder->getMedia()->where('id', $request->input('id'))->first();
         $media->delete();
+        $this->adicionar_log('16', 'D', $media);
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
@@ -170,6 +176,7 @@ class MediaController extends Controller
         $media = $mediaFolder->getMedia()->where('id', $request->input('id'))->first();
         $media->name = $request->input('name');
         $media->save();
+        $this->adicionar_log('16', 'U', $media);
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
     }
 
@@ -205,8 +212,9 @@ class MediaController extends Controller
             $oryginalName = $file->getClientOriginalName();
             if(!empty($mediaFolder)){
                 $mediaFolder->addMedia($path)->usingName($media->name)->toMediaCollection();
+                $this->adicionar_log('16', 'U', $mediaFolder);
             }
-            $media->delete();
+            $media->delete();     
         }
         return response()->json('success');
     }
@@ -219,6 +227,7 @@ class MediaController extends Controller
         $oldFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $oldFolder->getMedia()->where('id', $request->input('id'))->first();
         $oldFolder->addMedia($media->getPath())->preservingOriginal()->usingName($media->name)->toMediaCollection();
+        $this->adicionar_log('16', 'C', $oldFolder);
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 

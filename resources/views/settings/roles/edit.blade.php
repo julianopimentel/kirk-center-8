@@ -317,6 +317,51 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Media</td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="add_media"
+                                                                type="checkbox"
+                                                                {{ $role->add_media == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="view_media"
+                                                                type="checkbox"
+                                                                {{ $role->view_media == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="edit_media"
+                                                                type="checkbox"
+                                                                {{ $role->edit_media == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="delete_media"
+                                                                type="checkbox"
+                                                                {{ $role->delete_media == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td>Financeiro</td>
                                                     <td>
                                                         <label
@@ -385,9 +430,9 @@
                                                 <tr>
                                                     <th></th>
                                                     <th>Atalhos rápido</th>
-                                                    <th>Periodo Anual</th>
-                                                    <th>Detalhes das Pessoas</th>
-                                                    <th>Resumo financeiro</th>
+                                                    <th>Periodo Financeiro <small> Atual x anterior x meta)</small></th>
+                                                    <th>Detalhes das Pessoas <small> Membresia x meta)</small></th>
+                                                    <th>Resumo financeiro<small> Financeiro do mês atual x anterior</small></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -439,15 +484,69 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th>Meus Dados</th>
-                                                    <th>Orações</th>
-                                                    <th>Eventos</th>
                                                     <th>Recados</th>
-                                                    <th>Grupos</th>
-                                                    <th>Finaceiro Mensal</th>
+                                                    <th>Financeiro Mensal</th>
                                                     <th>Redes Sociais</th>
-                                                    <th>Ofertas</th>
                                                     <th>Localização</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Mostrar</td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_message"
+                                                                type="checkbox"
+                                                                {{ $role->home_message == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_financeiro"
+                                                                type="checkbox"
+                                                                {{ $role->home_financeiro == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_social"
+                                                                type="checkbox"
+                                                                {{ $role->home_social == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_location"
+                                                                type="checkbox"
+                                                                {{ $role->home_location == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <div class="card-header"><strong>Permissões de Funções</strong></div>
+                                        <table class="table table-responsive-sm table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Meus Dados</th>
+                                                    <th>Pedido de Orações</th>
+                                                    <th>Eventos</th>
+                                                    <th>Meus Grupos</th>
+                                                    <th>Meus Dizimos</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -486,38 +585,8 @@
                                                     <td>
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="home_message"
-                                                                type="checkbox"
-                                                                {{ $role->home_message == true ? 'checked' : '' }}><span
-                                                                class="c-switch-slider" data-checked="&#x2713"
-                                                                data-unchecked="&#x2715"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <label
-                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
                                                             <input class="c-switch-input" name="home_grupo" type="checkbox"
                                                                 {{ $role->home_grupo == true ? 'checked' : '' }}><span
-                                                                class="c-switch-slider" data-checked="&#x2713"
-                                                                data-unchecked="&#x2715"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <label
-                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="home_financeiro"
-                                                                type="checkbox"
-                                                                {{ $role->home_financeiro == true ? 'checked' : '' }}><span
-                                                                class="c-switch-slider" data-checked="&#x2713"
-                                                                data-unchecked="&#x2715"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <label
-                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="home_social"
-                                                                type="checkbox"
-                                                                {{ $role->home_social == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
                                                         </label>
@@ -528,16 +597,6 @@
                                                             <input class="c-switch-input" name="home_financeiro_valores"
                                                                 type="checkbox"
                                                                 {{ $role->home_financeiro_valores == true ? 'checked' : '' }}><span
-                                                                class="c-switch-slider" data-checked="&#x2713"
-                                                                data-unchecked="&#x2715"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>
-                                                        <label
-                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="home_location"
-                                                                type="checkbox"
-                                                                {{ $role->home_location == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
                                                         </label>

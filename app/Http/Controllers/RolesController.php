@@ -122,7 +122,7 @@ class RolesController extends Controller
         $role->save();
         //adicionar log
         $this->adicionar_log('13', 'C', $role);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         return redirect()->route('roles.index');
     }
     /**
@@ -239,7 +239,7 @@ class RolesController extends Controller
         $role->save();
         //adicionar log
         $this->adicionar_log('13', 'U', $role);
-        $request->session()->flash("success", "Successfully updated");
+        $request->session()->flash("success", "Atualizado com sucesso");
         return redirect()->route('roles.edit', $id);
     }
 
@@ -268,7 +268,7 @@ class RolesController extends Controller
         $role->delete();
         //adicionar log
         $this->adicionar_log('13', 'D', $people);
-        $request->session()->flash('message', "Successfully deleted role");
+        $request->session()->flash('message', "Deletado com sucesso");
         return redirect()->route('roles.index');
     }
 }

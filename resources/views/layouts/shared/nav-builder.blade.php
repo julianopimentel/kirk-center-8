@@ -93,6 +93,20 @@
                 Financeiro</a>
         </li>
     @endif
+    @if ($appPermissao->home_eventos == true)
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ route('indexEventos') }}">
+            <i class="c-icon cil-calendar c-sidebar-nav-icon"></i>
+            Eventos</a>
+    </li>
+    @endif
+    @if ($appPermissao->home_dados == true)
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ route('indexDados') }}">
+            <i class="c-icon cil-user c-sidebar-nav-icon"></i>
+            Meus Dados</a>
+    </li>
+    @endif
     @if ($appPermissao->report_view == true)
         <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle"><i
                     class="c-icon cil-chart c-sidebar-nav-icon"></i>Relatórios</a>
@@ -114,20 +128,6 @@
                         Financeiro</a></li>
             </ul>
         </li>
-    @endif
-    @if ($appPermissao->home_eventos == true)
-    <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="{{ route('indexEventos') }}">
-            <i class="c-icon cil-calendar c-sidebar-nav-icon"></i>
-            Eventos</a>
-    </li>
-    @endif
-    @if ($appPermissao->home_dados == true)
-    <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="{{ route('indexDados') }}">
-            <i class="c-icon cil-user c-sidebar-nav-icon"></i>
-            Meus Dados</a>
-    </li>
     @endif
     @if (($appPermissao->settings_general or $appPermissao->settings_email or $appPermissao->settings_meta or $appPermissao->settings_social or $appPermissao->settings_roles) == true)
         <li class="c-sidebar-nav-item">
