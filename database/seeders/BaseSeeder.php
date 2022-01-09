@@ -33,7 +33,7 @@ class BaseSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Admin',
+            'name' => 'Administrador',
             'add_people' => '1',
             'edit_people' => '1',
             'view_people' => '1',
