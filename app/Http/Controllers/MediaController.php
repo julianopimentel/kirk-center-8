@@ -17,19 +17,18 @@ class MediaController extends Controller
         $this->middleware('permission');
         $this->middleware('system');
     }
-
-    public function index(Request $request)
-    {
-        if ($request->has('id')) {
+    
+    public function index(Request $request){
+        if($request->has('id')){
             $thisFolder = Folder::where('id', '=', $request->input('id'))->first();
-            if ($thisFolder->folder_id == null) {
+            if($thisFolder->folder_id == null){
                 $result = view('media.index', array(
                     'medias' => $thisFolder->getMedia(),
                     'mediaFolders' =>  Folder::where('folder_id', '=', $thisFolder->id)->get(),
                     'thisFolder' => $thisFolder->id,
                     'parentFolder' => 'disable'
                 ));
-            } else {
+            }else{
                 $result = view('media.index', array(
                     'medias' => $thisFolder->getMedia(),
                     'mediaFolders' =>  Folder::where('folder_id', '=', $request->input('id'))->get(),
@@ -37,7 +36,7 @@ class MediaController extends Controller
                     'parentFolder' => $thisFolder['folder_id']
                 ));
             }
-        } else {
+        }else{
             $rootFolder = Folder::whereNull('folder_id')->first();
             $result = view('media.index', array(
                 'medias' => $rootFolder->getMedia(),
@@ -49,22 +48,20 @@ class MediaController extends Controller
         return $result;
     }
 
-    public function folderAdd(Request $request)
-    {
+    public function folderAdd(Request $request){
         $validatedData = $request->validate([
             'thisFolder' => 'required|numeric'
-        ]);
+        ]);   
         $mediaFolder = new Folder();
         $mediaFolder->name = 'New Folder';
-        if ($request->input('thisFolder') !== 'null') {
+        if($request->input('thisFolder') !== 'null'){
             $mediaFolder->folder_id = $request->input('thisFolder');
         }
         $mediaFolder->save();
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
-    public function folderUpdate(Request $request)
-    {
+    public function folderUpdate(Request $request){
         $validatedData = $request->validate([
             'name' => 'required|min:1|max:256',
             'id' => 'required|numeric'
@@ -75,8 +72,7 @@ class MediaController extends Controller
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
     }
 
-    public function folder(Request $request)
-    {
+    public function folder(Request $request){
         $validatedData = $request->validate([
             'id' => 'required|numeric',
         ]);
@@ -87,62 +83,54 @@ class MediaController extends Controller
         ));
     }
 
-    public function folderMove(Request $request)
-    {
+    public function folderMove(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric',
             'folder'        => 'required'
         ]);
-        if ($request->input('id') != $request->input('folder')) {
+        if($request->input('id') != $request->input('folder')){
             $thisFolder = Folder::where('id', '=', $request->input('id'))->first();
-            if ($request->input('folder') === 'moveUp') {
+            if($request->input('folder') === 'moveUp'){
                 $newFolder = Folder::where('id', '=', $thisFolder->folder_id)->first();
                 $newFolder = $newFolder->folder_id;
-            } else {
+            }else{
                 $newFolder = $request->input('folder');
             }
             $thisFolder->folder_id = $newFolder;
             $thisFolder->save();
         }
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
-    public function folderDelete(Request $request)
-    {
+    public function folderDelete(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric'
         ]);
         $removeFolderService = new RemoveFolderService();
         $removeFolderService->folderDelete($request->input('id'), $request->input('thisFolder'));
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
-    }
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
+    }  
 
-    public function fileAdd(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function fileAdd(Request $request){
         request()->validate([
             'file'          => "required",
             'thisFolder'    => 'required|numeric'
         ]);
         $mediaFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
-        if ($request->hasFile('file')) {
+        if($request->hasFile('file')){
             $file = $request->file('file');
             $path = $file->path();
             $oryginalName = $file->getClientOriginalName();
-            if (!empty($mediaFolder)) {
-                $mediaFolder->addMedia($path)->usingFileName(date('YmdHis') . $oryginalName)->usingName($oryginalName)->toMediaCollection();
+            if(!empty($mediaFolder)){
+                $mediaFolder->addMedia($path)->usingFileName( date('YmdHis') . $oryginalName )->usingName($oryginalName)->toMediaCollection();
             }
         }
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
-    public function file(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function file(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric'
@@ -161,10 +149,7 @@ class MediaController extends Controller
         ));
     }
 
-    public function fileDelete(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function fileDelete(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric'
@@ -172,13 +157,10 @@ class MediaController extends Controller
         $mediaFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $mediaFolder->getMedia()->where('id', $request->input('id'))->first();
         $media->delete();
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
-    public function fileUpdate(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function fileUpdate(Request $request){
         $validatedData = $request->validate([
             'name'          => 'required|min:1|max:256',
             'id'            => 'required|numeric',
@@ -191,10 +173,7 @@ class MediaController extends Controller
         return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
     }
 
-    public function fileMove(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function fileMove(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric',
@@ -202,20 +181,17 @@ class MediaController extends Controller
         ]);
         $oldFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $oldFolder->getMedia()->where('id', $request->input('id'))->first();
-        if ($oldFolder->folder_id != NULL && $request->input('folder') === 'moveUp') {
+        if($oldFolder->folder_id != NULL && $request->input('folder') === 'moveUp'){
             $newFolder = Folder::where('id', '=', $oldFolder->folder_id)->first();
-        } else {
+        }else{
             $newFolder = Folder::where('id', '=', $request->input('folder'))->first();
         }
         $newFolder->addMedia($media->getPath())->usingName($media->name)->toMediaCollection();
         $media->delete();
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
 
-    public function cropp(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function cropp(Request $request){
         request()->validate([
             'file'          => "required",
             'thisFolder'    => 'required|numeric',
@@ -223,11 +199,11 @@ class MediaController extends Controller
         ]);
         $mediaFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $mediaFolder->getMedia()->where('id', $request->input('id'))->first();
-        if ($request->hasFile('file')) {
+        if($request->hasFile('file')){
             $file = $request->file('file');
             $path = $file->path();
             $oryginalName = $file->getClientOriginalName();
-            if (!empty($mediaFolder)) {
+            if(!empty($mediaFolder)){
                 $mediaFolder->addMedia($path)->usingName($media->name)->toMediaCollection();
             }
             $media->delete();
@@ -235,10 +211,7 @@ class MediaController extends Controller
         return response()->json('success');
     }
 
-    public function fileCopy(Request $request)
-    {
-        //pegar schema
-        $this->get_tenant();
+    public function fileCopy(Request $request){
         $validatedData = $request->validate([
             'id'            => 'required|numeric',
             'thisFolder'    => 'required|numeric',
@@ -246,6 +219,7 @@ class MediaController extends Controller
         $oldFolder = Folder::where('id', '=', $request->input('thisFolder'))->first();
         $media = $oldFolder->getMedia()->where('id', $request->input('id'))->first();
         $oldFolder->addMedia($media->getPath())->preservingOriginal()->usingName($media->name)->toMediaCollection();
-        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]);
+        return redirect()->route('media.folder.index', ['id' => $request->input('thisFolder')]); 
     }
+
 }
