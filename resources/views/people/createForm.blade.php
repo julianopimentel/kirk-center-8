@@ -359,8 +359,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-success" type="submit" id="botao" disabled>Salvar</button>
-                                <a class="btn btn-primary" href="{{ route('people.index') }}">Retornar</a>
+                                <button class="btn btn-success" type="submit" id="botao" title="Salvar" disabled><i
+                                    class="c-icon c-icon-sm cil-save"></i></button>
+                                <a class="btn btn-primary" href="{{ route('people.index') }}" title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
                             </div>
                     </div>
                     </form>

@@ -82,7 +82,7 @@
     @if ($appPermissao->view_media == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('media.folder.index') }}">
-            <i class="c-icon cil-file c-sidebar-nav-icon"></i>
+            <i class="c-icon cil-cloud c-sidebar-nav-icon"></i>
             Documentos</a>
     </li>
     @endif

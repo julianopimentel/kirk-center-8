@@ -8,7 +8,8 @@
                         <div class="card-header">
                             <h4>Criar nova Conta</h4>
                         </div>
-                        <form method="POST" action="{{ route('account.store') }}" onsubmit="this.enviar.value='Enviando...'; this.enviar.disabled=true;">
+                        <form method="POST" action="{{ route('account.store') }}"
+                            onsubmit="this.enviar.value='Enviando...'; this.enviar.disabled=true;">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -42,7 +43,8 @@
                                                             </span>
                                                         </div>
                                                         <input class="form-control" type="text"
-                                                            placeholder="{{ __('Name') }}" id="name_company" name="name_company" required>
+                                                            placeholder="{{ __('Name') }}" id="name_company"
+                                                            name="name_company" required>
                                                     </div>
                                                 </div>
                                                 <label for="city">CNPJ</label>
@@ -191,41 +193,45 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-2">
-                                        <a href="{{ route('account.index') }}"
-                                            class="btn btn-block btn-primary">{{ __('Retornar') }}</a>
-                                        <button id="botao" class="btn btn-block btn-success" type="submit" name="enviar" value="Enviar" data-toggle="modal" data-target="#exampleModalScrollable" disabled>{{ __('Salvar') }}</button>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-1">
+                                    <a href="{{ route('account.index') }}" class="btn btn-block btn-primary"
+                                        title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
+                                    <button id="botao" class="btn btn-block btn-success" type="submit" title="Salvar"
+                                        name="enviar" value="Enviar" data-toggle="modal"
+                                        data-target="#exampleModalScrollable" disabled><i
+                                            class="c-icon c-icon-sm cil-save"></i></button>
                         </form>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-      <div class="modal-content">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
 
-        <div class="modal-body">
-          Sua conta está sendo criada, por favor aguarde um momento.
-        </div>
+                            <div class="modal-body">
+                                Sua conta está sendo criada, por favor aguarde um momento.
+                            </div>
 
-      </div>
-    </div>
-  </div>
+                        </div>
+                    </div>
+                </div>
 
-  <script>
+                <script>
+                    $(document).ready(function() {
+                        $('#name_company').on('input', function() {
+                            $('#botao').prop('disabled', $(this).val().length < 6);
+                        });
+                    });
+                </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-$(document).ready(function(){
-  $('#name_company').on('input', function(){
-    $('#botao').prop('disabled', $(this).val().length < 6);
-  });
-});
-  </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  
-        @endsection
+            @endsection
 
-        @section('javascript')
+            @section('javascript')
 
-        @endsection
+            @endsection

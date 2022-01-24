@@ -60,7 +60,7 @@
                 @if ($appPermissao->add_group_people == true)
                     <div class="col-md-3">
                         <div class="card">
-                            <div class="card-header"><strong>Buscar Pessoa</strong></div>
+                            <div class="card-header"><strong>Busque e selecione a Pessoa</strong></div>
                             <div class="card-body">
                                 <form method="POST" action="{{ route('group.storepeoplegroup') }}">
                                     @csrf
@@ -72,8 +72,8 @@
                                     </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-sm btn-success" type="submit">Adicionar</button>
-                                <a href="{{ route('group.index') }}" class="btn btn-sm btn-primary">{{ __('Retornar') }}</a>
+                                <button class="btn btn-sm btn-success" type="submit" title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></button>
+                                <a href="{{ route('group.index') }}" class="btn btn-sm btn-primary" title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
                             </div>
                             </form>
                         </div>

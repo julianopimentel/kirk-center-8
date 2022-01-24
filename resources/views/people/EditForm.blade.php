@@ -414,8 +414,9 @@
                 </div>
         </div>
     </div>
-    <button id="btn" class="btn btn-success" type="submit">Salvar</button>
-    <a class="btn btn-primary" href="{{ route('people.index') }}">Retornar</a>
+    <button class="btn btn-success" type="submit" title="Salvar"><i
+        class="c-icon c-icon-sm cil-save"></i></button>
+    <a class="btn btn-primary" href="{{ route('people.index') }}" title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
     </div>
     </div>
     </form>

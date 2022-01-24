@@ -14,7 +14,7 @@
                                         <strong>Recibo</strong>
                                     <div class="card-body">
                                         <div class="form-group row">
-                                            <div class="col-sm-5 col-md-3 col-lg-3 col-xl-3">
+                                            <div class="col-sm-5 col-md-3 col-lg-3 col-xl-2">
                                                 <div class="inner">
                                                     <input type="number" name="id" class="form-control"
                                                         placeholder="1000">
@@ -32,19 +32,19 @@
                                             </div>
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
                                                 <div class="box-header">
-                                                    <button type="submit" class="btn btn-success">Buscar</button>
+                                                    <button type="submit" class="btn btn-success" title="Pesquisar"><i class="c-icon c-icon-sm cil-search"></i></button>
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
                                                 <div class="box-header">
                                                     <a href="{{ url('historic') }}"
-                                                        class="btn btn-danger">{{ __('Limpar') }}</a>
+                                                        class="btn btn-danger" title="Limpar"><i class="c-icon c-icon-sm cil-trash"></i></a>
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 col-md-4 col-lg-4 col-xl-1">
                                                 <div class="box-header">
                                                     <a href="{{ url('financial') }}"
-                                                        class="btn btn-primary">{{ __('Voltar') }}</a>
+                                                        class="btn btn-primary" title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
                                                 </div>
                                             </div>
                                         </div>

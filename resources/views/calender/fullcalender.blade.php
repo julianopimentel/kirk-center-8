@@ -17,10 +17,8 @@
                         <div class="card-header"><strong>Histórico</strong> <small> últimos agendamentos</small>
                             <div class="col-2">
                                 @if ($appPermissao->add_calendar == true)
-                                    <div class="row">
-                                        <a href="{{ route('calender.create') }}"
-                                            class="btn btn-primary">{{ __('Adicionar') }}</a>
-                                    </div>
+                                <a href="{{ route('calender.create') }}" class="add_button btn btn-sm btn-primary"
+                                title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></a>
                                 @endif
                             </div>
                           </div>

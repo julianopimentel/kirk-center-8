@@ -11,11 +11,8 @@
                                     </div>
                                     <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
                                         @if ($appPermissao->add_prayer == true)
-
-                                            <div class="row">
-                                                <a href="{{ route('prayer.create') }}"
-                                                    class="btn btn-primary">{{ __('Adicionar') }}</a>
-                                            </div>
+                                        <a href="{{ route('prayer.create') }}" class="add_button btn btn-sm btn-primary"
+                                        title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></a>
                                         @endif
 
                                     </div>

@@ -11,10 +11,8 @@
                                     </div>
                                     <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
                                         @if ($appPermissao->add_group == true)
-                                            <div class="row">
-                                                <a href="{{ route('group.create') }}"
-                                                    class="btn btn-primary">{{ __('Adicionar') }}</a>
-                                            </div>
+                                        <a href="{{ route('group.create') }}" class="add_button btn btn-sm btn-primary"
+                                        title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></a>
                                         @endif
                                     </div>
                                 </div>
@@ -31,7 +29,7 @@
                                         </div>
                                         <div class="col-sm-8 col-md-2 col-lg-2 col-xl-2">
                                             <div class="box-header">
-                                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                                <button type="submit" class="btn btn-primary" title="Pesquisar"><i class="c-icon c-icon-sm cil-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +42,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Responsável</th>
-                                            <th>Type</th>
+                                            <th>Tipo</th>
                                             <th>Pessoas</th>
                                             <th>Status</th>
                                             <th colspan="3">

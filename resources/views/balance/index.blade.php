@@ -24,12 +24,12 @@
                                         <div class="box-header">
                                             @if ($appPermissao->add_entrada_financial == true)
                                                 <a href="{{ route('balance.depositar') }}"
-                                                    class="btn btn-success">Entrada</a>
+                                                    class="btn btn-success"><i class="c-icon c-icon-sm cil-plus"></i> Entrada</a>
                                             @endif
                                             @if ($appPermissao->add_retirada_financial == true)
                                                 @if ($amount > 1)
                                                     <a href="{{ route('balance.withdraw') }}"
-                                                        class="btn btn-danger">Retirada</a>
+                                                        class="btn btn-danger"><i class="c-icon c-icon-sm cil-minus"></i> Retirada</a>
                                                 @endif
                                             @endif
                                         </div>
@@ -104,7 +104,7 @@
                                     <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
                                         <div class="box-header">
                                             <a href="{{ url('historic') }}"
-                                                class="btn btn-primary">Ver Histórico</a>
+                                                class="btn btn-primary"><i class="c-icon c-icon-sm cil-list"></i> Ver Histórico</a>
                                         </div>
                                     </div>
                                     @endif
