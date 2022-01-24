@@ -16,7 +16,8 @@ class PeopleNotes extends Migration
         Schema::connection('tenant')->create('people_notes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->text('event_id');
+            $table->integer('people_id');
+            $table->text('notes');
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Media</h4>
+                                <h4>Documentos</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">

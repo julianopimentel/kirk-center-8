@@ -68,12 +68,14 @@ class BalanceController extends Controller
         $data = People::select("id", "name", "email")
             ->orderby('name', 'asc')
             ->where('is_admin', false)
+            ->whereNull('deleted_at')
             ->get();
         if ($request->has('q')) {
             $search = $request->q;
             $data = People::select("id", "name", "email")
                 ->where('name', 'LIKE', "%$search%")
                 ->where('is_admin', false)
+                ->whereNull('deleted_at')
                 ->orderby('name', 'asc')
                 ->get();
         }

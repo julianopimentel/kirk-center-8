@@ -9,7 +9,6 @@ use App\Models\City;
 use App\Models\Config_system;
 use App\Models\Country;
 use App\Models\Institution;
-use DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -20,6 +19,8 @@ use App\Models\Roles;
 use App\Models\State;
 use App\Models\Users_Account;
 use App\Models\User;
+use App\Models\People_Notes;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Mail;
 
 class PeoplesController extends Controller
@@ -49,7 +50,12 @@ class PeoplesController extends Controller
         //validar se selecionou a conta
         $this->get_tenant();
         //buscar
-        $peoples = People::orderBy('name', 'asc')->with('status')->with('roleslocal')->where('is_admin', false)->paginate($this->totalPagesPaginate);
+        $peoples = People::orderBy('name', 'asc')
+        ->with('status')
+        ->with('roleslocal')
+        ->where('is_admin', false)
+        ->where('status_id', '14')
+        ->paginate($this->totalPagesPaginate);
         //status
         $statuses = Status::all()->where("type", 'people');
 
@@ -112,13 +118,21 @@ class PeoplesController extends Controller
         $people->is_baptism       = $request->input('is_baptism');
         $people->is_verify       = 'true';
         $people->sex       = $request->input('sex');
-        $people->note       = $request->input('note');
+        //$people->note       = $request->input('note');
         $people->is_newvisitor = 'false';
         $people->lat = $request->input('lat-span');
         $people->lng = $request->input('lon-span');
         //pegar tenant
         $this->get_tenant();
         $people->save();
+        //adicionar o comentario se tiver
+        if ($request->input('note') == !null) {
+            People_Notes::create([
+                'people_id' => $people->id,
+                'notes' => $request->input('note'),
+                'user_id' => auth()->user()->id
+            ]);
+        }
         //consulta usuario para criar um novo usuario e vincular a conta
         $validaruser = User::where('email', $people->email)->get();
         //flag de criar a conta
@@ -195,7 +209,7 @@ class PeoplesController extends Controller
         //buscar pessoa
         $people = People::with('acesso')->find($id);
         //validar o id se existe ou se é admin
-        if ($people == null or $people->is_admin == true) {
+        if ($people == null or $people->is_admin == true or $people->deleted_at == !null) {
             session()->flash("danger", "Erro interno");
             return redirect()->route('people.index');
         }
@@ -205,6 +219,8 @@ class PeoplesController extends Controller
         $statuses = Status::all()->where("type", 'people');
         //roles 
         $roles = Roles::all();
+        //anotacoes
+        $notes = People_Notes::all()->where("people_id", $id);
         //carregar localização
         $locations = Institution::find(session()->get('key'));
         //se tiver vazio, retornar para validar, mas vai carregar a tela de criação de pessoa
@@ -218,7 +234,7 @@ class PeoplesController extends Controller
         $state = State::get(["name", "id"]);
         $city = City::get(["name", "id"]);
 
-        return view('people.EditForm', compact('locations'), ['statuses' => $statuses, 'people' => $people, 'roles' => $roles, 'countries' => $countries, 'state' => $state, 'city' => $city]);
+        return view('people.EditForm', compact('locations'), ['statuses' => $statuses, 'people' => $people, 'roles' => $roles, 'countries' => $countries, 'state' => $state, 'city' => $city, 'notes' => $notes]);
     }
     /**
      * Update the specified resource in storage.
@@ -254,7 +270,7 @@ class PeoplesController extends Controller
         $people->is_conversion       = $request->has('is_conversion') ? 1 : 0;
         $people->is_baptism       = $request->has('is_baptism') ? 1 : 0;
         $people->sex       = $request->input('sex');
-        $people->note       = $request->input('note');
+        //$people->note       = $request->input('note');
         $people->is_newvisitor = 'false';
         //se tiver os valores do google maps 
         if (($request->input('lat-span') and $request->input('lon-span')) == !null) {
@@ -262,6 +278,14 @@ class PeoplesController extends Controller
             $people->lng = $request->input('lon-span');
         }
         $people->save();
+        //adicionar o comentario se tiver
+        if ($request->input('note') == !null) {
+            People_Notes::create([
+                'people_id' => $people->id,
+                'notes' => $request->input('note'),
+                'user_id' => auth()->user()->id
+            ]);
+        }
         //consulta antes para criar o acesso a conta
         $validaruser = User::where('email', $people->email)->get();
         //flag de criar o acesso
@@ -364,9 +388,12 @@ class PeoplesController extends Controller
             //deletar pessoa
             $people = people::find($id);
             if ($people) {
-                $people->delete();
+                $people->status_id = '13';
+                $people->deleted_at  = date('Y-m-d H:m:s');
+
                 //adicionar log
                 $this->adicionar_log('1', 'D', $people);
+                $people->save();
             }
             //deletar o acesso
             if ($user_id != 0) {
@@ -403,7 +430,7 @@ class PeoplesController extends Controller
 
     public function criar($user_id, $accout_id): array
     {
-        DB::beginTransaction();
+        FacadesDB::beginTransaction();
         //criar vinculo com a conta
         $useraccount = new Users_Account();
         $useraccount->user_id = $user_id;
@@ -413,7 +440,7 @@ class PeoplesController extends Controller
         if ($useraccount) {
             //adicionar log
             $this->adicionar_log_global('11', 'C', $useraccount);
-            DB::commit();
+            FacadesDB::commit();
 
             return [
                 'success' => true,
@@ -421,7 +448,7 @@ class PeoplesController extends Controller
             ];
         } else {
 
-            DB::rollback();
+            FacadesDB::rollback();
 
             return [
                 'success' => false,

@@ -19,6 +19,10 @@
                                         role="tab" aria-controls="membro"><i
                                             class="c-icon c-icon-sm cil-book text-dark"></i> Membresia</a>
                                 </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes"
+                                        role="tab" aria-controls="notes"><i
+                                            class="c-icon c-icon-sm cil-notes text-dark"></i>Anotações</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#acesso"
                                         role="tab" aria-controls="acesso"><i
                                             class="c-icon c-icon-sm cil-https text-dark"></i> Dados de
@@ -179,6 +183,7 @@
     </div>
     </div>
 
+
     <div class="tab-pane" id="endereco" role="tabpanel">
         <div class="card-body">
             @if ($appSystem->geolocation == true)
@@ -203,77 +208,76 @@
                     </div>
                 </ul>
             @else
-                <div class="card-body">
-                    <div class="row">
-                        <div class="form-group col-sm-8">
-                            <label for="street">Street</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">
-                                        <svg class="c-icon">
-                                            <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
-                                            </use>
-                                        </svg> </div>
-                                <input class="form-control" id="address" name="address" type="text"
-                                    placeholder="Enter street name" value="{{ $people->address }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-4">
-                            <label for="postal-code">Postal Code</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">
-                                        <svg class="c-icon">
-                                            <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
-                                            </use>
-                                        </svg> </div>
-                                <input class="form-control" id="cep" name="cep" type="text" placeholder="Postal Code"
-                                    value="{{ $people->cep }}" pattern="[0-9]{5}-[0-9]{3}" maxlength="9">
-                            </div>
+                <div class="row">
+                    <div class="form-group col-sm-8">
+                        <label for="street">Street</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">
+                                    <svg class="c-icon">
+                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
+                                        </use>
+                                    </svg> </div>
+                            <input class="form-control" id="address" name="address" type="text"
+                                placeholder="Enter street name" value="{{ $people->address }}">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-sm-4">
-                            <label for="city">Country</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">
-                                        <svg class="c-icon">
-                                            <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
-                                            </use>
-                                        </svg> </div>
-                                <select id="country-dd" name="country-dd" class="form-control">
-                                    <option value="">Clear Country</option>
-                                    @foreach ($countries as $data)
-                                        @if ($data->id == $people->country)
-                                            <option value="{{ $data->id }}" selected="true">
-                                                {{ $data->name }}</option>
-                                        @else
-                                            <option value="{{ $data->id }}">
-                                                {{ $data->name }}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
+
+                    <div class="form-group col-sm-4">
+                        <label for="postal-code">Postal Code</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">
+                                    <svg class="c-icon">
+                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
+                                        </use>
+                                    </svg> </div>
+                            <input class="form-control" id="cep" name="cep" type="text" placeholder="Postal Code"
+                                value="{{ $people->cep }}" pattern="[0-9]{5}-[0-9]{3}" maxlength="9">
                         </div>
-                        <div class="form-group col-sm-4">
-                            <label for="country">State @if ($appSystem->obg_state == true)
-                                    *
-                                @endif</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">
-                                        <svg class="c-icon">
-                                            <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
-                                            </use>
-                                        </svg> </div>
-                                <select name="state-dd" id="state-dd" class="form-control">
-                                    @foreach ($state as $data)
-                                        @if ($data->id == $people->state)
-                                            <option value="{{ $data->id }}" selected="true">
-                                                {{ $data->name }}</option>
-                                        @endif
-                                    @endforeach
-                                </select @if ($appSystem->obg_state == true)
-                                required
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="city">Country</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">
+                                    <svg class="c-icon">
+                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
+                                        </use>
+                                    </svg> </div>
+                            <select id="country-dd" name="country-dd" class="form-control">
+                                <option value="">Clear Country</option>
+                                @foreach ($countries as $data)
+                                    @if ($data->id == $people->country)
+                                        <option value="{{ $data->id }}" selected="true">
+                                            {{ $data->name }}</option>
+                                    @else
+                                        <option value="{{ $data->id }}">
+                                            {{ $data->name }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="country">State @if ($appSystem->obg_state == true)
+                                *
+                            @endif</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">
+                                    <svg class="c-icon">
+                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
+                                        </use>
+                                    </svg> </div>
+                            <select name="state-dd" id="state-dd" class="form-control">
+                                @foreach ($state as $data)
+                                    @if ($data->id == $people->state)
+                                        <option value="{{ $data->id }}" selected="true">
+                                            {{ $data->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select @if ($appSystem->obg_state == true)
+                            required
             @endif
             >
         </div>
@@ -301,7 +305,7 @@
             >
         </div>
     </div>
-    </div>
+
     <!-- /.row-->
     </div>
     @endif
@@ -356,6 +360,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane" id="notes" role="tabpanel">
+        <div class="card-body">
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="textarea-input">Anotações
                     @if ($appSystem->obg_note == true)
@@ -363,15 +373,35 @@
                     @endif
                 </label>
                 <div class="col-md-9">
-                    <textarea class="form-control" name="note" rows="9" placeholder="Content.." {{ $people->note }}
-                        @if ($appSystem->obg_note == true)
-                                                                                            required
-                                                                                            @endif
-                                                                                            ></textarea>
+                    <textarea class="form-control" name="note" id="note" rows="9" placeholder="Content.." @if ($appSystem->obg_note == true)
+                                                                                                                    required
+                                                                                                                    @endif
+                                                                                                                    ></textarea>
                 </div>
             </div>
         </div>
+
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Anotação</th>
+                        <th scope="col">Data registrada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($notes as $note)
+                        <tr>
+                            <td width="60%">{{ $note->notes }}</td>
+                            <td>{{ $note->created_at }}</td>
+                        </tr>
+                    @empty
+                    @endforelse
+                </tbody>
+        </table>
     </div>
+
+
+
     <div class="tab-pane" id="acesso" role="tabpanel">
         <div class="card-body">
             <form class="form-horizontal" action="" method="post">

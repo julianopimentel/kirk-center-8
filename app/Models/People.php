@@ -13,6 +13,8 @@ class People extends Model
     protected $connection = 'tenant';
     protected $table = 'people';
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,6 +40,7 @@ class People extends Model
      */
     protected $hidden = [
         'is_active',
+        'id',
     ];
 
     /**
@@ -50,7 +53,7 @@ class People extends Model
     ];
 
     protected $dates = [
-        'deleted_at'
+        'deleted_at', 'updated_at',
     ];
 
     public function status()
@@ -67,9 +70,11 @@ class People extends Model
     {
         return $this->where('name', 'LIKE', "%$sender%")
                     ->orWhere('email', $sender)
+                    ->whereNull('deleted_at')
                     ->get()
                     ->first();    
     }   
+
     public function acesso()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
@@ -111,6 +116,7 @@ class People extends Model
             if (isset($data['datefrom'], $data['dateto']))
                 $query->whereBetween('created_at', [$data['datefrom'], $data['dateto']]); 
         })
+        ->whereNull('deleted_at')
         ->paginate($totalPagesPaginate);
     }
 }
