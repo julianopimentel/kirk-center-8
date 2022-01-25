@@ -46,12 +46,12 @@
                                                 <div class="media-description text-muted">
                                                     {{ $comment->comment }}
                                                 </div>
-
                                                 @if ($comment->user_id == auth()->user()->id)
-                                                    <div class="media-links">
-                                                        <div class="bullet"></div>
-                                                        <a href="{{ url('comment/'. $comment->id . '/edit') }}">Editar</a>
-                                                        <div class="bullet"></div>
+                                                    <div class="media-right">
+                                                        <a href="{{ url('comment/' . $comment->id . '/edit') }}"> <i
+                                                                class="c-icon c-icon-sm cil-pencil text-success"></i></a>
+                                                    </div>
+                                                    <div class="media-right">
                                                         @method('DELETE')
                                                         @csrf
                                                         <form action="{{ route('comment.destroy', $comment->id) }}"
@@ -61,7 +61,7 @@
                                                             <a class="show_confirm" data-toggle="tooltip"
                                                                 title='Delete'><i
                                                                     class="c-icon c-icon-sm cil-trash text-danger"></i>
-                                                                Excluir</a>
+                                                            </a>
                                                         </form>
                                                     </div>
                                                 @endif

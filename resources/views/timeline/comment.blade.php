@@ -12,7 +12,8 @@
                                 <textarea class="form-control" id='comment' name="comment" rows="5"
                                 >{{ $comment->comment}}</textarea>
                             </div>
-                            <button class="btn btn-sm btn-success" type="submit">Editar</button>
+                            <button class="btn btn-success" type="submit" title="Salvar"><i
+                                class="c-icon c-icon-sm cil-save"></i></button>
                     </div>
                     </form>
 

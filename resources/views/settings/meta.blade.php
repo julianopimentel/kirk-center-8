@@ -168,8 +168,10 @@
                                 <!-- /.row-->
                                 <!-- /.row-->
                                 <br><br>
-                                <button class="btn btn-success" type="submit">Salvar</button>
-                                <a class="btn btn-primary" href="{{ route('settings') }}">Retornar</a>
+                                <button class="btn btn-success" type="submit" title="Salvar"><i
+                                    class="c-icon c-icon-sm cil-save"></i></button>
+                            <a class="btn btn-primary" href="{{ route('settings') }}" title="Voltar"><i
+                                    class="c-icon c-icon-sm cil-action-undo"></i></a>
 
                     <!-- /.row-->
                 </div>

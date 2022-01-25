@@ -211,11 +211,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-1">
-                                    <a href="{{ route('account.index') }}" class="btn btn-block btn-primary"
+                                    <button class="btn btn-success" type="submit" title="Salvar"><i
+                                        class="c-icon c-icon-sm cil-save"></i></button>
+                                    <a href="{{ route('account.index') }}" class="btn btn-primary"
                                         title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
-                                    <button class="btn btn-block btn-success" type="submit" title="Salvar"><i
-                                            class="c-icon c-icon-sm cil-save"></i></button>
+
                         </form>
 
                     </div>

@@ -7,13 +7,14 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Roles</h5>
+                                <h5>Permissões</h5>
                             </div>
                             <div class="card-body">
                                 <div class="col-sm-12 col-md-4 col-lg-4 col-xl-8">
                                     <div class="row">
                                         <a href="{{ route('roles.create') }}"
-                                            class="btn btn-primary m-2">{{ __('Add new role') }}</a>
+                                            class="btn btn-primary m-2" title="Adicionar"><i
+                                            class="c-icon c-icon-sm cil-plus"></i></a>
                                     </div>
                                 </div>
                                 <br>

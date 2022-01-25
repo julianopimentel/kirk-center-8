@@ -103,8 +103,10 @@
                                     </div>
                                 </div>
                                 <!-- /.row-->
-                                <button class="btn btn-primary" type="submit">Save</button>
-                                <a class="btn btn-dark" href="{{ route('account.index') }}">Return</a>
+                                <button class="btn btn-success" type="submit" title="Salvar"><i
+                                    class="c-icon c-icon-sm cil-save"></i></button>
+                                    <a href="{{ route('account.index') }}" class="btn btn-primary" title="Voltar"><i
+                                        class="c-icon c-icon-sm cil-action-undo"></i></a>
                             </form>
                         </div>
                     </div>

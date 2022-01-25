@@ -66,7 +66,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-success" type="submit">Salvar</button>
+                                            <button class="btn btn-success" type="submit" title="Salvar"><i
+                                                class="c-icon c-icon-sm cil-save"></i></button>
                                 </form>
                             </div>
                         </div>

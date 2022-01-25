@@ -95,13 +95,15 @@
                                                 </div>
                                                 <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1">
                                                     <div class="box-header">
-                                                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                                        <button type="submit" class="btn btn-primary" title="Pesquisar"><i
+                                                            class="c-icon c-icon-sm cil-zoom"></i></button>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1">
                                                     <div class="box-header">
                                                         <a href="{{ url('/report/financial') }}"
-                                                            class="btn btn-danger">{{ __('Limpar') }}</a>
+                                                            class="btn btn-danger" title="Limpar"><i
+                                                            class="c-icon c-icon-sm cil-trash"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

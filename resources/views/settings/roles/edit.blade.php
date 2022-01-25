@@ -711,8 +711,10 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a class="btn btn-primary" href="{{ route('roles.index') }}">Retornar</a>
+                                    <button class="btn btn-success" type="submit" title="Salvar"><i
+                                        class="c-icon c-icon-sm cil-save"></i></button>
+                                <a class="btn btn-primary" href="{{ route('roles.index') }}" title="Voltar"><i
+                                        class="c-icon c-icon-sm cil-action-undo"></i></a>
                                 </form>
                             </div>
                         </div>

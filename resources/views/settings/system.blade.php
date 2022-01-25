@@ -13,40 +13,40 @@
                                 <form action="{{ route('settings.updateSystem') }}" method="POST">
                                     @csrf
                                     <!--
-                                                    <div class="form-group">
-                                                        <label class="control-label">Favicon (25*25)</label><br />
-                                                        <p><img src="http://demo.deskapps.net/assets/img/a99e81e77b7b1bfb330d46479c4dd282.jpg"
-                                                                class="favicon"></p>
-                                                        <input type="file" name="favicon" accept=".png, .jpg, .jpeg, .gif, .svg">
-                                                        <p><small class="text-success">Allowed Types: gif, jpg, png, jpeg</small></p>
-                                                        <input type="hidden" name="favicon"
-                                                            value="assets/img/a99e81e77b7b1bfb330d46479c4dd282.jpg">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label">Logo</label><br />
-                                                        <p><img src="http://demo.deskapps.net/assets/img/2e79d6b2095794bd62b0155dae20ac08.jpg"
-                                                                class="logo" width="150"></p>
-                                                        <input type="file" name="logo" accept=".png, .jpg, .jpeg, .gif, .svg">
-                                                        <p><small class="text-success">Allowed Types: gif, jpg, png, jpeg</small></p>
-                                                        <input type="hidden" name="logo"
-                                                            value="assets/img/2e79d6b2095794bd62b0155dae20ac08.jpg">
-                                                    </div>
-                                                    
-                                    <div class="form-group">
-                                        <label class="control-label">Nome da aplicação</label>
-                                        <input type="text" class="form-control" name="name" placeholder="Application name"
-                                            value="{{ $settings->name }}" required>
-                                    </div>
-                                    -->
+                                                        <div class="form-group">
+                                                            <label class="control-label">Favicon (25*25)</label><br />
+                                                            <p><img src="http://demo.deskapps.net/assets/img/a99e81e77b7b1bfb330d46479c4dd282.jpg"
+                                                                    class="favicon"></p>
+                                                            <input type="file" name="favicon" accept=".png, .jpg, .jpeg, .gif, .svg">
+                                                            <p><small class="text-success">Allowed Types: gif, jpg, png, jpeg</small></p>
+                                                            <input type="hidden" name="favicon"
+                                                                value="assets/img/a99e81e77b7b1bfb330d46479c4dd282.jpg">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Logo</label><br />
+                                                            <p><img src="http://demo.deskapps.net/assets/img/2e79d6b2095794bd62b0155dae20ac08.jpg"
+                                                                    class="logo" width="150"></p>
+                                                            <input type="file" name="logo" accept=".png, .jpg, .jpeg, .gif, .svg">
+                                                            <p><small class="text-success">Allowed Types: gif, jpg, png, jpeg</small></p>
+                                                            <input type="hidden" name="logo"
+                                                                value="assets/img/2e79d6b2095794bd62b0155dae20ac08.jpg">
+                                                        </div>
+                                                        
+                                        <div class="form-group">
+                                            <label class="control-label">Nome da aplicação</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Application name"
+                                                value="{{ $settings->name }}" required>
+                                        </div>
+                                        -->
                                     <!--
-                                                            <div class="form-group">
-                                                                <label class="control-label">Linguagem padrão</label>
-                                                                <select name="language" class="form-control">
-                                                                    <option value="1">Portuguese-BR</option>
-                                                                    <option value="2">English</option>
-                                                                </select>
-                                                            </div>
-                                                            -->
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Linguagem padrão</label>
+                                                                    <select name="language" class="form-control">
+                                                                        <option value="1">Portuguese-BR</option>
+                                                                        <option value="2">English</option>
+                                                                    </select>
+                                                                </div>
+                                                                -->
                                     <div class="form-group">
                                         <label class="control-label"><strong>Moeda</strong></label>
                                         <input type="text" class="form-control" name="currency" placeholder="currency"
@@ -96,7 +96,7 @@
                                                 <label class="form-check-label" for="check1">Observação obrigatório</label>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="inner">
                                             <div class="form-check form-check-inline mr-1">
                                                 <input class="form-check-input" name="obg_city" type="checkbox"
@@ -122,7 +122,8 @@
                                                     class="form-check-label" for="check1">Utilizar geolocalização<span
                                                         class="badge badge-info">Beta</span></label>
                                             </div>
-                                        </div><small>Usado para implantação de igrejas, mas é necessário informar a latitude e longitude para cada pessoa</small>
+                                        </div><small>Usado para implantação de igrejas, mas é necessário informar a latitude
+                                            e longitude para cada pessoa</small>
                                     </div>
 
                                     <div class="form-group">
@@ -131,10 +132,12 @@
                                             value="{{ $settings->timezone }}" required>
                                         <a href="http://php.net/manual/en/timezones.php" target="_blank">Timezone</a>
                                     </div>
-                                    
+
                                     <!-- /.row-->
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a class="btn btn-primary" href="{{ route('settings') }}">Retornar</a>
+                                    <button class="btn btn-success" type="submit" title="Salvar"><i
+                                            class="c-icon c-icon-sm cil-save"></i></button>
+                                    <a class="btn btn-primary" href="{{ route('settings') }}" title="Voltar"><i
+                                            class="c-icon c-icon-sm cil-action-undo"></i></a>
                                 </form>
                             </div>
                         </div>
@@ -142,12 +145,12 @@
                 </div>
             </div>
         </div>
-@endsection
+    @endsection
 
-@section('javascript')
+    @section('javascript')
 
-@endsection
+    @endsection
 
 @else
-@include('errors.redirecionar')
+    @include('errors.redirecionar')
 @endif

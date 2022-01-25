@@ -134,8 +134,10 @@
                                         </table>
                                     </div>
                                 </div>
-                                <button class="btn btn-success" type="submit">Depositar</button>
-                                <a href="{{ url('financial') }}" class="btn btn-primary">Retornar</a>
+                                <button class="btn btn-success" type="submit" title="Depositar"><i
+                                    class="c-icon c-icon-sm cil-plus"></i>  Depositar</button>
+                            <a class="btn btn-primary" href="{{ url('financial') }}" title="Voltar"><i
+                                    class="c-icon c-icon-sm cil-action-undo"></i></a>
                             </form>
                             <!-- /.row-->
                         </div>

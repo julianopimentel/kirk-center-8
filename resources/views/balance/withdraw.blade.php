@@ -56,8 +56,10 @@
 
                 </div>
             </div>
-            <button class="btn btn-danger" type="submit">Retirar</button>
-            <a href="{{ url('financial') }}" class="btn btn-primary">Retornar</a>
+            <button class="btn btn-danger" type="submit" title="Retirar"><i
+                class="c-icon c-icon-sm cil-minus"></i>  Retirar</button>
+        <a class="btn btn-primary" href="{{ url('financial') }}" title="Voltar"><i
+                class="c-icon c-icon-sm cil-action-undo"></i></a>
         </div>
         
     </form>

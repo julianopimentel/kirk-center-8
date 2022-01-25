@@ -25,7 +25,8 @@
                                         </div>
                                         <div class="col-sm-8 col-md-2 col-lg-2 col-xl-2">
                                             <div class="box-header">
-                                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                                <button type="submit" class="btn btn-primary" title="Pesquisar"><i
+                                                    class="c-icon c-icon-sm cil-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>

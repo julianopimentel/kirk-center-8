@@ -374,29 +374,29 @@
                 </label>
                 <div class="col-md-9">
                     <textarea class="form-control" name="note" id="note" rows="9" placeholder="Content.." @if ($appSystem->obg_note == true)
-                                                                                                                    required
-                                                                                                                    @endif
-                                                                                                                    ></textarea>
+                                                                                                                        required
+                                                                                                                        @endif
+                                                                                                                        ></textarea>
                 </div>
             </div>
         </div>
 
         <table class="table">
-                <thead>
+            <thead>
+                <tr>
+                    <th scope="col">Anotação</th>
+                    <th scope="col">Data registrada</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($notes as $note)
                     <tr>
-                        <th scope="col">Anotação</th>
-                        <th scope="col">Data registrada</th>
+                        <td width="60%">{{ $note->notes }}</td>
+                        <td>{{ $note->created_at }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @forelse($notes as $note)
-                        <tr>
-                            <td width="60%">{{ $note->notes }}</td>
-                            <td>{{ $note->created_at }}</td>
-                        </tr>
-                    @empty
-                    @endforelse
-                </tbody>
+                @empty
+                @endforelse
+            </tbody>
         </table>
     </div>
 
@@ -414,9 +414,9 @@
                 </div>
         </div>
     </div>
-    <button class="btn btn-success" type="submit" title="Salvar"><i
-        class="c-icon c-icon-sm cil-save"></i></button>
-    <a class="btn btn-primary" href="{{ route('people.index') }}" title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
+    <button class="btn btn-success" type="submit" title="Salvar"><i class="c-icon c-icon-sm cil-save"></i></button>
+    <a class="btn btn-primary" href="{{ route('people.index') }}" title="Voltar"><i
+            class="c-icon c-icon-sm cil-action-undo"></i></a>
     </div>
     </div>
     </form>

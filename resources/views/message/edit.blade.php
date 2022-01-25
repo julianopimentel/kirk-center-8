@@ -15,13 +15,13 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Title</label>
+                                            <label>Titulo</label>
                                             <input class="form-control" type="text" placeholder="{{ __('Title') }}"
                                                 name="title" value="{{ $note->title }}" required autofocus>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Content</label>
+                                            <label>Mensagem</label>
                                             <textarea class="form-control" id="textarea-input" name="content" rows="9"
                                                 placeholder="{{ __('Content..') }}" required>{{ $note->content }}</textarea>
                                         </div>
@@ -29,7 +29,7 @@
                                         <div class="row">
                                             <div class="form-group col-sm-3">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Date</label>
+                                                    <label for="ccnumber">Data</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text">
                                                                 <svg class="c-icon">
@@ -61,7 +61,7 @@
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <div class="form-group">
-                                                    <label for="ccnumber">Type</label>
+                                                    <label for="ccnumber">Tipo</label>
                                                     <div class="input-group">
                                                         <input class="form-control" type="text"
                                                             placeholder="{{ __('Note type') }}" name="note_type" value="{{ $note->note_type }}" required>
@@ -78,8 +78,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a class="btn btn-primary" href="{{ route('message.index') }}">Retornar</a>
+                                        <button class="btn btn-success" type="submit" title="Salvar"><i
+                                            class="c-icon c-icon-sm cil-save"></i></button>
+                                    <a class="btn btn-primary" href="{{ route('message.index') }}" title="Voltar"><i
+                                            class="c-icon c-icon-sm cil-action-undo"></i></a>
                             </form>
                         </div>
                     </div>
