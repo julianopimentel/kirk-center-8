@@ -32,7 +32,7 @@
                     <div class="col-12 col-sm-12 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Comments</h4>
+                                <h4>Comentário</h4>
                             </div>
                             <div class="card-body">
                                 @foreach ($comments as $comment)
@@ -41,11 +41,6 @@
                                             <img alt="image" class="mr-3 rounded-circle" width="70" height="70"
                                                 src="{{ $comment->user->image }}">
                                             <div class="media-body">
-                                                <div class="media-title mb-1"> {{ $comment->user->name }}</div>
-                                                <div class="text-time">{{ $comment->created_at }}</div>
-                                                <div class="media-description text-muted">
-                                                    {{ $comment->comment }}
-                                                </div>
                                                 @if ($comment->user_id == auth()->user()->id)
                                                     <div class="media-right">
                                                         <a href="{{ url('comment/' . $comment->id . '/edit') }}"> <i
@@ -65,6 +60,11 @@
                                                         </form>
                                                     </div>
                                                 @endif
+                                                <div class="media-title mb-1"> {{ $comment->user->name }}</div>
+                                                <div class="text-time">{{ $comment->created_at }}</div>
+                                                <div class="media-description text-muted">
+                                                    {{ $comment->comment }}
+                                                </div>
                                             </div>
                                         </li>
                                 @endforeach
