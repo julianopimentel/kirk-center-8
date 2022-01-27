@@ -128,11 +128,13 @@
 
                                     <div class="form-group">
                                         <label class="control-label"><strong>Timezone</strong></label>
-                                        <input type="text" class="form-control" name="timezone" placeholder="timezone"
-                                            value="{{ $settings->timezone }}" required>
-                                        <a href="http://php.net/manual/en/timezones.php" target="_blank">Timezone</a>
+                                        <select name="timezone" class="form-control" required>   
+                                            <option value="{{ $settings->timezone }}">{{ $settings->timezone }}</option>
+                                            <option value="America/Manaus">America/Manaus</option>
+                                            <option value="America/Maceio">America/Maceio</option>
+                                            <option value="America/Sao_Paulo">America/Sao_Paulo</option>
+                                        </select>
                                     </div>
-
                                     <!-- /.row-->
                                     <button class="btn btn-success" type="submit" title="Salvar"><i
                                             class="c-icon c-icon-sm cil-save"></i></button>
