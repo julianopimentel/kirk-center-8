@@ -31,6 +31,7 @@ class GetSystem
 
         //setar a linguagem
         App::setLocale($system->default_language);
+        date_default_timezone_set($system->timezone);
 
         //retorno como apppermissao
         view()->share('appSystem', $system);

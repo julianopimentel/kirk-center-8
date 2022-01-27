@@ -19,9 +19,10 @@ class BaseSeeder extends Seeder
     {
         //
         DB::table('config_system')->insert([
-            'timezone' => 'America/SaoPaulo',
+            'timezone' => 'America/Sao_Paulo',
             'currency' => 'R$',
             'obg_last_name' => '1',
+            'default_language' => 'pt',
         ]);
 
         DB::table('config_meta')->insert([

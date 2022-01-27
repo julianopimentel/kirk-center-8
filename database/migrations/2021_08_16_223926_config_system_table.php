@@ -20,7 +20,7 @@ class ConfigSystemTable extends Migration
 			$table->string('favicon')->nullable();
 			$table->string('name')->nullable();
 			$table->string('timezone');
-			$table->integer('default_language')->nullable();
+			$table->string('default_language')->nullable();
 			$table->string('currency')->nullable();
             $table->boolean('geolocation')->nullable()->default(0);
             $table->boolean('obg_last_name')->nullable()->default(1);
