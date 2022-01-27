@@ -12,9 +12,10 @@ return [
     */
 
     //menu
-    'home' => 'home',
+    'home' => 'Home',
     'timeline' => 'Timeline',
     'dashboard' => 'Dashboard',
+    'new' => 'NEW',
     'people' => 'Pessoas',
     'group' => 'Grupos',
     'message' => 'Mural de Recados',
@@ -23,22 +24,26 @@ return [
     'documents' => 'Documentos',
     'financial' => 'Financeiro',
     'report' => 'Relatórios',
+    'report_people' => 'Listagem das Pessoas',
+    'report_groups' => 'Listagem de Grupos',
+    'report_loc' => 'Localizações',
+    'report_financial' => 'Histórico Financeiro',
     'configuration' => 'Configurações',
+
+    'my_tithes' => 'Meus Dízimos',
+    'my_groups' => 'Meus Grupos',
+    'events' => 'Eventos',
+    'my_data' => 'Meus Dados',
 
     //sidebar
     'account' => 'Contas',
-    'license' => 'Licença',
-    'available' => 'Disponível',
-    'used' => 'Usado',
-    'name' => 'Nome',
-    'type' => 'Tipo',
-    'action' => 'Ações',
-    'select' => 'Selecione uma conta',
-    'doc' => 'CNPJ',
+    'license' => 'Licenças',
+    'news' => 'Novidades',
+    'profile' => 'Perfil',
+    'change_password' => 'Alterar a senha',
+    'select_account' => 'Selecionar a conta',
+    'aud' => 'Auditoria',
+    'payments' => 'Pagamentos',
+    'logout' => 'Sair',
 
-    //types
-    'Church' => 'Igreja',
-    'Business' => 'Empresarial',
-    'Education' => 'Educacional',
-    'Government' => 'Governamental',
 ];

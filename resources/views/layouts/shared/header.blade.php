@@ -29,38 +29,38 @@
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
-                    <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
+                    <div class="dropdown-header bg-light py-2"><strong>{{ __('layout.account') }}</strong></div>
 
 
                     <a class="dropdown-item" href="/updates">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-bell') }}"></use>
-                        </svg> Novidades<span class="badge badge-info ml-auto">42</span></a>
+                        </svg> {{ __('layout.news') }}<span class="badge badge-info ml-auto">42</span></a>
                     <a class="dropdown-item" href="/profile">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-user') }}"></use>
-                        </svg> Profile</a>
+                        </svg> {{ __('layout.profile') }}</a>
                     @if (Auth::user()->isAdmin() === true)
                         <a class="dropdown-item">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-credit-card') }}"></use>
-                            </svg>Payments</a>
+                            </svg>{{ __('layout.payments') }}</a>
                         <a class="dropdown-item" href="/logs">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-history') }}"></use>
-                            </svg>Auditoria</a>
+                            </svg>{{ __('layout.aud') }}</a>
                     @endif
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('account.index') }}">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>
-                        </svg>Selecionar a conta</a>
+                        </svg>{{ __('layout.select_account') }}</a>
                     <a class="dropdown-item">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-account-logout') }}"></use>
                         </svg>
                         <form action="{{ url('/logout') }}" method="POST"> @csrf
-                            <button type="submit" class="dropdown-item">Logout</button>
+                            <button type="submit" class="dropdown-item">{{ __('layout.logout') }}</button>
                         </form>
                     </a>
                 </div>

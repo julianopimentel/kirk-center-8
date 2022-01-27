@@ -68,7 +68,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('dados/meus-dizimos', 'HomeController@indexDizimos')->name('indexDizimos');
     Route::get('dados/meus-grupos', 'HomeController@indexGrupos')->name('indexGrupos');
     Route::get('dados/meus-dados', 'HomeController@indexDados')->name('indexDados');
-    Route::put('dados/{id}', 'PeoplesController@update')->name('people.updateUser');
+    Route::put('dados/{id}', 'ProfileController@updateUser')->name('people.updateUser');
     Route::get('dados/oracoes', 'HomeController@indexOracao')->name('indexOracao');
     Route::get('eventos', 'HomeController@indexEventos')->name('indexEventos');
     Route::post('eventos/confirm/{id}', 'FullCalenderController@storeConfirm')->name('calendar.storeConfirm');
