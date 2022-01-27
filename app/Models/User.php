@@ -26,7 +26,6 @@ class User extends Authenticatable implements ReactsInterface
     protected $connection = 'pgsql';
     protected $table = 'users';
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -65,7 +64,13 @@ class User extends Authenticatable implements ReactsInterface
     {
        return $this->profile_image;
     }
+    //validar se e um master
     public function isAdmin() {
         return $this->master  === true;
+    }
+    //pegar o user global na conta
+    public function people()
+    {
+        return $this->belongsTo(People::class, 'id', 'user_id');
     }
 }

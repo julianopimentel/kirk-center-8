@@ -6,7 +6,13 @@
         <ul class="c-header-nav ml-auto mr-4">
             <li class="c-header-nav-item d-md-down-none mx-2">
                 <a class="c-header-nav-link">
-                    <strong>{{ Auth::user()->name }} </strong> &nbsp
+                    <strong>
+                        @if (session('schema'))
+                        {{ ucwords(strtolower(Auth::user()->people->name)) }}
+                        @else
+                        {{ ucwords(strtolower(Auth::user()->name)) }}
+                        @endif
+                    </strong> &nbsp
                 </a>
             <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
                     role="button" aria-haspopup="true" aria-expanded="false">

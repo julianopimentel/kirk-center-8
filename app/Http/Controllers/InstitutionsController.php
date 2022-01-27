@@ -8,7 +8,6 @@ use App\Models\Status;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
-use Yajra\DataTables\Facades\DataTables;
 use App\Models\Users_Account;
 
 class InstitutionsController extends Controller

@@ -1,4 +1,4 @@
-@extends('layouts.baseminimal')
+@extends('layouts.base')
 
 @section('content')
 
@@ -146,14 +146,6 @@
     </div>  
         <!-- /.row-->
         <!-- /.col-->
-        <script type="text/javascript">
-            var url = "{{ route('changeLang') }}";
-
-            $(".changeLang").change(function() {
-                window.location.href = url + "?lang=" + $(this).val();
-            });
-        </script>
-
     @endsection
 
     @section('javascript')

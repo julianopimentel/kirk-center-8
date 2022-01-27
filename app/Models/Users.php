@@ -23,6 +23,5 @@ class Users extends Model
 
     protected $dates = [
         'deleted_at'
-    ];
-    
+    ];    
 }

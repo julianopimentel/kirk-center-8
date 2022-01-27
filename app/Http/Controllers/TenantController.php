@@ -15,7 +15,6 @@ class TenantController extends Controller
         session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
-        session()->forget('conexao');
 
         //consultar o schema
         $results = DB::select('select * from admin.accounts where id = ?', [$id] , 'limit 1');

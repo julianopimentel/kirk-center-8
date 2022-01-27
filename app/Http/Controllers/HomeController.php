@@ -12,6 +12,7 @@ use App\Models\Historic;
 use App\Models\Config_meta;
 use App\Models\Config_social;
 use App\Models\Institution;
+use App\Models\Account;
 use App\Models\People_Groups;
 use App\Models\People_Precadastro;
 use App\Models\Requests_Prayer;
@@ -46,10 +47,9 @@ class HomeController extends Controller
         $this->get_tenant();
         //dados do usuario
         $you = auth()->user();
-
         //consultar dados do usuario local
         $user = People::where('user_id', $you->id)->with('roleslocal')->first();
-        if ($user == null) {
+        if ($user == null or $you->people->status_id == '13') {
             //caso não possua acesso associado e grupo vinculado, retorna para selecionar a conta
             $request->session()->flash("info", "Você não possuiu permissão, por favor contactar administrador da conta");
             return redirect()->route('account.index');
@@ -233,12 +233,12 @@ class HomeController extends Controller
     public function indexEventos()
     {
         $you = auth()->user();
-       //pegar tenant
-       $this->get_tenant();
-       //consulta de eventos
-       $eventos = Event::all();
-       $eventos_confirm = EventConfirm::all()->where('user_id', $you->id);
-       
-       return view('eventos', ['eventos' => $eventos, 'eventos_confirm' => $eventos_confirm]);
+        //pegar tenant
+        $this->get_tenant();
+        //consulta de eventos
+        $eventos = Event::all();
+        $eventos_confirm = EventConfirm::all()->where('user_id', $you->id);
+
+        return view('eventos', ['eventos' => $eventos, 'eventos_confirm' => $eventos_confirm]);
     }
 }

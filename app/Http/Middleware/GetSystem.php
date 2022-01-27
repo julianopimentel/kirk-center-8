@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\Config_system;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 
 
@@ -27,6 +28,9 @@ class GetSystem
 
         //pegar permissao do grupo
         $system = Config_system::find('1')->first();
+
+        //setar a linguagem
+        App::setLocale($system->default_language);
 
         //retorno como apppermissao
         view()->share('appSystem', $system);
