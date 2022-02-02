@@ -11,9 +11,9 @@
                 <table class="table table-striped table-bordered datatable">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Created at</th>
-                            <th>Updated at</th>
+                            <th>Nome</th>
+                            <th>Criado em</th>
+                            <th>Atualizado em</th>
                         </tr>
                     </thead>
                     <tbody>

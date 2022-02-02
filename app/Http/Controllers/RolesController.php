@@ -96,6 +96,11 @@ class RolesController extends Controller
         $role->edit_media       = $request->has('edit_media') ? 1 : 0;
         $role->view_media       = $request->has('view_media') ? 1 : 0;
         $role->delete_media       = $request->has('delete_media') ? 1 : 0;
+        //media
+        $role->add_sermons       = $request->has('add_sermons') ? 1 : 0;
+        $role->edit_sermons       = $request->has('edit_sermons') ? 1 : 0;
+        $role->view_sermons       = $request->has('view_sermons') ? 1 : 0;
+        $role->delete_sermons       = $request->has('delete_sermons') ? 1 : 0;
         //settings
         $role->settings_general       = $request->has('settings_general') ? 1 : 0;
         $role->settings_email       = $request->has('settings_email') ? 1 : 0;
@@ -213,6 +218,11 @@ class RolesController extends Controller
         $role->edit_media       = $request->has('edit_media') ? 1 : 0;
         $role->view_media       = $request->has('view_media') ? 1 : 0;
         $role->delete_media       = $request->has('delete_media') ? 1 : 0;
+        //semons
+        $role->add_sermons       = $request->has('add_sermons') ? 1 : 0;
+        $role->edit_sermons       = $request->has('edit_sermons') ? 1 : 0;
+        $role->view_sermons       = $request->has('view_sermons') ? 1 : 0;
+        $role->delete_sermons       = $request->has('delete_sermons') ? 1 : 0;
         //settings
         $role->settings_general       = $request->has('settings_general') ? 1 : 0;
         $role->settings_email       = $request->has('settings_email') ? 1 : 0;
