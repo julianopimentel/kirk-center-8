@@ -68,6 +68,12 @@ class RolesTable extends Migration
             $table->boolean('view_media')->nullable()->default(0);
             $table->boolean('delete_media')->nullable()->default(0);
 
+            //sermons
+            $table->boolean('add_sermons')->nullable()->default(0);
+            $table->boolean('edit_sermons')->nullable()->default(0);
+            $table->boolean('view_sermons')->nullable()->default(0);
+            $table->boolean('delete_sermons')->nullable()->default(0);
+
             //home
             $table->boolean('home_financeiro')->nullable()->default(0);
             $table->boolean('home_financeiro_valores')->nullable()->default(0);
