@@ -86,6 +86,13 @@
             {{ __('layout.documents') }}</a>
     </li>
     @endif
+    @if ($appPermissao->view_sermons== true)
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ route('sermons.index') }}">
+            <i class="c-icon cil-cloud c-sidebar-nav-icon"></i>
+            {{ __('layout.sermons') }}</a>
+    </li>
+    @endif
     @if ($appPermissao->view_financial == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('deposit.balance') }}">

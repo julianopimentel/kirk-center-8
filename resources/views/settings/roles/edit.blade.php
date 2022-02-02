@@ -408,7 +408,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Financeiro</td>
-                                                    <td>
+                                                    <td width="10%">
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
                                                             <input class="c-switch-input" name="add_entrada_financial"
@@ -419,7 +419,7 @@
                                                             Entrada
                                                         </label>
                                                     </td>
-                                                    <td>
+                                                    <td width="10%">
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
                                                             <input class="c-switch-input" name="add_retirada_financial"
