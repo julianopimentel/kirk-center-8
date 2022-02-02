@@ -14,7 +14,9 @@
                         <tr>
                             <th>ID</th>
                             <th>{{ __('account.name') }}</th>
+                            @if (Auth::user()->isAdmin())
                             <th>{{ __('account.type') }}</th>
+                            @endif
                             <th colspan="3">
                                 <Center>{{ __('account.action') }}</Center>
                             </th>
@@ -25,11 +27,13 @@
                             <tr>
                                 <td width="10%">{{ $institution->AccountList->id }}</td>
                                 <td width="40%">{{ $institution->AccountList->name_company }} </td>
+                                @if (Auth::user()->isAdmin())
                                 <td>
                                     <span class="{{ $institution->AccountList->status->class }}">
                                         {{ $institution->AccountList->status->name }}
                                     </span>
                                 </td>
+                                @endif
                                 <td width="1%">
                                     @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
                                         <a href="{{ route('account.edit', $institution->AccountList->id) }}"
