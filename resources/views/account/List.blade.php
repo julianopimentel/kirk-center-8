@@ -12,7 +12,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Código</th>
                             <th>{{ __('account.name') }}</th>
                             @if (Auth::user()->isAdmin())
                             <th>{{ __('account.type') }}</th>
