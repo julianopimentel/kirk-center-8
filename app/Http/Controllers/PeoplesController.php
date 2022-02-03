@@ -170,7 +170,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-                $request->session()->flash("success", "Pessoa criada com sucesso.");
+                $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.creat') }}");
                 return redirect()->back();
             } else {
                 //associar ao usuario com o email ja cadastrado

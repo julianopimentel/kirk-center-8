@@ -15,14 +15,14 @@ return [
     'logo' => 'Kirk',
     'sublogo' => 'Gestão de Igrejas',
 
-    //menu
-    'people' => 'Pessoas',
-    'group' => 'Grupos',
-    'notes' => 'Notas',
-    'settings' => 'Configurações',
+    //itens
+    'people' => 'Pessoa',
+    'group' => 'Grupo',
+    'message' => 'Recado',
+    'prayer' => 'Oração',
+    'calender' => 'Evento',
+    'document' => 'Documento',
+    'sermon' => 'Palavra',
     'financial' => 'Financeiro',
-    'reports' => 'Relatórios',
-    'log' => 'Log de Atividades',
-    'backup' => 'Backup',
-    'support' => 'Suporte',
+    'configuration' => 'Configuração',
 ];

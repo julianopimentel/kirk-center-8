@@ -88,7 +88,7 @@
             {{ __('layout.documents') }}</a>
     </li>
     @endif
-    @if ($appPermissao->view_sermons== true)
+    @if ($appPermissao->view_sermons == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('sermons.index') }}">
             <i class="c-icon cil-education c-sidebar-nav-icon"></i>

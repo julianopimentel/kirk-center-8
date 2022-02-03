@@ -34,9 +34,9 @@ class SermonsController extends Controller
     {
         //pegar tenant
         $this->get_tenant();
-        //consulta da message
+        //consulta da sermons
         $notes = Sermons::with('user')->with('status')->paginate(20);
-        return view('message.notesList', ['notes' => $notes]);
+        return view('sermons.List', ['notes' => $notes]);
     }
 
     /**
@@ -48,7 +48,7 @@ class SermonsController extends Controller
     {
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('message.create', ['statuses' => $statuses]);
+        return view('sermons.Create', ['statuses' => $statuses]);
     }
 
     /**
@@ -90,21 +90,21 @@ class SermonsController extends Controller
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'messages', $name);
+            $this->uploadOne($image, $folder, 'sermonss', $name);
             // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/messages/' . $filePath;
+            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
             $note->save();
             //adicionar log
-            $this->adicionar_log('3', 'U', $note);
-            $request->session()->flash('message', 'Successfully edited note');
-            return redirect()->route('message.index');
+            $this->adicionar_log('19', 'U', $note);
+            $request->session()->flash('sermons', 'Successfully edited note');
+            return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
-        $this->adicionar_log('3', 'U', $note);
-        $request->session()->flash('message', 'Successfully edited note');
-        return redirect()->route('message.index');
+        $this->adicionar_log('19', 'U', $note);
+        $request->session()->flash('sermons', 'Successfully edited note');
+        return redirect()->route('sermons.index');
     }
 
     /**
@@ -119,16 +119,7 @@ class SermonsController extends Controller
         $this->get_tenant();
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
-        return view('message.noteShow', ['note' => $note]);
-    }
-
-    public function showUser($id)
-    {
-        //pegar tenant
-        $this->get_tenant();
-        //consulta
-        $note = Sermons::with('user')->with('status')->find($id);
-        return view('message.noteShowUser', ['note' => $note]);
+        return view('sermons.Show', ['note' => $note]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -148,7 +139,7 @@ class SermonsController extends Controller
         }
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('message.edit', ['statuses' => $statuses, 'note' => $note]);
+        return view('sermons.Edit', ['statuses' => $statuses, 'note' => $note]);
     }
 
     /**
@@ -188,21 +179,21 @@ class SermonsController extends Controller
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'messages', $name);
+            $this->uploadOne($image, $folder, 'sermons', $name);
             // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/messages/' . $filePath;
+            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
             $note->save();
             //adicionar log
-            $this->adicionar_log('3', 'U', $note);
-            $request->session()->flash('message', 'Successfully edited note');
-            return redirect()->route('message.index');
+            $this->adicionar_log('19', 'U', $note);
+            $request->session()->flash('sermons', 'Successfully edited note');
+            return redirect()->route('sermons.index');
         } else
             //se nao tiver imagem, salva novamente
             $note->save();
         //adicionar log
-        $this->adicionar_log('3', 'U', $note);
-        $request->session()->flash('message', 'Successfully edited note');
-        return redirect()->route('message.index');
+        $this->adicionar_log('19', 'U', $note);
+        $request->session()->flash('sermons', 'Successfully edited note');
+        return redirect()->route('sermons.index');
     }
 
     /**
@@ -220,7 +211,7 @@ class SermonsController extends Controller
             $note->delete();
         }
         //adicionar
-        $this->adicionar_log('3', 'D', $note);
-        return redirect()->route('message.index');
+        $this->adicionar_log('19', 'D', $note);
+        return redirect()->route('sermons.index');
     }
 }

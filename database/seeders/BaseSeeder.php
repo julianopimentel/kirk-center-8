@@ -113,6 +113,7 @@ class BaseSeeder extends Seeder
             'home_oracao' => '1',
             'home_eventos' => '1',
             'home_timeline' => '1',
+            'view_sermons' => '1',
             //adicionar oracao
             'add_prayer' => '1',
         ]);

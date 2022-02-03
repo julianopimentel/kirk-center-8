@@ -15,10 +15,6 @@
                                         role="tab" aria-controls="endereco"><i
                                             class="c-icon c-icon-sm cil-location-pin text-dark"></i>
                                         Endereço</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#membro"
-                                        role="tab" aria-controls="membro"><i
-                                            class="c-icon c-icon-sm cil-book text-dark"></i> Membresia</a>
-                                </li>
                             </ul>
                             <form method="POST" action="{{ route('people.updateUser', Auth::user()->people->id) }}">
                                 @csrf

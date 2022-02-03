@@ -587,7 +587,7 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th>Timelie</th>
+                                                    <th>Timeline</th>
                                                     <th>Meus Dados</th>
                                                     <th>Pedido de Orações</th>
                                                     <th>Eventos</th>
