@@ -84,6 +84,8 @@ class RolesTable extends Migration
             $table->boolean('home_dados')->nullable()->default(0);
             $table->boolean('home_oracao')->nullable()->default(0);
             $table->boolean('home_eventos')->nullable()->default(0);
+            $table->boolean('home_timeline')->nullable()->default(0);
+
 
             //dash
             $table->boolean('view_periodo')->nullable()->default(0);

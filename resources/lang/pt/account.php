@@ -17,6 +17,7 @@ return [
 
     //menu
     'available' => 'Disponível',
+    'id' => 'Código',
     'used' => 'Usado',
     'name' => 'Nome',
     'type' => 'Tipo',

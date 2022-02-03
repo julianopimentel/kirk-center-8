@@ -11,11 +11,13 @@
             <i class="c-icon cil-house c-sidebar-nav-icon"></i>
             {{ __('layout.home') }}</a>
     </li>
+    @if ($appPermissao->home_timeline == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
             <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
             {{ __('layout.timeline') }}</a>
     </li>
+    @endif
     @if ($appPermissao->home_financeiro_valores == true)
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('indexDizimos') }}">
@@ -89,7 +91,7 @@
     @if ($appPermissao->view_sermons== true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('sermons.index') }}">
-            <i class="c-icon cil-cloud c-sidebar-nav-icon"></i>
+            <i class="c-icon cil-education c-sidebar-nav-icon"></i>
             {{ __('layout.sermons') }}</a>
     </li>
     @endif

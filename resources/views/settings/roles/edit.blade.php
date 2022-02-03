@@ -587,6 +587,7 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
+                                                    <th>Timelie</th>
                                                     <th>Meus Dados</th>
                                                     <th>Pedido de Orações</th>
                                                     <th>Eventos</th>
@@ -597,6 +598,16 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Mostrar</td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_timeline"
+                                                                type="checkbox"
+                                                                {{ $role->home_timeline == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
                                                     <td>
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">

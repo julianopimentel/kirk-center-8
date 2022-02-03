@@ -75,11 +75,17 @@ class BaseSeeder extends Seeder
             'edit_media' => '1',
             'view_media' => '1',
             'delete_media' => '1',
+            //palavra
+            'add_sermons' => '1',
+            'edit_sermons' => '1',
+            'view_sermons' => '1',
+            'delete_sermons' => '1',
             //home
             'home_financeiro' => '1',
             'home_social' => '1',
             'home_location' => '1',
             'home_message' => '1',
+            'home_timeline' => '1',
             //dash
             'view_periodo' => '1',
             'view_dash' => '1',
@@ -106,6 +112,7 @@ class BaseSeeder extends Seeder
             'home_dados' => '1',
             'home_oracao' => '1',
             'home_eventos' => '1',
+            'home_timeline' => '1',
             //adicionar oracao
             'add_prayer' => '1',
         ]);
@@ -115,6 +122,7 @@ class BaseSeeder extends Seeder
             'home_financeiro' => '1',
             'home_message' => '1',
             'home_eventos' => '1',
+            'home_timeline' => '1',
             //financeiro
             'add_entrada_financial' => '1',
             'add_retirada_financial' => '1',
@@ -161,6 +169,7 @@ class BaseSeeder extends Seeder
             //home
             'home_financeiro' => '1',
             'home_message' => '1',
+            'home_timeline' => '1',
         ]);
 
         DB::table('config_social')->insert([
