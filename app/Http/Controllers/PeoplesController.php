@@ -380,7 +380,7 @@ class PeoplesController extends Controller
         $validargrupo = People_Groups::where('user_id', $id);
         //se tiver, primeiro precisa remover os vinculos
         if ($validargrupo->count() >= 1) {
-            session()->flash("info", "{{ __('action.error_people_group') }}");
+            session()->flash("info",  __('action.error_people_group'));
             return redirect()->back();
         }
         //caso esteja sem vinculo com os grupos
@@ -406,7 +406,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->queue(new SendMailCancelar($conta_name));
             }
-            session()->flash("warning", "{{ __('general.people') }} {{ __('action.delet') }}");
+            session()->flash("warning", __('general.people'). __('action.delet'));
             return redirect()->route('people.index');
         }
     }
