@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'creat' => 'criado com sucesso.',
-    'edit' => 'editado com sucesso.',
-    'delete' => 'deletado com sucesso.',
-    'save' => 'salvado com sucesso.',
+    'creat' => ' criado com sucesso.',
+    'edit' => ' editado com sucesso.',
+    'delete' => ' deletado com sucesso.',
+    'save' => ' salvado com sucesso.',
     'update' => 'atualizado com sucesso.',
-    'success' => 'com sucesso',
+    'success' => ' com sucesso',
     'error' => 'Erro interno',
     'error_people_group' => 'Pessoa possui vinculo com grupos, precisa desassociar',
 ];

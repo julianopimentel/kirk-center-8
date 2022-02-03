@@ -170,7 +170,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-                $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.creat') }}");
+                $request->session()->flash("success",__('general.people'). __('action.creat'));
                 return redirect()->back();
             } else {
                 //associar ao usuario com o email ja cadastrado
@@ -184,14 +184,14 @@ class PeoplesController extends Controller
 
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
-                $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.creat') }}");
+                $request->session()->flash("success", __('general.people'). __('action.creat'));
                 return redirect()->back();
             }
         } else {
             //se estiver desmarcado o criar conta, apenas adiciona a pessoa
             //adicionar log
             $this->adicionar_log('1', 'C', $people);
-            $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.creat') }}");
+            $request->session()->flash("success", __('general.people'). __('action.creat'));
             return redirect()->back();
         }
     }
@@ -210,7 +210,7 @@ class PeoplesController extends Controller
         $people = People::with('acesso')->find($id);
         //validar o id se existe ou se é admin
         if ($people == null or $people->is_admin == true or $people->deleted_at == !null) {
-            session()->flash("danger", "{{ __('action.error') }}");
+            session()->flash("danger",  __('action.error'));
             return redirect()->route('people.index');
         }
         //campo obrigatoria
@@ -321,7 +321,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-                $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.edit') }}");
+                $request->session()->flash("success", __('general.people'). __('action.edit'));
                 return redirect()->route('people.index');
             } else {
                 //se tiver o usuario
@@ -336,14 +336,14 @@ class PeoplesController extends Controller
                 Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
                 //criar vinculo com a conta
                 $this->criar($validaruser->first()->id, session()->get('key'));
-                $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.edit') }}");
+                $request->session()->flash("success", __('general.people'). __('action.edit'));
                 return redirect()->route('people.index');
             }
         } else {
             //se estiver desmarcado o criar conta, apenas atualizar a pessoa
             //adicionar log
             $this->adicionar_log('1', 'U', $people);
-            $request->session()->flash("success", "{{ __('general.people') }} {{ __('action.edit') }}");
+            $request->session()->flash("success", __('general.people'). __('action.edit'));
             return redirect()->route('people.index');
         }
     }
@@ -406,7 +406,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->queue(new SendMailCancelar($conta_name));
             }
-            session()->flash("warning", __('general.people'). __('action.delet'));
+            session()->flash("warning", __('general.people'). __('action.delete'));
             return redirect()->route('people.index');
         }
     }
