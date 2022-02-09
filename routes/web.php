@@ -36,6 +36,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::resource('message', 'NotesController');
     Route::resource('prayer', 'Requests_PrayerController');
     Route::resource('sermons', 'SermonsController');
+    Route::get('sermons/category/{id}', 'SermonsController@indexCategory')->name('sermons.indexCategory');
 
 
     //para pegar a localizacao via ajax

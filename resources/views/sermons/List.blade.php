@@ -1,82 +1,69 @@
 @if ($appPermissao->view_sermons == true)
-@extends('layouts.base')
-@section('content')
-    <div class="container-fluid">
-        <div class="fade-in">
-            <div class="card">
-                <div class="card-header">
-                    <div class="form-groups row">
-                        <div class="col-sm-2 col-md-2 col-lg-4 col-xl-10">
-                                        <h4>Recados</h4>
-                                    </div>
-                                    <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
-                                        @if ($appPermissao->add_sermons == true)
-                                        <a href="{{ route('sermons.create') }}" class="add_button btn btn-sm btn-primary"
-                                        title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></a>
-                                        @endif
-
-                                    </div>
-                                </div>
+    @extends('layouts.base')
+    @section('content')
+        <div class="container-fluid">
+            <div class="fade-in">
+                @if ($appPermissao->add_sermons == true)
+                <div class="card">
+                    <div class="card-header">
+                        <div class="form-groups row">
+                            <div class="col-sm-2 col-md-2 col-lg-4 col-xl-10">
+                                <h4>Palavras</h4>
                             </div>
-
-                            <table class="table table-responsive-sm table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Autor</th>
-                                        <th>Titulo</th>
-                                        <th>Mensagem</th>
-                                        <th>Data</th>
-                                        <th>Status</th>
-                                        <th colspan="3">
-                                            <Center>{{ __('account.action') }}</Center>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($notes as $note)
-                                        <tr>
-                                            <td><strong>{{ $note->user->name }}</strong></td>
-                                            <td><strong>{{ $note->title }}</strong></td>
-                                            <td>{{ $note->content }}</td>
-                                            <td>{{ $note->applies_to_date }}</td>
-                                            <td>
-                                                <span class="{{ $note->status->class }}">
-                                                    {{ $note->status->name }}
-                                                </span>
-                                            </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->view_sermons == true)
-                                                    <a href="{{ route('sermons.show', $note->id) }}"><i
-                                                            class="c-icon c-icon-sm cil-notes text-primary"></i></a>
-                                                @endif
-                                            </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->edit_sermons == true)
-                                                    <a href="{{ route('sermons.edit', $note->id) }}"><i
-                                                            class="c-icon c-icon-sm cil-pencil text-success"></i></a>
-                                                @endif
-                                            </td>
-                                            <td width="1%">
-                                                @if ($appPermissao->delete_sermons == true)
-                                                    <form action="{{ route('sermons.destroy', $note->id) }}"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <a class="show_confirm" data-toggle="tooltip" title='Delete'><i
-                                                                class="c-icon c-icon-sm cil-trash text-danger"></i></a>
-                                                    </form>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            {{ $notes->links() }}
+                            <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
+                                    <a href="{{ route('sermons.create') }}" class="add_button btn btn-sm btn-primary"
+                                        title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                @endif
+                @foreach ($category as $category)
+                    @if (!$notes->isEmpty())
+                        <h6>{{ $category->name }}</h6>
+                        <div class="row">
+                            @foreach ($notes as $note)
+                            @if ($note->type === $category->id)
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                    <article class="article article-style-b">
+                                        <div class="article-header">
+                                            <div class="article-image">
+                                                @if (!empty($note->image))
+                                                    <img src="{{ $note->image }}" width="100%" height="100%">
+                                                @else
+                                                    <img src="assets/img/img0{{ $loop->iteration }}.jpg" width="100%"
+                                                        height="100%">
+                                                @endif
+                                            </div>
+                                            @if ($note->status_id == 2)
+                                                <div class="article-badge">
+                                                    <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i>
+                                                        Trending</div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="article-details">
+                                            <div class="article-title">
+                                                <h2><a
+                                                        href="{{ route('sermons.show', $note->id) }}">{{ mb_strimwidth($note->title, 0, 45, '...') }}</a>
+                                                </h2>
+                                            </div>
+                                            <p>{{ mb_strimwidth($note->content, 0, 130, '...') }}</p>
+                                        </div>
+                                    </article>
+                                </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif
             </div>
-        </div>
+    @endforeach
+
+
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 @endsection

@@ -15,7 +15,7 @@ class CategorySermons extends Migration
         {
             Schema::connection('tenant')->create('category_sermons', function (Blueprint $table) {
                 $table->id();
-                $table->text('title');
+                $table->text('name');
                 $table->string('body')->nullable();
                 $table->string('image')->nullable();
                 $table->timestamps();

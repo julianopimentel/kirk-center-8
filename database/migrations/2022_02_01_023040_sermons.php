@@ -12,10 +12,12 @@ class Sermons extends Migration
             $table->id();
             $table->text('title');
 			$table->text('content');
+            $table->text('url_video');
             $table->string('image')->nullable();
 			$table->string('type')->nullable();
 			$table->date('applies_to_date');
             $table->integer('users_id');
+            $table->integer('status_id');
             $table->string('roles')->nullable();
             $table->timestamps(10);
 			$table->softDeletes('deleted_at')->nullable();

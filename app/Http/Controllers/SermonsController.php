@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category_Sermons;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Models\Sermons;
 use Illuminate\Support\Str;
@@ -34,8 +36,18 @@ class SermonsController extends Controller
     {
         //pegar tenant
         $this->get_tenant();
+        //categoria
+        $category = Category_Sermons::all();
         //consulta da sermons
         $notes = Sermons::with('user')->with('status')->paginate(20);
+        return view('sermons.List', ['notes' => $notes, 'category' => $category]);
+    }
+    public function indexCategory($id)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        //consulta da sermons
+        $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
         return view('sermons.List', ['notes' => $notes]);
     }
 
@@ -46,9 +58,13 @@ class SermonsController extends Controller
      */
     public function create()
     {
+        //roles
+        $roles = Roles::all();
+        //categoria
+        $category = Category_Sermons::all();
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('sermons.Create', ['statuses' => $statuses]);
+        return view('sermons.Create', ['statuses' => $statuses, 'roles' => $roles, 'category' => $category]);
     }
 
     /**
@@ -66,7 +82,6 @@ class SermonsController extends Controller
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
-            'note_type'         => 'required'
         ]);
         //user data
         $user = auth()->user();
@@ -74,7 +89,9 @@ class SermonsController extends Controller
         $note->title     = $request->input('title');
         $note->content   = $request->input('content');
         $note->status_id = $request->input('status_id');
-        $note->note_type = $request->input('note_type');
+        $note->url_video   = $request->input('url');
+        $note->roles   = implode(',', $request->input('roles'));
+        $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
         $note->users_id = $user->id;
 
@@ -90,20 +107,20 @@ class SermonsController extends Controller
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'sermonss', $name);
+            $this->uploadOne($image, $folder, 'sermons', $name);
             // Set user profile image path in database to filePath
             $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('sermons', 'Successfully edited note');
+            $request->session()->flash('sermons', 'Successfully created note');
             return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('sermons', 'Successfully edited note');
+        $request->session()->flash('sermons', 'Successfully created note');
         return redirect()->route('sermons.index');
     }
 
@@ -129,6 +146,7 @@ class SermonsController extends Controller
      */
     public function edit($id)
     {
+
         //pegar tenant
         $this->get_tenant();
         $note = Sermons::find($id);
@@ -137,9 +155,13 @@ class SermonsController extends Controller
             session()->flash("danger", "Erro interno");
             return redirect()->route('group.index');
         }
+        //roles
+        $roles = Roles::all();
+        //categoria
+        $category = Category_Sermons::all();
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('sermons.Edit', ['statuses' => $statuses, 'note' => $note]);
+        return view('sermons.Edit', ['statuses' => $statuses, 'note' => $note, 'roles' => $roles, 'category' => $category]);
     }
 
     /**
@@ -154,20 +176,25 @@ class SermonsController extends Controller
         //pegar tenant
         $this->get_tenant();
         //die();
+        //user data
+        $user = auth()->user();
         $validatedData = $request->validate([
             'title'             => 'required|min:1|max:64',
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
-            'note_type'         => 'required'
+            'type'         => 'required'
         ]);
 
         $note = Sermons::find($id);
         $note->title     = $request->input('title');
         $note->content   = $request->input('content');
         $note->status_id = $request->input('status_id');
-        $note->note_type = $request->input('note_type');
+        $note->url_video   = $request->input('url');
+        $note->roles   = implode(',', $request->input('roles'));
+        $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
+        $note->users_id = $user->id;
         //tratamento na imagem
         if ($request->has('image')) {
             // Get image file
