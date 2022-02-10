@@ -27,3 +27,8 @@ storage/app/public
 
 #ocuttar token
 server_deploy.sh
+
+#outros
+envio_email.sh
+laravel.log
+nohup.out
