@@ -10,20 +10,20 @@
         </div>
 
         <div class="card card-dark">
-          <div class="card-header"><h4>{{ __('Reset Password') }}</h4></div>
+          <div class="card-header"><h4>{{ __('auth.forget_password') }}</h4></div>
 
           <div class="card-body">
-            <p class="text-muted">We will send a link to reset your password</p>
+            <p class="text-muted">{{ __('auth.reset_frase_1') }}</p>
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">{{ __('auth.email') }}</label>
                 <input class="form-control" type="email" placeholder="{{ __('E-Mail Address') }}" name="email" value="{{ old('email') }}" required autofocus>
             </div>
 
               <div class="form-group">
                 <button type="submit" class="btn btn-dark btn-lg btn-block" tabindex="4">
-                    {{ __('Forgot Password') }}
+                {{ __('auth.reset_password') }}
                 </button>
               </div>
             </form>

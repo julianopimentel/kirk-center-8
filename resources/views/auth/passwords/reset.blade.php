@@ -9,22 +9,22 @@
         </div>
 
         <div class="card card-dark">
-          <div class="card-header"><h4>{{ __('Reset Password') }}</h4></div>
+          <div class="card-header"><h4>{{ __('auth.forget_password') }}</h4></div>
 
           <div class="card-body">
-            <p class="text-muted">We will send a link to reset your password</p>
+            <p class="text-muted">{{ __('auth.reset_frase_2') }}</p>
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
               <div class="form-group">
-                <label for="email">{{ __('E-Mail Address') }}</label>
+                <label for="email">{{ __('auth.email') }}</label>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
             </div>
 
               <div class="form-group">
-                <label for="password">{{ __('Password') }}</label>
+                <label for="password">{{ __('auth.password') }}</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                 <div id="pwindicator" class="pwindicator">
                   <div class="bar"></div>
@@ -33,13 +33,13 @@
               </div>
 
               <div class="form-group">
-                <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                <label for="password-confirm">{{ __('auth.confirm_password') }}</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
 
               <div class="form-group">
                 <button type="submit" class="btn btn-dark btn-lg btn-block" tabindex="4">
-                    {{ __('Reset Password') }}
+                {{ __('auth.reset_password') }}
                 </button>
               </div>
             </form>

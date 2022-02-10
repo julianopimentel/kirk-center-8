@@ -16,4 +16,6 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'agree' => 'I agree with the <a href="https://deskapp.online/terms.php">Terms & Conditions</a> and  <a href="https://deskapp.online/privacy.php">Privacy Policy',
+
 ];

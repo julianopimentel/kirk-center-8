@@ -26,8 +26,8 @@ return [
     'doc' => 'CNPJ',
 
     //types
-    'Church' => 'Igreja',
-    'Business' => 'Empresarial',
-    'Education' => 'Educacional',
-    'Government' => 'Governamental',
+    'church' => 'Igreja',
+    'business' => 'Empresarial',
+    'education' => 'Educacional',
+    'government' => 'Governamental',
 ];

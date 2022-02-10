@@ -11,21 +11,21 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input class="form-control" type="text" placeholder="{{ __('E-Mail Address') }}"
+                    <label for="email">{{ __('auth.email') }</label>
+                    <input class="form-control" type="text" placeholder="{{ __('auth.email') }}"
                     name="email" value="{{ old('email') }}" tabindex="1" required autofocus>
                   </div>
 
                   <div class="form-group">
                     <div class="d-block">
-                    	<label for="password" class="control-label">Senha</label>
+                    	<label for="password" class="control-label">{{ __('auth.password') }</label>
                       <div class="float-right">
                         <a href="{{ route('password.request') }}" class="text-small">
-                          Esqueceu sua senha?
+                        {{ __('auth.forgot_password') }}
                         </a>
                       </div>
                     </div>
-                    <input class="form-control" type="password" placeholder="{{ __('Password') }}"  id="password"
+                    <input class="form-control" type="password" placeholder="{{ __('auth.forgot_password') }}"  id="password"
                     name="password" tabindex="2" required>
                   </div>
                   <div class="form-group">
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Não tem conta? <a href="{{ route('register') }}">Crie uma</a>
+            {{ __('auth.register_') }} <a href="{{ route('register') }}">{{ __('auth.register_up') }}</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; DeskApps

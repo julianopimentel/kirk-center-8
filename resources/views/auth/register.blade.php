@@ -12,24 +12,24 @@
             </center>
           <div class="card mx-4">
             <div class="card-body p-4">
-                <div class="card-header"><h4>Register</h4></div>
+                <div class="card-header"><h4>{{ __('auth.register') }}</h4></div>
 
                 <div class="card-body">
                   <form method="POST" action="{{ route('register') }}">
                     @csrf
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="first_name">First Name</label>
+                    <label for="first_name">{{ __('people.name') }}</label>
                     <input class="form-control" type="text" placeholder="{{ __('auth.name') }}" name="name" value="{{ old('name') }}" required autofocus>
                   </div>
                   <div class="form-group col-6">
-                    <label for="last_name">Last Name</label>
+                    <label for="last_name">{{ __('people.last_name') }}</label>
                     <input id="last_name" type="text" class="form-control" placeholder="Sobrenome" name="last_name">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="email">{{ __('auth.email') }}</label>
                   <input class="form-control" type="text" placeholder="{{ __('auth.email') }}" name="email" value="{{ old('email') }}" required>
                   <div class="invalid-feedback">
                   </div>
@@ -37,7 +37,7 @@
 
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="password" class="d-block">Password</label>
+                    <label for="password" class="d-block">{{ __('auth.password') }}</label>
                     <input class="form-control" type="password" placeholder="{{ __('auth.password') }}" name="password" required>
                     <div id="pwindicator" class="pwindicator">
                       <div class="bar"></div>
@@ -45,29 +45,23 @@
                     </div>
                   </div>
                   <div class="form-group col-6">
-                    <label for="password2" class="d-block">Password Confirmation</label>
+                    <label for="password2" class="d-block">{{ __('auth.confirm_password') }}</label>
                     <input class="form-control" type="password" placeholder="{{ __('auth.confirm_password') }}" name="password_confirmation" required>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="form-group col-6">
-                    <label>Telefone</label>
+                    <label>{{ __('people.mobile') }}</label>
                     <input class="form-control" type="tel" placeholder="21 998121-1212" name="mobile"  required autofocus
                     pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Country</label>
-                    <select class="form-control selectric" name="country">
-                      <option value="BRAZIL">Brazil</option>
-                    </select>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" name="agree" class="custom-control-input" id="agree" required>
-                    <label class="custom-control-label" for="agree">I agree with the <a href="https://deskapp.online/terms.php">Terms & Conditions</a> and  <a href="https://deskapp.online/privacy.php">Privacy Policy</a></label>
+                    <label class="custom-control-label" for="agree">{{ __('auth.agree') }}</a></label>
                   </div>
                 </div>
 

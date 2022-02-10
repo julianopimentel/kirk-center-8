@@ -18,12 +18,13 @@ return [
     'access_data' => 'Dados de Acesso',
     //campos
     'name' => 'Nome',
-    'group' => 'Sobrenome',
+    'last_name' => 'Sobrenome',
     'email' => 'Email',
+    'mobile' => 'Celular',
     'prayer' => 'Data de Nascimento',
     'calender' => 'Genero',
     'role' => 'Permissão',
-    'create_access' => 'Criaracesso',
+    'create_access' => 'Criar acesso',
     //endereço
     'street' => 'Rua',
     'postal_code' => 'CEP',
