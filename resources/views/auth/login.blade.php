@@ -18,7 +18,7 @@
 
                   <div class="form-group">
                     <div class="d-block">
-                    	<label for="password" class="control-label">{{ __('auth.password') }</label>
+                    	<label for="password" class="control-label">{{ __('auth.password') }}</label>
                       <div class="float-right">
                         <a href="{{ route('password.request') }}" class="text-small">
                         {{ __('auth.forgot_password') }}
