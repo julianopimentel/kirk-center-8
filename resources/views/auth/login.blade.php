@@ -11,7 +11,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="form-group">
-                    <label for="email">{{ __('auth.email') }</label>
+                    <label for="email">{{ __('auth.email') }}</label>
                     <input class="form-control" type="text" placeholder="{{ __('auth.email') }}"
                     name="email" value="{{ old('email') }}" tabindex="1" required autofocus>
                   </div>
