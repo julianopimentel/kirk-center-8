@@ -37,13 +37,6 @@
                     <p>Write something here</p>
                   </div>
                 </div>
-</div>
-
-                    <div class="card-header">
-                    <h6>{{ $category->name }}</h6>
-                  </div>
-                        
-                        <div class="row">
                             @foreach ($notes as $note)
                             @if ($note->type === $category->id)
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
@@ -79,6 +72,8 @@
                         </div>
                     @endif
             </div>
+</div>
+</div>
     @endforeach
 
 
