@@ -67,12 +67,12 @@
                                     </article>
                                 </div>
                                 @endif
+                                </div>
+</div>
                             @endforeach
                         </div>
                     @endif
             </div>
-</div>
-</div>
                 </div>
 </div>
     @endforeach
