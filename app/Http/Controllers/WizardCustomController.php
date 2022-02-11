@@ -19,51 +19,6 @@ class WizardCustomController extends Controller
      *
      * @return void
      */
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //user data
-        $you = auth()->user();
-        //pegar tenant da conta selecionada
-        $value = $request->session()->get('key-wizard');
-        Config::set('database.connections.tenant.schema', $value);
-        //validar se tem precadastro já realizado
-        $validarprecadastro = People_Precadastro::where('user_id', $you->id);
-        //se nao possuir precadastro
-        if ($validarprecadastro->count() == 0) {
-            //inserir no banco correto
-            $people = new People_Precadastro();
-            $people->name          = strtoupper($request->input('name'));
-            $people->email         = auth()->user()->email;
-            $people->mobile        = $request->input('mobile');
-            $people->birth_at      = $request->input('birth_at');
-            $people->address       = $request->input('address');
-            $people->city          = $request->input('city');
-            $people->state          = $request->input('state');
-            $people->cep           = $request->input('cep');
-            $people->country       = $request->input('country');
-            $people->status_id = '21'; //pendente
-            $people->role = '2'; //membro
-            $people->sex       = $request->input('sex');
-            $people->user_id = $you->id;
-            $people->save();
-            //adicionar log
-            $this->adicionar_log('10', 'C', $people);
-
-            $request->session()->flash("success", 'Cadastrado com sucesso, aguarde aprovação do administrador');
-            return redirect()->route('account.index');
-        } else {
-            //se tiver precadastro
-            session()->flash("info", "Você já possuiu vinculo, aguarde um administrador aprovar o seu acesso.");
-            return redirect()->route('account.index');
-        }
-    }
-
     public function index($id)
     {
         //mater toda a sessao
@@ -98,13 +53,76 @@ class WizardCustomController extends Controller
         //retornar
         return redirect()->route('wizardCustom.create');
     }
+
     public function create()
     {
-        //se a selecao da conta estiver vazio
-        if (session()->get('key') == null) {
-            return redirect('wizardList');
-        };
-        //carregar contas ativas
+        //carregar a tela de cadastro
         return view('account.wizardCustom');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //user data
+        //$you = auth()->user();
+        //pegar tenant da conta selecionada
+        $value = session()->get('schema');
+        Config::set('database.connections.tenant.schema', $value);
+        //validar se tem precadastro já realizado
+        $validarcadastro = People::where('email', $request->input('email'));
+        //se nao possuir precadastro
+        if ($validarcadastro->count() == 0) {
+            //cadastrar a pessoa localmente na conta
+            $people = new People();
+            $people->name          = strtoupper($request->input('name').' '.$request->input('lastname'));
+            $people->email         = $request->input('email');
+            $people->mobile        = $request->input('mobile');
+            $people->status_id = '21'; //pendente
+            $people->role = '2'; //membro
+            $people->user_id = $user->id;
+            $people->save();
+            //adicionar log
+            $this->adicionar_log('10', 'C', $people);
+
+            //cadastrar o seu acesso
+//gerar hash
+$pwa = Str::random(8);
+//criar o usuario
+$user =  User::create([
+    'name' => $people->name,
+    'email' => $people->email,
+    'password' => Hash::make($pwa), //gerar senha
+    'mobile' => $people->mobile
+]);
+//associar ao user
+$user->assignRole('user');
+
+//adicionar log
+$this->adicionar_log_global('14', 'C', $user);
+
+//validar email agora cadastrado
+$validaruser = User::where('email', $people->email)->get();
+//associar usuário a pessoa na conta local
+$associar = People::where('email', $people->email)->first();
+$associar->user_id = $validaruser->first()->id;
+$associar->save();
+//criar vinculo com a conta
+$this->criar($user->id, session()->get('key'));
+//disparar o email
+$conta_name = session()->get('conta_name');
+Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
+
+
+
+            $request->session()->flash("success", 'Cadastrado com sucesso, enviaremos seu dados de acesso por e-mail');
+            return redirect()->route('account.index');
+        } else {
+            //se tiver precadastro
+            session()->flash("info", "Você já possuiu vinculo, favor logar em sua conta");
+            return redirect()->route('login.index');
+        }
     }
 }
