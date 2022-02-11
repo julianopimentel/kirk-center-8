@@ -61,7 +61,11 @@
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
                     <input type="checkbox" name="agree" class="custom-control-input" id="agree" required>
-                    <label class="custom-control-label" for="agree">{{ __('auth.agree') }}</a></label>
+                    <label class="custom-control-label" for="agree">{{ __('auth.agree') }}<a href="https://deskapp.online/terms.php">{{ __('auth.term') }}</a>
+                      {{ __('auth.and') }}
+                      <a href="https://deskapp.online/privacy.php">
+                      {{ __('auth.privacy') }}
+                    </a></label>
                   </div>
                 </div>
 
