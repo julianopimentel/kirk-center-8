@@ -18,7 +18,6 @@ class Sermons extends Migration
 			$table->date('applies_to_date');
             $table->integer('users_id');
             $table->integer('status_id');
-            $table->string('roles')->nullable();
             $table->timestamps(10);
 			$table->softDeletes('deleted_at')->nullable();
         });

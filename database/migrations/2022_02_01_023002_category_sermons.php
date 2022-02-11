@@ -18,6 +18,7 @@ class CategorySermons extends Migration
                 $table->text('name');
                 $table->string('body')->nullable();
                 $table->string('image')->nullable();
+                $table->string('roles')->nullable();
                 $table->timestamps();
             });
         }

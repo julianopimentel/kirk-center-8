@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use App\Models\Status;
 use Illuminate\Support\Facades\URL;
 use App\Traits\UploadTrait;
+use CategorySermons;
 
 class SermonsController extends Controller
 {
@@ -42,6 +43,7 @@ class SermonsController extends Controller
         $notes = Sermons::with('user')->with('status')->paginate(20);
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
+
     public function indexCategory($id)
     {
         //pegar tenant
@@ -113,14 +115,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('layout.sermon'). __('action.creat'));
+            $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
             return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('success', __('layout.sermon'). __('action.creat'));
+        $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
         return redirect()->route('sermons.index');
     }
 
@@ -212,14 +214,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('layout.sermon'). __('action.edit'));
+            $request->session()->flash('success', __('layout.sermon') . __('action.edit'));
             return redirect()->route('sermons.index');
         } else
             //se nao tiver imagem, salva novamente
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('success', __('layout.sermon'). __('action.edit'));
+        $request->session()->flash('success', __('layout.sermon') . __('action.edit'));
         return redirect()->route('sermons.index');
     }
 
@@ -238,8 +240,71 @@ class SermonsController extends Controller
             $note->delete();
         }
         //adicionar
-        $request->session()->flash('warning', __('layout.sermon'). __('action.delete'));
+        session()->flash('warning', __('layout.sermon') . __('action.delete'));
         $this->adicionar_log('19', 'D', $note);
         return redirect()->route('sermons.index');
     }
+
+    //parte da categoria
+    public function showCategory()
+    {
+        //pegar tenant
+        $this->get_tenant();
+        //roles
+        $roles = Roles::all();
+        //consulta da sermons
+        $categorys = Category_Sermons::all();
+        return view('sermons.ShowCategory', ['categorys' => $categorys,  'roles' => $roles]);
+    }
+
+    public function storeCategory(Request $request)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        $validatedData = $request->validate([
+            'title'             => 'required|min:1|max:64',
+            'content'           => 'required',
+            'status_id'         => 'required',
+            'applies_to_date'   => 'required|date_format:Y-m-d',
+        ]);
+        //user data
+        $user = auth()->user();
+        $note = new Sermons();
+        $note->title     = $request->input('title');
+        $note->content   = $request->input('content');
+        $note->status_id = $request->input('status_id');
+        $note->url_video   = $request->input('url');
+        $note->roles   = implode(',', $request->input('roles'));
+        $note->type = $request->input('type');
+        $note->applies_to_date = $request->input('applies_to_date');
+        $note->users_id = $user->id;
+
+        //tratamento da imagem se tiver
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+
+            $name = Str::slug($request->input('name')) . '_' . time();
+            // Define folder path
+            $folder = '';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'sermons', $name);
+            // Set user profile image path in database to filePath
+            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
+            $note->save();
+            //adicionar log
+            $this->adicionar_log('19', 'U', $note);
+            $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
+            return redirect()->route('sermons.index');
+        } else
+            //salva sem o tratamento da imagem
+            $note->save();
+        //adicionar log
+        $this->adicionar_log('19', 'U', $note);
+        $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
+        return redirect()->route('sermons.ShwoCategory');
+}
 }

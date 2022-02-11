@@ -23,6 +23,10 @@ Route::get('/', 'WelcomeController@welcome')->name('welcome');
 Route::get('/contact', function () {
     return view('contato');
 });
+Route::get('/send/{id}', 'WizardCustomController@index')->name('wizardCustom.index');
+Route::get('send', 'WizardCustomController@create')->name('wizardCustom.create');
+Route::post('send', 'WizardCustomController@store')->name('wizardCustom.store');
+
 
 Auth::routes();
 
@@ -37,6 +41,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::resource('prayer', 'Requests_PrayerController');
     Route::resource('sermons', 'SermonsController');
     Route::get('sermons/category/{id}', 'SermonsController@indexCategory')->name('sermons.indexCategory');
+    Route::get('category/sermons', 'SermonsController@showCategory')->name('sermons.showCategory');
 
 
     //para pegar a localizacao via ajax
