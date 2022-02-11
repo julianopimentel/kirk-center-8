@@ -20,7 +20,15 @@
                 @endif
                 @foreach ($category as $category)
                     @if (!$notes->isEmpty())
-                        <h6>{{ $category->name }}</h6>
+                    <div class="card-header">
+                    <h6>{{ $category->name }}</h6>
+                    <div class="card-header-action">
+                      <a href="{{ route('sermons.indexCategory', $category->id) }}" class="btn btn-primary">
+                        Ver todos
+                      </a>
+                    </div>
+                  </div>
+                        
                         <div class="row">
                             @foreach ($notes as $note)
                             @if ($note->type === $category->id)

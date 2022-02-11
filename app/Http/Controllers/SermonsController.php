@@ -48,7 +48,7 @@ class SermonsController extends Controller
         $this->get_tenant();
         //consulta da sermons
         $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
-        return view('sermons.List', ['notes' => $notes]);
+        return view('sermons.ListCategory', ['notes' => $notes]);
     }
 
     /**
@@ -113,14 +113,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('sermons', 'Successfully created note');
+            $request->session()->flash('success', __('layout.sermon'). __('action.creat'));
             return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('sermons', 'Successfully created note');
+        $request->session()->flash('success', __('layout.sermon'). __('action.creat'));
         return redirect()->route('sermons.index');
     }
 
@@ -152,7 +152,7 @@ class SermonsController extends Controller
         $note = Sermons::find($id);
         //validar o id se existe
         if ($note == null) {
-            session()->flash("danger", "Erro interno");
+            session()->flash("danger",  __('action.error'));
             return redirect()->route('group.index');
         }
         //roles
@@ -212,14 +212,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('sermons', 'Successfully edited note');
+            $request->session()->flash('success', __('layout.sermon'). __('action.edit'));
             return redirect()->route('sermons.index');
         } else
             //se nao tiver imagem, salva novamente
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('sermons', 'Successfully edited note');
+        $request->session()->flash('success', __('layout.sermon'). __('action.edit'));
         return redirect()->route('sermons.index');
     }
 
@@ -238,6 +238,7 @@ class SermonsController extends Controller
             $note->delete();
         }
         //adicionar
+        $request->session()->flash('warning', __('layout.sermon'). __('action.delete'));
         $this->adicionar_log('19', 'D', $note);
         return redirect()->route('sermons.index');
     }

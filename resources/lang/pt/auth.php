@@ -35,11 +35,11 @@ return [
     'forget_password' => 'Esqueceu a senha?',
     
     
-    'agree' => 'Eu concordo com o',
+    'agree' => 'Eu concordo com o ',
     'term' => 'Termos & Condições',
     'and' => ' e ',
     'privacy' => 'Política de Privacidade',
-    
+
     'loren' => 'Você pode ter na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento de entradas e saidas do financeiro',
 
 ];
