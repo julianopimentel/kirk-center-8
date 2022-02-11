@@ -34,10 +34,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Write something here</p>
-                  </div>
-                </div>
-                            @foreach ($notes as $note)
+                    <p>{{ $category->body }}</p>
+
+                    @foreach ($notes as $note)
                             @if ($note->type === $category->id)
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                     <article class="article article-style-b">
@@ -73,6 +72,8 @@
                     @endif
             </div>
 </div>
+</div>
+                </div>
 </div>
     @endforeach
 
