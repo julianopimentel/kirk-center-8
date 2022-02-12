@@ -11,7 +11,6 @@ use App\Models\Institution;
 use App\Models\Users_Account;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -125,7 +124,8 @@ class WizardCustomController extends Controller
             $associar->save();
             //disparar o email
             $conta_name = session()->get('conta_name');
-            Mail::to($people->email)->queue(new SendMailBemVindo($conta_name, $user->email, $pwa));
+            $email = $people->email;
+            Mail::to($people->email)->queue(new SendMailBemVindo($conta_name, $email, $pwa));
 
             if (Auth::attempt($credentials)) {
                 //criar vinculo com a conta
