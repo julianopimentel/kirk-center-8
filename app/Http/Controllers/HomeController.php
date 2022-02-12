@@ -20,8 +20,6 @@ use App\Models\Country;
 use App\Models\City;
 use App\Models\State;
 use App\Models\EventConfirm;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {

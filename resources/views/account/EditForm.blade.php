@@ -238,7 +238,7 @@
                                                 <div class="form-group">
                                                     <label for="street">QRCode para compartilhar</label>
                                                     <div class="input-group">
-                                                        {!! QrCode::size(250)->generate(env('APP_URL').'/share/'.$institution->unique_id); !!}
+                                                        {!! QrCode::size(300)->generate(env('APP_URL').'/share/'.$institution->unique_id); !!}
                                                     </div>
                                                 </div>
                                             </div>
