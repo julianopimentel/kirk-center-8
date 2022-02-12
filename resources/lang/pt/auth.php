@@ -21,6 +21,7 @@ return [
     'password' => 'Senha',
     'confirm_password' => 'Confirmar a senha',
     'email' => 'E-Mail',
+    'mobile' => 'Gostaria de informar um Celular?',
     //frases e botoes
     'sign_up' => 'Registrar',
     'sign_in' => 'Faça login em sua conta',
@@ -39,6 +40,7 @@ return [
     'term' => 'Termos & Condições',
     'and' => ' e ',
     'privacy' => 'Política de Privacidade',
+    'welcome' => 'Bem-vindo a ',
 
     'loren' => 'Você pode ter na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento de entradas e saidas do financeiro',
 

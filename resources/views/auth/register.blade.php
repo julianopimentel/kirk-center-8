@@ -6,7 +6,7 @@
     <div class="container mt-2">
       <div class="row justify-content-center">
 
-        <div class="col-md-6">
+        <div class="col-md-8">
           <center>
             <img class="image rounded-circle" src="assets/favicon/android-chrome-96x96.png" alt="profile_image" style="width: 120px;height: 120px; padding: 10px; margin: 0px; ">
             </center>
@@ -18,11 +18,11 @@
                   <form method="POST" action="{{ route('register') }}">
                     @csrf
                 <div class="row">
-                  <div class="form-group col-6">
+                  <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-6">
                     <label for="first_name">{{ __('people.name') }}</label>
                     <input class="form-control" type="text" placeholder="{{ __('auth.name') }}" name="name" value="{{ old('name') }}" required autofocus>
                   </div>
-                  <div class="form-group col-6">
+                  <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-6">
                     <label for="last_name">{{ __('people.last_name') }}</label>
                     <input id="last_name" type="text" class="form-control" placeholder="Sobrenome" name="last_name">
                   </div>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="form-group col-6">
+                  <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <label for="password" class="d-block">{{ __('auth.password') }}</label>
                     <input class="form-control" type="password" placeholder="{{ __('auth.password') }}" name="password" required>
                     <div id="pwindicator" class="pwindicator">
@@ -44,17 +44,17 @@
                       <div class="label"></div>
                     </div>
                   </div>
-                  <div class="form-group col-6">
+                  <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <label for="password2" class="d-block">{{ __('auth.confirm_password') }}</label>
                     <input class="form-control" type="password" placeholder="{{ __('auth.confirm_password') }}" name="password_confirmation" required>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="form-group col-6">
+                  <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <label>{{ __('people.mobile') }}</label>
                     <input class="form-control" type="tel" placeholder="21 998121-1212" name="mobile"  required autofocus
-                    pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
+                    >
                   </div>
                 </div>
 
