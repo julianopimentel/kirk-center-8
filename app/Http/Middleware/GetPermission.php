@@ -22,7 +22,9 @@ class GetPermission
         $you = auth()->user();
         //validar o tenant, se nao tive retornar para o inicio
         if ((session()->get('schema')) === null){
-            return redirect()->route('account.index')->withErrors(['error' => __('Please select an account to continue')]);
+            return redirect()->route('account.index')
+            //->withErrors(['error' => __('Please select an account to continue')])
+            ;
         }
 
         //setar tenant
