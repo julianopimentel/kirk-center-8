@@ -20,7 +20,7 @@ class WelcomeController extends Controller
             return redirect()->route('account.index');
             else
             //se tiver, volta para a tela do home
-            return redirect()->route('home.index');
+            return redirect()->route('account.index');
         }
         //se não carregar o login
         return view('login');
