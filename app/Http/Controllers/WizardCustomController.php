@@ -10,14 +10,17 @@ use App\Models\People;
 use App\Models\Institution;
 use App\Models\Users_Account;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class WizardCustomController extends Controller
 {
     use SoftDeletes;
+    use AuthenticatesUsers;
 
     private $totalPagesPaginate = 12;
     /**
@@ -27,9 +30,9 @@ class WizardCustomController extends Controller
      */
     public function index($id)
     {
-        $you =
-            //mater toda a sessao
-            session()->forget('schema');
+        $you = auth()->user();
+        //mater toda a sessao
+        session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
 
@@ -41,10 +44,8 @@ class WizardCustomController extends Controller
         session()->put('schema', $results->tenant);
 
         //inserir o código
-        session()->put('key', $id);
+        session()->put('key', $results->id);
 
-        //inserir o nome do schema
-        session()->put('conexao', '$a');
         // Setando os dados da nova conexão.
         Config::set('database.connections.tenant.schema', $results->tenant);
 
@@ -59,6 +60,11 @@ class WizardCustomController extends Controller
         if ($results->compartilhar_link == false or $results->deleted_at == !null) {
             session()->flash("info", "Link inválido");
             return redirect('login');
+        };
+        //se o usuario for integrador ele abre a edição da conta
+        if (Auth::check() == true) {
+            session()->flash("warning", "Necessário deslogar da conta para acessar o Link!");
+            return redirect('account');
         };
         //retornar
         return redirect()->route('wizardCustom.create');
@@ -76,11 +82,10 @@ class WizardCustomController extends Controller
      */
     public function store(Request $request)
     {
-        //se o usuario for integrador ele abre a edição da conta
-        if (auth()->user()->master == true) {
-            session()->flash("info", "Você é um Integrador, acesso apenas para demostração");
-            return redirect('account');
-        };
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
         //pegar tenant da conta selecionada
         $value = session()->get('schema');
         Config::set('database.connections.tenant.schema', $value);
@@ -99,7 +104,7 @@ class WizardCustomController extends Controller
             $people->role = '2'; //membro
             //cadastrar o seu acesso
             //gerar hash
-            $pwa = Str::random(8);
+            $pwa = $request->input('password');
             //criar o usuario
             $user =  User::create([
                 'name' => $people->name,
@@ -109,25 +114,31 @@ class WizardCustomController extends Controller
             ]);
             //associar ao user
             $user->assignRole('user');
-            //adicionar log
-            $this->adicionar_log_global('14', 'C', $user);
             //vincular o user e salvar
             $people->user_id = $user->id;
             $people->save();
-            //adicionar log
-            $this->adicionar_log('10', 'C', $people);
             //validar email agora cadastrado
             $validaruser = User::where('email', $people->email)->get();
-            //associar usuário a pessoa na conta local
+            //associar usuário a pessoa na conta local se tiver
             $associar = People::where('email', $people->email)->first();
             $associar->user_id = $validaruser->first()->id;
             $associar->save();
-            //criar vinculo com a conta
-            $this->criar($user->id, session()->get('key'));
             //disparar o email
             $conta_name = session()->get('conta_name');
             Mail::to($people->email)->queue(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
+            if (Auth::attempt($credentials)) {
+                //criar vinculo com a conta
+                $this->criar($user->id, session()->get('key'));
+                //adicionar log local
+                $this->adicionar_log_global('14', 'C', $user);
+                //adicionar log
+                $this->adicionar_log('10', 'C', $people);
+
+                $request->session()->regenerate();
+
+                return redirect()->intended('account');
+            }
             $request->session()->flash("success", 'Cadastrado com sucesso, enviaremos seu dados de acesso por e-mail');
             return redirect()->route('account.index');
         } else {
