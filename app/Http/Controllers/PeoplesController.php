@@ -319,7 +319,7 @@ class PeoplesController extends Controller
                 $this->criar($validaruser->first()->id, session()->get('key'));
                 //disparar o email
                 $conta_name = session()->get('conta_name');
-                Mail::to($people->email)->queue(new SendMailBemVindo($conta_name, $user->email, $pwa));
+                Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
                 $request->session()->flash("success", __('general.people'). __('action.edit'));
                 return redirect()->route('people.index');
