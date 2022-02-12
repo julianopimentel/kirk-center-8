@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use App\Models\People_Precadastro;
+use App\Models\People;
 use App\Models\Institution;
+use App\Models\Users_Account;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class WizardCustomController extends Controller
 {
@@ -75,19 +78,8 @@ class WizardCustomController extends Controller
         $validarcadastro = People::where('email', $request->input('email'));
         //se nao possuir precadastro
         if ($validarcadastro->count() == 0) {
-            //cadastrar a pessoa localmente na conta
-            $people = new People();
-            $people->name          = strtoupper($request->input('name').' '.$request->input('lastname'));
-            $people->email         = $request->input('email');
-            $people->mobile        = $request->input('mobile');
-            $people->status_id = '21'; //pendente
-            $people->role = '2'; //membro
-            $people->user_id = $user->id;
-            $people->save();
-            //adicionar log
-            $this->adicionar_log('10', 'C', $people);
 
-            //cadastrar o seu acesso
+                        //cadastrar o seu acesso
 //gerar hash
 $pwa = Str::random(8);
 //criar o usuario
@@ -99,9 +91,21 @@ $user =  User::create([
 ]);
 //associar ao user
 $user->assignRole('user');
-
 //adicionar log
 $this->adicionar_log_global('14', 'C', $user);
+
+            //cadastrar a pessoa localmente na conta
+            $people = new People();
+            $people->name          = strtoupper($request->input('name').' '.$request->input('lastname'));
+            $people->email         = $request->input('email');
+            $people->mobile        = $request->input('mobile');
+            $people->status_id = '14'; //pendente
+            $people->role = '2'; //membro
+            $people->user_id = $user->id;
+            $people->save();
+            //adicionar log
+            $this->adicionar_log('10', 'C', $people);
+
 
 //validar email agora cadastrado
 $validaruser = User::where('email', $people->email)->get();
@@ -115,14 +119,41 @@ $this->criar($user->id, session()->get('key'));
 $conta_name = session()->get('conta_name');
 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
 
-
-
             $request->session()->flash("success", 'Cadastrado com sucesso, enviaremos seu dados de acesso por e-mail');
             return redirect()->route('account.index');
         } else {
             //se tiver precadastro
             session()->flash("info", "Você já possuiu vinculo, favor logar em sua conta");
             return redirect()->route('login.index');
+        }
+    }
+
+    public function criar($user_id, $accout_id): array
+    {
+        DB::beginTransaction();
+        //criar vinculo com a conta
+        $useraccount = new Users_Account();
+        $useraccount->user_id = $user_id;
+        $useraccount->account_id = $accout_id;
+        $useraccount->save();
+
+        if ($useraccount) {
+            //adicionar log
+            $this->adicionar_log_global('11', 'C', $useraccount);
+            DB::commit();
+
+            return [
+                'success' => true,
+                'message' => 'Criado o acesso!',
+            ];
+        } else {
+
+            FacadesDB::rollback();
+
+            return [
+                'success' => false,
+                'message' => 'Ocorreu um erro!',
+            ];
         }
     }
 }
