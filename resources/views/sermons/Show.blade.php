@@ -7,8 +7,11 @@
                     <div class="p-5 card">
                         <h4>{{ $note->title }}</h4>
                         @if (!empty($note->url_video))
-
-                            <iframe width="640" height="400" src="{{ $note->url_video }}" allowfullscreen></iframe>
+                            <div class="row">
+                                <!-- NEW COLUMN WITH WIDTH TOTALLING 12 -->
+                                <iframe class="col-lg-12 col-md-12 col-sm-12" width="640" height="400"
+                                    src="{{ $note->url_video }}" allowfullscreen></iframe>
+                            </div>
                         @endif
                         <div>{{ $note->content }}</div>
                         <br>
@@ -17,6 +20,43 @@
                                 {{ $note->status->name }}
                             </span>
                         </p>
+                        @php
+                            
+                            $dateTime1 = new DateTime($note->updated_at);
+                            $dateTime2 = new DateTime();
+                            $interval = $dateTime1->diff($dateTime2);
+                            echo 'Publicado em ';
+                            if ($interval->format('%y') > 0) {
+                                if ($dateTime2 >= $interval->format('%y')) {
+                                    echo $interval->format('%y anos') . PHP_EOL;
+                                }
+                            }
+                            if ($interval->format('%m') > 0) {
+                                if ($dateTime2 >= $interval->format('%m')) {
+                                    echo $interval->format('%m meses') . PHP_EOL;
+                                }
+                            } else {
+                                if ($interval->format('%d') > 0) {
+                                    if ($dateTime2 >= $interval->format('%d')) {
+                                        echo $interval->format('%d dias') . PHP_EOL;
+                                    }
+                                } else {
+                                    if ($dateTime2 >= $interval->format('%h')) {
+                                        if ($dateTime2 >= $interval->format('%h')) {
+                                            echo $interval->format('%h horas') . PHP_EOL;
+                                        }
+                                        if ($dateTime2 >= $interval->format('%i')) {
+                                            echo $interval->format('%i minutos') . PHP_EOL;
+                                        }
+                                        if ($dateTime2 >= $interval->format('%s')) {
+                                            echo $interval->format('%s segundos') . PHP_EOL;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        @endphp
+                        <br> <br> <br>
                         <div class="form-group row">
                             <a class="btn btn-primary" href="{{ route('sermons.index') }}" title="Voltar"><i
                                     class="c-icon c-icon-sm cil-action-undo"></i></a>

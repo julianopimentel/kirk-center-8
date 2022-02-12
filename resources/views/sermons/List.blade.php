@@ -24,60 +24,55 @@
                     </div>
                 @endif
                 @foreach ($category as $category)
-                    @if ($category->roles == $you->role)
-
-                        @if (!$notes->isEmpty())
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h4>{{ $category->name }}</h4>
-                                    <div class="card-header-action">
-                                        <a href="{{ route('sermons.indexCategory', $category->id) }}"
-                                            class="btn btn-primary">
-                                            Ver todos
-                                        </a>
-                                    </div>
+                    @if (!$notes->isEmpty())
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>{{ $category->name }}</h4>
+                                <div class="card-header-action">
+                                    <a href="{{ route('sermons.indexCategory', $category->id) }}" class="btn btn-primary">
+                                        Ver todos
+                                    </a>
                                 </div>
-                                <div class="card-body">
+                            </div>
+                            <div class="card-body">
 
-                                    <div class="row">
-                                        @foreach ($notes as $note)
-                                            @if ($note->type === $category->id)
-                                                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                                                    <article class="article article-style-b">
-                                                        <div class="article-header">
-                                                            <div class="article-image">
-                                                                @if (!empty($note->image))
-                                                                    <img src="{{ $note->image }}" width="100%"
-                                                                        height="100%">
-                                                                @else
-                                                                    <img src="assets/img/img0{{ $loop->iteration }}.jpg"
-                                                                        width="100%" height="100%">
-                                                                @endif
-                                                            </div>
-                                                            @if ($note->status_id == 2)
-                                                                <div class="article-badge">
-                                                                    <div class="article-badge-item bg-danger"><i
-                                                                            class="fas fa-fire"></i>
-                                                                        Trending</div>
-                                                                </div>
+                                <div class="row">
+                                    @foreach ($notes as $note)
+                                        @if ($note->type === $category->id)
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                                <article class="article article-style-b">
+                                                    <div class="article-header">
+                                                        <div class="article-image">
+                                                            @if (!empty($note->image))
+                                                                <img src="{{ $note->image }}" width="100%" height="100%">
+                                                            @else
+                                                                <img src="assets/img/img0{{ $loop->iteration }}.jpg"
+                                                                    width="100%" height="100%">
                                                             @endif
                                                         </div>
-                                                        <div class="article-details">
-                                                            <div class="article-title">
-                                                                <h2><a
-                                                                        href="{{ route('sermons.show', $note->id) }}">{{ mb_strimwidth($note->title, 0, 45, '...') }}</a>
-                                                                </h2>
+                                                        @if ($note->status_id == 2)
+                                                            <div class="article-badge">
+                                                                <div class="article-badge-item bg-danger"><i
+                                                                        class="fas fa-fire"></i>
+                                                                    Trending</div>
                                                             </div>
-                                                            <p>{{ mb_strimwidth($note->content, 0, 130, '...') }}</p>
+                                                        @endif
+                                                    </div>
+                                                    <div class="article-details">
+                                                        <div class="article-title">
+                                                            <h2><a
+                                                                    href="{{ route('sermons.show', $note->id) }}">{{ mb_strimwidth($note->title, 0, 45, '...') }}</a>
+                                                            </h2>
                                                         </div>
-                                                    </article>
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
+                                                        <p>{{ mb_strimwidth($note->content, 0, 130, '...') }}</p>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div>
-                                <br>
-                        @endif
+                            </div>
+                            <br>
                     @endif
             </div>
     @endforeach

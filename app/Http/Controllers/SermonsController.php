@@ -39,23 +39,31 @@ class SermonsController extends Controller
     {
         //pegar tenant
         $this->get_tenant();
-        //categoria
-        $category = Category_Sermons::all();
         $user = auth()->user();
         //consultar dados do usuario local
         $you = People::where('user_id', $user->id)->with('roleslocal')->first();
+        //categoria
+        $category = Category_Sermons::where('roles', 'like', '%' . $you->role . '%')->get();
         //consulta da sermons
         $notes = Sermons::with('user')->with('status')->paginate(20);
-        return view('sermons.List', ['notes' => $notes, 'category' => $category, 'you' => $you]);
+        return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
 
     public function indexCategory($id)
     {
         //pegar tenant
         $this->get_tenant();
-        //consulta da sermons
-        $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
-        return view('sermons.ListCategory', ['notes' => $notes]);
+
+        //consulta permissao da categoria
+        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->where('id', $id)->first();
+        //gabiarra para carregar somente os que tem a permissao
+        if($category == !null){
+            $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
+            return view('sermons.ListCategory', ['notes' => $notes]);
+        }
+        session()->flash("danger",  __('action.error'));
+        return redirect()->route('sermons.index');
+
     }
 
     /**
@@ -95,7 +103,6 @@ class SermonsController extends Controller
         $note->content   = $request->input('content');
         $note->status_id = $request->input('status_id');
         $note->url_video   = $request->input('url');
-        $note->roles   = implode(',', $request->input('roles'));
         $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
         $note->users_id = $user->id;
@@ -275,7 +282,7 @@ class SermonsController extends Controller
         $note->save();
         //adicionar log
         $this->adicionar_log('20', 'C', $note);
-        $request->session()->flash('success', __('layout.category') . __('action.creat'));
+        $request->session()->flash('success', __('general.category') . __('action.creat'));
         return redirect()->back();
     }
     public function destroyCategory($id)
