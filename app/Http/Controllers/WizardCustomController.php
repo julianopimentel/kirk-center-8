@@ -27,20 +27,15 @@ class WizardCustomController extends Controller
      */
     public function index($id)
     {
-        $you = auth()->user();
-        //mater toda a sessao
-        session()->forget('schema');
+        $you =
+            //mater toda a sessao
+            session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
 
         //consultar o schema
         Config::set('database.connections.admin');
         $results = Institution::where('unique_id', '=', $id)->first();
-        //se o usuario for integrador ele abre a edição da conta
-        if ($results->compartilhar_link == false or $results->deleted_at == null or $you->master == true) {
-            session()->flash("info", "Link inválido");
-            return redirect('login');
-        };
 
         //inserir na array dos dados
         session()->put('schema', $results->tenant);
@@ -60,6 +55,11 @@ class WizardCustomController extends Controller
         if (session()->get('key') == null) {
             return redirect('login');
         };
+        //se o usuario for integrador ele abre a edição da conta
+        if ($results->compartilhar_link == false or $results->deleted_at == !null) {
+            session()->flash("info", "Link inválido");
+            return redirect('login');
+        };
         //retornar
         return redirect()->route('wizardCustom.create');
     }
@@ -76,8 +76,11 @@ class WizardCustomController extends Controller
      */
     public function store(Request $request)
     {
-        //user data
-        //$you = auth()->user();
+        //se o usuario for integrador ele abre a edição da conta
+        if (auth()->user()->master == true) {
+            session()->flash("info", "Você é um Integrador, acesso apenas para demostração");
+            return redirect('account');
+        };
         //pegar tenant da conta selecionada
         $value = session()->get('schema');
         Config::set('database.connections.tenant.schema', $value);

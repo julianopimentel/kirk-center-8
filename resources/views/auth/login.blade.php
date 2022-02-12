@@ -25,7 +25,7 @@
                         </a>
                       </div>
                     </div>
-                    <input class="form-control" type="password" placeholder="{{ __('auth.forgot_password') }}"  id="password"
+                    <input class="form-control" type="password" placeholder="{{ __('auth.password') }}"  id="password"
                     name="password" tabindex="2" required>
                   </div>
                   <div class="form-group">
