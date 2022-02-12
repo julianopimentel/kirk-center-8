@@ -19,12 +19,17 @@
                                         <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Home</a>
+                                                    role="tab" aria-controls="home" aria-selected="true">Dados da Conta</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab"
                                                     href="#address" role="tab" aria-controls="profile"
-                                                    aria-selected="false">Address</a>
+                                                    aria-selected="false">Localidade</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab5" data-toggle="tab"
+                                                    href="#share" role="tab" aria-controls="share"
+                                                    aria-selected="false">Compartilhar</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -205,6 +210,35 @@
                                                         <input class="form-control" name="country" id="country"
                                                             type="text" placeholder="Country name"
                                                             value="{{ $institution->country }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="tab-pane fade" id="share" role="tabpanel"
+                                                aria-labelledby="profile-tab5">
+                                                <div class="form-group">
+                                                    <label for="street">Ativar modulo de cadastro rápido</label>
+                                                    <div class="input-group">
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="add_people" type="checkbox"
+                                                                {{ $institution->compartilhar_link == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="street">Link para compartilhar</label>
+                                                    <div class="input-group">
+                                                        {{ env('APP_URL') }}/share/{{ $institution->unique_id }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="street">QRCode para o acesso</label>
+                                                    <div class="input-group">
+                                                        {{ env('APP_URL') }}/share/{{ $institution->unique_id }}
                                                     </div>
                                                 </div>
                                             </div>

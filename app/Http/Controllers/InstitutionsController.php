@@ -148,6 +148,7 @@ class InstitutionsController extends Controller
         $institution->lng       = $request->input('lng');
         $institution->status_id = $request->input('type');
         $institution->country       = $request->input('country');
+        $institution->compartilhar_link       = $request->has('compartilhar_link') ? 1 : 0;
         $institution->integrador = $user->id;
         $institution->save();
         //adicionar log
@@ -221,6 +222,7 @@ class InstitutionsController extends Controller
         $institution->lng       = $request->input('lng');
         $institution->cep       = $request->input('cep');
         $institution->status_id = $request->input('type');
+        $institution->compartilhar_link       = $request->has('compartilhar_link') ? 1 : 0;
         //adicionar log
         $this->adicionar_log_global('9', 'U', $institution);
         $institution->save();

@@ -7,15 +7,13 @@
       <div class="row justify-content-center">
 
         <div class="col-md-6">
-          <center>
-            <img class="image rounded-circle" src="assets/favicon/android-chrome-96x96.png" alt="profile_image" style="width: 120px;height: 120px; padding: 10px; margin: 0px; ">
-            </center>
+<br>
           <div class="card mx-4">
             <div class="card-body p-4">
-                <div class="card-header"><h4>{{ __('auth.register') }}</h4></div>
+                <div class="card-header"><h4>Bem-vindo a {{ session()->get('conta_name') }}</h4></div>
                 
                 <div class="card-body">
-                  <form method="POST" action="{{ route('register') }}">
+                  <form method="POST" action="{{ route('wizardCustom.store') }}">
                     @csrf
                 <div class="row">
                   <div class="form-group col-6">
