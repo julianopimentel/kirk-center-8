@@ -218,11 +218,11 @@
                                             <div class="tab-pane fade" id="share" role="tabpanel"
                                                 aria-labelledby="profile-tab5">
                                                 <div class="form-group">
-                                                    <label for="street">Ativar modulo de cadastro rápido</label>
+                                                    <label for="street">Ativar módulo de cadastro rápido</label>
                                                     <div class="input-group">
                                                         <label
                                                             class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="add_people" type="checkbox"
+                                                            <input class="c-switch-input" name="compartilhar_link" type="checkbox"
                                                                 {{ $institution->compartilhar_link == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
@@ -236,9 +236,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="street">QRCode para o acesso</label>
+                                                    <label for="street">QRCode para compartilhar</label>
                                                     <div class="input-group">
-                                                        {{ env('APP_URL') }}/share/{{ $institution->unique_id }}
+                                                        {!! QrCode::size(250)->generate(env('APP_URL').'/share/'.$institution->unique_id); !!}
                                                     </div>
                                                 </div>
                                             </div>

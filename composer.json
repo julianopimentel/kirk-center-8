@@ -19,6 +19,7 @@
         "overtrue/laravel-like": "^4.0",
         "qirolab/laravel-reactions": "dev-master",
         "rap2hpoutre/laravel-log-viewer": "^1.7",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-medialibrary": "^8.7.2",
         "spatie/laravel-permission": "^3.17",
         "yoeunes/toastr": "^1.2"
