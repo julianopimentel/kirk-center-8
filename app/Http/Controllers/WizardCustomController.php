@@ -125,7 +125,7 @@ class WizardCustomController extends Controller
             //disparar o email
             $conta_name = session()->get('conta_name');
             $email = $people->email;
-            Mail::to($people->email)->queue(new SendMailBemVindo($conta_name, $email, $pwa));
+            Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $email, $pwa));
 
             if (Auth::attempt($credentials)) {
                 //criar vinculo com a conta
