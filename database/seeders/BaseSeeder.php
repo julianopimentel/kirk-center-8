@@ -181,5 +181,9 @@ class BaseSeeder extends Seeder
             'name' => 'root',
             'resource' => '1',
         ]);
+        DB::table('category_sermons')->insert([
+            'name' => 'Sem categoria',
+            'roles' => '1',
+        ]);
     }
 }

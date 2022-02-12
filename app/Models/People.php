@@ -116,6 +116,7 @@ class People extends Model
             if (isset($data['datefrom'], $data['dateto']))
                 $query->whereBetween('created_at', [$data['datefrom'], $data['dateto']]); 
         })
+        ->where('is_admin', false)
         ->whereNull('deleted_at')
         ->paginate($totalPagesPaginate);
     }

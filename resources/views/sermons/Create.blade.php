@@ -97,21 +97,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="roles" >Mostrar para</label>
-                                            <div class="input-group">
-                                                <select class="form-control" id="roles" name="roles[]"
-                                                size="6" multiple="">
-                                                @foreach ($roles as $roles)
-                                                    <option value="{{ $roles->id }}">
-                                                        {{ $roles->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

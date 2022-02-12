@@ -42,6 +42,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::resource('sermons', 'SermonsController');
     Route::get('sermons/category/{id}', 'SermonsController@indexCategory')->name('sermons.indexCategory');
     Route::get('category/sermons', 'SermonsController@showCategory')->name('sermons.showCategory');
+    Route::post('category/sermons', 'SermonsController@storeCategory')->name('sermons.storeCategory');
+    Route::delete('category/sermons/{id}', 'SermonsController@destroyCategory')->name('sermons.destroyCategory');
 
 
     //para pegar a localizacao via ajax

@@ -23,6 +23,7 @@ return [
     'calender' => 'Evento',
     'document' => 'Documento',
     'sermon' => 'Palavra',
+    'category' => 'Categoria',
     'financial' => 'Financeiro',
     'configuration' => 'Configuração',
 ];

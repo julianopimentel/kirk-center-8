@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category_Sermons;
+use App\Models\People;
 use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Models\Sermons;
@@ -11,6 +12,7 @@ use App\Models\Status;
 use Illuminate\Support\Facades\URL;
 use App\Traits\UploadTrait;
 use CategorySermons;
+use Illuminate\Support\Facades\Auth;
 
 class SermonsController extends Controller
 {
@@ -39,9 +41,12 @@ class SermonsController extends Controller
         $this->get_tenant();
         //categoria
         $category = Category_Sermons::all();
+        $user = auth()->user();
+        //consultar dados do usuario local
+        $you = People::where('user_id', $user->id)->with('roleslocal')->first();
         //consulta da sermons
         $notes = Sermons::with('user')->with('status')->paginate(20);
-        return view('sermons.List', ['notes' => $notes, 'category' => $category]);
+        return view('sermons.List', ['notes' => $notes, 'category' => $category, 'you' => $you]);
     }
 
     public function indexCategory($id)
@@ -60,13 +65,11 @@ class SermonsController extends Controller
      */
     public function create()
     {
-        //roles
-        $roles = Roles::all();
         //categoria
         $category = Category_Sermons::all();
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('sermons.Create', ['statuses' => $statuses, 'roles' => $roles, 'category' => $category]);
+        return view('sermons.Create', ['statuses' => $statuses, 'category' => $category]);
     }
 
     /**
@@ -115,14 +118,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
+            $request->session()->flash('success', __('general.sermon') . __('action.creat'));
             return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
+        $request->session()->flash('success', __('general.sermon') . __('action.creat'));
         return redirect()->route('sermons.index');
     }
 
@@ -155,7 +158,7 @@ class SermonsController extends Controller
         //validar o id se existe
         if ($note == null) {
             session()->flash("danger",  __('action.error'));
-            return redirect()->route('group.index');
+            return redirect()->route('sermons.index');
         }
         //roles
         $roles = Roles::all();
@@ -193,7 +196,6 @@ class SermonsController extends Controller
         $note->content   = $request->input('content');
         $note->status_id = $request->input('status_id');
         $note->url_video   = $request->input('url');
-        $note->roles   = implode(',', $request->input('roles'));
         $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
         $note->users_id = $user->id;
@@ -214,14 +216,14 @@ class SermonsController extends Controller
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('layout.sermon') . __('action.edit'));
+            $request->session()->flash('success', __('general.sermon') . __('action.edit'));
             return redirect()->route('sermons.index');
         } else
             //se nao tiver imagem, salva novamente
             $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('success', __('layout.sermon') . __('action.edit'));
+        $request->session()->flash('success', __('general.sermon') . __('action.edit'));
         return redirect()->route('sermons.index');
     }
 
@@ -240,7 +242,7 @@ class SermonsController extends Controller
             $note->delete();
         }
         //adicionar
-        session()->flash('warning', __('layout.sermon') . __('action.delete'));
+        session()->flash('warning', __('general.sermon') . __('action.delete'));
         $this->adicionar_log('19', 'D', $note);
         return redirect()->route('sermons.index');
     }
@@ -262,49 +264,38 @@ class SermonsController extends Controller
         //pegar tenant
         $this->get_tenant();
         $validatedData = $request->validate([
-            'title'             => 'required|min:1|max:64',
-            'content'           => 'required',
-            'status_id'         => 'required',
-            'applies_to_date'   => 'required|date_format:Y-m-d',
+            'name'             => 'required|min:1|max:64',
+            'body'           => 'required',
+            'roles'         => 'required',
         ]);
-        //user data
-        $user = auth()->user();
-        $note = new Sermons();
-        $note->title     = $request->input('title');
-        $note->content   = $request->input('content');
-        $note->status_id = $request->input('status_id');
-        $note->url_video   = $request->input('url');
+        $note = new Category_Sermons();
+        $note->name     = $request->input('name');
+        $note->body   = $request->input('body');
         $note->roles   = implode(',', $request->input('roles'));
-        $note->type = $request->input('type');
-        $note->applies_to_date = $request->input('applies_to_date');
-        $note->users_id = $user->id;
-
-        //tratamento da imagem se tiver
-        if ($request->has('image')) {
-            // Get image file
-            $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-
-            $name = Str::slug($request->input('name')) . '_' . time();
-            // Define folder path
-            $folder = '';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'sermons', $name);
-            // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
-            $note->save();
-            //adicionar log
-            $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
-            return redirect()->route('sermons.index');
-        } else
-            //salva sem o tratamento da imagem
-            $note->save();
+        $note->save();
         //adicionar log
-        $this->adicionar_log('19', 'U', $note);
-        $request->session()->flash('success', __('layout.sermon') . __('action.creat'));
-        return redirect()->route('sermons.ShwoCategory');
-}
+        $this->adicionar_log('20', 'C', $note);
+        $request->session()->flash('success', __('layout.category') . __('action.creat'));
+        return redirect()->back();
+    }
+    public function destroyCategory($id)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        //validar se possui vinculo com video
+        $validar = Sermons::where('type', $id);
+        if ($validar->count() == 0) {
+
+            $categoria = Category_Sermons::find($id);
+            if ($categoria) {
+                $categoria->delete();
+            }
+            //adicionar
+            session()->flash('warning', __('general.category') . __('action.delete'));
+            $this->adicionar_log('20', 'D', $categoria);
+            return redirect()->back();
+        }
+        session()->flash("info", "Categoria possui vinculo com Palavra, favor remover");
+        return redirect()->back();
+    }
 }
