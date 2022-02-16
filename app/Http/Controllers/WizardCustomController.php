@@ -20,8 +20,6 @@ class WizardCustomController extends Controller
 {
     use SoftDeletes;
     use AuthenticatesUsers;
-
-    private $totalPagesPaginate = 12;
     /**
      * Create a new controller instance.
      *
@@ -29,7 +27,6 @@ class WizardCustomController extends Controller
      */
     public function index($id)
     {
-        $you = auth()->user();
         //mater toda a sessao
         session()->forget('schema');
         session()->forget('key');
@@ -82,8 +79,8 @@ class WizardCustomController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         //pegar tenant da conta selecionada
         $value = session()->get('schema');
@@ -97,7 +94,7 @@ class WizardCustomController extends Controller
             $people = new People();
             $people->name          = strtoupper($request->input('name') . ' ' . $request->input('lastname'));
             $people->email         = $request->input('email');
-            $people->phone        = $request->input('phone');
+            $people->phone        = $request->input('phone_full');
             $people->status_id = '14'; //ativo
             $people->is_verify       = 'true';
             $people->role = '2'; //membro
@@ -110,7 +107,7 @@ class WizardCustomController extends Controller
                 'name' => $people->name,
                 'email' => $people->email,
                 'password' => Hash::make($pwa), //gerar senha
-                'phone' => $people->phone,
+                'phone' =>  $people->phone,
                 'agree' => $termo,
             ]);
             //associar ao user

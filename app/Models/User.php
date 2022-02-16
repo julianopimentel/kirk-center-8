@@ -32,7 +32,7 @@ class User extends Authenticatable implements ReactsInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'license', 'mobile', 'image', 'profile_image', 'menuroles'
+        'name', 'email', 'password', 'license', 'phone', 'image', 'profile_image', 'menuroles', 'agree'
     ];
 
     /**

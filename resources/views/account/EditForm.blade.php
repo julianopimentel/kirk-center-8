@@ -1,7 +1,6 @@
 @extends('layouts.baseminimal')
 
 @section('content')
-
     <div class="container-fluid">
         <div class="animated fadeIn">
             <div class="row">
@@ -27,9 +26,8 @@
                                                     aria-selected="false">Localidade</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab5" data-toggle="tab"
-                                                    href="#share" role="tab" aria-controls="share"
-                                                    aria-selected="false">Compartilhar</a>
+                                                <a class="nav-link" id="profile-tab5" data-toggle="tab" href="#share"
+                                                    role="tab" aria-controls="share" aria-selected="false">Compartilhar</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -83,172 +81,161 @@
                                                             value="{{ $institution->email }}">
                                                     </div>
                                                 </div>
-                                                <label for="city">Telefone</label>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="city">Contato</label>
+                                                        <div class="input-group mb-6">
+                                                            <input class="form-control" id="phone" name="phone" type="tel"
+                                                                value="{{ $institution->mobile }}">
+                                                                <span id=" valid-msg" class="hide">✓ Valid</span>
+                                                            <span id="error-msg" class="hide"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label>Tipo *</label>
+                                                        <select class="form-control" name="type">
+                                                            @foreach ($statuses as $status)
+                                                                @if ($status->id == $institution->status_id)
+                                                                    <option value="{{ $status->id }}" selected="true">
+                                                                        {{ $status->name }}</option>
+                                                                @else
+                                                                    <option value="{{ $status->id }}">
+                                                                        {{ $status->name }}
+                                                                    </option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="tab-pane fade" id="address" role="tabpanel"
+                                            aria-labelledby="profile-tab4">
+                                            <div class="form-group">
+                                                <label for="street">Address</label>
                                                 <div class="input-group">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <svg class="c-icon c-icon-sm">
-                                                                    <use
-                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-phone">
-                                                                    </use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <input class="form-control" name="mobile" type="tel"
-                                                            placeholder="11 99999-9999" value="{{ $institution->mobile }}"
-                                                            pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label>Tipo *</label>
-                                                            <select class="form-control" name="type">
-                                                                @foreach ($statuses as $status)
-                                                                    @if ($status->id == $institution->status_id)
-                                                                        <option value="{{ $status->id }}" selected="true">
-                                                                            {{ $status->name }}</option>
-                                                                    @else
-                                                                        <option value="{{ $status->id }}">
-                                                                            {{ $status->name }}
-                                                                        </option>
-                                                                    @endif
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                    <div class="input-group-prepend"><span class="input-group-text">
+                                                            <svg class="c-icon">
+                                                                <use
+                                                                    xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
+                                                                </use>
+                                                            </svg></span></div>
+                                                    <input class="form-control" name="address1" type="text"
+                                                        placeholder="Enter street name"
+                                                        value="{{ $institution->address1 }}" maxlength="200">
                                                 </div>
-
                                             </div>
-                                            <div class="tab-pane fade" id="address" role="tabpanel"
-                                                aria-labelledby="profile-tab4">
-                                                <div class="form-group">
-                                                    <label for="street">Address</label>
+                                            <div class="row">
+                                                <div class="form-group col-sm-5">
+                                                    <label for="city">City</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text">
                                                                 <svg class="c-icon">
                                                                     <use
-                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
+                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-house">
                                                                     </use>
                                                                 </svg></span></div>
-                                                        <input class="form-control" name="address1" type="text"
-                                                            placeholder="Enter street name"
-                                                            value="{{ $institution->address1 }}" maxlength="200">
+                                                        <input class="form-control" name="city" type="text"
+                                                            value="{{ $institution->city }}" placeholder="São Paulo">
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="form-group col-sm-5">
-                                                        <label for="city">City</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend"><span class="input-group-text">
-                                                                    <svg class="c-icon">
-                                                                        <use
-                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-house">
-                                                                        </use>
-                                                                    </svg></span></div>
-                                                            <input class="form-control" name="city" type="text"
-                                                                value="{{ $institution->city }}" placeholder="São Paulo">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-3">
-                                                        <label for="country">State</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend"><span class="input-group-text">
-                                                                    <svg class="c-icon">
-                                                                        <use
-                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
-                                                                        </use>
-                                                                    </svg></span></div>
-                                                            <input class="form-control" name="state" type="text"
-                                                                value="{{ $institution->state }}" maxlength="2"
-                                                                placeholder="SP">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-4">
-                                                        <label for="postal-code">Postal Code</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend"><span class="input-group-text">
-                                                                    <svg class="c-icon">
-                                                                        <use
-                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
-                                                                        </use>
-                                                                    </svg></span></div>
-                                                            <input class="form-control" name="cep" type="text"
-                                                                placeholder="69059-627" pattern="[0-9]{5}-[0-9]{3}"
-                                                                maxlength="9" value="{{ $institution->cep }}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="city">Latitude</label>
-                                                        <div class="input-group-prepend">
-                                                            <input class="form-control" name="lat" type="text"
-                                                                placeholder="Enter your city"
-                                                                value="{{ $institution->lat }}" maxlength="15"
-                                                                placeholder="-27.5859412">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="city">Longitude</label>
-                                                        <input class="form-control" name="lng" type="text"
-                                                            placeholder="Enter your state"
-                                                            value="{{ $institution->lng }}" maxlength="15"
-                                                            placeholder="-48.6003264">
-                                                    </div>
-                                                </div>
-                                                <!-- /.row-->
-                                                <div class="form-group">
-                                                    <label for="country">Country</label>
+                                                <div class="form-group col-sm-3">
+                                                    <label for="country">State</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text">
                                                                 <svg class="c-icon">
                                                                     <use
-                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
+                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
                                                                     </use>
                                                                 </svg></span></div>
-                                                        <input class="form-control" name="country" id="country"
-                                                            type="text" placeholder="Country name"
-                                                            value="{{ $institution->country }}">
+                                                        <input class="form-control" name="state" type="text"
+                                                            value="{{ $institution->state }}" maxlength="2"
+                                                            placeholder="SP">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="postal-code">Postal Code</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text">
+                                                                <svg class="c-icon">
+                                                                    <use
+                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
+                                                                    </use>
+                                                                </svg></span></div>
+                                                        <input class="form-control" name="cep" type="text"
+                                                            placeholder="69059-627" pattern="[0-9]{5}-[0-9]{3}"
+                                                            maxlength="9" value="{{ $institution->cep }}">
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="city">Latitude</label>
+                                                    <div class="input-group-prepend">
+                                                        <input class="form-control" name="lat" type="text"
+                                                            placeholder="Enter your city" value="{{ $institution->lat }}"
+                                                            maxlength="15" placeholder="-27.5859412">
 
-
-                                            <div class="tab-pane fade" id="share" role="tabpanel"
-                                                aria-labelledby="profile-tab5">
-                                                <div class="form-group">
-                                                    <label for="street">Ativar módulo de cadastro rápido</label>
-                                                    <div class="input-group">
-                                                        <label
-                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
-                                                            <input class="c-switch-input" name="compartilhar_link" type="checkbox"
-                                                                {{ $institution->compartilhar_link == true ? 'checked' : '' }}><span
-                                                                class="c-switch-slider" data-checked="&#x2713"
-                                                                data-unchecked="&#x2715"></span>
-                                                        </label>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="street">Link para compartilhar</label>
-                                                    <div class="input-group">
-                                                        {{ env('APP_URL') }}/share/{{ $institution->unique_id }}
-                                                    </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="city">Longitude</label>
+                                                    <input class="form-control" name="lng" type="text"
+                                                        placeholder="Enter your state" value="{{ $institution->lng }}"
+                                                        maxlength="15" placeholder="-48.6003264">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="street">QRCode para compartilhar</label>
-                                                    <div class="input-group">
-                                                        {!! QrCode::size(300)->generate(env('APP_URL').'/share/'.$institution->unique_id); !!}
-                                                    </div>
+                                            </div>
+                                            <!-- /.row-->
+                                            <div class="form-group">
+                                                <label for="country">Country</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text">
+                                                            <svg class="c-icon">
+                                                                <use
+                                                                    xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
+                                                                </use>
+                                                            </svg></span></div>
+                                                    <input class="form-control" name="country" id="country" type="text"
+                                                        placeholder="Country name" value="{{ $institution->country }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane fade" id="share" role="tabpanel"
+                                            aria-labelledby="profile-tab5">
+                                            <div class="form-group">
+                                                <label for="street">Ativar módulo de cadastro rápido</label>
+                                                <div class="input-group">
+                                                    <label
+                                                        class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                        <input class="c-switch-input" name="compartilhar_link"
+                                                            type="checkbox"
+                                                            {{ $institution->compartilhar_link == true ? 'checked' : '' }}><span
+                                                            class="c-switch-slider" data-checked="&#x2713"
+                                                            data-unchecked="&#x2715"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="street">Link para compartilhar</label>
+                                                <div class="input-group">
+                                                    {{ env('APP_URL') }}/share/{{ $institution->unique_id }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="street">QRCode para compartilhar</label>
+                                                <div class="input-group">
+                                                    {!! QrCode::size(300)->generate(env('APP_URL') . '/share/' . $institution->unique_id) !!}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    <button class="btn btn-success" type="submit" title="Salvar"><i
-                                        class="c-icon c-icon-sm cil-save"></i></button>
-                                    <a href="{{ route('account.index') }}" class="btn btn-primary"
-                                        title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
+                            </div>
+                            <button class="btn btn-success" type="submit" title="Salvar"><i
+                                    class="c-icon c-icon-sm cil-save"></i></button>
+                            <a href="{{ route('account.index') }}" class="btn btn-primary" title="Voltar"><i
+                                    class="c-icon c-icon-sm cil-action-undo"></i></a>
 
                         </form>
 
@@ -257,5 +244,4 @@
             @endsection
 
             @section('javascript')
-
             @endsection

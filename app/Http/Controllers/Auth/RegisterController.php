@@ -71,8 +71,7 @@ class RegisterController extends Controller
             'name' => $nome,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'country' => $data['country'],
-            'phone' => $data['phone'],
+            'phone' => $data['phone_full'],
             'agree' => $data['agree'],
         ]);
         $user->assignRole('user');

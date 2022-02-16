@@ -75,25 +75,17 @@
                                                             placeholder="{{ __('E-Mail Address') }}" name="email">
                                                     </div>
                                                 </div>
-                                                <label for="city">Telefone</label>
-                                                <div class="input-group">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <svg class="c-icon c-icon-sm">
-                                                                    <use
-                                                                        xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-phone">
-                                                                    </use>
-                                                                </svg>
-                                                            </span>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="city">Contato</label>
+                                                        <div class="input-group mb-6">
+                                                            <input class="form-control" id="phone" name="phone"
+                                                                type="tel">
+                                                            <span id="valid-msg" class="hide">✓ Valid</span>
+                                                            <span id="error-msg" class="hide"></span>
                                                         </div>
-                                                    <input class="form-control" id="phone" name="phone" type="tel">
-                                                    <span id="valid-msg" class="hide">✓ Valid</span>
-                                                    <span id="error-msg" class="hide"></span>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group row">
+                                                    <div class="form-group col-sm-6">
                                                         <label>Tipo *</label>
                                                         <select class="form-control" name="type">
                                                             @foreach ($statuses as $status)
@@ -194,13 +186,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <button id="botao" class="btn btn-success" type="submit" title="Salvar"
-                                        name="enviar" value="Enviar" data-toggle="modal"
-                                        data-target="#exampleModalScrollable" disabled><i
-                                            class="c-icon c-icon-sm cil-save"></i></button>
-                                            <a href="{{ route('account.index') }}" class="btn btn-primary"
-                                            title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
-                             
+                                <button id="botao" class="btn btn-success" type="submit" title="Salvar" name="enviar"
+                                    value="Enviar" data-toggle="modal" data-target="#exampleModalScrollable" disabled><i
+                                        class="c-icon c-icon-sm cil-save"></i></button>
+                                <a href="{{ route('account.index') }}" class="btn btn-primary" title="Voltar"><i
+                                        class="c-icon c-icon-sm cil-action-undo"></i></a>
+
                         </form>
 
                     </div>
@@ -228,10 +219,7 @@
                     });
                 </script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
             @endsection
 
             @section('javascript')
-
             @endsection

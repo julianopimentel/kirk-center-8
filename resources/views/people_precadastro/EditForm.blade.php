@@ -76,7 +76,7 @@
                                                     @endif</label>
                                                     <div class="input-group">
                                                             <input class="form-control" id="phone" name="phone" type="tel"
-                                                            value="{{ $people->mobile }}" @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_mobile == true)
+                                                            value="{{ $people->phone }}" @if ($people->status_id != '21') disabled @endif @if ($appSystem->obg_mobile == true)
                                                             required
                                                             @endif
                                                             >

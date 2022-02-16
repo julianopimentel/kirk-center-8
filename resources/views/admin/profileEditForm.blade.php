@@ -84,17 +84,8 @@
                                         <div class="form-group">
                                             <label for="ccnumber">Celular</label>
                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">
-                                                        <svg class="c-icon c-icon-sm">
-                                                            <use
-                                                                xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-phone">
-                                                            </use>
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                                <input id="phone" name="mobile" type="tel"
-                                                    value="{{ Auth::user()->mobile }}" required>
+                                            <input class="form-control" id="phone" name="phone" type="tel"
+                                                    value="{{ Auth::user()->phone }}" required>
                                                 <span id="valid-msg" class="hide">✓ Valid</span>
                                                 <span id="error-msg" class="hide"></span>
                                             </div>

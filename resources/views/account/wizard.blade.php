@@ -74,16 +74,12 @@
                                                 <div class="form-group col-sm-4">
                                                     <label for="ccmonth">Celular</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text">
-                                                                <svg class="c-icon">
-                                                                    <use
-                                                                        xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-mobile">
-                                                                    </use>
-                                                                </svg></span></div>
-                                                        <input class="form-control" name="mobile" type="text"
-                                                            placeholder="11 99999-9999"
-                                                            pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}"
-                                                            value="{{ Auth::user()->mobile }}" maxlength="15">
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" id="phone" name="phone" type="tel"
+                                                                    value="{{ Auth::user()->phone }}" required>
+                                                                <span id="valid-msg" class="hide">✓ Valid</span>
+                                                                <span id="error-msg" class="hide"></span>
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-3">

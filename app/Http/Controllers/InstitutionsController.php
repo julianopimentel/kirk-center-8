@@ -137,7 +137,7 @@ class InstitutionsController extends Controller
         $institution->name_company      = $request->input('name_company');
         $institution->email      = $request->input('email');
         $institution->doc      = $request->input('doc');
-        $institution->mobile      = $request->input('mobile');
+        $institution->mobile      = $request->input('phone_full');
         $institution->tenant        = preg_replace('/[ -]+/', '_', $tenant1);
         $institution->address1       = $request->input('address1');
         $institution->address2       = $request->input('address2');
@@ -213,7 +213,7 @@ class InstitutionsController extends Controller
         $institution->name_company      = $request->input('name_company');
         $institution->doc      = $request->input('doc');
         $institution->email      = $request->input('email');
-        $institution->mobile      = $request->input('mobile');
+        $institution->mobile      = $request->input('phone_full');
         $institution->address1       = $request->input('address1');
         $institution->address2       = $request->input('address2');
         $institution->city       = $request->input('city');

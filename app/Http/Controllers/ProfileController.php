@@ -47,13 +47,13 @@ class ProfileController extends Controller
         $validatedData = $request->validate([
             'name'       => 'required|min:1|max:256',
             //    'email'      => 'required|email|max:256',
-            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $user = User::findOrFail(auth()->user()->id);
         $user->name       = $request->input('name');
         // $user->email      = $request->input('email');
-        $user->phone       = $request->input('phone');
+        $user->phone       = $request->input('phone_full');
         $user->doc       = $request->input('doc');
         //tratamento na imagem
         if ($request->has('profile_image')) {
@@ -87,7 +87,7 @@ class ProfileController extends Controller
         $people = People::find($id);
         $people->name          = strtoupper($request->input('name'));
         $people->email         = $request->input('email');
-        $people->phone        = $request->input('phone');
+        $people->phone        = $request->input('phone_full');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city-dd');

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
+
+<head>
     <base href="./">
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -39,17 +40,18 @@
     <link href="{{ asset('css/free.min.css?v=1') }}" rel="stylesheet"> <!-- icons -->
     <!-- Main styles for this application-->
     <link href="{{ asset('css/style.css?v=1') }}" rel="stylesheet">
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
@@ -58,71 +60,79 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
     <link href="{{ asset('css/components.css') }}" rel="stylesheet">
-    
+    <!-- Telefone-->
+    <link rel="stylesheet" href="{{ asset('css/prism.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/intlTelInput.css?1638200991544') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/isValidNumber.css?1638200991544') }}" rel="stylesheet">
 
     @yield('css')
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-80RW918J90"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-    
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-    
-            gtag('config', 'G-80RW918J90');
-        </script>
-    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80RW918J90"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  </head>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-80RW918J90');
+    </script>
+
+
+</head>
+
 <body class="c-app">
-   <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-      @include('layouts.shared.nav-minimal')
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+        @include('layouts.shared.nav-minimal')
 
-      @include('layouts.shared.header')
-      
-      @include('layouts.shared.loading')
+        @include('layouts.shared.header')
 
-      <div class="c-body">
-        <main class="c-main">
-          @include('layouts.shared.flash-message')
-          @yield('content') 
-        </main>
-      </div>
+        @include('layouts.shared.loading')
+
+        <div class="c-body">
+            <main class="c-main">
+                @include('layouts.shared.flash-message')
+                @yield('content')
+            </main>
+        </div>
     </div>
 
-     <!-- CoreUI and necessary plugins-->
-   <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
-   <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- CoreUI and necessary plugins-->
+    <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
+    <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!--Telefone  -->
+    <script src="{{ asset('js/prism.js') }}"></script>
+    <script src="{{ asset('js/intlTelInput.js?1638200991544') }}"></script>
+    <script src="{{ asset('js/isValidNumber.js?1638200991544') }}"></script>
 
-   <script type="text/javascript">
-       $('.show_confirm').click(function(event) {
-           var form = $(this).closest("form");
-           var name = $(this).data("name");
-           event.preventDefault();
-           swal({
-                   title: `Are you sure you want to delete this record?`,
-                   text: "If you delete this, it will be gone forever.",
-                   icon: "warning",
-                   buttons: true,
-                   dangerMode: true,
-               })
-               .then((willDelete) => {
-                   if (willDelete) {
-                       form.submit();
-                   }
-               });
-       });
-   </script>
-   @yield('javascript')
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    title: `Are you sure you want to delete this record?`,
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
+    @yield('javascript')
 
 </body>
 
