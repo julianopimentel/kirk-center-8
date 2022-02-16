@@ -13,6 +13,7 @@ use App\Models\Status;
 use Illuminate\Support\Facades\URL;
 use App\Traits\UploadTrait;
 use CategorySermons;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
 
 class SermonsController extends Controller
@@ -302,18 +303,50 @@ class SermonsController extends Controller
             $this->adicionar_log('20', 'D', $categoria);
             return redirect()->back();
         }
-        session()->flash("info", "Categoria possui vinculo com Palavra, favor remover");
+        session()->flash("info", "Categoria possui vinculo com Estudo, favor remover");
         return redirect()->back();
     }
-    
+
     public function getArticles($id, Request $request)
     {
         $results = Comment::orderBy('id', 'desc')->with('user:id,name,profile_image')
             ->where('sermons_id', $id)
             ->paginate(3);
         $artilces = '';
+
         if ($request->ajax()) {
             foreach ($results as $result) {
+                $dateTime1 = new DateTime($result->updated_at);
+                $dateTime2 = new DateTime();
+                $interval = $dateTime1->diff($dateTime2);
+
+                if ($interval->format('%y') > 0) {
+                    if ($dateTime2 >= $interval->format('%y')) {
+                        $valorhora = $interval->format('%y anos') . PHP_EOL;
+                    }
+                }
+                if ($interval->format('%m') > 0) {
+                    if ($dateTime2 >= $interval->format('%m')) {
+                        $valorhora = $interval->format('%m meses') . PHP_EOL;
+                    }
+                } else {
+                    if ($interval->format('%d') > 0) {
+                        if ($dateTime2 >= $interval->format('%d')) {
+                            $valorhora = $interval->format('%d dias') . PHP_EOL;
+                        }
+                    } else {
+                        if ($dateTime2 >= $interval->format('%h')) {
+                            if ($interval->format('%h') > 0) {
+                                $valorhora = $interval->format('%h horas') . ' ' . $interval->format('%i minutos') . PHP_EOL;
+                            } 
+                            else{
+                                $valorhora = $interval->format('%i minutos') . ' ' . $interval->format('%s segundos') . PHP_EOL;
+                        
+                            }   
+                        }
+                    }
+                }
+
                 $artilces .= '
                 <!-- post title start -->
                 <div class="post-title d-flex align-items-center">
@@ -335,7 +368,7 @@ class SermonsController extends Controller
                 <!-- post title start -->
                 <div class="post-content">
                     <p class="post-desc">
-                        ' . $result->created_at . '
+                        Publicado em ' . $valorhora . '
                     </p>
                 
             </div>';
@@ -352,7 +385,7 @@ class SermonsController extends Controller
         $sermon = Sermons::find($id);
 
         if (!$sermon) {
-            session()->flash("info", "Post não encontrado");
+            session()->flash("info", "Estudo não encontrado");
             return view('sermons.index');
         }
 

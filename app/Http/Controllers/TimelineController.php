@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use DateTime;
 use Illuminate\Http\Request;
 use Validator;
 use Redirect;
@@ -45,6 +46,37 @@ class TimelineController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $result) {
+
+                $dateTime1 = new DateTime($result->created_at);
+                $dateTime2 = new DateTime();
+                $interval = $dateTime1->diff($dateTime2);
+
+                if ($interval->format('%y') > 0) {
+                    if ($dateTime2 >= $interval->format('%y')) {
+                        $valorhora = $interval->format('%y anos') . PHP_EOL;
+                    }
+                }
+                if ($interval->format('%m') > 0) {
+                    if ($dateTime2 >= $interval->format('%m')) {
+                        $valorhora = $interval->format('%m meses') . PHP_EOL;
+                    }
+                } else {
+                    if ($interval->format('%d') > 0) {
+                        if ($dateTime2 >= $interval->format('%d')) {
+                            $valorhora = $interval->format('%d dias') . PHP_EOL;
+                        }
+                    } else {
+                        if ($dateTime2 >= $interval->format('%h')) {
+                            if ($interval->format('%h') > 0) {
+                                $valorhora = $interval->format('%h horas') . ' ' . $interval->format('%i minutos') . PHP_EOL;
+                            } else {
+                                $valorhora = $interval->format('%i minutos') . ' ' . $interval->format('%s segundos') . PHP_EOL;
+                            }
+                        }
+                    }
+                }
+
+
                 $artilces .= '
                 <div class="card">
                 <!-- post title start -->
@@ -62,7 +94,7 @@ class TimelineController extends Controller
 
                     <div class="posted-author">
                         <h6 class="author">' . $result->user->name . '</h6>
-                        <span class="post-time">' . $result->created_at . '</span>
+                        <span class="post-time">' . $valorhora . '</span>
                     </div>
                 </div>
                 <!-- post title start -->

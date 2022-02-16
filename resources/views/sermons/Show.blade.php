@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7">
+                    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
                         <div class="p-5 card">
                             <h4>{{ $note->title }}</h4>
                             @if (!empty($note->url_video))
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
                         <div class="card-header">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('sermons.storecomentario', $note->id) }}">
