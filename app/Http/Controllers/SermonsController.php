@@ -315,7 +315,6 @@ class SermonsController extends Controller
         if ($request->ajax()) {
             foreach ($results as $result) {
                 $artilces .= '
-                
                 <!-- post title start -->
                 <div class="post-title d-flex align-items-center">
                     <!-- profile picture end -->

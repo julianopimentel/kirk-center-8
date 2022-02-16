@@ -11,15 +11,12 @@
                                 <div class="row">
                                     <!-- NEW COLUMN WITH WIDTH TOTALLING 12 -->
                                     <iframe class="col-lg-12 col-md-12 col-sm-12" width="640" height="400"
-                                        src="{{ $note->url_video }}" allowfullscreen></iframe>
+                                        src="{{ $note->url_video }}" allowfullscreen frameBorder="0"></iframe>
                                 </div>
                             @endif
-                            <div>{{ $note->content }}</div>
+                            <div><strong>Descrição</strong>{{ $note->content }}</div>
                             <br>
-                            <p> {{ $note->user->name }}
-                                <span class="{{ $note->status->class }}">
-                                    {{ $note->status->name }}
-                                </span>
+                            <p>Autor: {{ $note->user->name }}
                             </p>
                             @php
                                 
