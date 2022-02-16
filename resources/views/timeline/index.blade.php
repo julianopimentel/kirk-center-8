@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('post.store') }}">
                     @csrf
                     <div class="form-group row">
-                        <textarea class="form-control" id='body' name="body" rows="1" placeholder="Mensagem.."></textarea>
+                        <textarea class="form-control" id='body' name="body" rows="2" placeholder="Mensagem.."></textarea>
                     </div>
                     <button class="btn btn-sm btn-success" type="submit">Publicar</button>
             </div>

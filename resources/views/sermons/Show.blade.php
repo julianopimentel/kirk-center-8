@@ -80,7 +80,7 @@
                                 <form method="POST" action="{{ route('sermons.storecomentario', $note->id) }}">
                                     @csrf
                                     <div class="form-group row">
-                                        <textarea class="form-control" id='comment' name="comment" rows="1"
+                                        <textarea class="form-control" id='comment' name="comment" rows="2"
                                             placeholder="Mensagem.."></textarea>
                                     </div>
                                     <button class="btn btn-sm btn-success" type="submit">Comentar</button>
