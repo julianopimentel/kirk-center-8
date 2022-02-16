@@ -13,6 +13,7 @@ class ConfigMetaTable extends Migration
      */
 	public function up()
 	{
+		error_log('Created table config_meta');
 		Schema::connection('tenant')->create('config_meta', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

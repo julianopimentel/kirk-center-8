@@ -8,6 +8,7 @@ class Sermons extends Migration
 {
     public function up()
     {
+        error_log('Created table sermons');
         Schema::connection('tenant')->create('sermons', function (Blueprint $table) {
             $table->id();
             $table->text('title');

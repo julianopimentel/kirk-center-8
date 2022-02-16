@@ -13,6 +13,7 @@ class PeopleNotes extends Migration
      */
     public function up()
     { 
+        error_log('Created table people_notes');
         Schema::connection('tenant')->create('people_notes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');

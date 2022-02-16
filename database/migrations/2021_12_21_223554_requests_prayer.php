@@ -13,6 +13,7 @@ class RequestsPrayer extends Migration
      */
     public function up()
     {
+        error_log('Created table requests_prayer');
         Schema::connection('tenant')->create('requests_prayer', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->integer('user_id');

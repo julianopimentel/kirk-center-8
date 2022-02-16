@@ -13,6 +13,7 @@ class historicsTable extends Migration {
 	 */
 	public function up()
 	{
+		error_log('Created table historics');
 		Schema::connection('tenant')->create('historics', function(Blueprint $table)
 		{
 			$table->integer('id', true);

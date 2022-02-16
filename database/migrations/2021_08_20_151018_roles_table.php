@@ -14,7 +14,7 @@ class RolesTable extends Migration
      */
 	public function up()
 	{
-        
+        error_log('Created table roles');
 		Schema::connection('tenant')->create('roles', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

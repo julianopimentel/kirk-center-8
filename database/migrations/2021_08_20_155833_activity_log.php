@@ -13,7 +13,7 @@ class ActivityLog extends Migration
      */
     public function up()
     {
-        
+        error_log('Created table activity_log');
         Schema::connection('tenant')->create('activity_log', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

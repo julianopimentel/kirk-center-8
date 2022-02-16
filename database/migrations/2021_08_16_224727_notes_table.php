@@ -14,6 +14,7 @@ class notesTable extends Migration {
 	 */
 	public function up()
 	{
+		error_log('Created table message');
 		Schema::connection('tenant')->create('message', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

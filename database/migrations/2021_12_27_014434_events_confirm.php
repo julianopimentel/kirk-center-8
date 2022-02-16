@@ -13,6 +13,7 @@ class EventsConfirm extends Migration
      */
     public function up()
     { 
+        error_log('Created table events_confirm');
         Schema::connection('tenant')->create('events_confirm', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');

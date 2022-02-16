@@ -21,7 +21,7 @@ class People extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'mobile', 'birth_at', 'address', 'country', 'state', 'city', 'role', 'cep', 
+        'name', 'email', 'phone', 'birth_at', 'address', 'country', 'state', 'city', 'role', 'cep', 
         'is_verify', 'is_visitor', 'is_transferred',
         'is_responsible',
         'is_conversion',

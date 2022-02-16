@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Config;
 
 
-class peopleTable extends Migration {
+class peopleAud extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -16,10 +16,11 @@ class peopleTable extends Migration {
 	public function up()
 	{
 		
-		Schema::connection('tenant')->create('people', function(Blueprint $table)
+		Schema::connection('tenant')->create('people_aud', function(Blueprint $table)
 		{
-			error_log('Created table people');
-			$table->bigInteger('id', true);
+			error_log('Created table people_ud');
+			$table->bigInteger('rev', true);
+            $table->integer('id')->nullable();
 			$table->integer('user_id')->nullable();
 			$table->string('name');
 			$table->string('email')->nullable();
@@ -46,7 +47,6 @@ class peopleTable extends Migration {
 			$table->boolean('is_admin')->nullable()->default(0);
 			$table->string('image')->nullable();
             $table->timestamps(10);
-			$table->softDeletes('deleted_at')->nullable();
 		});
 	}
 }

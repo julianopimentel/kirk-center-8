@@ -13,6 +13,7 @@ class Folder extends Migration
      */
     public function up()
     {
+        error_log('Created table folder');
         Schema::connection('tenant')->create('folder', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();

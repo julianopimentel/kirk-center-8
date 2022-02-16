@@ -11,6 +11,7 @@ class Media extends Migration
      */
     public function up()
     {
+        error_log('Created table media');
         Schema::connection('tenant')->create('media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('model');

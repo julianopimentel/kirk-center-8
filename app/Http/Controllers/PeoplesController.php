@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Status;
 use App\Models\People;
+use App\Models\People_Aud;
 use App\Models\People_Groups;
 use App\Models\Roles;
 use App\Models\State;
@@ -125,6 +126,31 @@ class PeoplesController extends Controller
         //pegar tenant
         $this->get_tenant();
         $people->save();
+        //adicionar auditoria
+        People_Aud::create([
+            'id' => $people->id,
+            'name' => $people->name,
+            'email' => $people->email,
+            'phone' => $people->phone,
+            'birth_at' => $people->birth_at,
+            'address' => $people->address,
+            'city' => $people->city,
+            'state' => $people->state,
+            'cep' => $people->cep,
+            'country' => $people->country,
+            'role' => $people->role,
+            'status_id' => $people->status_id,
+            'is_visitor' => $people->is_visitor,
+            'is_transferred' => $people->is_transferred,
+            'is_responsible' => $people->is_responsible,
+            'is_conversion' => $people->is_conversion,
+            'is_baptism' => $people->is_baptism,
+            'is_verify' => $people->is_verify,
+            'sex' => $people->sex,
+            'is_newvisitor' => $people->is_newvisitor,
+            'lat' => $people->lat,
+            'lng' => $people->lng,
+        ]);
         //adicionar o comentario se tiver
         if ($request->input('note') == !null) {
             People_Notes::create([
@@ -189,8 +215,6 @@ class PeoplesController extends Controller
             }
         } else {
             //se estiver desmarcado o criar conta, apenas adiciona a pessoa
-            //adicionar log
-            $this->adicionar_log('1', 'C', $people);
             $request->session()->flash("success", __('general.people'). __('action.creat'));
             return redirect()->back();
         }
@@ -278,6 +302,31 @@ class PeoplesController extends Controller
             $people->lng = $request->input('lon-span');
         }
         $people->save();
+        //adicionar auditoria
+        People_Aud::create([
+            'id' => $id,
+            'name' => $people->name,
+            'email' => $people->email,
+            'phone' => $people->phone,
+            'birth_at' => $people->birth_at,
+            'address' => $people->address,
+            'city' => $people->city,
+            'state' => $people->state,
+            'cep' => $people->cep,
+            'country' => $people->country,
+            'role' => $people->role,
+            'status_id' => $people->status_id,
+            'is_visitor' => $people->is_visitor,
+            'is_transferred' => $people->is_transferred,
+            'is_responsible' => $people->is_responsible,
+            'is_conversion' => $people->is_conversion,
+            'is_baptism' => $people->is_baptism,
+            'is_verify' => $people->is_verify,
+            'sex' => $people->sex,
+            'is_newvisitor' => $people->is_newvisitor,
+            'lat' => $people->lat,
+            'lng' => $people->lng,
+        ]);
         //adicionar o comentario se tiver
         if ($request->input('note') == !null) {
             People_Notes::create([
@@ -308,7 +357,6 @@ class PeoplesController extends Controller
                 $user->assignRole('user');
                 //logs
                 $this->adicionar_log_global('14', 'C', $user);
-                $this->adicionar_log('1', 'U', $people);
                 //validar email
                 $validaruser = User::where('email', $people->email)->get();
                 //associar usuario a pessoa na conta
@@ -329,8 +377,6 @@ class PeoplesController extends Controller
                 //associar ao usuario validando o email
                 $associar->user_id = $validaruser->first()->id;
                 $associar->save();
-                //adicionar log
-                $this->adicionar_log('1', 'U', $people);
                 //disparar o email
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
@@ -341,8 +387,6 @@ class PeoplesController extends Controller
             }
         } else {
             //se estiver desmarcado o criar conta, apenas atualizar a pessoa
-            //adicionar log
-            $this->adicionar_log('1', 'U', $people);
             $request->session()->flash("success", __('general.people'). __('action.edit'));
             return redirect()->route('people.index');
         }
@@ -388,12 +432,9 @@ class PeoplesController extends Controller
             //deletar pessoa
             $people = people::find($id);
             if ($people) {
-                $people->status_id = '13';
-                $people->deleted_at  = date('Y-m-d H:m:s');
-
+                $people->delete();
                 //adicionar log
                 $this->adicionar_log('1', 'D', $people);
-                $people->save();
             }
             //deletar o acesso
             if ($user_id != 0) {

@@ -13,6 +13,7 @@ class Likes extends Migration
      */
     public function up()
     {
+        error_log('Created table likes');
         Schema::connection('tenant')->create('likes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');

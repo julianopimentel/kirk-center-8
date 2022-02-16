@@ -128,6 +128,8 @@ class InstitutionsController extends Controller
                 "aaaaeeiooouuncAAAAEEIOOOUUNC-"
             )
         ));
+        error_log('Criando account');
+
         //pegar o ultimo id e usar como referencia
         $contador = Institution::latest('id')->get()->first()->id;
         //somar a contagem com +1
@@ -159,12 +161,15 @@ class InstitutionsController extends Controller
         //Getting Last inserted id
         $useraccount->account_id = $institution->id;
         //criar o esquema (gambiarra)
+        error_log('Criando Schema');
+
         DB::select('CREATE SCHEMA ' . $institution->tenant);
         //limpar o migration (gambiarra)
         Config::set('database.connections.tenant.schema',  $institution->tenant);
         //conexao do tenant
         //DB::reconnect('tenant');
         set_time_limit(160);
+        error_log('Iniciando o migrate');
         $migrated = Artisan::call('migrate --seed --database=tenant');
         if (!$migrated) {
             //salvar vinculo com a conta se ocorrer tudo bem
@@ -188,9 +193,11 @@ class InstitutionsController extends Controller
             //reconectar a base
             DB::reconnect('pgsql');
             // Back to the default
+            error_log('Finalizando o migrate');
             set_time_limit(30);
             return redirect()->route('account.index');
         }
+        error_log('Erro ao rodar migrations');
         //retornar com mensagem de erro
         $request->session()->flash("danger", 'Erro ao rodar migrations');
         return redirect()->route('account.index');

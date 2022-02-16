@@ -15,7 +15,7 @@ class groupsTable extends Migration {
 	 */
 	public function up()
 	{
-		
+		error_log('Created table groups');
 		Schema::connection('tenant')->create('groups', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

@@ -14,6 +14,7 @@ class ConfigSocial extends Migration
      */
     public function up()
     {
+        error_log('Created table config_social');
         Schema::connection('tenant')->create('config_social', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

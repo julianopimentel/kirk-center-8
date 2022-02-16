@@ -18,6 +18,7 @@ class BaseSeeder extends Seeder
     public function run()
     {
         //
+        error_log('Configurando system');
         DB::table('config_system')->insert([
             'timezone' => 'America/Sao_Paulo',
             'currency' => 'R$',
@@ -33,6 +34,7 @@ class BaseSeeder extends Seeder
             'created_at' => date('Y/m/d'),
         ]);
 
+        error_log('Configurando regras');
         DB::table('roles')->insert([
             'name' => 'Administrador',
             'add_people' => '1',
@@ -172,18 +174,16 @@ class BaseSeeder extends Seeder
             'home_message' => '1',
             'home_timeline' => '1',
         ]);
-
+        error_log('Configurando complemento');
         DB::table('config_social')->insert([
             'created_at' => date('Y/m/d'),
         ]);
-
         DB::table('folder')->insert([
             'name' => 'root',
             'resource' => '1',
         ]);
         DB::table('category_sermons')->insert([
             'name' => 'Sem categoria',
-            'roles' => '1',
         ]);
     }
 }

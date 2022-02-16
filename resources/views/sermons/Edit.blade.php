@@ -17,12 +17,12 @@
                                             <div class="form-group">
                                                 <label>Titulo</label>
                                                 <input class="form-control" type="text" placeholder="{{ __('Title') }}"
-                                                    name="title" value="{{ $note->title }}" required autofocus>
+                                                    name="title" id="title" value="{{ $note->title }}" required autofocus>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Mensagem</label>
-                                                <textarea class="form-control" id="textarea-input" name="content" rows="5"
+                                                <textarea class="form-control" id="textarea-input" id="content" name="content" rows="5"
                                                     placeholder="{{ __('Content..') }}"
                                                     required>{{ $note->content }}</textarea>
                                             </div>
@@ -49,7 +49,6 @@
                                                     class="c-icon c-icon-sm cil-save"></i></button>
                                             <a class="btn btn-primary" href="{{ route('sermons.index') }}"
                                                 title="Voltar"><i class="c-icon c-icon-sm cil-action-undo"></i></a>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -71,7 +70,7 @@
                                                     </use>
                                                 </svg>
                                         </div>
-                                        <input class="form-control" name="applies_to_date" type="date"
+                                        <input class="form-control" name="applies_to_date" type="date" id="date"
                                             placeholder="date" value="{{ $note->applies_to_date }}"
                                             required />
                                     </div>
@@ -81,7 +80,7 @@
                                 <div class="form-group">
                                     <label for="ccnumber">Categoria</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="type">
+                                        <select class="form-control" name="type" id="type">
                                             @foreach ($category as $category)
                                                 @if ($category->id == $note->type)
                                                     <option value="{{ $category->id }}" selected="true">
@@ -100,7 +99,7 @@
                                 <div class="form-group">
                                     <label for="ccnumber">Status</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="status_id">
+                                        <select class="form-control" name="status_id" id="status_id">
                                             @foreach ($statuses as $status)
                                                 @if ($status->id == $note->status_id)
                                                     <option value="{{ $status->id }}" selected="true">

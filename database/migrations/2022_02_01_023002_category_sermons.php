@@ -13,6 +13,7 @@ class CategorySermons extends Migration
          */
         public function up()
         {
+            error_log('Created table category_sermons');
             Schema::connection('tenant')->create('category_sermons', function (Blueprint $table) {
                 $table->id();
                 $table->text('name');

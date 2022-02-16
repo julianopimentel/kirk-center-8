@@ -15,6 +15,7 @@ class peopleGroupTable extends Migration {
 	 */
 	public function up()
 	{
+		error_log('Created table people_group');
 		Schema::connection('tenant')->create('people_group', function(Blueprint $table)
 		{
 			$table->bigInteger('id', true);

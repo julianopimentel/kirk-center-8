@@ -13,6 +13,7 @@ class Posts extends Migration
      */
     public function up()
     {
+        error_log('Created table posts');
         Schema::connection('tenant')->create('posts', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
