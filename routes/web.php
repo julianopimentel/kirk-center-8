@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\TimelineController;
+use App\Http\Controllers\SermonsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalidadeController;
@@ -44,6 +45,9 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('category/sermons', 'SermonsController@showCategory')->name('sermons.showCategory');
     Route::post('category/sermons', 'SermonsController@storeCategory')->name('sermons.storeCategory');
     Route::delete('category/sermons/{id}', 'SermonsController@destroyCategory')->name('sermons.destroyCategory');
+    Route::post('sermons/comment/{post}', 'SermonsController@storecomentario')->name('sermons.storecomentario');
+    Route::get('/sermons/comment/{id}', [SermonsController::class, 'getArticles']);
+
 
 
     //para pegar a localizacao via ajax

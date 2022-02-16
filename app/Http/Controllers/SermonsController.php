@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category_Sermons;
+use App\Models\Comment;
 use App\Models\People;
 use App\Models\Roles;
 use Illuminate\Http\Request;
@@ -57,13 +58,12 @@ class SermonsController extends Controller
         //consulta permissao da categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->where('id', $id)->first();
         //gabiarra para carregar somente os que tem a permissao
-        if($category == !null){
+        if ($category == !null) {
             $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
             return view('sermons.ListCategory', ['notes' => $notes]);
         }
         session()->flash("danger",  __('action.error'));
         return redirect()->route('sermons.index');
-
     }
 
     /**
@@ -303,6 +303,66 @@ class SermonsController extends Controller
             return redirect()->back();
         }
         session()->flash("info", "Categoria possui vinculo com Palavra, favor remover");
+        return redirect()->back();
+    }
+    
+    public function getArticles($id, Request $request)
+    {
+        $results = Comment::orderBy('id', 'desc')->with('user:id,name,profile_image')
+            ->where('sermons_id', $id)
+            ->paginate(3);
+        $artilces = '';
+        if ($request->ajax()) {
+            foreach ($results as $result) {
+                $artilces .= '
+                
+                <!-- post title start -->
+                <div class="post-title d-flex align-items-center">
+                    <!-- profile picture end -->
+                    <div class="profile-thumb">
+                        <a href="#">
+                            <figure class="profile-thumb-middle">
+                                    <div class="c-avatar"><img alt="image" class="mr-3 rounded-circle" width="30" height="30" src="' . $result->user->image . '"
+                                            alt="profile picture"></div>
+                            </figure>
+                        </a>
+                    </div>
+                    <!-- profile picture end -->
+                    <div class="posted-author">
+                        <h7 class="author">' . $result->user->name . '</h7>
+                        <span class="post-time">' . $result->comment . '</span>
+                    </div>
+                </div>
+                <!-- post title start -->
+                <div class="post-content">
+                    <p class="post-desc">
+                        ' . $result->created_at . '
+                    </p>
+                
+            </div>';
+            }
+            return $artilces;
+        }
+    }
+    //comentario na timezone
+    public function storecomentario($id, Request $request)
+    {
+        //pegar tenant
+        $this->get_tenant();
+
+        $sermon = Sermons::find($id);
+
+        if (!$sermon) {
+            session()->flash("info", "Post não encontrado");
+            return view('sermons.index');
+        }
+
+        Comment::create([
+            'comment' => $request->input('comment'),
+            'sermons_id' => $id,
+            'user_id' => auth()->user()->id
+        ]);
+
         return redirect()->back();
     }
 }

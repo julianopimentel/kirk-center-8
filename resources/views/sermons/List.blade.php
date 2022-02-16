@@ -21,8 +21,13 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($category->count() <= 1 and $appPermissao->add_sermons == true)
+                            Você ainda não cadastrou nenhuma categoria. Após cadastrar adicionar novos videos e vincular a
+                            essas categorias.
+                        @endif
                     </div>
                 @endif
+
                 @foreach ($category as $category)
                     @if (!$notes->isEmpty())
                         <div class="card card-primary">
@@ -76,12 +81,25 @@
                     @endif
             </div>
     @endforeach
-    </div>
 
+    @if ($category->count() == 0)
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h4><strong>Palavras</strong></h4>
+            </div>
+            <div class="container-fluid">
+                <div class="fade-in">
+                    Não possuiu estudos vinculado ao seu grupo, fale com o administrador da conta
+                </div>
+            </div>
+        </div>
+    @endif
+
+    </div>
 @endsection
 
 @section('javascript')
-
 @endsection
 
 @else

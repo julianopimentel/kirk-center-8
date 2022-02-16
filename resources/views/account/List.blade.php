@@ -15,7 +15,7 @@
                             <th>Código</th>
                             <th>{{ __('account.name') }}</th>
                             @if (Auth::user()->isAdmin())
-                            <th>{{ __('account.type') }}</th>
+                                <th>{{ __('account.type') }}</th>
                             @endif
                             <th colspan="3">
                                 <Center>{{ __('account.action') }}</Center>
@@ -28,11 +28,11 @@
                                 <td width="10%">{{ $institution->AccountList->id }}</td>
                                 <td width="40%">{{ $institution->AccountList->name_company }} </td>
                                 @if (Auth::user()->isAdmin())
-                                <td>
-                                    <span class="{{ $institution->AccountList->status->class }}">
-                                        {{ $institution->AccountList->status->name }}
-                                    </span>
-                                </td>
+                                    <td>
+                                        <span class="{{ $institution->AccountList->status->class }}">
+                                            {{ $institution->AccountList->status->name }}
+                                        </span>
+                                    </td>
                                 @endif
                                 <td width="1%">
                                     @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
@@ -51,7 +51,6 @@
                                                 title='Delete'><i
                                                     class="c-icon c-icon-sm cil-trash text-danger"></i></button>
                                         </form>
-
                                     @endif
                                 </td>
                                 <td width="1%">
@@ -90,5 +89,4 @@
 @endsection
 
 @section('javascript')
-
 @endsection

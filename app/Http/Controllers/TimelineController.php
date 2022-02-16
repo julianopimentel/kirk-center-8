@@ -25,8 +25,7 @@ class TimelineController extends Controller
 
         $post = Post::find($id);
 
-        if(!$post)
-        {
+        if (!$post) {
             session()->flash("info", "Post não encontrado");
             return view('timeline.index');
         }
@@ -121,27 +120,25 @@ class TimelineController extends Controller
     }
 
 
-        //adicionar nova pessoa ao grupo
-        public function storecomentario($id, Request $request)
-        {
-            //pegar tenant
-            $this->get_tenant();
+    //comentario na timezone
+    public function storecomentario($id, Request $request)
+    {
+        //pegar tenant
+        $this->get_tenant();
 
-            $post = Post::find($id);
+        $post = Post::find($id);
 
-            if(!$post)
-            {
-                session()->flash("info", "Post não encontrado");
-                return view('timeline.index');
-            }
-
-            Comment::create([
-                'comment' => $request->input('comment'),
-                'post_id' => $id,
-                'user_id' => auth()->user()->id
-            ]);
-
-            return redirect()->back();
+        if (!$post) {
+            session()->flash("info", "Post não encontrado");
+            return view('timeline.index');
         }
 
+        Comment::create([
+            'comment' => $request->input('comment'),
+            'post_id' => $id,
+            'user_id' => auth()->user()->id
+        ]);
+
+        return redirect()->back();
+    }
 }
