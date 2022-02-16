@@ -82,8 +82,8 @@
           text-decoration: none;
           color: #fff; }
   .article .article-details {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #ced0d44a;
+    padding: 5px;
     line-height: 24px; }
     .article .article-details .article-cta {
       text-align: center; }
