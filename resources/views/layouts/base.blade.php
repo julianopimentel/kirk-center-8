@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base href="./">
     <meta charset="utf-8">
@@ -34,94 +35,105 @@
     <meta property="og:image" itemprop="image" content="https://deskapp.online/logo1.jpg">
     <meta property="og:type" content="website">
 
-   <!-- Calendar -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-   <!-- Icons-->
-   <link href="{{ asset('css/free.min.css?v=1') }}" rel="stylesheet">
-   <!-- Main styles for this application-->
-   <link href="{{ asset('css/style.css?v=1') }}" rel="stylesheet">
+    <!-- Calendar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <!-- Icons-->
+    <link href="{{ asset('css/free.min.css?v=1') }}" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="{{ asset('css/style.css?v=1') }}" rel="stylesheet">
 
-   <!-- Layout-->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-   <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
-   <link href="{{ asset('css/components.css') }}" rel="stylesheet">
+    <!-- Layout-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/components.css') }}" rel="stylesheet">
 
-   <!-- Alert-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Alert-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-   <!-- Select2-->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- Select2-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-   @yield('css')
+    <!-- Telefone-->
+    <link rel="stylesheet" href="{{ asset('css/prism.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/intlTelInput.css?1638200991544') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/isValidNumber.css?1638200991544') }}" rel="stylesheet">
 
-   <link href="{{ asset('css/coreui-chartjs.css?v=1') }}" rel="stylesheet">
+    @yield('css')
 
-       <!-- Global site tag (gtag.js) - Google Analytics -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-80RW918J90"></script>
-       <script>
-           window.dataLayer = window.dataLayer || [];
-   
-           function gtag() {
-               dataLayer.push(arguments);
-           }
-           gtag('js', new Date());
-   
-           gtag('config', 'G-80RW918J90');
-       </script>
+    <link href="{{ asset('css/coreui-chartjs.css?v=1') }}" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80RW918J90"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-80RW918J90');
+    </script>
 </head>
 
 <!-- retirar minimized fica minimizado c-sidebar-minimized-->
+
 <body class="c-app">
-   <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-       @include('layouts.shared.nav-builder')
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+        @include('layouts.shared.nav-builder')
 
-       @include('layouts.shared.header')
+        @include('layouts.shared.header')
 
-       <div class="c-body">
+        <div class="c-body">
 
-           <main class="c-main">
-               @include('layouts.shared.flash-message')
-               @yield('content')
+            <main class="c-main">
+                @include('layouts.shared.flash-message')
+                @yield('content')
 
-           </main>
-       </div>
-   </div>
-   <!-- CoreUI and necessary plugins-->
-   <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
-   <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            </main>
+        </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="{{ asset('js/coreui.bundle.min.js?v=1') }}"></script>
+    <script src="{{ asset('js/coreui-utils.js?v=1') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Mensagem flash https://medium.com/hacktive-devs/handling-feedback-in-web-laravel-applications-9f6691616218-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+     <!--Telefone  -->
+    <script src="{{ asset('js/prism.js') }}"></script>
+    <script src="{{ asset('js/intlTelInput.js?1638200991544') }}"></script>
+    <script src="{{ asset('js/isValidNumber.js?1638200991544') }}"></script>
 
-   <script type="text/javascript">
-       $('.show_confirm').click(function(event) {
-           var form = $(this).closest("form");
-           var name = $(this).data("name");
-           event.preventDefault();
-           swal({
-                   title: `Tem certeza de que deseja excluir este registro?`,
-                   text: "Se você excluir isso, ele desaparecerá para sempre.",
-                   icon: "warning",
-                   buttons: true,
-                   dangerMode: true,
-               })
-               .then((willDelete) => {
-                   if (willDelete) {
-                       form.submit();
-                   }
-               });
-       });
-   </script>
-   @yield('javascript')
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    title: `Tem certeza de que deseja excluir este registro?`,
+                    text: "Se você excluir isso, ele desaparecerá para sempre.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
+    @yield('javascript')
 
 </body>
 

@@ -20,7 +20,7 @@ class PeoplePrecadastro extends Migration
 			$table->integer('user_id')->nullable();
 			$table->string('name');
 			$table->string('email')->nullable();
-			$table->string('mobile')->nullable();
+			$table->string('phone')->nullable();
 			$table->date('birth_at')->nullable();
             $table->string('sex', 1)->nullable();
 			$table->string('address')->nullable();

@@ -58,7 +58,7 @@
                                         <span class="badge badge-danger">NEW</span>
                                         @endif</td>
                                       <td>{{ $people->email }}</td>
-                                      <td>{{ $people->mobile }}</td>
+                                      <td>{{ $people->phone }}</td>
                                       <td>
                                         @if($people->city && $people->state != null)
                                         {{ $people->city }} / {{ $people->state }}

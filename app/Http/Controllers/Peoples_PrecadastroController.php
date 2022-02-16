@@ -70,13 +70,13 @@ class Peoples_PrecadastroController extends Controller
         $validatedData = $request->all([
             'name'             => 'required|min:1|max:255',
             'email'           => 'required',
-            'mobile'         => 'required',
+            'phone'         => 'required',
         ]);
         //atualizar precadastro
         $people_pre = People_Precadastro::find($id);
         $people_pre->name          = $request->input('name');
         $people_pre->email         = $request->input('email');
-        $people_pre->mobile        = $request->input('mobile');
+        $people_pre->phone        = $request->input('phone_full');
         $people_pre->birth_at      = $request->input('birth_at');
         $people_pre->address       = $request->input('address');
         $people_pre->city          = $request->input('city');
@@ -92,7 +92,7 @@ class Peoples_PrecadastroController extends Controller
         $people->user_id          = session()->get('aprovada-id');
         $people->name          = $request->input('name');
         $people->email         = $request->input('email');
-        $people->mobile        = $request->input('mobile');
+        $people->phone        = $request->input('phone_full');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city');

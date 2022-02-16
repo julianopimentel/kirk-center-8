@@ -22,7 +22,7 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab"
                                                     href="#address" role="tab" aria-controls="profile"
-                                                    aria-selected="false">Address</a>
+                                                    aria-selected="false">Localização</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -87,9 +87,9 @@
                                                                 </svg>
                                                             </span>
                                                         </div>
-                                                        <input class="form-control" name="mobile" type="tel"
-                                                            placeholder="11 99999-9999"
-                                                            pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
+                                                    <input class="form-control" id="phone" name="phone" type="tel">
+                                                    <span id="valid-msg" class="hide">✓ Valid</span>
+                                                    <span id="error-msg" class="hide"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">

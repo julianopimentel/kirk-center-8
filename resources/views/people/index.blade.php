@@ -68,7 +68,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $people->email }}</td>
-                                    <td>{{ $people->mobile }}</td>
+                                    <td>{{ $people->phone }}</td>
                                     <td>{{ $people->roleslocal->name }}</td>
                                     <td>
                                         <span class="{{ $people->status->class }}">

@@ -72,17 +72,14 @@
                         *
                     @endif</label>
                 <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">
-                            <svg class="c-icon">
-                                <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-mobile">
-                                </use>
-                            </svg> </div>
-                    <input class="form-control" id="mobile" name="mobile" placeholder="11 99999-9999" type="tel"
-                        pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}" value="{{ $people->mobile }}" @if ($appSystem->obg_mobile == true)
-                    required
-                    @endif
-                    {{ $appPermissao->edit_people == false ? 'disabled' : '' }}
-                    >
+                            <input class="form-control" id="phone" name="phone" type="tel"
+                            value="{{ $people->mobile }}" @if ($appSystem->obg_mobile == true)
+                            required
+                            @endif
+                            {{ $appPermissao->edit_people == false ? 'disabled' : '' }}
+                            >
+                            <span id="valid-msg" class="hide">✓ Valid</span>
+                            <span id="error-msg" class="hide"></span>
                 </div>
             </div>
         </div>

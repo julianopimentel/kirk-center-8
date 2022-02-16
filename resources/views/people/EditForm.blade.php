@@ -69,241 +69,247 @@
                                                                     </svg> </div>
                                                             <input class="form-control" id="email" name="email"
                                                                 type="text" placeholder="joao@live.com"
-                                                                value="{{ $people->email }}" @if ($appSystem->obg_email == true)
+                                                                value="{{ $people->email }}"
+                                                                @if ($appSystem->obg_email == true) required @endif>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- /.row-->
+                                            <div class="row">
+                                                <div class="form-group col-sm-3">
+                                                    <div class="form-group">
+                                                        <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
+                                                                *
+                                                            @endif</label>
+                                                        <div class="input-group">
+                                                            <input class="form-control" id="phone" name="phone" type="tel"
+                                                                value="{{ $people->phone }}"
+                                                                @if ($appSystem->obg_mobile == true) required @endif>
+                                                            <span id="valid-msg" class="hide">✓ Valid</span>
+                                                            <span id="error-msg" class="hide"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                    <div class="form-group">
+                                                        <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
+                                                                *
+                                                            @endif</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-calendar">
+                                                                        </use>
+                                                                    </svg> </div>
+                                                            <input class="form-control" id="birth_at" name="birth_at"
+                                                                type="date" placeholder="date"
+                                                                value="{{ $people->birth_at }}"
+                                                                @if ($appSystem->obg_birth == true) required @endif>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                    <label class="col-md-4 col-form-label">Sexo @if ($appSystem->obg_sex == true)
+                                                            *
+                                                        @endif</label>
+                                                    <div class="col-md-12 col-form-label">
+                                                        <div class="form-check form-check-inline mr-1">
+                                                            <input class="form-check-input" id="sex" type="radio" value="m"
+                                                                name="sex" {{ $people->sex == 'm' ? 'checked' : '' }}
+                                                                @if ($appSystem->sex == true) required @endif>
+                                                            <svg class="c-icon">
+                                                                <use
+                                                                    xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user">
+                                                                </use>
+                                                            </svg> <label class="form-check-label" for="m">Masculino</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline mr-1">
+                                                            <input class="form-check-input" id="sex" type="radio" value="f"
+                                                                name="sex" {{ $people->sex == 'f' ? 'checked' : '' }}
+                                                                @if ($appSystem->sex == true) required @endif>
+                                                            <svg class="c-icon">
+                                                                <use
+                                                                    xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user-female">
+                                                                </use>
+                                                            </svg>
+                                                            <label class="form-check-label" for="f">Feminino</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <label for="name">Permissão *</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-face">
+                                                                        </use>
+                                                                    </svg>
+                                                            </div>
+                                                            <select class="form-control" name="role">
+                                                                @foreach ($roles as $role)
+                                                                    @if ($role->id == $people->role)
+                                                                        <option value="{{ $role->id }}" selected="true">
+                                                                            {{ $role->name }}</option>
+                                                                    @else
+                                                                        <option value="{{ $role->id }}">
+                                                                            {{ $role->name }}
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @if ($people->user_id == null)
+                                                <div class="form-check checkbox">
+                                                    <input class="form-check-input" id="criar_acesso" name="criar_acesso"
+                                                        type="checkbox">
+                                                    <label class="form-check-label" for="check1">Criar acesso</label>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+                                    <div class="tab-pane" id="endereco" role="tabpanel">
+                                        <div class="card-body">
+                                            @if ($appSystem->geolocation == true)
+                                                <div id="map"></div>
+                                                <ul id="geoData">
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="city">Latitude</label>
+                                                            <div class="input-group-prepend">
+                                                                <span name="lat-span" id="lat-span"></span>
+                                                            </div>
+                                                            <input class="form-control" name="lat-span" type="text">
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="city">Longitude</label>
+                                                            <div class="input-group-prepend">
+                                                                <span name="lon-span" id="lon-span"></span>
+                                                            </div>
+                                                            <input class="form-control" name="lon-span" type="text">
+                                                        </div>
+                                                        Por favor copiar valores nos campos acima ao selecionar o local no
+                                                        mapa
+                                                    </div>
+                                                </ul>
+                                            @else
+                                                <div class="row">
+                                                    <div class="form-group col-sm-8">
+                                                        <label for="street">Street</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
+                                                                        </use>
+                                                                    </svg> </div>
+                                                            <input class="form-control" id="address" name="address"
+                                                                type="text" placeholder="Enter street name"
+                                                                value="{{ $people->address }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="postal-code">Postal Code</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
+                                                                        </use>
+                                                                    </svg> </div>
+                                                            <input class="form-control" id="cep" name="cep" type="text"
+                                                                placeholder="Postal Code" value="{{ $people->cep }}"
+                                                                pattern="[0-9]{5}-[0-9]{3}" maxlength="9">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="city">Country</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span
+                                                                    class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
+                                                                        </use>
+                                                                    </svg> </div>
+                                                            <select id="country-dd" name="country-dd"
+                                                                class="form-control">
+                                                                <option value="">Clear Country</option>
+                                                                @foreach ($countries as $data)
+                                                                    @if ($data->id == $people->country)
+                                                                        <option value="{{ $data->id }}"
+                                                                            selected="true">
+                                                                            {{ $data->name }}</option>
+                                                                    @else
+                                                                        <option value="{{ $data->id }}">
+                                                                            {{ $data->name }}
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="country">State @if ($appSystem->obg_state == true)
+                                                                *
+                                                            @endif</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span
+                                                                    class="input-group-text">
+                                                                    <svg class="c-icon">
+                                                                        <use
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
+                                                                        </use>
+                                                                    </svg> </div>
+                                                            <select name="state-dd" id="state-dd" class="form-control">
+                                                                @foreach ($state as $data)
+                                                                    @if ($data->id == $people->state)
+                                                                        <option value="{{ $data->id }}"
+                                                                            selected="true">
+                                                                            {{ $data->name }}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select @if ($appSystem->obg_state == true)
                                                             required
+                                            @endif
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="city">City @if ($appSystem->obg_city == true)
+                                                *
+                                            @endif</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text">
+                                                    <svg class="c-icon">
+                                                        <use
+                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-house">
+                                                        </use>
+                                                    </svg> </div>
+                                            <select id="city-dd" name="city-dd" class="form-control">
+                                                @foreach ($city as $data)
+                                                    @if ($data->id == $people->city)
+                                                        <option value="{{ $data->id }}" selected="true">
+                                                            {{ $data->name }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select @if ($appSystem->obg_city == true)
+                                            required
     @endif
     >
     </div>
-    </div>
-    </div>
-    </div>
-
-    <!-- /.row-->
-    <div class="row">
-        <div class="form-group col-sm-3">
-            <div class="form-group">
-                <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
-                        *
-                    @endif</label>
-                <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">
-                            <svg class="c-icon">
-                                <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-mobile">
-                                </use>
-                            </svg> </div>
-                    <input class="form-control" id="mobile" name="mobile" placeholder="11 99999-9999" type="tel"
-                        pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}" value="{{ $people->mobile }}" @if ($appSystem->obg_mobile == true)
-                    required
-                    @endif
-                    >
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-sm-3">
-            <div class="form-group">
-                <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
-                        *
-                    @endif</label>
-                <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">
-                            <svg class="c-icon">
-                                <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-calendar">
-                                </use>
-                            </svg> </div>
-                    <input class="form-control" id="birth_at" name="birth_at" type="date" placeholder="date"
-                        value="{{ $people->birth_at }}" @if ($appSystem->obg_birth == true)
-                    required
-                    @endif
-                    >
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-sm-3">
-            <label class="col-md-4 col-form-label">Sexo @if ($appSystem->obg_sex == true)
-                    *
-                @endif</label>
-            <div class="col-md-12 col-form-label">
-                <div class="form-check form-check-inline mr-1">
-                    <input class="form-check-input" id="sex" type="radio" value="m" name="sex"
-                        {{ $people->sex == 'm' ? 'checked' : '' }} @if ($appSystem->sex == true)
-                    required
-                    @endif
-                    >
-                    <svg class="c-icon">
-                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user">
-                        </use>
-                    </svg> <label class="form-check-label" for="m">Masculino</label>
-                </div>
-                <div class="form-check form-check-inline mr-1">
-                    <input class="form-check-input" id="sex" type="radio" value="f" name="sex"
-                        {{ $people->sex == 'f' ? 'checked' : '' }} @if ($appSystem->sex == true)
-                    required
-                    @endif
-                    >
-                    <svg class="c-icon">
-                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user-female">
-                        </use>
-                    </svg>
-                    <label class="form-check-label" for="f">Feminino</label>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="form-group">
-                <label for="name">Permissão *</label>
-                <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">
-                            <svg class="c-icon">
-                                <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-face">
-                                </use>
-                            </svg>
-                    </div>
-                    <select class="form-control" name="role">
-                        @foreach ($roles as $role)
-                            @if ($role->id == $people->role)
-                                <option value="{{ $role->id }}" selected="true">
-                                    {{ $role->name }}</option>
-                            @else
-                                <option value="{{ $role->id }}">
-                                    {{ $role->name }}
-                                </option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    @if ($people->user_id == null)
-        <div class="form-check checkbox">
-            <input class="form-check-input" id="criar_acesso" name="criar_acesso" type="checkbox">
-            <label class="form-check-label" for="check1">Criar acesso</label>
-        </div>
-    @endif
-    </div>
-    </div>
-
-
-    <div class="tab-pane" id="endereco" role="tabpanel">
-        <div class="card-body">
-            @if ($appSystem->geolocation == true)
-                <div id="map"></div>
-                <ul id="geoData">
-                    <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label for="city">Latitude</label>
-                            <div class="input-group-prepend">
-                                <span name="lat-span" id="lat-span"></span>
-                            </div>
-                            <input class="form-control" name="lat-span" type="text">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="city">Longitude</label>
-                            <div class="input-group-prepend">
-                                <span name="lon-span" id="lon-span"></span>
-                            </div>
-                            <input class="form-control" name="lon-span" type="text">
-                        </div>
-                        Por favor copiar valores nos campos acima ao selecionar o local no mapa
-                    </div>
-                </ul>
-            @else
-                <div class="row">
-                    <div class="form-group col-sm-8">
-                        <label for="street">Street</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text">
-                                    <svg class="c-icon">
-                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-address-book">
-                                        </use>
-                                    </svg> </div>
-                            <input class="form-control" id="address" name="address" type="text"
-                                placeholder="Enter street name" value="{{ $people->address }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <label for="postal-code">Postal Code</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text">
-                                    <svg class="c-icon">
-                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-newspaper">
-                                        </use>
-                                    </svg> </div>
-                            <input class="form-control" id="cep" name="cep" type="text" placeholder="Postal Code"
-                                value="{{ $people->cep }}" pattern="[0-9]{5}-[0-9]{3}" maxlength="9">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="city">Country</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text">
-                                    <svg class="c-icon">
-                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
-                                        </use>
-                                    </svg> </div>
-                            <select id="country-dd" name="country-dd" class="form-control">
-                                <option value="">Clear Country</option>
-                                @foreach ($countries as $data)
-                                    @if ($data->id == $people->country)
-                                        <option value="{{ $data->id }}" selected="true">
-                                            {{ $data->name }}</option>
-                                    @else
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}
-                                        </option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="country">State @if ($appSystem->obg_state == true)
-                                *
-                            @endif</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text">
-                                    <svg class="c-icon">
-                                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-home">
-                                        </use>
-                                    </svg> </div>
-                            <select name="state-dd" id="state-dd" class="form-control">
-                                @foreach ($state as $data)
-                                    @if ($data->id == $people->state)
-                                        <option value="{{ $data->id }}" selected="true">
-                                            {{ $data->name }}</option>
-                                    @endif
-                                @endforeach
-                            </select @if ($appSystem->obg_state == true)
-                            required
-            @endif
-            >
-        </div>
-    </div>
-    <div class="form-group col-sm-4">
-        <label for="city">City @if ($appSystem->obg_city == true)
-                *
-            @endif</label>
-        <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text">
-                    <svg class="c-icon">
-                        <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-house">
-                        </use>
-                    </svg> </div>
-            <select id="city-dd" name="city-dd" class="form-control">
-                @foreach ($city as $data)
-                    @if ($data->id == $people->city)
-                        <option value="{{ $data->id }}" selected="true">
-                            {{ $data->name }}</option>
-                    @endif
-                @endforeach
-            </select @if ($appSystem->obg_city == true)
-            required
-            @endif
-            >
-        </div>
     </div>
 
     <!-- /.row-->
@@ -373,10 +379,8 @@
                     @endif
                 </label>
                 <div class="col-md-9">
-                    <textarea class="form-control" name="note" id="note" rows="9" placeholder="Content.." @if ($appSystem->obg_note == true)
-                                                                                                                        required
-                                                                                                                        @endif
-                                                                                                                        ></textarea>
+                    <textarea class="form-control" name="note" id="note" rows="9" placeholder="Content.."
+                        @if ($appSystem->obg_note == true) required @endif></textarea>
                 </div>
             </div>
         </div>
@@ -408,7 +412,8 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="hf-email">Email</label>
                     <div class="col-md-9">
-                        <input class="form-control" placeholder="Liberar o acesso" value="@if ($people->user_id) {{ $people->acesso->email }} @endif"
+                        <input class="form-control" placeholder="Liberar o acesso"
+                            value="@if ($people->user_id) {{ $people->acesso->email }} @endif"
                             autocomplete="email" disabled>
                     </div>
                 </div>
@@ -441,8 +446,12 @@
                 var myLatLng = {
 
 
-                    lat: @if ($people->lat) {{ $people->lat }} @else {{ $locations->lat }} @endif,
-                    lng: @if ($people->lng) {{ $people->lng }} @else {{ $locations->lng }} @endif
+                    @if ($people->lat)
+                    {{ $people->lat }} @else {{ $locations->lat }}
+                    @endif,
+                    @if ($people->lng)
+                    {{ $people->lng }} @else {{ $locations->lng }}
+                    @endif
                 };
 
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -513,11 +522,9 @@
             });
         });
     </script>
-
 @endsection
 
 @section('javascript')
-
 @endsection
 @else
 @include('errors.redirecionar')

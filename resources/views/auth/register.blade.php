@@ -53,8 +53,9 @@
                 <div class="row">
                   <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <label>{{ __('people.mobile') }}</label>
-                    <input class="form-control" type="tel" placeholder="21 998121-1212" name="mobile"  required autofocus
-                    >
+                    <input class="form-control" id="phone" name="phone" type="tel">
+                    <span id="valid-msg" class="hide">✓ Valid</span>
+                    <span id="error-msg" class="hide"></span>
                   </div>
                 </div>
 

@@ -78,7 +78,7 @@ class WizardController extends Controller
         $people = new People_Precadastro();
         $people->name          = strtoupper($request->input('name'));
         $people->email         = auth()->user()->email;
-        $people->mobile        = $request->input('mobile');
+        $people->phone        = $request->input('phone');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city');

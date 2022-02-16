@@ -102,7 +102,7 @@ class PeoplesController extends Controller
         $nome = ($request->input('name') . ' ' . $request->input('last_name'));
         $people->name          = $nome;
         $people->email         = $request->input('email');
-        $people->mobile        = $request->input('mobile');
+        $people->phone        = $request->input('phone_full');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city-dd');
@@ -149,7 +149,7 @@ class PeoplesController extends Controller
                     'email' => $people->email,
                     'password' => Hash::make($pwa), //gerar senha
                     'country' =>  $people->country,
-                    'mobile' => $people->mobile
+                    'phone' => $people->phone
                 ]);
                 //associar ao user
                 $user->assignRole('user');
@@ -254,7 +254,7 @@ class PeoplesController extends Controller
         $people = People::find($id);
         $people->name          = strtoupper($request->input('name'));
         $people->email         = $request->input('email');
-        $people->mobile        = $request->input('mobile');
+        $people->phone        = $request->input('phone_full');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city-dd');
@@ -302,7 +302,7 @@ class PeoplesController extends Controller
                     'email' => $people->email,
                     'password' => Hash::make($pwa), //gerar senha
                     'country' =>  $people->country,
-                    'mobile' => $people->mobile
+                    'phone' => $people->phone
                 ]);
                 //associar ao user
                 $user->assignRole('user');

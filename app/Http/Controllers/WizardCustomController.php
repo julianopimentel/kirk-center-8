@@ -97,11 +97,12 @@ class WizardCustomController extends Controller
             $people = new People();
             $people->name          = strtoupper($request->input('name') . ' ' . $request->input('lastname'));
             $people->email         = $request->input('email');
-            $people->mobile        = $request->input('mobile');
+            $people->phone        = $request->input('phone');
             $people->status_id = '14'; //ativo
             $people->is_verify       = 'true';
             $people->role = '2'; //membro
-            //cadastrar o seu acesso
+            //aceitou o termo?
+            $termo = $request->has('agree') ? 1 : 0;
             //gerar hash
             $pwa = $request->input('password');
             //criar o usuario
@@ -109,7 +110,8 @@ class WizardCustomController extends Controller
                 'name' => $people->name,
                 'email' => $people->email,
                 'password' => Hash::make($pwa), //gerar senha
-                'mobile' => $people->mobile
+                'phone' => $people->phone,
+                'agree' => $termo,
             ]);
             //associar ao user
             $user->assignRole('user');

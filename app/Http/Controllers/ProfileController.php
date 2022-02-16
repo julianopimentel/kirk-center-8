@@ -53,7 +53,7 @@ class ProfileController extends Controller
         $user = User::findOrFail(auth()->user()->id);
         $user->name       = $request->input('name');
         // $user->email      = $request->input('email');
-        $user->mobile       = $request->input('mobile');
+        $user->phone       = $request->input('phone');
         $user->doc       = $request->input('doc');
         //tratamento na imagem
         if ($request->has('profile_image')) {
@@ -72,7 +72,7 @@ class ProfileController extends Controller
             $user->profile_image = URL::to('/') . '/storage/profiles/' . $filePath;
         }
         //adicionar log
-        $this->adicionar_log_global('8', 'U', '{"name":"' . $user->name . '","email":"' . $user->email . '","mobile":"' . $user->mobile . '","doc":"' . $user->doc . '"}');
+        $this->adicionar_log_global('8', 'U', '{"name":"' . $user->name . '","email":"' . $user->email . '","phone":"' . $user->phone . '","doc":"' . $user->doc . '"}');
         $user->save();
         $request->session()->flash("success", 'events.change_success');
         return redirect()->back();
@@ -87,7 +87,7 @@ class ProfileController extends Controller
         $people = People::find($id);
         $people->name          = strtoupper($request->input('name'));
         $people->email         = $request->input('email');
-        $people->mobile        = $request->input('mobile');
+        $people->phone        = $request->input('phone');
         $people->birth_at      = $request->input('birth_at');
         $people->address       = $request->input('address');
         $people->city          = $request->input('city-dd');
