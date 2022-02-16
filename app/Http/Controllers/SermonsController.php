@@ -92,7 +92,7 @@ class SermonsController extends Controller
         //pegar tenant
         $this->get_tenant();
         $validatedData = $request->validate([
-            'title'             => 'required|min:1|max:64',
+            'title'             => 'required',
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
@@ -192,7 +192,7 @@ class SermonsController extends Controller
         //user data
         $user = auth()->user();
         $validatedData = $request->validate([
-            'title'             => 'required|min:1|max:64',
+            'title'             => 'required',
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
@@ -272,7 +272,7 @@ class SermonsController extends Controller
         //pegar tenant
         $this->get_tenant();
         $validatedData = $request->validate([
-            'name'             => 'required|min:1|max:64',
+            'name'             => 'required',
             'body'           => 'required',
             'roles'         => 'required',
         ]);

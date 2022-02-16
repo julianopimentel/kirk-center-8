@@ -14,7 +14,7 @@
                                         src="{{ $note->url_video }}" allowfullscreen frameBorder="0"></iframe>
                                 </div>
                             @endif
-                            <div><strong>Descrição</strong>{{ $note->content }}</div>
+                            <div><strong>Descrição: </strong>{{ $note->content }}</div>
                             <br>
                             <p>Autor: {{ $note->user->name }}
                             </p>
