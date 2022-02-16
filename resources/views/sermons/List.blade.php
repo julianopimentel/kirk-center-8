@@ -21,10 +21,6 @@
                                 </div>
                             </div>
                         </div>
-                        @if ($category->count() <= 1 and $appPermissao->add_sermons == true)
-                            Você ainda não cadastrou nenhuma categoria. Após cadastrar adicionar novos videos e vincular a
-                            essas categorias.
-                        @endif
                     </div>
                 @endif
 
