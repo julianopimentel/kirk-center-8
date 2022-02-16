@@ -125,14 +125,14 @@ class SermonsController extends Controller
             $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
             $note->save();
             //adicionar log
-            $this->adicionar_log('19', 'U', $note);
+            $this->adicionar_log('19', 'C', $note);
             $request->session()->flash('success', __('general.sermon') . __('action.creat'));
             return redirect()->route('sermons.index');
         } else
             //salva sem o tratamento da imagem
             $note->save();
         //adicionar log
-        $this->adicionar_log('19', 'U', $note);
+        $this->adicionar_log('19', 'C', $note);
         $request->session()->flash('success', __('general.sermon') . __('action.creat'));
         return redirect()->route('sermons.index');
     }
