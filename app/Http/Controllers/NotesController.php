@@ -84,7 +84,7 @@ class NotesController extends Controller
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
 
-            $name = Str::slug($request->input('name')) . '_' . time();
+            $name = session()->get('key'). '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -182,7 +182,7 @@ class NotesController extends Controller
             // Get image file
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('name')) . '_' . time();
+            $name = session()->get('key'). '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]

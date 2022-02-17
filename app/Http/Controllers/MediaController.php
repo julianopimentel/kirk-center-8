@@ -128,7 +128,7 @@ class MediaController extends Controller
             $path = $file->path();
             $oryginalName = $file->getClientOriginalName();
             if(!empty($mediaFolder)){
-                $mediaFolder->addMedia($path)->usingFileName( date('YmdHis') . $oryginalName )->usingName($oryginalName)->toMediaCollection();
+                $mediaFolder->addMedia($path)->usingFileName(session()->get('key').'_'. date('YmdHis').'_' . $oryginalName )->usingName($oryginalName)->toMediaCollection();
                 $this->adicionar_log('16', 'C', $mediaFolder);
             }
         }

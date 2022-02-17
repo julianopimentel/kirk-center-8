@@ -217,7 +217,7 @@ class SermonsController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'sermons', $name);
             // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/'.session()->get('key').'/' . $filePath;
+            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);

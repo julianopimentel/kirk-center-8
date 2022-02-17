@@ -54,6 +54,6 @@ class Controller extends BaseController
 
         //return the path
         // Url is the base url exp: localhost:8000
-        return URL::to('/').'/storage/'.$path.'/'.$filename;
+        return URL::to('/').'/storage/'.$path.'/'.session()->get('key').'_'.$filename;
     }
 }
