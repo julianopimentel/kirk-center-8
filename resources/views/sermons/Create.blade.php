@@ -16,7 +16,7 @@
                                             <div class="form-group">
                                                 <label>Titulo</label>
                                                 <input class="form-control" type="text" placeholder="{{ __('Title') }}"
-                                                    name="title" required autofocus>
+                                                    name="title" id="title" required autofocus>
                                             </div>
 
                                             <div class="form-group">

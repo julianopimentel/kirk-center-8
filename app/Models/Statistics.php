@@ -13,4 +13,7 @@ class Statistics extends Model
     /**
      * Get the notes for the status.
      */
+    protected $fillable = [
+        'people_id', 'type', 'post_id', 'group_id', 'sermons_id', 'manipulations'
+    ];
 }

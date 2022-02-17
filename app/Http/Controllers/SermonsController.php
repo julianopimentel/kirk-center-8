@@ -8,6 +8,7 @@ use App\Models\People;
 use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Models\Sermons;
+use App\Models\Statistics;
 use Illuminate\Support\Str;
 use App\Models\Status;
 use Illuminate\Support\Facades\URL;
@@ -45,9 +46,12 @@ class SermonsController extends Controller
         //consultar dados do usuario local
         $you = People::where('user_id', $user->id)->with('roleslocal')->first();
         //categoria
-        $category = Category_Sermons::where('roles', 'like', '%' . $you->role . '%')->get();
+        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
         //consulta da sermons
-        $notes = Sermons::with('user')->with('status')->paginate(20);
+        $notes = Sermons::with('user')
+            ->with('status')
+            ->orderby('content','DESC')
+            ->paginate(50);
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
 
@@ -96,6 +100,8 @@ class SermonsController extends Controller
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
+            'url' => 'required|url',
+
         ]);
         //user data
         $user = auth()->user();
@@ -114,7 +120,7 @@ class SermonsController extends Controller
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
 
-            $name = Str::slug($request->input('name')) . '_' . time();
+            $name = Str::slug($request->input('image')) . '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -122,7 +128,7 @@ class SermonsController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'sermons', $name);
             // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
+            $note->image = URL::to('/') . '/storage/sermons/'.session()->get('key').'/' . $filePath;
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'C', $note);
@@ -145,10 +151,14 @@ class SermonsController extends Controller
      */
     public function show($id)
     {
-        //pegar tenant
-        $this->get_tenant();
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
+        //analise de visita
+        Statistics::create([
+            'people_id' => auth()->user()->people->id,
+            'type' => 'view',
+            'sermons_id' => $id,
+        ]);
         return view('sermons.Show', ['note' => $note]);
     }
     /**
@@ -159,9 +169,7 @@ class SermonsController extends Controller
      */
     public function edit($id)
     {
-
-        //pegar tenant
-        $this->get_tenant();
+        //consulta
         $note = Sermons::find($id);
         //validar o id se existe
         if ($note == null) {
@@ -186,17 +194,14 @@ class SermonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //pegar tenant
-        $this->get_tenant();
-        //die();
-        //user data
         $user = auth()->user();
         $validatedData = $request->validate([
             'title'             => 'required',
             'content'           => 'required',
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
-            'type'         => 'required'
+            'type'         => 'required',
+            'url' => 'required|url',
         ]);
 
         $note = Sermons::find($id);
@@ -212,7 +217,7 @@ class SermonsController extends Controller
             // Get image file
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('name')) . '_' . time();
+            $name = Str::slug($request->input('image')) . '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -220,7 +225,7 @@ class SermonsController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'sermons', $name);
             // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
+            $note->image = URL::to('/') . '/storage/sermons/'.session()->get('key').'/' . $filePath;
             $note->save();
             //adicionar log
             $this->adicionar_log('19', 'U', $note);

@@ -22,7 +22,7 @@ return [
     'prayer' => 'Oração',
     'calender' => 'Evento',
     'document' => 'Documento',
-    'sermon' => 'Palavra',
+    'sermon' => 'Estudo',
     'category' => 'Categoria',
     'financial' => 'Financeiro',
     'configuration' => 'Configuração',
