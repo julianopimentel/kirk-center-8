@@ -40,26 +40,18 @@ class SermonsController extends Controller
      */
     public function index()
     {
-        //pegar tenant
-        $this->get_tenant();
-        $user = auth()->user();
-        //consultar dados do usuario local
-        $you = People::where('user_id', $user->id)->with('roleslocal')->first();
         //categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
         //consulta da sermons
         $notes = Sermons::with('user')
             ->with('status')
-            ->orderby('content','DESC')
+            ->orderby('title','DESC')
             ->paginate(50);
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
 
     public function indexCategory($id)
     {
-        //pegar tenant
-        $this->get_tenant();
-
         //consulta permissao da categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->where('id', $id)->first();
         //gabiarra para carregar somente os que tem a permissao
@@ -120,7 +112,7 @@ class SermonsController extends Controller
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
 
-            $name = Str::slug($request->input('image')) . '_' . time();
+            $name = Str::slug($request->input('name')) . '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -217,7 +209,7 @@ class SermonsController extends Controller
             // Get image file
             $image = $request->file('image');
             // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('image')) . '_' . time();
+            $name = Str::slug($request->input('name')) . '_' . time();
             // Define folder path
             $folder = '';
             // Make a file path where image will be stored [ folder path + file name + file extension]
