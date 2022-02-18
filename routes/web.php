@@ -56,6 +56,8 @@ Route::group(['middleware' => ['role:user']], function () {
 
     // account e tenant
     Route::post('/tenant/{id}', 'TenantController@tenant')->name('tenant');
+    Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
+
     Route::resources([
         'account' => InstitutionsController::class,
     ]);

@@ -55,8 +55,13 @@ class BalanceController extends Controller
         $statuspag = Status::all()->where("type", 'pagamento');
         //listar tipo de movimeto (dizimo...)
         $statusfinan = Status::all()->where("type", 'financial')->where('class', 'entrada');
+        //pessoas
+        $people = People::select("id", "name", "email")
+        ->orderby('name', 'asc')
+        ->where('is_admin', false)
+        ->get();
 
-        return view('balance.depositar', compact('statuspag', 'statusfinan'));
+        return view('balance.depositar', compact('statuspag', 'statusfinan', 'people'));
     }
 
     //autocompletar pessoa em ajax
@@ -68,14 +73,12 @@ class BalanceController extends Controller
         $data = People::select("id", "name", "email")
             ->orderby('name', 'asc')
             ->where('is_admin', false)
-            ->whereNull('deleted_at')
             ->get();
         if ($request->has('q')) {
             $search = $request->q;
             $data = People::select("id", "name", "email")
                 ->where('name', 'LIKE', "%$search%")
                 ->where('is_admin', false)
-                ->whereNull('deleted_at')
                 ->orderby('name', 'asc')
                 ->get();
         }

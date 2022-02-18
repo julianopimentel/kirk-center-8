@@ -37,12 +37,21 @@ class InstitutionsController extends Controller
         session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
+        session()->forget('conta_name');
         //consultar contas associada ao usuario
         $institutions = Users_Account::where('user_id', $you->id)
             ->with('accountlist')
             ->with('status')
             ->paginate($this->totalPagesPaginate);
 
+        if($institutions->count() == 1 and $you->roles == 'user')
+        {
+            foreach ($institutions as $element) {
+                $a = $element->tenant;
+            }
+            return redirect()->route('tenantget', $element->account_id);
+        }
+        else
         return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
 
