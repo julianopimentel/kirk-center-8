@@ -38,7 +38,7 @@
                                                                     </svg>
                                                             </div>
                                                             <input class="form-control" name="applies_to_date" type="date"
-                                                                placeholder="date" required>
+                                                                placeholder="date" value="{{date('Y-m-d')}}" required>
                                                         </div>
                                                     </div>
                                                 </div>

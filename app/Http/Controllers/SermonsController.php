@@ -48,12 +48,12 @@ class SermonsController extends Controller
 
         if($you->menuroles == 'admin')
         {
-            $category = Category_Sermons::all();
+            $category = Category_Sermons::orderby('id','DESC')->get();
             return view('sermons.List', ['notes' => $notes, 'category' => $category]);
         }
         else
         //categoria
-        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
+        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->orderby('id','DESC')->get();
 
         //consulta da sermons
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
@@ -83,7 +83,8 @@ class SermonsController extends Controller
         $category = Category_Sermons::all();
         //carregar status
         $statuses = Status::all()->where("type", 'status');
-        return view('sermons.Create', ['statuses' => $statuses, 'category' => $category]);
+        //hora
+        return view('sermons.Create',  ['statuses' => $statuses, 'category' => $category]);
     }
 
     /**

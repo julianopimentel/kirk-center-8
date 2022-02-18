@@ -20,7 +20,7 @@
                             </p>
                             @php
                                 
-                                $dateTime1 = new DateTime($note->updated_at);
+                                $dateTime1 = new DateTime($note->created_at);
                                 $dateTime2 = new DateTime();
                                 $interval = $dateTime1->diff($dateTime2);
                                 echo 'Publicado em ';

@@ -42,7 +42,7 @@
                                         <div class="form-group col-sm-3">
                                             <label for="ccyear">Data de lançamento *</label>
                                             <input class="form-control" id="date_lancamento" type="date"
-                                                name="date_lancamento" placeholder="date" required><span
+                                                name="date_lancamento" placeholder="date" value="{{date('Y-m-d')}}" required><span
                                                 class="help-block">Please enter a valid date</span>
                                         </div>
                                     </div>

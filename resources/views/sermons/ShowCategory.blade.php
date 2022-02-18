@@ -18,21 +18,21 @@
                                 <div class="row">
                                     <div class="form-group col-sm-3">
                                         <div class="form-group">
-                                            <label>Nome</label>
+                                            <label>Nome*</label>
                                             <input class="form-control" type="text" placeholder="{{ __('Title') }}"
                                                 name="name" required autofocus>
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <div class="form-group">
-                                            <label>Descrição</label>
+                                            <label>Descrição*</label>
                                             <input class="form-control" type="text"
                                                 name="body" required autofocus>
                                         </div>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="roles">Mostrar para</label>
+                                            <label for="roles">Mostrar para*</label>
                                             <div class="input-group">
                                                 <select class="form-control" id="roles" name="roles[]" size="3" multiple="">
                                                     @foreach ($roles as $roles)

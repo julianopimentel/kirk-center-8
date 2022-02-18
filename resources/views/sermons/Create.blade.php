@@ -14,18 +14,18 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Titulo</label>
+                                                <label>Titulo*</label>
                                                 <input class="form-control" type="text" placeholder="{{ __('Title') }}"
                                                     name="title" id="title" required autofocus>
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Texto</label>
-                                                <textarea class="form-control"  name="content" rows="5"
+                                                <label>Mensagem*</label>
+                                                <textarea class="form-control" name="content" rows="5"
                                                     placeholder="{{ __('Content..') }}" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label>URL do Youtube</label>
+                                                <label>URL do Youtube*</label>
                                                 <input class="form-control" type="text"
                                                     placeholder="https://www.youtube.com/watch?v=d8u9uL9Ilyk&t=20s"
                                                     name="url" required autofocus>
@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="ccnumber">Date</label>
+                                            <label for="ccnumber">Data da Publicação*</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text">
                                                         <svg class="c-icon">
@@ -65,13 +65,13 @@
                                                         </svg>
                                                 </div>
                                                 <input class="form-control" name="applies_to_date" type="date"
-                                                    placeholder="date" required>
+                                                    placeholder="date" value="{{date('Y-m-d')}}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="ccnumber">Categoria</label>
+                                            <label for="ccnumber">Categoria*</label>
                                             <div class="input-group">
                                                 <select class="form-control" name="type">
                                                     @foreach ($category as $category)
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="ccnumber">Status</label>
+                                            <label for="ccnumber">Status*</label>
                                             <div class="input-group">
                                                 <select class="form-control" name="status_id">
                                                     @foreach ($statuses as $status)
@@ -104,11 +104,9 @@
                     </div>
                 </div>
             </div>
-
         @endsection
 
         @section('javascript')
-
         @endsection
     @else
         @include('errors.redirecionar')

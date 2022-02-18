@@ -43,7 +43,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('dashboard.index') }}">
                 <i class="c-icon cil-speedometer c-sidebar-nav-icon"></i>
-                {{ __('layout.dashboard') }}<span class="badge badge-danger">{{ __('layout.new') }}</span></a>
+                {{ __('layout.dashboard') }}</a>
         </li>
     @endif
     @if ($appPermissao->view_people == true)

@@ -51,12 +51,23 @@
                                                                     width="100%" height="100%">
                                                             @endif
                                                         </div>
+                                                        @php
+                                                        $dateTime1 = new DateTime($note->applies_to_date);
+                                                        $dateTime2 = new DateTime();
+                                                        $interval = $dateTime1->diff($dateTime2);
+                                                        @endphp
                                                         @if ($note->status_id == 2)
                                                             <div class="article-badge">
                                                                 <div class="article-badge-item bg-danger"><i
                                                                         class="fas fa-fire"></i>
                                                                     Trending</div>
                                                             </div>
+                                                        @elseif($interval->format('%d') < 7)
+                                                        <div class="article-badge">
+                                                            <div class="article-badge-item bg-info"><i
+                                                                    class="fas fa-fire"></i>
+                                                                    {{ __('layout.new') }}</div>
+                                                        </div>
                                                         @endif
                                                     </div>
                                                     <div class="article-details">
