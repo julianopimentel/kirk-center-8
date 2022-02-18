@@ -39,7 +39,7 @@
 
                                 <div class="row">
                                     @foreach ($notes as $note)
-                                        @if ($note->type === $category->id)
+                                        @if ($note->type == $category->id)
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                                 <article class="article article-style-b">
                                                     <div class="article-header">

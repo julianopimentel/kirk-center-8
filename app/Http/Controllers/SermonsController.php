@@ -40,13 +40,20 @@ class SermonsController extends Controller
      */
     public function index()
     {
+        //user data
+        $you = auth()->user();
+        $notes = Sermons::with('status')
+        ->orderby('title','ASC')
+        ->paginate(50);
+        if($you->roles == 'user')
+        {
+            $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
+            return view('sermons.List', ['notes' => $notes, 'category' => $category]);
+        }
+        else
         //categoria
-        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
+        $category = Category_Sermons::all();
         //consulta da sermons
-        $notes = Sermons::with('user')
-            ->with('status')
-            ->orderby('title','DESC')
-            ->paginate(50);
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
 
