@@ -44,7 +44,7 @@ class InstitutionsController extends Controller
             ->with('status')
             ->paginate($this->totalPagesPaginate);
 
-        if($institutions->count() == 1 and $you->roles == 'user')
+        if($institutions->count() == 1 and $you->menuroles == 'user')
         {
             foreach ($institutions as $element) {
                 $a = $element->tenant;

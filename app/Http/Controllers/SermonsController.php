@@ -45,14 +45,16 @@ class SermonsController extends Controller
         $notes = Sermons::with('status')
         ->orderby('title','ASC')
         ->paginate(50);
-        if($you->roles == 'user')
+
+        if($you->menuroles == 'admin')
         {
-            $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
+            $category = Category_Sermons::all();
             return view('sermons.List', ['notes' => $notes, 'category' => $category]);
         }
         else
         //categoria
-        $category = Category_Sermons::all();
+        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->get();
+
         //consulta da sermons
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
