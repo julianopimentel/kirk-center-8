@@ -160,7 +160,11 @@ class SermonsController extends Controller
             'type' => 'view',
             'sermons_id' => $id,
         ]);
-        return view('sermons.Show', ['note' => $note]);
+        //pegar essa statitica e jogar na view
+        $view = Statistics::where('sermons_id', $id);
+
+
+        return view('sermons.Show', compact('view'),['note' => $note]);
     }
     /**
      * Show the form for editing the specified resource.

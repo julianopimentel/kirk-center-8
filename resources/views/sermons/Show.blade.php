@@ -14,6 +14,9 @@
                                         src="{{ $note->url_video }}" allowfullscreen frameBorder="0"></iframe>
                                 </div>
                             @endif
+                            <br>
+                            Contagem de visualizações: {{ $view->count() }}
+                            <br><br>
                             <div><strong>Descrição: </strong>{{ $note->content }}</div>
                             <br>
                             <p>Autor: {{ $note->user->name }}

@@ -12,7 +12,6 @@ use App\Models\Historic;
 use App\Models\Config_meta;
 use App\Models\Config_social;
 use App\Models\Institution;
-use App\Models\Account;
 use App\Models\People_Groups;
 use App\Models\People_Precadastro;
 use App\Models\Requests_Prayer;
