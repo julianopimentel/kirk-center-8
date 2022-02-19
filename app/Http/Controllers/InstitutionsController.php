@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
 use App\Models\Users_Account;
+use Illuminate\Support\Facades\Auth;
 
 class InstitutionsController extends Controller
 {
@@ -44,15 +45,21 @@ class InstitutionsController extends Controller
             ->with('status')
             ->paginate($this->totalPagesPaginate);
 
-        if($institutions->count() == 1 and $you->menuroles == 'user')
-        {
+        //integrador com acesso total
+        if (Auth::user()->isAdmin() == true) {
+            $institutions = Institution::wherenull('deleted_at')->With('status')
+            ->paginate($this->totalPagesPaginate);
+
+            return view('account.ListAdmin', compact('you', $you), ['institutions' => $institutions]);
+        //caso o user possuia uma conta vinculado
+        } elseif ($institutions->count() == 1 and $you->menuroles == 'user') {
             foreach ($institutions as $element) {
                 $a = $element->tenant;
             }
             return redirect()->route('tenantget', $element->account_id);
-        }
-        else
-        return view('account.List', compact('you', $you), ['institutions' => $institutions]);
+        //user acima 
+        } else
+            return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
 
     public function license_index(Request $request)

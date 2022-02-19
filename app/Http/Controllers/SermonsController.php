@@ -45,7 +45,7 @@ class SermonsController extends Controller
         $notes = Sermons::with('status')
         ->orderby('title','ASC')
         ->paginate(50);
-
+        
         if($you->menuroles == 'admin')
         {
             $category = Category_Sermons::orderby('id','DESC')->get();
@@ -54,7 +54,6 @@ class SermonsController extends Controller
         else
         //categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->orderby('id','DESC')->get();
-
         //consulta da sermons
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
