@@ -19,10 +19,6 @@ class GetSystem
      */
     public function handle($request, Closure $next)
     {   
-        //validar o tenant, se nao tive retornar para o inicio
-        if ((session()->get('schema')) === null){
-            return redirect()->route('account.index')->withErrors(['error' => __('Please select an account to continue')]);
-        }
         //setar tenant
         Config::set('database.connections.tenant.schema', session()->get('conexao'));
 

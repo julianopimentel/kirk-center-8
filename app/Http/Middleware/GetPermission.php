@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\People;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
 
@@ -26,12 +27,17 @@ class GetPermission
             //->withErrors(['error' => __('Please select an account to continue')])
             ;
         }
-
         //setar tenant
         Config::set('database.connections.tenant.schema', session()->get('conexao'));
 
         //pegar permissao do grupo
         $roles = People::where('user_id', $you->id)->with('roleslocal')->first();
+        if (Auth::user()->isAdmin() == true)
+        {
+            $roles = People::where('user_id', '1')->with('roleslocal')->first();
+            view()->share('appPermissao', $roles->roleslocal);
+            return $next($request);
+        }
 
         //retorno como apppermissao
         view()->share('appPermissao', $roles->roleslocal);
