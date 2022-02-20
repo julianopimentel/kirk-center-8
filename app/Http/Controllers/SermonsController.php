@@ -377,9 +377,8 @@ class SermonsController extends Controller
                 </div>
                 <!-- post title start -->
                 <div class="post-content">
-                    <p class="post-desc">
-                        Publicado em ' . $valorhora . '
-                    </p>
+                <p class="card-text"><small class="text-medium-emphasis">Publicado em ' . $valorhora . '
+                </small> </p>
                 
             </div>';
             }

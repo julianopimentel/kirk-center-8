@@ -22,6 +22,7 @@ class eventsTable extends Migration {
 			$table->date('start');
 			$table->date('end');
             $table->integer('user_id')->nullable();
+			$table->boolean('status')->nullable()->default(1);
 			$table->timestamps(10);
 			$table->softDeletes('deleted_at')->nullable();
 		});

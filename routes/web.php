@@ -88,6 +88,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('dados/oracoes', 'HomeController@indexOracao')->name('indexOracao');
     Route::get('eventos', 'HomeController@indexEventos')->name('indexEventos');
     Route::post('eventos/confirm/{id}', 'FullCalenderController@storeConfirm')->name('calendar.storeConfirm');
+    Route::post('eventos/remove/{id}', 'FullCalenderController@storeRemove')->name('calendar.storeRemove');
     Route::get('recado/{id}', 'NotesController@showUser')->name('Notes.show');
 
     //importar e exportar pessoas

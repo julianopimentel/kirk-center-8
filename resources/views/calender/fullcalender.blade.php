@@ -56,7 +56,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                             <!-- /.row-->
                         </div>

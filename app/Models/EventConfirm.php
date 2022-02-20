@@ -14,12 +14,20 @@ class EventConfirm extends Model
     protected $table = 'events_confirm';
     
     protected $fillable = [
-        'user_id',
+        'people_id',
         'event_id'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function eventoorigem()
+    {
+        return $this->belongsTo('App\Models\Event', 'event_id');
+    }
+    public function pessoaconfirmacao()
+    {
+        return $this->belongsTo('App\Models\People', 'people_id', 'id');
     }
 }

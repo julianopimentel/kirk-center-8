@@ -220,8 +220,6 @@ class HomeController extends Controller
     }
     public function indexOracao()
     {
-        //pegar tenant
-        $this->get_tenant();
         //dados do usuario
         $you = auth()->user();
         //consulta da message
@@ -231,12 +229,10 @@ class HomeController extends Controller
     public function indexEventos()
     {
         $you = auth()->user();
-        //pegar tenant
-        $this->get_tenant();
         //consulta de eventos
-        $eventos = Event::all();
-        $eventos_confirm = EventConfirm::all()->where('user_id', $you->id);
-
+        $eventos = Event::orderby('start', 'desc')->where('status', true)->get();
+        //resultados confirmados
+        $eventos_confirm = EventConfirm::with('eventoorigem')->where('people_id', $you->people->id)->orderby('created_at', 'desc')->get();
         return view('eventos', ['eventos' => $eventos, 'eventos_confirm' => $eventos_confirm]);
     }
 }

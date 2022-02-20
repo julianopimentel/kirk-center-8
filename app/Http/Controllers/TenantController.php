@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Users_Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,14 @@ class TenantController extends Controller
 {
     public function tenant(Request $request, $id)
     {
+        //realizar a consulta e validar se realmente existe essa liberação
+        $validaracesso = Users_Account::where('user_id', auth()->user()->id)->where('account_id', $id);
+        if($validaracesso->count() == 0){
+            error_log('Erro ao rodar migrations');
+            //retornar com mensagem de erro
+            $request->session()->flash("danger", 'Erro interno');
+        }
+
         //mater toda a sessao
         session()->forget('schema');
         session()->forget('key');

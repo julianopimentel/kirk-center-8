@@ -17,9 +17,9 @@ class Comments extends Migration
         Schema::connection('tenant')->create('comments', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('post_id');
-            $table->integer('group_id');
-            $table->integer('sermons_id');
+            $table->integer('post_id')->nullable();
+            $table->integer('group_id')->nullable();
+            $table->integer('sermons_id')->nullable();
             $table->string('comment');
             $table->timestamps();
         });
