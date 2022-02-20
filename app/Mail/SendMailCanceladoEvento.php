@@ -31,6 +31,6 @@ class SendMailRemoveEvento extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.Remoce_Event');
+        return $this->view('emails.Remove_Evento');
     }
 }
