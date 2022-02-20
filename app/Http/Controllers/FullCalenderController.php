@@ -206,14 +206,14 @@ class FullCalenderController extends Controller
         $this->get_tenant();
         //user data
         $user = auth()->user();
+        //disparar email
+        $conta_name = session()->get('conta_name');
+        Mail::to($user->email)->queue(new SendMailRemoveEvento($conta_name));
         //validar se ja possui evento cadastrado
         $event = EventConfirm::find($id);
         $event->delete();
         //adicionar log
         $this->adicionar_log('18', 'D', $event);
-        //disparar email
-        $conta_name = session()->get('conta_name');
-        Mail::to($user->email)->queue(new SendMailRemoveEvento($conta_name));
 
         $request->session()->flash('danger', 'Presença retirada');
         return redirect()->route('indexEventos');
