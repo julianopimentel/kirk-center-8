@@ -18,7 +18,14 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="ccnumber">Pessoa</label>
-                                                <select class="itemName form-control" id="itemName" name="itemName"></select>
+                                                <!--<select class="itemName form-control" id="itemName" name="itemName"></select> -->
+                                                <select class="form-control" id="itemName" name="itemName">
+                                                    <option value="">Para a instituição ou</option>
+                                                    @foreach ($people as $people)
+                                                        <option value="{{ $people->id }}">{{ $people->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-2">
@@ -154,7 +161,6 @@
             </div>
             <script type="text/javascript">
                 $('.itemName').select2({
-                    selectOnClose: false,
                     placeholder: 'Selecionar uma pessoa',
                     ajax: {
                         url: '/select2-autocomplete-people',

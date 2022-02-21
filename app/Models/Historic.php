@@ -9,6 +9,7 @@ use App\Models\User;
 class Historic extends Model
 {
     protected $connection = 'tenant';
+    protected $table = 'historics';
     protected $fillable = ['type', 'amount', 'total_before', 'total_after', 'user_id_transaction', 'date', 'tipo', 'data_lancamento', 'observacao', 'pag', 'user_id', 
     'itens',
     'sub_total',

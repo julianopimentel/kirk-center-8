@@ -69,8 +69,13 @@
                                         @csrf
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <select class="itemName form-control" id="itemName" name="itemName"
-                                                    required></select>
+                                                <!--<select class="itemName form-control" id="itemName" name="itemName"></select> -->
+                                                <select class="form-control" id="itemName" name="itemName">
+                                                    @foreach ($people as $people)
+                                                        <option value="{{ $people->id }}">{{ $people->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                 </div>

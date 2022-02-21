@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class Balance extends Model
 {
@@ -15,7 +16,7 @@ class Balance extends Model
     public function deposit($valor, $pag, $date_lancamento, $observacao, $tipo, $people, $date, $sub_total, $total_tax, $discount): array
     {
     
-        DB::beginTransaction();
+        FacadesDB::beginTransaction();
         //dd($valor)
         $totalBefore = $this->amount ? $this->amount : 0;
         $this->amount += number_format($valor, 2, '.', '');
@@ -39,7 +40,7 @@ class Balance extends Model
         ]);
         if ($deposit && $historic) {
             $this->adicionar_log('5', 'C', $historic);
-            DB::commit();
+            FacadesDB::commit();
             return [
                 'success' => true,
                 'message' => 'Depositado com sucesso!',
@@ -47,7 +48,7 @@ class Balance extends Model
 
         } else {
 
-            DB::rollback();
+            FacadesDB::rollback();
 
             return [
                 'success' => false,
@@ -68,7 +69,7 @@ class Balance extends Model
             ];
         }
 
-        DB::beginTransaction();
+        FacadesDB::beginTransaction();
         //dd($valor);
         $totalBefore = $this->amount ? $this->amount : 0;
         $this->amount -= number_format($valor, 2, '.', '');
@@ -92,7 +93,7 @@ class Balance extends Model
 
         if ($withdraw && $historic) {
             $this->adicionar_log('5', 'C', $historic);
-            DB::commit();
+            FacadesDB::commit();
 
             return [
                 'success' => true,
@@ -101,7 +102,7 @@ class Balance extends Model
 
         } else {
 
-            DB::rollback();
+            FacadesDB::rollback();
 
             return [
                 'success' => false,

@@ -50,7 +50,12 @@ class GroupsController extends Controller
     {
         //carregar status
         $statuses = Status::all()->where("type", 'people');
-        return view('group.createForm', ['statuses' => $statuses]);
+        //pessoas temporario
+        $people = People::select("id", "name", "email")
+            ->orderby('name', 'asc')
+            ->where('is_admin', false)
+            ->get();
+        return view('group.createForm', compact('people'), ['statuses' => $statuses]);
     }
 
     public function store(Request $request)
@@ -205,7 +210,20 @@ class GroupsController extends Controller
         //consultar o responsavel do grupo
         $responsavel = People::find($group->user_id);
 
-        return view('group.Show', compact('group', 'responsavel'), ['pessoasgrupos' => $pessoasgrupos]);
+        foreach ($pessoasgrupos as $tag){
+            $theTag = $tag->user_id;
+        }
+        
+       // $tagIds = [$theTag];
+        //pessoas temporario
+       // dd($tagIds);
+        $people = People::select("id", "name", "email")->with('grupos')
+            ->orderby('name', 'asc')
+            ->where('is_admin', false)
+           // ->where('people_group.user_id', '!=', $tagIds)
+            ->get();
+
+        return view('group.Show', compact('group', 'responsavel', 'people'), ['pessoasgrupos' => $pessoasgrupos]);
     }
 
     //adicionar nova pessoa ao grupo

@@ -55,7 +55,7 @@ class BalanceController extends Controller
         $statuspag = Status::all()->where("type", 'pagamento');
         //listar tipo de movimeto (dizimo...)
         $statusfinan = Status::all()->where("type", 'financial')->where('class', 'entrada');
-        //pessoas
+        //pessoas temporario
         $people = People::select("id", "name", "email")
         ->orderby('name', 'asc')
         ->where('is_admin', false)
