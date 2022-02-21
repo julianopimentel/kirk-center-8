@@ -10,6 +10,8 @@ use App\Models\Config_system;
 use App\Models\People;
 use App\Models\Users_Account;
 use App\Mail\SendMailLiberar;
+use App\Models\Users_Account_Aud;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Mail;
 
 class Peoples_PrecadastroController extends Controller
@@ -111,7 +113,7 @@ class Peoples_PrecadastroController extends Controller
         $people->note       = $request->input('note');
 
         //criar o acesso vinculado a conta se for aprovado
-        $response = $this->criar(session()->get('aprovada-id'), session()->get('key'));
+        $response = $this->criar(session()->get('aprovada-id'), session()->get('key'), $people->id);
         if ($response['success']) {
             $people_pre->save();
             $people->save();
@@ -134,19 +136,27 @@ class Peoples_PrecadastroController extends Controller
         return redirect()->route('people_precadastro.index');
     }
 
-    public function criar($user_id, $accout_id): array
+    public function criar($user_id, $accout_id, $people_id): array
     {
         //recebar os dados o vinculo da conta
-        DB::beginTransaction();
+        FacadesDB::beginTransaction();
         $useraccount = new Users_Account();
         $useraccount->user_id = $user_id;
         $useraccount->account_id = $accout_id;
+        $useraccount->people_id = $people_id;
         $useraccount->save();
 
         if ($useraccount) {
             //adicionar log
             $this->adicionar_log_global('11', 'C', $useraccount);
-            DB::commit();
+            FacadesDB::commit();
+            Users_Account_Aud::create([
+                'id' =>  $useraccount->id,
+                'user_id' => $user_id,
+                'account_id' => $accout_id,
+                'people_id' => $people_id,
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
 
             return [
                 'success' => true,
@@ -154,7 +164,7 @@ class Peoples_PrecadastroController extends Controller
             ];
         } else {
 
-            DB::rollback();
+            FacadesDB::rollback();
 
             return [
                 'success' => false,

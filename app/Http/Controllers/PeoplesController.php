@@ -21,6 +21,7 @@ use App\Models\State;
 use App\Models\Users_Account;
 use App\Models\User;
 use App\Models\People_Notes;
+use App\Models\Users_Account_Aud;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Mail;
 
@@ -198,7 +199,7 @@ class PeoplesController extends Controller
                 $associar->save();
 
                 //criar vinculo com a conta
-                $this->criar($validaruser->first()->id, session()->get('key'));
+                $this->criar($validaruser->first()->id, session()->get('key'), $people->id);
                 //disparar o email
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
@@ -216,7 +217,7 @@ class PeoplesController extends Controller
                 Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
 
                 //criar vinculo com a conta
-                $this->criar($validaruser->first()->id, session()->get('key'));
+                $this->criar($validaruser->first()->id, session()->get('key'), $people->id);
                 $request->session()->flash("success", __('general.people') . __('action.creat'));
                 return redirect()->back();
             }
@@ -380,7 +381,7 @@ class PeoplesController extends Controller
                 $associar->user_id = $validaruser->first()->id;
                 $associar->save();
                 //criar o vinculo a conta
-                $this->criar($validaruser->first()->id, session()->get('key'));
+                $this->criar($validaruser->first()->id, session()->get('key'), $people->id);
                 //disparar o email
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->send(new SendMailBemVindo($conta_name, $user->email, $pwa));
@@ -397,7 +398,7 @@ class PeoplesController extends Controller
                 $conta_name = session()->get('conta_name');
                 Mail::to($people->email)->queue(new SendMailLiberar($conta_name));
                 //criar vinculo com a conta
-                $this->criar($validaruser->first()->id, session()->get('key'));
+                $this->criar($validaruser->first()->id, session()->get('key'), $people->id);
                 $request->session()->flash("success", __('general.people') . __('action.edit'));
                 return redirect()->route('people.index');
             }
@@ -485,19 +486,28 @@ class PeoplesController extends Controller
         return view('people.index', compact('peoples', 'dataForm', 'roles', 'statuses'));
     }
 
-    public function criar($user_id, $accout_id): array
+    public function criar($user_id, $accout_id, $people_id): array
     {
         FacadesDB::beginTransaction();
         //criar vinculo com a conta
         $useraccount = new Users_Account();
         $useraccount->user_id = $user_id;
         $useraccount->account_id = $accout_id;
+        $useraccount->people_id = $people_id;
         $useraccount->save();
 
         if ($useraccount) {
             //adicionar log
             $this->adicionar_log_global('11', 'C', $useraccount);
             FacadesDB::commit();
+            //auditoria do vinculo com a conta
+            Users_Account_Aud::create([
+                'id' =>  $useraccount->id,
+                'user_id' => $user_id,
+                'account_id' => $accout_id,
+                'people_id' => $people_id,
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
 
             return [
                 'success' => true,

@@ -14,13 +14,13 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Title</label>
+                                                <label>Titulo</label>
                                                 <input class="form-control" type="text" placeholder="{{ __('Title') }}"
                                                     name="title" required autofocus>
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Content</label>
+                                                <label>Mensagem</label>
                                                 <textarea class="form-control" id="textarea-input" name="content" rows="9"
                                                     placeholder="{{ __('Content..') }}" required></textarea>
                                             </div>
@@ -28,7 +28,7 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Date</label>
+                                                        <label for="ccnumber">Data</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -42,7 +42,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-sm-3">
+                                                <div class="form-group col-sm-2">
                                                     <div class="form-group">
                                                         <label for="ccnumber">Status</label>
                                                         <div class="input-group">
@@ -66,13 +66,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-sm-4">
+                                                <div class="form-group col-sm-5">
                                                     <div class="form-group">
                                                         <label for="image" class="col-md-4 col-form-label text-md-right">
                                                             Image</label>
                                                         <div class="form-group col-sm-6">
                                                             <input id="image" type="file" class="form-control"
                                                                 name="image">
+                                                                <p>
+                                                                    <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
                                                         </div>
                                                     </div>
                                                 </div>

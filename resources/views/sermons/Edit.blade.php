@@ -40,7 +40,8 @@
                                                             Image da capa</label>
                                                         <div class="form-group col-sm-6">
                                                             <input id="image" type="file" class="form-control"
-                                                                name="image">
+                                                                name="image"><p>
+                                                                <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
                                                         </div>
                                                     </div>
                                                 </div>

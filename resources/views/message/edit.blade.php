@@ -43,7 +43,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-sm-3">
+                                            <div class="form-group col-sm-2">
                                                 <div class="form-group">
                                                     <label for="ccnumber">Status</label>
                                                     <div class="input-group">
@@ -68,12 +68,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-5">
                                                 <div class="form-group">
                                                 <label for="image" class="col-md-4 col-form-label text-md-right">
                                                     Image</label>
                                                 <div class="form-group col-sm-6">
                                                     <input id="image" type="file" class="form-control" name="image">
+                                                    <p>
+                                                        <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
                                                 </div>
                                                 </div>
                                             </div>

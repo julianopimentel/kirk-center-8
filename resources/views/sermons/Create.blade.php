@@ -28,7 +28,7 @@
                                                 <label>URL do Youtube*</label>
                                                 <input class="form-control" type="text"
                                                     placeholder="https://www.youtube.com/watch?v=d8u9uL9Ilyk&t=20s"
-                                                    name="url" required autofocus>
+                                                    name="url" required autofocus><p class="card-text">
                                             </div>
                                             <!-- /.row-->
                                             <div class="form-group">
@@ -36,6 +36,7 @@
                                                     Image da capa</label>
                                                 <div class="form-group col-sm-6">
                                                     <input id="image" type="file" class="form-control" name="image">
+                                                    <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
                                                 </div>
                                             </div>
                                         </div>

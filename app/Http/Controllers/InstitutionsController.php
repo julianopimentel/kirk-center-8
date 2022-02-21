@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
 use App\Models\Users_Account;
+use App\Models\Users_Account_Aud;
 use Illuminate\Support\Facades\Auth;
 
 class InstitutionsController extends Controller
@@ -48,16 +49,16 @@ class InstitutionsController extends Controller
         //integrador com acesso total
         if (Auth::user()->isAdmin() == true) {
             $institutions = Institution::wherenull('deleted_at')->With('status')
-            ->paginate($this->totalPagesPaginate);
+                ->paginate($this->totalPagesPaginate);
 
             return view('account.ListAdmin', compact('you', $you), ['institutions' => $institutions]);
-        //caso o user possuia uma conta vinculado
+            //caso o user possuia uma conta vinculado
         } elseif ($institutions->count() == 1 and $you->menuroles == 'user') {
             foreach ($institutions as $element) {
                 $a = $element->tenant;
             }
             return redirect()->route('tenantget', $element->account_id);
-        //user acima 
+            //user acima 
         } else
             return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
@@ -176,9 +177,9 @@ class InstitutionsController extends Controller
         $useraccount->user_id = $user->id;
         //Getting Last inserted id
         $useraccount->account_id = $institution->id;
+        $useraccount->people_id = '1';
         //criar o esquema (gambiarra)
         error_log('Criando Schema');
-
         DB::select('CREATE SCHEMA ' . $institution->tenant);
         //limpar o migration (gambiarra)
         Config::set('database.connections.tenant.schema',  $institution->tenant);
@@ -203,6 +204,14 @@ class InstitutionsController extends Controller
                 'status_id' => '14',
                 'is_admin' => 'true',
                 'role' => '1',
+            ]);
+            //auditoria do vinculo com a conta
+            Users_Account_Aud::create([
+                'id' =>  $useraccount->id,
+                'user_id' => $useraccount->user_id,
+                'account_id' => $useraccount->account_id,
+                'people_id' => '1',
+                'created_at' => date('Y-m-d H:i:s')
             ]);
             //finalizar a conexao do tenant
             DB::purge('tenant');
