@@ -173,4 +173,26 @@ class TimelineController extends Controller
 
         return redirect()->back();
     }
+        // delete o post
+        public function destroy($id)
+        {
+            //pegar tenant
+            $this->get_tenant();
+            $post = Post::find($id);
+    
+            if (!$post) {
+                session()->flash("info", "Post não encontrado");
+                return redirect()->back();
+            }
+    
+            if ($post->user_id != auth()->user()->id) {
+                session()->flash("warning", "Você não possui permissão");
+                return redirect()->back();
+            }
+    
+            $post->delete();
+    
+            session()->flash("warning", "Post deletado com sucesso");
+            return view('timeline.index');
+        }
 }

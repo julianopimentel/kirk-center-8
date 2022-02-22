@@ -124,6 +124,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::post('timeline/{post}/reaction', [ReactionsController::class, 'toggle'])->middleware('auth');
     Route::post('timeline', 'TimelineController@store')->name('post.store');
     Route::post('timeline/{post}', 'CommentController@store')->name('timeline.store');
+    Route::delete('timeline/{id}', 'TimelineController@destroy')->name('timeline.destroy');
     Route::post('comment/{post}', 'CommentController@update')->name('comment.update');
     Route::delete('comment/{id}', 'CommentController@destroy')->name('comment.destroy');
     Route::get('comment/{id}/edit', 'CommentController@edit')->name('comment.edit');
