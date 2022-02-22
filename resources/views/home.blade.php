@@ -190,8 +190,8 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="c-callout c-callout-info"><small class="text-muted">Total de
-                                                        Visitantes</small>
-                                                    <div class="text-value-lg">{{ $totalvisitante }}</div>
+                                                        Visitas a Conta</small>
+                                                    <div class="text-value-lg">{{ $totalvisitas }}</div>
                                                 </div>
                                             </div>
                                             <!-- /.col-->

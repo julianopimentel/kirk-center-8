@@ -43,17 +43,15 @@ class SermonsController extends Controller
         //user data
         $you = auth()->user();
         $notes = Sermons::with('status')
-        ->orderby('title','ASC')
-        ->paginate(50);
-        
-        if($you->menuroles == 'admin')
-        {
-            $category = Category_Sermons::orderby('id','DESC')->get();
+            ->orderby('title', 'ASC')
+            ->paginate(50);
+
+        if ($you->menuroles == 'admin') {
+            $category = Category_Sermons::orderby('id', 'DESC')->get();
             return view('sermons.List', ['notes' => $notes, 'category' => $category]);
-        }
-        else
-        //categoria
-        $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->orderby('id','DESC')->get();
+        } else
+            //categoria
+            $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->orderby('id', 'DESC')->get();
         //consulta da sermons
         return view('sermons.List', ['notes' => $notes, 'category' => $category]);
     }
@@ -155,16 +153,23 @@ class SermonsController extends Controller
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
         //analise de visita
-        Statistics::create([
-            'people_id' => auth()->user()->people->id,
-            'type' => 'view',
-            'sermons_id' => $id,
-        ]);
+        $validacao = Statistics::where('people_id', auth()->user()->people->id)
+                        ->where('type', 'view')
+                        ->where('sermons_id', $id)
+                        ->where('created_at','LIKE','%'.date('Y-m-d').'%')
+                        ->count();
+        if ($validacao == 0) {
+            Statistics::create([
+                'people_id' => auth()->user()->people->id,
+                'type' => 'view',
+                'sermons_id' => $id,
+            ]);
+        }
         //pegar essa statitica e jogar na view
         $view = Statistics::where('sermons_id', $id);
 
 
-        return view('sermons.Show', compact('view'),['note' => $note]);
+        return view('sermons.Show', compact('view'), ['note' => $note]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -348,14 +353,13 @@ class SermonsController extends Controller
                         if ($dateTime2 >= $interval->format('%h')) {
                             if ($interval->format('%h') > 0) {
                                 $valorhora = $interval->format('%h horas') . ' ' . $interval->format('%i minutos') . PHP_EOL;
-                            } 
-                            else{
+                            } else {
                                 $valorhora = $interval->format('%i minutos') . ' ' . $interval->format('%s segundos') . PHP_EOL;
-                        
-                            }   
+                            }
                         }
                     }
                 }
+
 
                 $artilces .= '
                 <!-- post title start -->
@@ -379,7 +383,6 @@ class SermonsController extends Controller
                 <div class="post-content">
                 <p class="card-text"><small class="text-medium-emphasis">Publicado em ' . $valorhora . '
                 </small> </p>
-                
             </div>';
             }
             return $artilces;

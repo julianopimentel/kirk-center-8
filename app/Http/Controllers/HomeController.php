@@ -19,6 +19,7 @@ use App\Models\Country;
 use App\Models\City;
 use App\Models\State;
 use App\Models\EventConfirm;
+use App\Models\Statistics;
 
 class HomeController extends Controller
 {
@@ -74,6 +75,17 @@ class HomeController extends Controller
             $balance->amount = '0';
             $balance->save();
         }
+        //analise de visita
+        $validacao = Statistics::where('people_id', $you->people->id)
+            ->where('type', 'acess')
+            ->where('created_at', 'LIKE', '%' . date('Y-m-d') . '%')
+            ->count();
+        if ($validacao == 0) {
+            Statistics::create([
+                'people_id' => $you->people->id,
+                'type' => 'acess',
+            ]);
+        }
 
         //numero de pessoas ativas e no ano atual
         $precadastro = People_Precadastro::where('status_id', '21')->count();;
@@ -88,9 +100,13 @@ class HomeController extends Controller
         //dash de status das pessoas
         $people = People::all();
         $peopleativo = $people->where('is_admin', false)->count();
-        $totalvisitante = $people->where('is_visitor', true)->count();
+        $totalvisitas = $people->where('is_visitor', true)->count();
         $totalbatismo = $people->where('is_baptism', true)->count();
         $totalconversao = $people->where('is_conversion', true)->count();
+        //total de visitas na página
+        $totalvisitas = Statistics::where('type', 'acess')
+        // se for pelo o ano ->where('created_at', 'LIKE', '%' . date('Y') . '%')
+        ->count();
 
         //consulta para a meta do mÊs atual do grafico
         $date = date('Y-m');
@@ -123,7 +139,7 @@ class HomeController extends Controller
                 'you',
                 'user',
                 'peopleativo',
-                'totalvisitante',
+                'totalvisitas',
                 'totalbatismo',
                 'totalconversao',
                 'dizimoatual',
