@@ -46,16 +46,8 @@ class HomeController extends Controller
         $this->get_tenant();
         //dados do usuario
         $you = auth()->user();
-        //consultar dados do usuario local
-        $user = People::where('user_id', $you->id)->with('roleslocal')->first();
-        if ($user == null or $you->people->status_id == '13') {
-            //caso não possua acesso associado e grupo vinculado, retorna para selecionar a conta
-            $request->session()->flash("info", "Você não possuiu permissão, por favor contactar administrador da conta");
-            return redirect()->route('account.index');
-        } else
-
-            //pegar informações complementares 
-            $meta = Config_meta::orderBy('id', 'desc')->first();
+        //pegar informações complementares 
+        $meta = Config_meta::orderBy('id', 'desc')->first();
         $auditoria = Auditoria::orderBy('id', 'desc')->first();
 
         //se for o primeiro acesso da conta, vai inserir no log o primeiro acesso e adicionar a conta no financeiro
@@ -88,17 +80,17 @@ class HomeController extends Controller
         }
 
         //numero de pessoas ativas e no ano atual
-        $precadastro = People_Precadastro::where('status_id', '21')->count();;
+        $precadastro = People_Precadastro::select('status_id')->where('status_id', '21')->count();;
 
         //eventos para listar depois
-        $eventos = Event::whereYear('created_at', date('Y'))->count();
+        $eventos = Event::select('created_at')->whereYear('created_at', date('Y'))->count();
         //recado para listar depois
-        $message = Notes::whereYear('created_at', date('Y'))->count();
+        $message = Notes::select('created_at')->whereYear('created_at', date('Y'))->count();
         //links das redes sociais
-        $social = Config_social::find('1')->first();
+        $social = Config_social::first();
 
         //dash de status das pessoas
-        $people = People::all();
+        $people = People::select('is_admin', 'is_visitor', 'is_baptism', 'is_conversion');
         $peopleativo = $people->where('is_admin', false)->count();
         $totalvisitas = $people->where('is_visitor', true)->count();
         $totalbatismo = $people->where('is_baptism', true)->count();
@@ -110,10 +102,10 @@ class HomeController extends Controller
 
         //consulta para a meta do mÊs atual do grafico
         $date = date('Y-m');
-        $dizimoatual = Historic::where('tipo', '9')->where('date', 'like', "%$date%")->sum('amount');
-        $ofertaatual = Historic::where('tipo', '10')->where('date', 'like', "%$date%")->sum('amount');
-        $doacaoatual = Historic::where('tipo', '11')->where('date', 'like', "%$date%")->sum('amount');
-        $despesaatual = Historic::where('tipo', '12')->where('date', 'like', "%$date%")->sum('amount');
+        $dizimoatual = Historic::select('tipo', 'date', 'amount')->where('tipo', '9')->where('date', 'like', "%$date%")->sum('amount');
+        $ofertaatual = Historic::select('tipo', 'date', 'amount')->where('tipo', '10')->where('date', 'like', "%$date%")->sum('amount');
+        $doacaoatual = Historic::select('tipo', 'date', 'amount')->where('tipo', '11')->where('date', 'like', "%$date%")->sum('amount');
+        $despesaatual = Historic::select('tipo', 'date', 'amount')->where('tipo', '12')->where('date', 'like', "%$date%")->sum('amount');
 
         //porcentagem no grafico do mês atual + porcentagem da meta mes
         $porcentage_dizimo = $this->porcentagem_nx($dizimoatual, $meta->fin_dizimo_mes); // 20
@@ -122,7 +114,7 @@ class HomeController extends Controller
         $porcentage_despesa = $this->porcentagem_nx($despesaatual, $meta->fin_despesa_mes);
 
         //carregar dados de localização da conta
-        $locations = Institution::find(session()->get('key'));
+        $locations = Institution::select('lat', 'lng')->find(session()->get('key'));
 
         //carregamento as message com os dados do usuário que publicou + filtrado para o somente status "public"  
         $notes = Notes::with('user:name,profile_image')->with('status:name')->take(4)->orderby('applies_to_date', 'desc')->whereIn('status_id', [1, 2])->get();
@@ -137,7 +129,6 @@ class HomeController extends Controller
                 'message',
                 'social',
                 'you',
-                'user',
                 'peopleativo',
                 'totalvisitas',
                 'totalbatismo',

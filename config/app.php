@@ -177,7 +177,9 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Overtrue\LaravelLike\LikeServiceProvider::class
+        Overtrue\LaravelLike\LikeServiceProvider::class,
+        //teste
+        Barryvdh\Debugbar\ServiceProvider::class
     ],
 
     /*
@@ -233,6 +235,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //teste
+        'Debugbar' => Barryvdh\Debugbar\Facade::class
     ],
 
 ];
