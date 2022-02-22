@@ -45,10 +45,8 @@
                         </div>
                         </form>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
-                </div>
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-5">
+                    <br>
+                   
                             <div class="card-header">
                                     <h6>Comentários</h6>
                                     @foreach ($comments as $comment)
