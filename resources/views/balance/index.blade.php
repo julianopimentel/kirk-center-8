@@ -42,8 +42,8 @@
 
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button class="btn btn-sm btn-secondary"
-                                    onclick="document.title='relatorio_{{ $month }}_{{ $year }}';window.print()">Imprimir
-                                    relatório</button>
+                                    onclick="document.title='relatorio_{{ $month }}_{{ $year }}';window.print()"> <i class="fas fa-print"></i> Imprimir
+                                    </button>
                             </div>
                         </div>
 
@@ -84,14 +84,14 @@
                                             </div>
                                             <div class="card-body">
                                                 <p class="card-text text-success">Receita:
-                                                    {{ formattedMoney($month_one) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($month_one) }}</p>
                                                 <p class="card-text text-danger">Despesa:
-                                                    {{ formattedMoney($month_zero) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($month_zero) }}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <strong
                                                     class="{{ $month_one - $month_zero >= 0 ? 'text-success' : 'text-danger' }}">Total:
-                                                    {{ formattedMoney($month_one - $month_zero) }}</strong>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($month_one - $month_zero) }}</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -103,14 +103,14 @@
                                             </div>
                                             <div class="card-body">
                                                 <p class="card-text text-success">Receita:
-                                                    {{ formattedMoney($year_one) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($year_one) }}</p>
                                                 <p class="card-text text-danger">Despesa:
-                                                    {{ formattedMoney($year_zero) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($year_zero) }}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <strong
                                                     class="{{ $year_one - $year_zero >= 0 ? 'text-success' : 'text-danger' }}">Total:
-                                                    {{ formattedMoney($year_one - $year_zero) }}</strong>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($year_one - $year_zero) }}</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -122,13 +122,13 @@
                                             </div>
                                             <div class="card-body">
                                                 <p class="card-text text-success">Receita:
-                                                    {{ formattedMoney($all_one) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($all_one) }}</p>
                                                 <p class="card-text text-danger">Despesa:
-                                                    {{ formattedMoney($all_zero) }}</p>
+                                                    {{ $appSystem->currency }} {{ formattedMoney($all_zero) }}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <strong
-                                                    class="{{ $all_one - $all_zero >= 0 ? 'text-success' : 'text-danger' }}">Total:
+                                                    class="{{ $all_one - $all_zero >= 0 ? 'text-success' : 'text-danger' }}">Total: {{ $appSystem->currency }}
                                                     {{ formattedMoney($all_one - $all_zero) }}</strong>
                                             </div>
                                         </div>
@@ -142,7 +142,6 @@
                                             <tr>
                                                 <th scope="col">Data</th>
                                                 <th style="width: 120px">Transação</th>
-                                                <th>Valor</th>
                                                 <th scope="col">Categoria</th>
                                                 <th>Forma de Pagamento</th>
                                                 <th>Pessoa</th>
@@ -155,8 +154,6 @@
                                                 <tr>
                                                     <td>{{ $transaction->date }}</td>
                                                     <td>{{ $transaction->type($transaction->type) }}</td>
-                                                    <td>{{ $appSystem->currency }}
-                                                        {{ number_format($transaction->amount), 2, '.', ',' }}</td>
                                                     <td>
                                                         @if ($transaction->tipo)
                                                             <span class="{{ $transaction->status->class }}">
@@ -195,7 +192,7 @@
                                                     </td>
                                                     <td class="text-right">
                                                         <span
-                                                            class="{{ $transaction->type == 1 ? 'text-success' : 'text-danger' }}">{{ formattedMoney($transaction->amount) }}</span>
+                                                            class="{{ $transaction->type == 'I' ? 'text-success' : 'text-danger' }}">{{ $appSystem->currency }} {{ formattedMoney($transaction->amount) }}</span>
                                                     </td>
                                                 </tr>
                                             @empty
@@ -210,7 +207,7 @@
                                                     <strong>Total do mês</strong>
                                                 </td>
                                                 <td colspan="4" class="text-right">
-                                                    <strong>{{ formattedMoney($month_one - $month_zero) }}</strong>
+                                                    <strong>{{ $appSystem->currency }} {{ formattedMoney($month_one - $month_zero) }}</strong>
                                                 </td>
                                             </tr>
                                         </tbody>

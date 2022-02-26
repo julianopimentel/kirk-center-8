@@ -4,7 +4,7 @@ function formattedMoney($value)
 {
     $formattedMoney = number_format($value, 2, ',', '.');
 
-    return 'R$ ' . $formattedMoney;
+    return $formattedMoney;
 }
 
 function translatedMonth($month)

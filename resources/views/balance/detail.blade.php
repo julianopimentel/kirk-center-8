@@ -183,8 +183,8 @@
                     </div>
                 </div>
                 <hr>
-                <button class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i>
-                    Print</button>
+                    <button class="btn btn-warning btn-icon icon-left"
+                onclick="document.title='relatorio_individual_{{ $historics->id }}_{{ date('Y-m-d') }}';window.print()"><i class="fas fa-print"></i></button>
             </div>
         </div>
         </div>

@@ -29,8 +29,8 @@
                         <div class="form-group col-sm-2">
                             <label for="text">Tipo *</label>
                             <select class="form-control" id="tipo" name="tipo" required>
-                                @foreach ($statusfinan as $statusfinan)
-                                    <option value="{{ $statusfinan->id }}">{{ $statusfinan->name }}
+                                @foreach ($statusfinanentra as $statusfinanentra)
+                                    <option value="{{ $statusfinanentra->id }}">{{ $statusfinanentra->name }}
                                     </option>
                                 @endforeach
                             </select>

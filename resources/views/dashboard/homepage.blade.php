@@ -194,7 +194,7 @@
                                 @if ($appPermissao->view_financial == true)
                                 <div class="col-sm-7 d-none d-md-block">
                                     <button class="btn btn-info float-right" type="button">
-                                        <a class="c-icon c-icon-sm cil-money" href="{{ route('deposit.balance') }}"></a>
+                                        <a class="c-icon c-icon-sm cil-money" href="{{ route('transaction.index') }}"></a>
                                     </button>
                                 </div>
                                 @endif
