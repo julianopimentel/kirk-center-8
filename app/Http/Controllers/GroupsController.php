@@ -202,26 +202,24 @@ class GroupsController extends Controller
 
     public function show($id)
     {
-        //pegar tenant
-        $this->get_tenant();
         $group = Group::find($id);
         //pesquisar pessoas associada ao grupo
-        $pessoasgrupos = People_Groups::with('grupo')->with('usuario')->where('group_id', $id)->get();
+        $pessoasgrupos = People_Groups::with('usuario')->where('group_id', $id)->get();
+
+        $retirarpessoas = People_Groups::select('user_id')->where('group_id', $id)->get();
+
         //consultar o responsavel do grupo
         $responsavel = People::find($group->user_id);
 
-        foreach ($pessoasgrupos as $tag){
-            $theTag = $tag->user_id;
-        }
-        
-       // $tagIds = [$theTag];
-        //pessoas temporario
-       // dd($tagIds);
-        $people = People::select("id", "name", "email")->with('grupos')
+        //retirar pessas já colocadas no grupo
+        // dd($tagIds);
+        $people = People::with('grupos')
             ->orderby('name', 'asc')
             ->where('is_admin', false)
-           // ->where('people_group.user_id', '!=', $tagIds)
+            ->whereNotIn('id', $retirarpessoas->pluck('user_id')->toArray())
+            //->where('id','LIKE','%'.$tags.'%')
             ->get();
+        //dd($people);
 
         return view('group.Show', compact('group', 'responsavel', 'people'), ['pessoasgrupos' => $pessoasgrupos]);
     }

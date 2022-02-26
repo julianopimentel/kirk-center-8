@@ -42,8 +42,6 @@ class HomeController extends Controller
      */
     public function index(Historic $historic, Request $request)
     {
-        //pegar schema
-        $this->get_tenant();
         //dados do usuario
         $you = auth()->user();
         //pegar informações complementares 

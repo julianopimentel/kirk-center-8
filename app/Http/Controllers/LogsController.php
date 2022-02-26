@@ -26,7 +26,6 @@ class LogsController extends Controller
      */
     public function index(Auditoria $auditoria)
     {
-        $this->get_tenant();
         //consulta da auditoria
         $logs = Auditoria::orderBy('id', 'desc')->with('status_log')->with('user')->paginate($this->totalPagesPaginate);
         //carregar os tipos da auditoria
@@ -36,7 +35,6 @@ class LogsController extends Controller
 
     public function show($id)
     {
-        $this->get_tenant();
         //consulta da auditoria
         $logs = Auditoria::find($id);
         $a = [$logs->manipulations];

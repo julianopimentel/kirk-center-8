@@ -36,7 +36,7 @@ class InstitutionsController extends Controller
         //user data
         $you = auth()->user();
         //mater toda a sessao da conta
-        session()->forget('schema');
+        //session()->forget('schema');
         session()->forget('key');
         session()->forget('conexao');
         session()->forget('conta_name');

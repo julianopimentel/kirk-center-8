@@ -104,19 +104,12 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('calender/{id}', 'FullCalenderController@edit')->name('calender.edit');
     Route::put('calender/{id}', 'FullCalenderController@update')->name('calender.update');
 
-    //sistema financeiro
-    Route::any('historic-search', 'BalanceController@searchHistoric')->name('historic.search');
-    Route::get('historic', 'BalanceController@historic')->name('admin.historic');
-
     Route::post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
-    Route::get('withdraw', 'BalanceController@withdraw')->name('balance.withdraw');
-
-    Route::get('depositar', 'BalanceController@depositar')->name('balance.depositar');
     Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');
 
     Route::get('/select2-autocomplete-people', 'BalanceController@dataAjax');
-    Route::get('financial', 'BalanceController@index')->name('deposit.balance');
-    Route::get('financial/{id}', 'BalanceController@show')->name('financial.show');
+    Route::get('transaction', 'BalanceController@index')->name('transaction.index');
+    Route::get('transaction/{id}', 'BalanceController@show')->name('transaction.show');
 
     //post e timeline em testes
     Route::get('/timeline', [TimelineController::class, 'getArticles'])->name('timeline.index');

@@ -103,6 +103,7 @@
                                                 <th>Pessoa</th>
                                                 <th>Observação</th>
                                                 <th style="width: 80px">Data</th>
+                                                <th>Ação</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,6 +149,12 @@
                                                         @endif
                                                     </td>
                                                     <td>{{ $historic->date }}</td>
+                                                    <td width="1%">
+                                                        @if ($appPermissao->view_financial == true)
+                                                            <a href="{{ route('transaction.show' , $historic->id) }}"><i
+                                                                    class="c-icon c-icon-sm cil-notes text-primary"></i></a>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                             @empty
                                             @endforelse
@@ -162,6 +169,7 @@
                                                 <th>R$ {{ number_format($total_entrada), 2, '.', ',' }}</th>
                                                 <th>Total Saida:</th>
                                                 <th>R$ {{ number_format($total_saida), 2, '.', ',' }}</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                     </table>

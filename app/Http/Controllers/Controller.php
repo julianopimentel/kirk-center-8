@@ -27,7 +27,7 @@ class Controller extends BaseController
     //global tenant set
     public function get_tenant()
     {
-        Config::get('database.connections.tenant'); 
+        return Config::get('database.connections.tenant'); 
     }
 
     public function adicionar_log($status, $type, $json)

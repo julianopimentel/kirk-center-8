@@ -97,7 +97,7 @@
     @endif
     @if ($appPermissao->view_financial == true)
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('deposit.balance') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('transaction.index') }}">
                 <i class="c-icon cil-money c-sidebar-nav-icon"></i>
                 {{ __('layout.financial') }}</a>
         </li>

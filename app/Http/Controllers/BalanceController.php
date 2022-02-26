@@ -25,16 +25,8 @@ class BalanceController extends Controller
     }
 
     //index
-    public function index(Historic $historic)
+    public function index(Historic $historic, Request $request)
     {
-        //user data
-        $you = auth()->user();
-        //pegar tenant
-        $this->get_tenant();
-        //consulta do financeiro + status + forma de pagamento
-        $historics = Historic::with('status')->with('statuspag')
-            ->orderby('id', 'desc')
-            ->paginate(9);
         //tipos entrada ou saida
         $types = $historic->type();
         //pegar o codigo da conta
@@ -44,24 +36,39 @@ class BalanceController extends Controller
         //converter para apresentacao no index
         $amount = number_format($balance ? $balance->amount : 0, '2', ',', '.');
 
-        return view('balance.index', compact('amount', 'historics', 'types'));
-    }
+        $month = empty($request->get('month')) ? date('m') : $request->get('month');
+        $year = empty($request->get('year')) ? date('Y') : $request->get('year');
 
-    public function depositar()
-    {
-        //pegar tenant
-        $this->get_tenant();
-        //listar forma de pagamento
+
+        $transactions = Historic::with('status')->with('statuspag')->whereMonth('date', $month)->whereYear('date', $year)->orderBy('date')->get();
+
+        $categories = Historic::latest()->get();
+
+        $month_zero = Historic::whereMonth('date', $month)->whereYear('date', $year)->whereType('O')->sum('amount');
+        $month_one = Historic::whereMonth('date', $month)->whereYear('date', $year)->whereType('I')->sum('amount');
+
+        $year_zero = Historic::whereYear('date', $year)->whereType('O')->sum('amount');
+        $year_one = Historic::whereYear('date', $year)->whereType('I')->sum('amount');
+
+        $all_zero = Historic::whereType('O')->sum('amount');
+        $all_one = Historic::whereType('I')->sum('amount');
+
+        //retirada
+        //status da forma de pagamento
         $statuspag = Status::all()->where("type", 'pagamento');
+        //status do tipo de movimento
+        $statusfinan = Status::all()->where("type", 'financial')->where('class', 'retira');
+
+        //entrada
         //listar tipo de movimeto (dizimo...)
-        $statusfinan = Status::all()->where("type", 'financial')->where('class', 'entrada');
+        $statusfinanentra = Status::all()->where("type", 'financial')->where('class', 'entrada');
         //pessoas temporario
         $people = People::select("id", "name", "email")
-        ->orderby('name', 'asc')
-        ->where('is_admin', false)
-        ->get();
+            ->orderby('name', 'asc')
+            ->where('is_admin', false)
+            ->get();
 
-        return view('balance.depositar', compact('statuspag', 'statusfinan', 'people'));
+        return view('balance.index', compact('amount', 'statuspag', 'statusfinanentra', 'people', 'statusfinan', 'types', 'transactions', 'categories', 'month_zero', 'month_one', 'year_zero', 'year_one', 'all_zero', 'all_one'));
     }
 
     //autocompletar pessoa em ajax
@@ -126,20 +133,6 @@ class BalanceController extends Controller
             ->back()
             ->with('error', $response['message']);
     }
-
-    //retirada
-    public function withdraw()
-    {
-        //pegar tenant
-        $this->get_tenant();
-        //status da forma de pagamento
-        $statuspag = Status::all()->where("type", 'pagamento');
-        //status do tipo de movimento
-        $statusfinan = Status::all()->where("type", 'financial')->where('class', 'retira');
-
-        return view('balance.withdraw', compact('statuspag', 'statusfinan'));
-    }
-
     public function withdrawStore(ValidationMoneyFormRequest $request)
     {
         //pegar tenant
@@ -158,48 +151,6 @@ class BalanceController extends Controller
         return redirect()
             ->back()
             ->with('error', $response['message']);
-    }
-
-    //index do historico geral
-    public function historic(Historic $historic)
-    {
-        //user data
-        $you = auth()->user();
-        //pegar tenant
-        $this->get_tenant();
-        //consulta
-        $historics = Historic::with('status')->with('statuspag')
-            ->orderby('id', 'desc')
-            ->paginate($this->totalPagesPaginate);
-        //tipo de movimento entrada/saida
-        $types = $historic->type();
-        //satus da forma de pagamento
-        $statuspag = Status::all()->where("type", 'pagamento');
-        //status do tipo de movimento dizimo...
-        $statusfinan = Status::all()->where("type", 'financial');
-
-        return view('balance.historics', compact('historics', 'types', 'statuspag', 'statusfinan'));
-    }
-
-    //busca do historico
-    public function searchHistoric(Request $request, Historic $historic)
-    {
-        //pegar tenant
-        $this->get_tenant();
-        //user data
-        $you = auth()->user();
-        //
-        $dataForm = $request->except('_token');
-        //consulta
-        $historics =  $historic->search($dataForm, $this->totalPagesPaginate);
-        //tipo de movimento entrada/saida
-        $types = $historic->type();
-        //satus da forma de pagamento
-        $statuspag = Status::all()->where("type", 'pagamento');
-        //status do tipo de movimento dizimo...
-        $statusfinan = Status::all()->where("type", 'financial');
-
-        return view('balance.historics', compact('historics', 'types', 'dataForm', 'statuspag', 'statusfinan'));
     }
 
     //invoce com detalhes
