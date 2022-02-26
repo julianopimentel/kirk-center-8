@@ -62,8 +62,10 @@ Route::group(['middleware' => ['role:user']], function () {
         'account' => InstitutionsController::class,
     ]);
     //profile
-    Route::get('/profile', 'ProfileController@index')->name('profile');
-    Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+    Route::get('profile', 'ProfileController@index')->name('profile.index');
+    Route::post('profile/update', 'ProfileController@updateProfile')->name('profile.update');
+    Route::get('profile/password', 'ProfileController@indexPassword')->name('password.index');
+    Route::post('profile/password', 'ProfileController@updatePass')->name('password.update');
 
     // settings
     Route::get('settings', 'ConfigSystemController@index')->name('settings');

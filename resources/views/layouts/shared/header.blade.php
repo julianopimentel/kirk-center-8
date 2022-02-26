@@ -7,7 +7,7 @@
             <li class="c-header-nav-item d-md-down-none mx-2">
                 <a class="c-header-nav-link">
                     <strong>
-                        @if (session('schema'))
+                        @if (session('key'))
                         {{ ucwords(strtolower(Auth::user()->people->name)) }}
                         @else
                         {{ ucwords(strtolower(Auth::user()->name)) }}
@@ -30,22 +30,24 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
                     <div class="dropdown-header bg-light py-2"><strong>{{ __('layout.account') }}</strong></div>
-
-
                     <a class="dropdown-item" href="/updates">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-bell') }}"></use>
                         </svg> {{ __('layout.news') }}<span class="badge badge-info ml-auto">42</span></a>
-                    <a class="dropdown-item" href="/profile">
+                    <a class="dropdown-item" href="{{ route('profile.index')}}">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-user') }}"></use>
                         </svg> {{ __('layout.profile') }}</a>
+                        <a class="dropdown-item" href="{{ route('password.index')}}">
+                            <svg class="c-icon mr-2">
+                                <use xlink:href="{{ url('/icons/sprites/free.svg#cil-lock-locked') }}"></use>
+                            </svg> {{ __('layout.change_password') }}</a>
                     @if (Auth::user()->isAdmin() === true)
                         <a class="dropdown-item">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-credit-card') }}"></use>
                             </svg>{{ __('layout.payments') }}</a>
-                        <a class="dropdown-item" href="/logs">
+                        <a class="dropdown-item" href="{{ route('logs.index')}}">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-history') }}"></use>
                             </svg>{{ __('layout.aud') }}</a>

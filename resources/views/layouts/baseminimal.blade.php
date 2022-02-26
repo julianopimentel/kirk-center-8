@@ -87,7 +87,7 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
         @include('layouts.shared.nav-minimal')
 
-        @include('layouts.shared.header')
+        @include('layouts.shared.header-minimal')
 
         @include('layouts.shared.loading')
 

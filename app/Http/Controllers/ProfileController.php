@@ -6,8 +6,10 @@ use App\Models\People;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use App\Http\Requests\PassRequest;
 
 class ProfileController extends Controller
 {
@@ -35,6 +37,12 @@ class ProfileController extends Controller
         return view('admin.profileEditForm');
     }
 
+    public function indexPassword()
+    {
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('admin.profilePassword', compact('user'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -46,7 +54,7 @@ class ProfileController extends Controller
     {
         $validatedData = $request->validate([
             'name'       => 'required|min:1|max:256',
-            //    'email'      => 'required|email|max:256',
+            'email' => 'required|email|unique:users,email,' . $this->user->id,
             'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -77,6 +85,19 @@ class ProfileController extends Controller
         $request->session()->flash("success", 'events.change_success');
         return redirect()->back();
     }
+
+    public function updatePass(PassRequest $request, User $user)
+    {
+        if (!(Hash::check($request->old_password, auth()->user()->password))) {
+            return redirect()->back()->withErrors('A senha atual está incorreta. Por favor, tente novamente.');
+        }
+        $user = User::findOrFail(auth()->user()->id);
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Senha atualizada!');
+    }
+
     public function updateUser(Request $request, $id)
     {
         $validatedData = $request->validate([
