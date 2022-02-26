@@ -1,4 +1,4 @@
-@if ($appPermissao->edit_people == true)
+@if ($appPermissao->edit_people == true and $appPermissao->add_people == true)
     @extends('layouts.base')
     @section('content')
         <div class="container-fluid">
