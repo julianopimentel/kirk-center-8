@@ -50,11 +50,11 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateProfile(Request $request)
+    public function updateProfile(Request $request, User $user)
     {
         $validatedData = $request->validate([
             'name'       => 'required|min:1|max:256',
-            'email' => 'required|email|unique:users,email,' . $this->user->id,
+           // 'email' => 'required|email|unique:user,email,' . $this->user->id,
             'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -82,7 +82,7 @@ class ProfileController extends Controller
         //adicionar log
         $this->adicionar_log_global('8', 'U', '{"name":"' . $user->name . '","email":"' . $user->email . '","phone":"' . $user->phone . '","doc":"' . $user->doc . '"}');
         $user->save();
-        $request->session()->flash("success", 'events.change_success');
+        $request->session()->flash("success", 'Salvado com sucesso');
         return redirect()->back();
     }
 
