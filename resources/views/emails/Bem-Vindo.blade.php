@@ -295,7 +295,7 @@
                                                                         style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
                                                                         <img align="center" border="0"
-                                                                            src="https://kirk.deskapp.online/public/email/image-7.png"
+                                                                            src="https://deskapp.online/public/email/image-7.png"
                                                                             alt="Logo" title="Logo"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 100.6px;"
                                                                             width="84.6"
@@ -392,7 +392,7 @@
                         </div>
                     </div>
                     <div class="u-row-container"
-                        style="padding: 0px;background-image: url(' https://kirk.deskapp.online/public/email/image-5.png');background-repeat: no-repeat;background-position: center top;background-color: transparent">
+                        style="padding: 0px;background-image: url(' https://deskapp.online/public/email/image-5.png');background-repeat: no-repeat;background-position: center top;background-color: transparent">
                         <div class="u-row"
                             style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div
@@ -400,7 +400,7 @@
                                 <!--[if (mso)|(IE)]>
                                           <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                              <tr>
-                                                <td style="padding: 0px;background-image: url(' https://kirk.deskapp.online/public/email/image-5.png');background-repeat: no-repeat;background-position: center top;background-color: transparent;" align="center">
+                                                <td style="padding: 0px;background-image: url(' https://deskapp.online/public/email/image-5.png');background-repeat: no-repeat;background-position: center top;background-color: transparent;" align="center">
                                                    <table cellpadding="0" cellspacing="0" border="0" style="width:600px;">
                                                       <tr style="background-color: transparent;">
                                                          <![endif]-->
@@ -470,7 +470,7 @@
                                                                                                 <w:anchorlock/>
                                                                                                 <center style="color:#000000;font-family:arial,helvetica,sans-serif;">
                                                                                                    <![endif]-->
-                                                                <a href="https://kirk.deskapp.online/" target="_blank"
+                                                                <a href="https://deskapp.online/" target="_blank"
                                                                     style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #ffffff; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                                                     <span
                                                                         style="display:block;padding:10px 20px;line-height:120%;"><span
@@ -521,7 +521,7 @@
                                                                         style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
                                                                         <img align="center" border="0"
-                                                                            src=" https://kirk.deskapp.online/public/email/image-1.png"
+                                                                            src=" https://deskapp.online/public/email/image-1.png"
                                                                             alt="Business Growth"
                                                                             title="Business Growth"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 265px;"
@@ -674,7 +674,7 @@
                                                                         style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
                                                                         <img align="center" border="0"
-                                                                            src=" https://kirk.deskapp.online/public/email/image-6.png"
+                                                                            src=" https://deskapp.online/public/email/image-6.png"
                                                                             alt="Illustration" title="Illustration"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 90%;max-width: 252px;"
                                                                             width="252"
@@ -1499,7 +1499,7 @@
                                                                         <a href="https://www.youtube.com/watch?v=TboWOSW7qCI"
                                                                             target="_blank">
                                                                             <img align="center" border="0"
-                                                                                src=" https://kirk.deskapp.online/public/email/image-8.png"
+                                                                                src=" https://deskapp.online/public/email/image-8.png"
                                                                                 alt="Video" title="Video"
                                                                                 style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;width: 100%;max-width: 300px;"
                                                                                 width="300" class="fullwidth">
@@ -1603,7 +1603,7 @@
                                                                                     <a href="https://facebook.com/"
                                                                                         title="Facebook"
                                                                                         target="_blank">
-                                                                                        <img src=" https://kirk.deskapp.online/public/email/image-2.png"
+                                                                                        <img src=" https://deskapp.online/public/email/image-2.png"
                                                                                             alt="Facebook"
                                                                                             title="Facebook" width="32"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
@@ -1629,7 +1629,7 @@
                                                                                     <a href="https://www.instagram.com/kirk.digital/"
                                                                                         title="Instagram"
                                                                                         target="_blank">
-                                                                                        <img src=" https://kirk.deskapp.online/public/email/image-9.png"
+                                                                                        <img src=" https://deskapp.online/public/email/image-9.png"
                                                                                             alt="Instagram"
                                                                                             title="Instagram" width="32"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
