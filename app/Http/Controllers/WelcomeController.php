@@ -45,4 +45,8 @@ class WelcomeController extends Controller
     {
         return view('site.features');
     }
+    public function blog()
+    {
+        return view('site.blog');
+    }
 }

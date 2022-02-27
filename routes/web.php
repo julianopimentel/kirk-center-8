@@ -25,6 +25,8 @@ Route::get('terms', 'WelcomeController@terms')->name('terms');
 Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
 Route::get('contato', 'WelcomeController@contato')->name('contato');
 Route::get('features', 'WelcomeController@features')->name('features');
+Route::get('blog', 'WelcomeController@blog')->name('blog');
+
 
 Route::get('/share/{id}', 'WizardCustomController@index')->name('wizardCustom.index');
 Route::get('share', 'WizardCustomController@create')->name('wizardCustom.create');

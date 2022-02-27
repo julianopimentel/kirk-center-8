@@ -50,3 +50,18 @@ function translatedMonth($month)
 
     return $translatedMonth;
 }
+
+function contato()
+{
+    return 'contato@kirkapp.online';
+}
+
+function telefone()
+{
+    return '+92 99222 8400';
+}
+
+function localidade()
+{
+    return 'São José, Brazil';
+}
