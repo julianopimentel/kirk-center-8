@@ -261,60 +261,60 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='dlAddons-widgets-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/modules/widgets/widgets.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='drth-theme-styles-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/widgets/widgets.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-icons-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/css/icons.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-common-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/css/editor-common.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-widget-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/css/widget.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-animate-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/animation/animate.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='reset-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/reset.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='grid-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/grid.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='button-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/button.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='owl-carousel-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/owl_carousel/css/owl.carousel.css?ver=3.0.7' type='text/css' media='all' />
+	<link rel='stylesheet' id='dlAddons-widgets-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/modules/widgets/widgets.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='drth-theme-styles-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/widgets/widgets.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-icons-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/css/icons.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-common-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/css/editor-common.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-widget-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/css/widget.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-animate-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/animation/animate.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='reset-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/reset.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='grid-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/grid.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='button-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/button.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='owl-carousel-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/owl_carousel/css/owl.carousel.css?ver=3.0.7' type='text/css' media='all' />
 <link rel='stylesheet' id='wp-block-library-css'  href='https://www.deskapp.online/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=6.5.1' type='text/css' media='all' />
-<link rel='stylesheet' id='wc-blocks-style-css'  href='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=6.5.1' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-5-free-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/font-awesome/css/all.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://demo.deskapp.online/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=6.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-style-css'  href='https://demo.deskapp.online/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=6.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-5-free-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/font-awesome/css/all.css?ver=5.9.1' type='text/css' media='all' />
 <style id='global-styles-inline-css' type='text/css'>
 body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
 </style>
-<link rel='stylesheet' id='extendify-utilities-css'  href='https://www.deskapp.online/demo/wp-content/plugins/redux-framework/extendify-sdk/public/build/extendify-utilities.css?ver=0.1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='contact-form-7-css'  href='https://www.deskapp.online/demo/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.3' type='text/css' media='all' />
-<link rel='stylesheet' id='animate-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/css/animate.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='dladdons-parallax-style-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/css/style.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-layout-css'  href='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=6.1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.1.0' type='text/css' media='only screen and (max-width: 768px)' />
-<link rel='stylesheet' id='woocommerce-general-css'  href='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=6.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='extendify-utilities-css'  href='https://demo.deskapp.online/wp-content/plugins/redux-framework/extendify-sdk/public/build/extendify-utilities.css?ver=0.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://demo.deskapp.online/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/css/animate.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dladdons-parallax-style-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/css/style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css'  href='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=6.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.1.0' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=6.1.0' type='text/css' media='all' />
 <style id='woocommerce-inline-inline-css' type='text/css'>
 .woocommerce form .form-row .required { visibility: visible; }
 </style>
-<link rel='stylesheet' id='font-awesome-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
-<link rel='stylesheet' id='dtdr-public-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-dark-mode/assets/css/public-mode.css?ver=1.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='dl-sticky-css-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/modules/sticky/js/sticky.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-frontend-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.5.3' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-el-template-front-css'  href='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/modules/templates/assets/css/template-frontend.min.css?ver=3.0.7' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-core-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/css/sassland-core.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='preload' as='font' type='font/woff2' crossorigin='anonymous' id='tinvwl-webfont-font-css'  href='https://www.deskapp.online/demo/wp-content/plugins/ti-woocommerce-wishlist/assets/fonts/tinvwl-webfont.woff2?ver=xu2uyi'  media='all' />
-<link rel='stylesheet' id='tinvwl-webfont-css'  href='https://www.deskapp.online/demo/wp-content/plugins/ti-woocommerce-wishlist/assets/css/webfont.min.css?ver=1.30.0' type='text/css' media='all' />
-<link rel='stylesheet' id='tinvwl-css'  href='https://www.deskapp.online/demo/wp-content/plugins/ti-woocommerce-wishlist/assets/css/public.min.css?ver=1.30.0' type='text/css' media='all' />
-<link rel='stylesheet' id='lottie-style-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/lottie/assets/lottie-style.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='droit-transform-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/transform/assets/transform.min.css?ver=1.0.0' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-dark-support-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/saasland-dark-support.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dtdr-public-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-dark-mode/assets/css/public-mode.css?ver=1.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='dl-sticky-css-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/modules/sticky/js/sticky.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-el-template-front-css'  href='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/modules/templates/assets/css/template-frontend.min.css?ver=3.0.7' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-core-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/css/sassland-core.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='preload' as='font' type='font/woff2' crossorigin='anonymous' id='tinvwl-webfont-font-css'  href='https://demo.deskapp.online/wp-content/plugins/ti-woocommerce-wishlist/assets/fonts/tinvwl-webfont.woff2?ver=xu2uyi'  media='all' />
+<link rel='stylesheet' id='tinvwl-webfont-css'  href='https://demo.deskapp.online/wp-content/plugins/ti-woocommerce-wishlist/assets/css/webfont.min.css?ver=1.30.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tinvwl-css'  href='https://demo.deskapp.online/wp-content/plugins/ti-woocommerce-wishlist/assets/css/public.min.css?ver=1.30.0' type='text/css' media='all' />
+<link rel='stylesheet' id='lottie-style-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/lottie/assets/lottie-style.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='droit-transform-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/transform/assets/transform.min.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-dark-support-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/saasland-dark-support.css?ver=5.9.1' type='text/css' media='all' />
 <link rel='stylesheet' id='saasland-fonts-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600%2C700%2C900&#038;subset' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/bootstrap.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='themify-icon-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/themify-icon/themify-icons.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-elementor-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/elementor-override.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-animate-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/animation/animate.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-custom-animations-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/saasland-animations.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='magnific-popup-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/magnify-pop/magnific-popup.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='eleganticons-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/elagent/style.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-wpd-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/wpd-style.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-main-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/style.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-elements-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/elements.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-comments-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/comments.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-gutenberg-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/gutenberg.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-root-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/style.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-responsive-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/responsive.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/bootstrap.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='themify-icon-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/themify-icon/themify-icons.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-elementor-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/elementor-override.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-animate-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/animation/animate.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-custom-animations-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/saasland-animations.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/magnify-pop/magnific-popup.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='eleganticons-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/elagent/style.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-wpd-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/wpd-style.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-main-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/style.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-elements-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/elements.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-comments-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/comments.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-gutenberg-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/gutenberg.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-root-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/style.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-responsive-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/responsive.min.css?ver=5.9.1' type='text/css' media='all' />
 <style id='saasland-responsive-inline-css' type='text/css'>
 .blog_breadcrumb_area{height: 600px;}
             @media (max-width: 991px) {
@@ -384,30 +384,30 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             }
         
 </style>
-<link rel='stylesheet' id='saasland-responsive2-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/css/responsive-2.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='mCustomScrollbar-css'  href='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/scroll/jquery.mCustomScrollbar.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.13.0' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-11-css'  href='https://www.deskapp.online/demo/wp-content/uploads/elementor/css/post-11.css?ver=1642038086' type='text/css' media='all' />
-<link rel='stylesheet' id='simple-line-icon-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/simple-line-icon/simple-line-icons.min.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='slick-theme-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/slick/slick-theme.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='themify-icons-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/themify-icon/themify-icons.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='saasland-flaticons-css'  href='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/flaticon/flaticon.css?ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-post-4917-css'  href='https://www.deskapp.online/demo/wp-content/uploads/elementor/css/post-4917.css?ver=1643044554' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-responsive2-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/css/responsive-2.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='mCustomScrollbar-css'  href='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/scroll/jquery.mCustomScrollbar.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-icons-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.13.0' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-11-css'  href='https://demo.deskapp.online/wp-content/uploads/elementor/css/post-11.css?ver=1642038086' type='text/css' media='all' />
+<link rel='stylesheet' id='simple-line-icon-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/simple-line-icon/simple-line-icons.min.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='slick-theme-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/slick/slick-theme.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='themify-icons-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/themify-icon/themify-icons.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='saasland-flaticons-css'  href='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/flaticon/flaticon.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-4917-css'  href='https://demo.deskapp.online/wp-content/uploads/elementor/css/post-4917.css?ver=1643044554' type='text/css' media='all' />
 <link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=5.9.1' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-shared-0-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-fa-solid-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' type='text/css' media='all' />
-<link rel='stylesheet' id='elementor-icons-fa-brands-css'  href='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3' type='text/css' media='all' />
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/js/jquery-3.2.1.min.js?ver=3.4.1' id='jquery-js'></script>
+<link rel='stylesheet' id='elementor-icons-shared-0-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-brands-css'  href='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3' type='text/css' media='all' />
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/js/jquery-3.2.1.min.js?ver=3.4.1' id='jquery-js'></script>
 <script type='text/javascript' id='monsterinsights-frontend-script-js-extra'>
 /* <![CDATA[ */
 var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/www.deskapp.online","hash_tracking":"false","ua":"","v4_id":"G-WZGV8YK5C9"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.3.0' id='monsterinsights-frontend-script-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.min.js?ver=1.0.0' id='dl-parallax-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.move.js?ver=1.0.0' id='dl-parallax-move-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.scrolling.js?ver=1.0.0' id='dl-parallax-scrolling-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/js/gmaps.min.js?ver=5.9.1' id='map-script-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.3.0' id='monsterinsights-frontend-script-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.min.js?ver=1.0.0' id='dl-parallax-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.move.js?ver=1.0.0' id='dl-parallax-move-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/js/parallax.scrolling.js?ver=1.0.0' id='dl-parallax-scrolling-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/js/gmaps.min.js?ver=5.9.1' id='map-script-js'></script>
 <link rel="https://api.w.org/" href="https://www.deskapp.online/wp-json/" /><link rel="alternate" type="application/json" href="https://www.deskapp.online/wp-json/wp/v2/pages/4917" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.deskapp.online/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.deskapp.online/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.9.1" />
@@ -417,10 +417,10 @@ var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions
 <link rel="alternate" type="text/xml+oembed" href="https://www.deskapp.online/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.deskapp.online%2F&#038;format=xml" />
 <meta name="framework" content="Redux 4.3.7" />	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 	<meta name="generator" content="Powered by Slider Revolution 6.5.12 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-<link rel="icon" href="https://www.deskapp.online/demo/wp-content/uploads/2022/01/android-icon-144x144-1-70x70.png" sizes="32x32" />
-<link rel="icon" href="https://www.deskapp.online/demo/wp-content/uploads/2022/01/android-icon-144x144-1.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://www.deskapp.online/demo/wp-content/uploads/2022/01/android-icon-144x144-1.png" />
-<meta name="msapplication-TileImage" content="https://www.deskapp.online/demo/wp-content/uploads/2022/01/android-icon-144x144-1.png" />
+<link rel="icon" href="https://demo.deskapp.online/wp-content/uploads/2022/01/android-icon-144x144-1-70x70.png" sizes="32x32" />
+<link rel="icon" href="https://demo.deskapp.online/wp-content/uploads/2022/01/android-icon-144x144-1.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://demo.deskapp.online/wp-content/uploads/2022/01/android-icon-144x144-1.png" />
+<meta name="msapplication-TileImage" content="https://demo.deskapp.online/wp-content/uploads/2022/01/android-icon-144x144-1.png" />
 <script>function setREVStartSize(e){
 			//window.requestAnimationFrame(function() {
 				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
@@ -489,8 +489,8 @@ var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions
         <header class="header_area  header_stick">
         <nav class="navbar navbar-expand-lg menu_one menu_right">
         <div class="container">        <a class="navbar-brand sticky_logo " href="https://www.deskapp.online/">
-                            <img class="main_logo_img" src="https://deskapp.online/demo/wp-content/uploads/2022/01/coreui-base-white.png" srcset='https://deskapp.online/demo/wp-content/uploads/2022/01/coreui-base-white.png 2x' alt="Gestão de Igrejas">
-                <img class="sticky_logo_img" src="https://deskapp.online/demo/wp-content/uploads/2022/01/logo.png" srcset='https://deskapp.online/demo/wp-content/uploads/2022/01/logo.png 2x' alt="Gestão de Igrejas">
+                            <img class="main_logo_img" src="https://deskapp.online/wp-content/uploads/2022/01/coreui-base-white.png" srcset='https://deskapp.online/wp-content/uploads/2022/01/coreui-base-white.png 2x' alt="Gestão de Igrejas">
+                <img class="sticky_logo_img" src="https://deskapp.online/wp-content/uploads/2022/01/logo.png" srcset='https://deskapp.online/wp-content/uploads/2022/01/logo.png 2x' alt="Gestão de Igrejas">
                         </a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="menu_toggle">
@@ -559,7 +559,7 @@ de Igrejas descomplicada!</h2>		</div>
 								<div class="elementor-element elementor-element-1777b06c elementor-widget elementor-widget-image" data-id="1777b06c" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
 			<style>/*! elementor - v3.5.3 - 28-12-2021 */
-.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img width="448" height="440" src="https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img.png 448w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img-300x295.png 300w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img-80x80.png 80w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img-70x70.png 70w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/action_img-75x75.png 75w" sizes="(max-width: 448px) 100vw, 448px" />															</div>
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img width="448" height="440" src="https://demo.deskapp.online/wp-content/uploads/2022/01/action_img.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://demo.deskapp.online/wp-content/uploads/2022/01/action_img.png 448w, https://demo.deskapp.online/wp-content/uploads/2022/01/action_img-300x295.png 300w, https://demo.deskapp.online/wp-content/uploads/2022/01/action_img-80x80.png 80w, https://demo.deskapp.online/wp-content/uploads/2022/01/action_img-70x70.png 70w, https://demo.deskapp.online/wp-content/uploads/2022/01/action_img-75x75.png 75w" sizes="(max-width: 448px) 100vw, 448px" />															</div>
 				</div>
 					</div>
 		</div>
@@ -592,7 +592,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-49638175 elementor-absolute elementor-widget elementor-widget-image" data-id="49638175" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="859" height="582" src="https://www.deskapp.online/demo/wp-content/uploads/2022/01/mackbook_new.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://www.deskapp.online/demo/wp-content/uploads/2022/01/mackbook_new.png 859w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/mackbook_new-300x203.png 300w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/mackbook_new-768x520.png 768w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/mackbook_new-600x407.png 600w" sizes="(max-width: 859px) 100vw, 859px" />															</div>
+															<img width="859" height="582" src="https://demo.deskapp.online/wp-content/uploads/2022/01/mackbook_new.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://demo.deskapp.online/wp-content/uploads/2022/01/mackbook_new.png 859w, https://demo.deskapp.online/wp-content/uploads/2022/01/mackbook_new-300x203.png 300w, https://demo.deskapp.online/wp-content/uploads/2022/01/mackbook_new-768x520.png 768w, https://demo.deskapp.online/wp-content/uploads/2022/01/mackbook_new-600x407.png 600w" sizes="(max-width: 859px) 100vw, 859px" />															</div>
 				</div>
 				<section class="elementor-section elementor-inner-section elementor-element elementor-element-1e3981bf elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1e3981bf" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
@@ -744,7 +744,7 @@ de Igrejas descomplicada!</h2>		</div>
                 <div class="setup_inner">
                                                 <div class="setup_item row elementor-repeater-item-f3c32b7 ">
                                 <div class="col-md-5 setup_img wow fadeInLeft" data-wow-delay="0.2s">
-                                    <img width="483" height="489" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/business1.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
+                                    <img width="483" height="489" src="https://demo.deskapp.online/wp-content/uploads/2019/07/business1.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
                                 <div class="col-md-2 s_number">
                                                                             <div class="round">01</div>
                                                                     </div>
@@ -757,7 +757,7 @@ de Igrejas descomplicada!</h2>		</div>
                             </div>
                                                         <div class="setup_item row elementor-repeater-item-dc724c5 flex-row-reverse">
                                 <div class="col-md-5 setup_img wow fadeInLeft" data-wow-delay="0.2s">
-                                    <img width="176" height="298" src="https://www.deskapp.online/demo/wp-content/uploads/2019/10/setup_img1.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
+                                    <img width="176" height="298" src="https://demo.deskapp.online/wp-content/uploads/2019/10/setup_img1.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
                                 <div class="col-md-2 s_number">
                                                                             <div class="round">02</div>
                                                                     </div>
@@ -770,7 +770,7 @@ de Igrejas descomplicada!</h2>		</div>
                             </div>
                                                         <div class="setup_item row elementor-repeater-item-ddf7118 ">
                                 <div class="col-md-5 setup_img wow fadeInLeft" data-wow-delay="0.2s">
-                                    <img width="271" height="241" src="https://www.deskapp.online/demo/wp-content/uploads/2019/10/setup_img2.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
+                                    <img width="271" height="241" src="https://demo.deskapp.online/wp-content/uploads/2019/10/setup_img2.png" class="attachment-full size-full" alt="" loading="lazy" />                                </div>
                                 <div class="col-md-2 s_number">
                                                                             <div class="round">03</div>
                                                                     </div>
@@ -796,13 +796,13 @@ de Igrejas descomplicada!</h2>		</div>
 								<div class="elementor-element elementor-element-3ab7fe83 elementor-widget elementor-widget-saasland_single_video" data-id="3ab7fe83" data-element_type="widget" data-widget_type="saasland_single_video.default">
 				<div class="elementor-widget-container">
 			            <section class="h_action_area_three">
-                                    <img class="shap_img one" src="https://www.deskapp.online/demo/wp-content/uploads/2019/10/shap_one.png" alt="Conheça">
-                                                    <img class="shap_img two" src="https://www.deskapp.online/demo/wp-content/uploads/2019/10/shap_two.png" alt="Conheça">
+                                    <img class="shap_img one" src="https://demo.deskapp.online/wp-content/uploads/2019/10/shap_one.png" alt="Conheça">
+                                                    <img class="shap_img two" src="https://demo.deskapp.online/wp-content/uploads/2019/10/shap_two.png" alt="Conheça">
                                 <div class="container">
                     <div class="row align-items-center">
                                                     <div class="col-md-6">
                                 <div class="h_action_img wow fadeInLeft">
-                                    <img class="img-fluid" src="https://www.deskapp.online/demo/wp-content/uploads/2019/10/case.png" alt="Conheça">
+                                    <img class="img-fluid" src="https://demo.deskapp.online/wp-content/uploads/2019/10/case.png" alt="Conheça">
                                 </div>
                             </div>
                                                 <div class="col-md-6">
@@ -845,7 +845,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-30bf2a27 elementor-widget elementor-widget-image" data-id="30bf2a27" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="110" height="110" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/settings1.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="110" height="110" src="https://demo.deskapp.online/wp-content/uploads/2019/07/settings1.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 				<div class="elementor-element elementor-element-2ca3b096 elementor-widget elementor-widget-heading" data-id="2ca3b096" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -857,7 +857,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-2ea646da elementor-widget elementor-widget-image" data-id="2ea646da" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="110" height="110" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/cloud-computing.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="110" height="110" src="https://demo.deskapp.online/wp-content/uploads/2019/07/cloud-computing.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 				<div class="elementor-element elementor-element-158e3d28 elementor-widget elementor-widget-heading" data-id="158e3d28" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -869,7 +869,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-719e3b65 elementor-widget elementor-widget-image" data-id="719e3b65" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="110" height="110" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/growth.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="110" height="110" src="https://demo.deskapp.online/wp-content/uploads/2019/07/growth.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 				<div class="elementor-element elementor-element-57afcd91 elementor-widget elementor-widget-heading" data-id="57afcd91" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
@@ -895,11 +895,11 @@ de Igrejas descomplicada!</h2>		</div>
             <div class="col-lg-6">
                 <div class="h_analytices_img">
                                                 <img class="analytices_img_one wow fadeIn elementor-repeater-item-6fe595f" data-wow-delay="0.8s"
-                                 src="https://deskapp.online/demo/wp-content/uploads/2022/01/timelinie.png" alt="Featured Image">
+                                 src="https://deskapp.online/wp-content/uploads/2022/01/timelinie.png" alt="Featured Image">
                                                         <img class="analytices_img_two wow fadeInRight elementor-repeater-item-9aa931c" data-wow-delay="2s"
-                                 src="https://deskapp.online/demo/wp-content/uploads/2022/01/Screenshot_14.png" alt="Featured Image">
+                                 src="https://deskapp.online/wp-content/uploads/2022/01/Screenshot_14.png" alt="Featured Image">
                                                         <img class="analytices_img_three wow fadeInLeft elementor-repeater-item-896eac6" data-wow-delay="2s"
-                                 src="https://deskapp.online/demo/wp-content/uploads/2022/01/Screenshot_16.png" alt="Featured Image">
+                                 src="https://deskapp.online/wp-content/uploads/2022/01/Screenshot_16.png" alt="Featured Image">
                                             </div>
             </div>
             <div class="col-lg-6">
@@ -925,9 +925,9 @@ de Igrejas descomplicada!</h2>		</div>
             <div class="col-lg-6">
                 <div class="h_analytices_img">
                                                 <img class="analytices_img_one wow fadeIn elementor-repeater-item-7c072ae" data-wow-delay="0.8s"
-                                 src="https://deskapp.online/demo/wp-content/uploads/2022/01/Screenshot_20.png" alt="Featured Image">
+                                 src="https://deskapp.online/wp-content/uploads/2022/01/Screenshot_20.png" alt="Featured Image">
                                                         <img class="analytices_img_two wow fadeIn elementor-repeater-item-f5824ad" data-wow-delay="2s"
-                                 src="https://deskapp.online/demo/wp-content/uploads/2022/01/Screenshot_17.png" alt="Featured Image">
+                                 src="https://deskapp.online/wp-content/uploads/2022/01/Screenshot_17.png" alt="Featured Image">
                                             </div>
             </div>
             <div class="col-lg-6">
@@ -969,7 +969,7 @@ de Igrejas descomplicada!</h2>		</div>
     </style>
     <div class="container">
         <div class="erp_action_content text-center">
-            <img width="250" height="173" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/rocket.png" class="attachment-full size-full" alt="" loading="lazy" />                            <h3 class="saasland_c2a_s">Experimente uma maneira mais inteligente de gerenciar sua Igreja.</h3>
+            <img width="250" height="173" src="https://demo.deskapp.online/wp-content/uploads/2019/07/rocket.png" class="attachment-full size-full" alt="" loading="lazy" />                            <h3 class="saasland_c2a_s">Experimente uma maneira mais inteligente de gerenciar sua Igreja.</h3>
                         <p>Plataforma simples, desenvolvido com muito <span> amor </span> </p>
                             <a href="https://www.deskapp.online/contato/" class="er_btn er_btn_two"
                     >
@@ -1005,7 +1005,7 @@ de Igrejas descomplicada!</h2>		</div>
 								<div class="elementor-element elementor-element-164ecd79 elementor-widget elementor-widget-image" data-id="164ecd79" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
 																<a href="#">
-							<img width="359" height="81" src="https://www.deskapp.online/demo/wp-content/uploads/2022/01/coreui-base-white.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://www.deskapp.online/demo/wp-content/uploads/2022/01/coreui-base-white.png 359w, https://www.deskapp.online/demo/wp-content/uploads/2022/01/coreui-base-white-300x68.png 300w" sizes="(max-width: 359px) 100vw, 359px" />								</a>
+							<img width="359" height="81" src="https://demo.deskapp.online/wp-content/uploads/2022/01/coreui-base-white.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://demo.deskapp.online/wp-content/uploads/2022/01/coreui-base-white.png 359w, https://demo.deskapp.online/wp-content/uploads/2022/01/coreui-base-white-300x68.png 300w" sizes="(max-width: 359px) 100vw, 359px" />								</a>
 															</div>
 				</div>
 				<div class="elementor-element elementor-element-4ea44ec5 elementor-widget elementor-widget-heading" data-id="4ea44ec5" data-element_type="widget" data-widget_type="heading.default">
@@ -1083,7 +1083,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-f269b48 elementor-widget elementor-widget-image" data-id="f269b48" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="80" height="82" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/women.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="80" height="82" src="https://demo.deskapp.online/wp-content/uploads/2019/07/women.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 					</div>
 		</div>
@@ -1091,7 +1091,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-14d23950 elementor-widget elementor-widget-image" data-id="14d23950" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="309" height="144" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/people.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="309" height="144" src="https://demo.deskapp.online/wp-content/uploads/2019/07/people.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 					</div>
 		</div>
@@ -1099,7 +1099,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-1edf522b elementor-widget elementor-widget-image" data-id="1edf522b" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="55" height="120" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/man.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="55" height="120" src="https://demo.deskapp.online/wp-content/uploads/2019/07/man.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 					</div>
 		</div>
@@ -1111,7 +1111,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-7fdaba1e elementor-widget elementor-widget-image" data-id="7fdaba1e" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="233" height="231" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/leaf-left.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="233" height="231" src="https://demo.deskapp.online/wp-content/uploads/2019/07/leaf-left.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 					</div>
 		</div>
@@ -1119,7 +1119,7 @@ de Igrejas descomplicada!</h2>		</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-182c3e62 elementor-widget elementor-widget-image" data-id="182c3e62" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img width="251" height="252" src="https://www.deskapp.online/demo/wp-content/uploads/2019/07/leaf-right.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
+															<img width="251" height="252" src="https://demo.deskapp.online/wp-content/uploads/2019/07/leaf-right.png" class="attachment-full size-full" alt="" loading="lazy" />															</div>
 				</div>
 					</div>
 		</div>
@@ -1185,7 +1185,7 @@ de Igrejas descomplicada!</h2>		</div>
 			document.body.className = c;
 		})();
 	</script>
-	<link rel='stylesheet' id='rs-plugin-settings-css'  href='https://www.deskapp.online/demo/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.12' type='text/css' media='all' />
+	<link rel='stylesheet' id='rs-plugin-settings-css'  href='https://demo.deskapp.online/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.12' type='text/css' media='all' />
 <style id='rs-plugin-settings-inline-css' type='text/css'>
 #rs-demo-id {}
 </style>
@@ -1196,25 +1196,25 @@ var dlAddons = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.p
 var dlAddons = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","admin_url":"https:\/\/www.deskapp.online\/wp-admin\/post.php","wp_nonce":"18fc4e628b"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/modules/widgets/widgets.js?ver=3.0.7' id='dlAddons-widgets-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/modules/widgets/widgets.js?ver=3.0.7' id='dlAddons-widgets-js'></script>
 <script type='text/javascript' id='drth-theme-script-js-extra'>
 /* <![CDATA[ */
 var dlth_theme = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","admin_url":"https:\/\/www.deskapp.online\/wp-admin\/post.php","wp_nonce":"e64b058779","dl_pro":"no"};
 var dlth_theme = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","admin_url":"https:\/\/www.deskapp.online\/wp-admin\/post.php","wp_nonce":"e64b058779","dl_pro":"no"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/widgets/widgets.js?ver=1.0.0' id='drth-theme-script-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/owl_carousel/js/owl.carousel.min.js?ver=3.0.7' id='owl-carousel-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/parallax/parallax_move.js?ver=3.0.7' id='jquery-parallax-move-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js?ver=3.0.7' id='jquery-imagesloaded-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/isotop/isotope.pkgd.min.js?ver=3.0.7' id='jquery-isotope-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/isotop/packery-mode.pkgd.min.js?ver=3.0.7' id='isotope-mode-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/masonry/masonry_grid.js?ver=3.0.7' id='jquery-masonary-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/countdown/countdown.min.js?ver=3.0.7' id='countdown-jquery-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/assets/vendor/goodshare/goodshare.min.js?ver=3.0.7' id='dl-goodshare-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/wow/wow.min.js?ver=1.1.3' id='wow-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/js/appart-custom.js?ver=1.0.0' id='appart-custom-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/js/main.js?ver=1.0' id='saasland-main-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/widgets/widgets.js?ver=1.0.0' id='drth-theme-script-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/owl_carousel/js/owl.carousel.min.js?ver=3.0.7' id='owl-carousel-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/parallax/parallax_move.js?ver=3.0.7' id='jquery-parallax-move-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js?ver=3.0.7' id='jquery-imagesloaded-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/isotop/isotope.pkgd.min.js?ver=3.0.7' id='jquery-isotope-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/isotop/packery-mode.pkgd.min.js?ver=3.0.7' id='isotope-mode-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/masonry/masonry_grid.js?ver=3.0.7' id='jquery-masonary-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/countdown/countdown.min.js?ver=3.0.7' id='countdown-jquery-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/assets/vendor/goodshare/goodshare.min.js?ver=3.0.7' id='dl-goodshare-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/wow/wow.min.js?ver=1.1.3' id='wow-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/js/appart-custom.js?ver=1.0.0' id='appart-custom-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/js/main.js?ver=1.0' id='saasland-main-js'></script>
 <script type='text/javascript' src='https://www.deskapp.online/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
 <script type='text/javascript' src='https://www.deskapp.online/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
 <script type='text/javascript' id='contact-form-7-js-extra'>
@@ -1222,60 +1222,60 @@ var dlth_theme = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax
 var wpcf7 = {"api":{"root":"https:\/\/www.deskapp.online\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.3' id='contact-form-7-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.12' defer async id='tp-tools-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.12' defer async id='revmin-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.1.0' id='jquery-blockui-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.3' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.12' defer async id='tp-tools-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.12' defer async id='revmin-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.1.0' id='jquery-blockui-js'></script>
 <script type='text/javascript' id='wc-add-to-cart-js-extra'>
 /* <![CDATA[ */
 var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"Ver carrinho","cart_url":"https:\/\/www.deskapp.online\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.1.0' id='wc-add-to-cart-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.1.0' id='js-cookie-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.1.0' id='wc-add-to-cart-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.1.0' id='js-cookie-js'></script>
 <script type='text/javascript' id='woocommerce-js-extra'>
 /* <![CDATA[ */
 var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.1.0' id='woocommerce-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.1.0' id='woocommerce-js'></script>
 <script type='text/javascript' id='wc-cart-fragments-js-extra'>
 /* <![CDATA[ */
 var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_9860cbf39990e88c447c5dff7dc86806","fragment_name":"wc_fragments_9860cbf39990e88c447c5dff7dc86806","request_timeout":"5000"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.1.0' id='wc-cart-fragments-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.1.0' id='wc-cart-fragments-js'></script>
 <script type='text/javascript' id='dtdr-public-js-extra'>
 /* <![CDATA[ */
 var dtdr_settings = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","mode":"no","default":"no","colorset":"dtdr-color-1","excludes":".elementor-element-96b7769,.payment_subscribe_area,.fa-square-full,.elementor-element-d790e07,.elementor-element-492c50d7,.elementor-element-25d2e7ef,.seo_subscribe_area,.elementor-element-f0e122b,\n        .elementor-element-3e8897b8,.event_fact_area,.elementor-element-5e50f29,.elementor-element-b559489,.elementor-element-15ad15c,.elementor-element-75680c7,.elementor-element-63f753f,.event_counter_area,\n        .elementor-element-2a9c3c71,.elementor-element-2dc118c5,.elementor-element-5e50f29,.elementor-element-69fe35f6,.elementor-element-393d09f5,.elementor-element-1c5d369e,.elementor-element-421e0a96,\n        .elementor-element-6a148c1b,.elementor-element-369b3189,.elementor-element-2272ca1,.elementor-element-3e4b2238,.elementor-element-1687a0f9,.chat_banner_area,.elementor-element-1b91cbf9,.elementor-element-65319702,\n        .elementor-element-79065f55,.elementor-element-68cd60d7,.elementor-element-177485dd,.elementor-element-16c59298,.elementor-element-88150c6,.elementor-element-8889fe0,.agency_about_area,.agency_service_area,\n        .saas_subscribe_area,.saas_banner_area_two,.elementor-element-96a0b1e,.elementor-element-5198db7,.elementor-element-61f187f0,.elementor-element-154e509,.elementor-element-6bbdf4a,.elementor-element-089a520,\n        .app_contact_info,.agency_banner_area,.agency_featured_area,.elementor-element-3685c3af,.software_featured_area_two,.develor_tab,.new_footer_area,.startup_banner_area_three,.prototype_service_area_three,\n        .elementor-element-2dc6c22,.elementor-element-1b6704a,.elementor-element-c111eff,.new_startup_banner_area,.startup_fuatures_area,.elementor-element-d60283f,.saas_home_area,.elementor-element-c5cfee8,\n        .service_promo_area,.software_promo_area,.s_pricing_area,.s_subscribe_area,.subscribe_form_info,.elementor-element-7372b32a,.elementor-element-9fcfbbb,.elementor-element-86f1bd1,.elementor-element-d9a857c,\n        .saas_banner_area_three,.appart_new_banner_area,.elementor-element-60537845,.elementor-element-9e96f98,.feedback_area_three,.elementor-element-1c0f015,.elementor-element-30d74b9,.elementor-element-0078a5a,\n        .elementor-element-83eb6bc,.pos_banner_area,.ticket_area,.hosting_service_area,.pos_features_area,.elementor-element-5bf26c1,.elementor-element-3685adb5,.elementor-element-4f0d0925,.elementor-element-233ef45,\n        .elementor-element-4be95fd0,.elementor-element-ea3389b,.elementor-element-578bd8f3,.elementor-element-6d9844b1,.elementor-element-7477c0d2,.erp_testimonial_area,.erp_call_action_area,.domain_search_area,\n        .elementor-element-440736a0,.h_price_inner,.h_map_area,.h_action_area_three,.setup_inner,.elementor-element-62302636,.elementor-element-6e00835f,.elementor-element-1df306e6,.support_home_area,\n        .elementor-element-4cb58c8c,.support_price_area,.elementor-element-1c70dea4,.support_subscribe_area,.ms-section,.payment_features_area,.payment_clients_area,.payment_testimonial_area,.elementor-element-e624efd,\n        .saas_featured_area .container,.saas_signup_area,.startup_tab,.home_portfolio_fullwidth_area,.elementor-element-72e96bb0,.elementor-element-76ec935e,.elementor-element-76ec935e,.showcase_slider,\n        .elementor-element-647be688,.slider_section,.elementor-element-4ceec16f,.elementor-element-35e521d2,.elementor-element-29b5685c,.banner_section,.gadget_slider_area,.shop_featured_gallery_area,\n        .shop_product_area,.elementor-element-3f6a6273,.elementor-element-15fa1363,.elementor-element-64bad0a2,.elementor-element-6d92806e,.gadget_about_area,.gadget_product_area,.elementor-element-330a53f0,\n        .faq_area,.mega_menu_three,.banner_area,.fun_fact_area,.best_screen_features_area,.about_area,.faq_solution_area,.app-deatails-area,.priceing_area_four,.elementor-image,.portfolio_area,\n        .payment_service_area,.elementor-element-2b7bf50e,.elementor-element-7bc1049c,.elementor-element-06a4835,.elementor-element-3b8d9d9,.elementor-element-72beac71,.elementor-element-8ae3204,.elementor-element-e42516c,\n        .elementor-element-3caa3f64,.get_started_section,.elementor-element-d17cecb,.saas_features_area_three,.elementor-element-f707144,.elementor-element-e9cc02f,.payment_priceing_area,.price_tab,.elementor-element-734ed1a3,\n        .mega_menu_inner","includes":".home_analytics_banner_area,.elementor-element-3150572f","replace":"[]"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-dark-mode/assets/scripts/public.min.js?ver=1.0.7' id='dtdr-public-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/droit-elementor-addons/modules/sticky/js/sticky.js?ver=3.0.7' id='dl-sticky-js-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-dark-mode/assets/scripts/public.min.js?ver=1.0.7' id='dtdr-public-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/droit-elementor-addons/modules/sticky/js/sticky.js?ver=3.0.7' id='dl-sticky-js-js'></script>
 <script type='text/javascript' src='https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js?ver=2.1.0' id='lord-icon-js'></script>
 <script type='text/javascript' id='tinvwl-js-extra'>
 /* <![CDATA[ */
 var tinvwl_add_to_wishlist = {"text_create":"Criar novo","text_already_in":"{product_name} already in Wishlist","simple_flow":"","hide_zero_counter":"","i18n_make_a_selection_text":"Selecione algumas op\u00e7\u00f5es de produtos antes de adicionar este produto \u00e0 sua lista de desejos.","tinvwl_break_submit":"Nenhum item ou a\u00e7\u00e3o est\u00e1 selecionado.","tinvwl_clipboard":"Copiado!","allow_parent_variable":"","block_ajax_wishlists_data":"","update_wishlists_data":"","hash_key":"ti_wishlist_data_9860cbf39990e88c447c5dff7dc86806","nonce":"e48cf0b249","rest_root":"https:\/\/www.deskapp.online\/wp-json\/","plugin_url":"https:\/\/www.deskapp.online\/wp-content\/plugins\/ti-woocommerce-wishlist\/"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/ti-woocommerce-wishlist/assets/js/public.min.js?ver=1.30.0' id='tinvwl-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/effect/assets/anime.min.js?ver=1.0.0' id='anime-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/effect/assets/scripts.js?ver=1.0.0' id='anime-script-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/js/saasland-dark-support.js?ver=1.0' id='saasland-dark-support-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/js/propper.js?ver=1.0' id='propper-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/js/bootstrap.min.js?ver=4.1.2' id='bootstrap-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/vendors/sckroller/jquery.parallax-scroll.js?ver=1.0' id='parallax-scroll-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/magnify-pop/jquery.magnific-popup.min.js?ver=1.1.0' id='magnific-popup-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/vendors/scroll/jquery.mCustomScrollbar.concat.min.js?ver=3.1.13' id='mCustomScrollbar-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/ti-woocommerce-wishlist/assets/js/public.min.js?ver=1.30.0' id='tinvwl-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/effect/assets/anime.min.js?ver=1.0.0' id='anime-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/controls/sections/effect/assets/scripts.js?ver=1.0.0' id='anime-script-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/js/saasland-dark-support.js?ver=1.0' id='saasland-dark-support-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/js/propper.js?ver=1.0' id='propper-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/js/bootstrap.min.js?ver=4.1.2' id='bootstrap-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/vendors/sckroller/jquery.parallax-scroll.js?ver=1.0' id='parallax-scroll-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/magnify-pop/jquery.magnific-popup.min.js?ver=1.1.0' id='magnific-popup-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/vendors/scroll/jquery.mCustomScrollbar.concat.min.js?ver=3.1.13' id='mCustomScrollbar-js'></script>
 <script type='text/javascript' id='saasland-custom-wp-js-extra'>
 /* <![CDATA[ */
 var local_strings = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","theme_directory":"https:\/\/www.deskapp.online\/wp-content\/themes\/saasland"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/themes/saasland/assets/js/custom-wp.js?ver=1.0' id='saasland-custom-wp-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.5.3' id='elementor-webpack-runtime-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.5.3' id='elementor-frontend-modules-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/themes/saasland/assets/js/custom-wp.js?ver=1.0' id='saasland-custom-wp-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.5.3' id='elementor-webpack-runtime-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.5.3' id='elementor-frontend-modules-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js'></script>
 <script type='text/javascript' src='https://www.deskapp.online/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js'></script>
 <script type='text/javascript' id='elementor-frontend-js-extra'>
 /* <![CDATA[ */
@@ -1285,7 +1285,7 @@ var dlLottie = {"lottie_url":"https:\/\/www.deskapp.online\/wp-content\/plugins\
 <script type='text/javascript' id='elementor-frontend-js-before'>
 var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Celular","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Celular extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.5.3","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"e_import_export":true,"additional_custom_breakpoints":true,"e_hidden_wordpress_widgets":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true},"urls":{"assets":"https:\/\/www.deskapp.online\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":4917,"title":"Kirk%20-%20Gest%C3%A3o%20de%20Igrejas","excerpt":"","featuredImage":false}};
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.5.3' id='elementor-frontend-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.5.3' id='elementor-frontend-js'></script>
 <script type='text/javascript' id='elementor-frontend-js-after'>
 window.scopes_array = {};
                 window.backend = 0;
@@ -1337,7 +1337,7 @@ window.scopes_array = {};
                     jQuery.cachedAssets( url );
                 });	
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/inc/parallax/assets/js/scripts.js?ver=1.0.0' id='dladdons-parallax-section-init-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/inc/parallax/assets/js/scripts.js?ver=1.0.0' id='dladdons-parallax-section-init-js'></script>
 <script type='text/javascript' src='https://www.deskapp.online/wp-includes/js/underscore.min.js?ver=1.13.1' id='underscore-js'></script>
 <script type='text/javascript' id='wp-util-js-extra'>
 /* <![CDATA[ */
@@ -1350,13 +1350,13 @@ var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
 var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/wpforms-lite/assets/js/integrations/elementor/frontend.min.js?ver=1.7.2' id='wpforms-elementor-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/wpforms-lite/assets/js/integrations/elementor/frontend.min.js?ver=1.7.2' id='wpforms-elementor-js'></script>
 <script type='text/javascript' id='dlpro-editor-js-extra'>
 /* <![CDATA[ */
 var dlproeditor = {"ajax_url":"https:\/\/www.deskapp.online\/wp-admin\/admin-ajax.php","posturl":"https:\/\/www.deskapp.online\/wp-admin\/post.php","nonce":"05043aa847"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/editor/js/editor-popup.js?ver=1.0.0' id='dlpro-editor-js'></script>
-<script type='text/javascript' src='https://www.deskapp.online/demo/wp-content/plugins/saasland-core/assets/js/saasland-elementor.js?ver=1.0' id='saasland-elementor-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/widgets/pro-widgets/droit-pro/elementor/editor/js/editor-popup.js?ver=1.0.0' id='dlpro-editor-js'></script>
+<script type='text/javascript' src='https://demo.deskapp.online/wp-content/plugins/saasland-core/assets/js/saasland-elementor.js?ver=1.0' id='saasland-elementor-js'></script>
 </body>
 </html>
