@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\EventConfirm;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\CancelEvent;
+use Illuminate\Support\Facades\Notification as FacadesNotification;
 
 class FullCalenderController extends Controller
 {
@@ -214,6 +216,18 @@ class FullCalenderController extends Controller
         $event->delete();
         //adicionar log
         $this->adicionar_log('18', 'D', $event);
+
+        //teste
+        $details = [
+            'greeting' => 'Hi Artisan',
+            'body' => 'This is my first notification from ItSolutionStuff.com',
+            'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+            'actionText' => 'View My Site',
+            'actionURL' => url('/'),
+            'order_id' => 101
+        ];
+  
+        FacadesNotification::send($user, new CancelEvent($details));
 
         $request->session()->flash('danger', 'Presença retirada');
         return redirect()->route('indexEventos');

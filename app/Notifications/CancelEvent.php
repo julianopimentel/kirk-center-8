@@ -3,26 +3,28 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
-use App\Models\EmailTemplate;
 
 
-class WelcomeEmail extends Notification
+class CancelEvent extends Notification
 {
     use Queueable;
 
+  
+    private $details;
+   
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
-
+   
     /**
      * Get the notification's delivery channels.
      *
@@ -31,9 +33,10 @@ class WelcomeEmail extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
-
+   
+   
     /**
      * Get the mail representation of the notification.
      *
@@ -43,23 +46,21 @@ class WelcomeEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject("Bem-vindo a plataforma Kirk")
-            ->greeting('Bem-vindo a Igreja Digital!')
-            ->line('Sua conta foi criada, porém ainda não possui vinculo com nenhuma instituição.')
-            ->line('Vincule o seu acesso pelo o Pré-cadastro a sua Igreja.')
-            ->action('Acessar', url('/'));
+                    ->greeting($this->details['greeting'])
+                    ->line($this->details['body'])
+                    ->action($this->details['actionText'], $this->details['actionURL'])
+                    ->line($this->details['thanks']);
     }
-
     /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    public function toDatabase($notifiable)
     {
         return [
-            //
+            'order_id' => $this->details['order_id']
         ];
     }
 }
