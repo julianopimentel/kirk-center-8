@@ -115,8 +115,8 @@
                     <a class="navbar-brand" href="/">
                         <img src="site/assets/img/coreui-base-white-228x81.png" class="logo logo-display" alt="Logo"
                             width="140" height="60">
-                        <img src="site/assets/img/coreui-base-white-228x81.png" class="logo logo-scrolled" alt="Logo"
-                            width="120" height="60">
+                        <img src="site/assets/img/logo.png" class="logo logo-scrolled" alt="Logo"
+                            width="130" height="80">
                     </a>
                 </div>
                 <!-- End Header Navigation -->
