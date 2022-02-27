@@ -30,10 +30,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
                     <div class="dropdown-header bg-light py-2"><strong>{{ __('layout.account') }}</strong></div>
-                    <a class="dropdown-item" href="/updates">
-                        <svg class="c-icon mr-2">
-                            <use xlink:href="{{ url('/icons/sprites/free.svg#cil-bell') }}"></use>
-                        </svg> {{ __('layout.news') }}<span class="badge badge-info ml-auto">42</span></a>
                     <a class="dropdown-item" href="{{ route('profile.index') }}">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-user') }}"></use>
@@ -54,7 +50,13 @@
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-history') }}"></use>
                             </svg>{{ __('layout.aud') }}</a>
                     @endif
-                    <div class="dropdown-divider"></div>
+                    @if (($appPermissao->settings_general or $appPermissao->settings_email or $appPermissao->settings_meta or $appPermissao->settings_social or $appPermissao->settings_roles) == true)
+                    <a class="dropdown-item" href="{{ route('settings') }}">
+                        <svg class="c-icon mr-2">
+                          <use xlink:href="{{ url('/icons/sprites/free.svg#cil-settings') }}"></use>
+                        </svg> {{ __('layout.configuration') }}</a>
+                        @endif
+                        <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('account.index') }}">
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>

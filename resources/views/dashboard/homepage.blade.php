@@ -205,8 +205,9 @@
                             </div>
                         </div>
                         @if ($meta->fin_dizimo_ano !== 0)
-                            <hr class="divider">
-                            <div class="card-footer">
+                        <div class="card-footer">
+                            <div class="row text-center">
+                              <div class="col-sm-12 col-md mb-sm-2 mb-0">
                                 <div class="small text-muted">Financeiro x Meta Anual</div>
                                 <div class="row text-center">
                                     <div class="col-sm-12 col-md mb-sm-2 mb-0">
@@ -267,6 +268,8 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                        </div>
                         @endif
                     </div>
                     <!-- /.card-->

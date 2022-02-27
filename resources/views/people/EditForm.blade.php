@@ -21,7 +21,7 @@
                                 </li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes"
                                         role="tab" aria-controls="notes"><i
-                                            class="c-icon c-icon-sm cil-notes text-dark"></i>Anotações</a>
+                                            class="c-icon c-icon-sm cil-fork text-dark"></i> Anotações</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#acesso"
                                         role="tab" aria-controls="acesso"><i

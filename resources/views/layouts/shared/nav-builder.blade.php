@@ -84,7 +84,7 @@
     @if ($appPermissao->view_media == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('media.folder.index') }}">
-            <i class="c-icon cil-cloud c-sidebar-nav-icon"></i>
+            <i class="c-icon cil-folder c-sidebar-nav-icon"></i>
             {{ __('layout.documents') }}</a>
     </li>
     @endif
@@ -105,14 +105,14 @@
     @if ($appPermissao->home_eventos == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('indexEventos') }}">
-            <i class="c-icon cil-calendar c-sidebar-nav-icon"></i>
+            <i class="c-icon cil-calendar-check c-sidebar-nav-icon"></i>
             {{ __('layout.events') }}</a>
     </li>
     @endif
     @if ($appPermissao->home_dados == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('indexDados') }}">
-            <i class="c-icon cil-user c-sidebar-nav-icon"></i>
+            <i class="c-icon cil-tag c-sidebar-nav-icon"></i>
             {{ __('layout.my_data') }}</a>
     </li>
     @endif
@@ -132,13 +132,6 @@
                 <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
                         href="{{ route('financial.Financial') }}"><span class="c-sidebar-nav-icon"></span>{{ __('layout.report_financial') }}</a></li>
             </ul>
-        </li>
-    @endif
-    @if (($appPermissao->settings_general or $appPermissao->settings_email or $appPermissao->settings_meta or $appPermissao->settings_social or $appPermissao->settings_roles) == true)
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('settings') }}">
-                <i class="c-icon cil-settings c-sidebar-nav-icon"></i>
-                {{ __('layout.configuration') }}</a>
         </li>
     @endif
 </ul>

@@ -88,7 +88,7 @@
                         <div class="item">
                             <div class="icon">
                                 <span>01</span>
-                                <i class="flaticon-drag-2"></i>
+                                <i class="flaticon-software"></i>
                             </div>
                             <div class="info">
                                 <h4>Completo, não complexo</h4>
@@ -109,7 +109,7 @@
                         <div class="item">
                             <div class="icon">
                                 <span>02</span>
-                                <i class="flaticon-software"></i>
+                                <i class="c-icon cil-cloud-upload"></i>
                             </div>
                             <div class="info">
                                 <h4>Nas nuvens</h4>
@@ -130,6 +130,8 @@
                         <div class="item">
                             <div class="icon">
                                 <span>03</span>
+                                <i class="cib-react"></i>
+
                                 <i class="flaticon-rgb"></i>
                             </div>
                             <div class="info">
@@ -151,7 +153,7 @@
                         <div class="item">
                             <div class="icon">
                                 <span>04</span>
-                                <i class="flaticon-video"></i>
+                                <i class="flaticon-develop"></i>
                             </div>
                             <div class="info">
                                 <h4>Com a cara da sua Igreja</h4>
@@ -172,7 +174,7 @@
                         <div class="item">
                             <div class="icon">
                                 <span>05</span>
-                                <i class="flaticon-develop"></i>
+                                <i class="c-icon cil-lock-locked"></i>
                             </div>
                             <div class="info">
                                 <h4>Seus dados estão seguro com a gente</h4>
@@ -193,7 +195,7 @@
                         <div class="item">
                             <div class="icon">
                                 <span>06</span>
-                                <i class="flaticon-support"></i>
+                                <i class="c-icon cil-airplane-mode"></i>
                             </div>
                             <div class="info">
                                 <h4>Gestão de onde você estiver</h4>

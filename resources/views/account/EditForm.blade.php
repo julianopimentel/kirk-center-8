@@ -18,16 +18,19 @@
                                         <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Dados da Conta</a>
+                                                    role="tab" aria-controls="home" aria-selected="true"><i
+                                                    class="c-icon cil-building"></i>  Dados da Conta</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab"
                                                     href="#address" role="tab" aria-controls="profile"
-                                                    aria-selected="false">Localidade</a>
+                                                    aria-selected="false"><i
+                                                    class="c-icon cil-location-pin"></i>  Localidade</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab5" data-toggle="tab" href="#share"
-                                                    role="tab" aria-controls="share" aria-selected="false">Compartilhar</a>
+                                                    role="tab" aria-controls="share" aria-selected="false"><i
+                                                    class="c-icon cil-qr-code"></i> Compartilhar</a>
                                             </li>
                                         </ul>
                                     </div>

@@ -17,12 +17,14 @@
                                         <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Home</a>
+                                                    role="tab" aria-controls="home" aria-selected="true"><i
+                                                    class="c-icon cil-building"></i> Home</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab"
                                                     href="#address" role="tab" aria-controls="profile"
-                                                    aria-selected="false">Localização</a>
+                                                    aria-selected="false"><i
+                                                    class="c-icon cil-location-pin"></i> Localização</a>
                                             </li>
                                         </ul>
                                     </div>
