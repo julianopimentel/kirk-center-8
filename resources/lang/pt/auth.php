@@ -32,7 +32,7 @@ return [
     'back' => 'Voltar',
     'reset_password' => 'Redefinir senha',
     'reset_frase_1' => 'Enviaremos um link para redefinir sua senha',
-    'reset_frase_2' => 'Enviaremos um link para redefinir sua senha',
+    'reset_frase_2' => 'Redefina sua senha',
     'forget_password' => 'Esqueceu a senha?',
     
     
