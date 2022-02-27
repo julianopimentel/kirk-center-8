@@ -14,15 +14,35 @@ class WelcomeController extends Controller
      */
     public function welcome(Request $request)
     {
-        if($this->middleware('user')){
+        if (Auth()->check()) {
             //se nao selecionou a conta retornar para a selecao da conta
-            if (($request->session()->get('schema')) === null)
-            return redirect()->route('account.index');
+            if (($request->session()->get('key')) === null)
+                return redirect()->route('account.index');
             else
-            //se tiver, volta para a tela do home
-            return redirect()->route('account.index');
+            if ($this->middleware('user')) {
+                return redirect()->route('home.index');
+            } else
+                //se tiver, volta para a tela do home
+                return redirect()->route('login');
         }
-        //se não carregar o login
-        return view('login');
+        else
+        return view('site.welcome');
+    }
+
+    public function terms()
+    {
+        return view('site.terms');
+    }
+    public function privacy()
+    {
+        return view('site.privacy');
+    }
+    public function contato()
+    {
+        return view('site.contato');
+    }
+    public function features()
+    {
+        return view('site.features');
     }
 }

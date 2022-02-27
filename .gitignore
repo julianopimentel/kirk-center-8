@@ -42,3 +42,4 @@ composer.lock
 composer.json
 composer.lock
 config/app.php
+public/demo/
