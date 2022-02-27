@@ -682,7 +682,7 @@
                                                             <div class="v-text-align"
                                                                 style="color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;">
-                                                                    contato@deskapp.online
+                                                                     {{ contato () }}
                                                                 </p>
                                                             </div>
                                                         </td>
@@ -700,7 +700,7 @@
                                                                 style="color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 19.6px;">Copyright
-                                                                        &copy; 2022 DeskApps. All Rights
+                                                                        &copy;  {{ date('Y') }} DeskApps. All Rights
                                                                         Reserved.</span>
                                                                 </p>
                                                             </div>

@@ -682,7 +682,7 @@
                                                             <div class="v-text-align"
                                                                 style="color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;">
-                                                                    contato@deskapp.online
+                                                                     {{ contato () }}
                                                                 </p>
                                                             </div>
                                                         </td>
