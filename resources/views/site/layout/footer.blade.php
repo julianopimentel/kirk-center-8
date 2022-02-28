@@ -6,21 +6,21 @@
                 <div class="f-items">
                     <div class="col-md-4 col-sm-6 equal-height item">
                         <div class="f-item">
-                            <img src="site/assets/img/logo.png" alt="Logo">
+                            <img src="{{ asset('site/assets/img/logo.png')}}" alt="Logo">
                             <p>
-                                <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-2678399"
-                                    href="https://www.instagram.com/kirk.digital/" target="_blank">
-                                    <span class="elementor-screen-only">Instagram</span>
-                                    <i class="fab fa-instagram"></i> </a>
+                                <a href="https://www.instagram.com/kirk.digital/" target="_blank">
+                                 <i class="fab fa-instagram"></i>
+                                    </a>
                             </p>
                             <p>
                                 <i>Por favor, escreva seu e-mail e receba nossas incríveis atualizações, notícias e
                                     suporte</i>
                             </p>
                             <div class="newsletter">
-                                <form action="#">
+                                <form action="{{ route('adicionar.newsletter') }}" method="post">
+                                    @csrf
                                     <div class="input-group stylish-input-group">
-                                        <input type="email" name="email" class="form-control"
+                                        <input type="email" name="user_email"  id="exampleInputEmail" class="form-control"
                                             placeholder="Enter your e-mail here">
                                         <button type="submit">
                                             <i class="fa fa-paper-plane"></i>

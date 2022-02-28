@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-
+//site
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 Route::get('terms', 'WelcomeController@terms')->name('terms');
 Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
@@ -27,7 +27,12 @@ Route::get('contato', 'WelcomeController@contato')->name('contato');
 Route::get('features', 'WelcomeController@features')->name('features');
 Route::get('blog', 'WelcomeController@blog')->name('blog');
 
+//inscrever no newsletter
+Route::post('subscribe', 'WelcomeController@adicionarnewsletter')->name('adicionar.newsletter');
+Route::get('unsubscribe', 'WelcomeController@removenewsletter')->name('remove.newsletter');
+Route::post('newsletter/delete', 'WelcomeController@deletenewsletter')->name('delete.newsletter');
 
+//compartilhamento do qr code + cadastro
 Route::get('/share/{id}', 'WizardCustomController@index')->name('wizardCustom.index');
 Route::get('share', 'WizardCustomController@create')->name('wizardCustom.create');
 Route::post('share', 'WizardCustomController@store')->name('wizardCustom.store');
@@ -39,13 +44,17 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('/error', function () {
         return view('errors.404');
     });
-    Route::get('/updates', function () {
-        return view('updates');
-    });
+
+    //custom logout
     Route::get('logout', 'LogoutController@perform')->name('logout.perform');
 
+    //mural de recado
     Route::resource('message', 'NotesController');
+
+    ///oracao
     Route::resource('prayer', 'Requests_PrayerController');
+
+    //estudo
     Route::resource('sermons', 'SermonsController');
     Route::get('sermons/category/{id}', 'SermonsController@indexCategory')->name('sermons.indexCategory');
     Route::get('category/sermons', 'SermonsController@showCategory')->name('sermons.showCategory');
@@ -54,8 +63,6 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::post('sermons/comment/{post}', 'SermonsController@storecomentario')->name('sermons.storecomentario');
     Route::get('/sermons/comment/{id}', [SermonsController::class, 'getArticles']);
 
-
-
     //para pegar a localizacao via ajax
     Route::post('api/fetch-states', [LocalidadeController::class, 'fetchState']);
     Route::post('api/fetch-cities', [LocalidadeController::class, 'fetchCity']);
@@ -63,10 +70,10 @@ Route::group(['middleware' => ['role:user']], function () {
     // account e tenant
     Route::post('/tenant/{id}', 'TenantController@tenant')->name('tenant');
     Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
-
     Route::resources([
         'account' => InstitutionsController::class,
     ]);
+
     //profile
     Route::get('profile', 'ProfileController@index')->name('profile.index');
     Route::post('profile/update', 'ProfileController@updateProfile')->name('profile.update');
@@ -130,71 +137,70 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::delete('comment/{id}', 'CommentController@destroy')->name('comment.destroy');
     Route::get('comment/{id}/edit', 'CommentController@edit')->name('comment.edit');
 
-});
+    //pessoas
+    Route::get('people', 'PeoplesController@index')->name('people.index');
+    Route::get('people/create', 'PeoplesController@create')->name('people.create');
+    Route::post('people', 'PeoplesController@store')->name('people.store');
+    Route::get('people/{id}', 'PeoplesController@show')->name('people.show');
+    Route::get('people/{id}/edit', 'PeoplesController@edit')->name('people.edit');
+    Route::put('people/{id}', 'PeoplesController@update')->name('people.update');
+    Route::any('people-search', 'PeoplesController@searchHistoric')->name('people.search');
+    Route::delete('people/{id}/{user_id}', 'PeoplesController@destroy')->name('people.destroy');
 
-//pessoas
-Route::get('people', 'PeoplesController@index')->name('people.index');
-Route::get('people/create', 'PeoplesController@create')->name('people.create');
-Route::post('people', 'PeoplesController@store')->name('people.store');
-Route::get('people/{id}', 'PeoplesController@show')->name('people.show');
-Route::get('people/{id}/edit', 'PeoplesController@edit')->name('people.edit');
-Route::put('people/{id}', 'PeoplesController@update')->name('people.update');
-Route::any('people-search', 'PeoplesController@searchHistoric')->name('people.search');
-Route::delete('people/{id}/{user_id}', 'PeoplesController@destroy')->name('people.destroy');
+    //pessoas_precadastro
+    Route::get('peopleList', 'Peoples_PrecadastroController@index')->name('peopleList.index');
+    Route::any('peoplesList/{id}', 'Peoples_PrecadastroController@update')->name('peopleList.update');
+    Route::get('peopleList/{id}/edit', 'Peoples_PrecadastroController@edit')->name('peopleList.edit');
+    Route::any('peopleList-search', 'Peoples_PrecadastroController@searchHistoric')->name('peopleList.search');
+    Route::delete('peopleList/{id}', 'Peoples_PrecadastroController@reprovar')->name('peopleList.reprovar');
 
-//pessoas_precadastro
-Route::get('peopleList', 'Peoples_PrecadastroController@index')->name('peopleList.index');
-Route::any('peoplesList/{id}', 'Peoples_PrecadastroController@update')->name('peopleList.update');
-Route::get('peopleList/{id}/edit', 'Peoples_PrecadastroController@edit')->name('peopleList.edit');
-Route::any('peopleList-search', 'Peoples_PrecadastroController@searchHistoric')->name('peopleList.search');
-Route::delete('peopleList/{id}', 'Peoples_PrecadastroController@reprovar')->name('peopleList.reprovar');
+    //grupos
+    Route::get('group', 'GroupsController@index')->name('group.index');
+    Route::get('group/create', 'GroupsController@create')->name('group.create');
+    Route::post('group', 'GroupsController@store')->name('group.store');
+    Route::post('grouppessoa', 'GroupsController@storepeoplegroup')->name('group.storepeoplegroup');
+    Route::get('group/{id}/edit', 'GroupsController@edit')->name('group.edit');
+    Route::get('group/{id}', 'GroupsController@show')->name('group.show');
+    Route::put('group/{id}', 'GroupsController@update')->name('group.update');
+    Route::any('group-search', 'GroupsController@searchHistoric')->name('group.search');
+    Route::delete('group/{id}', 'GroupsController@destroy')->name('group.destroy');
+    Route::delete('group/{id}/delete', 'GroupsController@destroygroup')->name('group.destroygroup');
 
-//grupos
-Route::get('group', 'GroupsController@index')->name('group.index');
-Route::get('group/create', 'GroupsController@create')->name('group.create');
-Route::post('group', 'GroupsController@store')->name('group.store');
-Route::post('grouppessoa', 'GroupsController@storepeoplegroup')->name('group.storepeoplegroup');
-Route::get('group/{id}/edit', 'GroupsController@edit')->name('group.edit');
-Route::get('group/{id}', 'GroupsController@show')->name('group.show');
-Route::put('group/{id}', 'GroupsController@update')->name('group.update');
-Route::any('group-search', 'GroupsController@searchHistoric')->name('group.search');
-Route::delete('group/{id}', 'GroupsController@destroy')->name('group.destroy');
-Route::delete('group/{id}/delete', 'GroupsController@destroygroup')->name('group.destroygroup');
+    //pre-cadastro - wizard
+    Route::get('wizardList', 'WizardController@index')->name('wizard.index');
+    Route::any('wizardList-search', 'WizardController@searchAccount')->name('wizard.search');
+    Route::post('wizard', 'WizardController@store')->name('wizard.store');
+    Route::get('wizard', 'WizardController@create')->name('wizard.create');
+    Route::post('/tenantWizard/{id}', 'WizardController@tenantWizard')->name('tenantWizard');
 
-//pre-cadastro - wizard
-Route::get('wizardList', 'WizardController@index')->name('wizard.index');
-Route::any('wizardList-search', 'WizardController@searchAccount')->name('wizard.search');
-Route::post('wizard', 'WizardController@store')->name('wizard.store');
-Route::get('wizard', 'WizardController@create')->name('wizard.create');
-Route::post('/tenantWizard/{id}', 'WizardController@tenantWizard')->name('tenantWizard');
+    //reports
+    Route::get('report', 'ReportController@index')->name('report.index');
+    Route::any('report/financial/search', 'ReportController@searchFinancial')->name('financialrep.search');
+    Route::get('report/financial', 'ReportController@Financial')->name('financial.Financial');
+    Route::any('report/people/search', 'ReportController@searchPeople')->name('peoplerep.search');
+    Route::get('report/people', 'ReportController@People')->name('people.Financial');
+    Route::any('report/group/search', 'ReportController@searchGroup')->name('grouprep.search');
+    Route::get('report/group', 'ReportController@Group')->name('group.Financial');
+    Route::get('report/peoplelocation', 'ReportController@Location')->name('location.index');
 
-//reports
-Route::get('report', 'ReportController@index')->name('report.index');
-Route::any('report/financial/search', 'ReportController@searchFinancial')->name('financialrep.search');
-Route::get('report/financial', 'ReportController@Financial')->name('financial.Financial');
-Route::any('report/people/search', 'ReportController@searchPeople')->name('peoplerep.search');
-Route::get('report/people', 'ReportController@People')->name('people.Financial');
-Route::any('report/group/search', 'ReportController@searchGroup')->name('grouprep.search');
-Route::get('report/group', 'ReportController@Group')->name('group.Financial');
-Route::get('report/peoplelocation', 'ReportController@Location')->name('location.index');
+    Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
 
-Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
+    Route::prefix('media')->group(function () {
+        Route::get('/',                 'MediaController@index')->name('media.folder.index');
+        Route::get('/folder/store',     'MediaController@folderAdd')->name('media.folder.add');
+        Route::post('/folder/update',   'MediaController@folderUpdate')->name('media.folder.update');
+        Route::get('/folder',           'MediaController@folder')->name('media.folder');
+        Route::post('/folder/move',     'MediaController@folderMove')->name('media.folder.move');
+        Route::post('/folder/delete',   'MediaController@folderDelete')->name('media.folder.delete');;
 
-Route::prefix('media')->group(function () {
-    Route::get('/',                 'MediaController@index')->name('media.folder.index');
-    Route::get('/folder/store',     'MediaController@folderAdd')->name('media.folder.add');
-    Route::post('/folder/update',   'MediaController@folderUpdate')->name('media.folder.update');
-    Route::get('/folder',           'MediaController@folder')->name('media.folder');
-    Route::post('/folder/move',     'MediaController@folderMove')->name('media.folder.move');
-    Route::post('/folder/delete',   'MediaController@folderDelete')->name('media.folder.delete');;
-
-    Route::post('/file/store',      'MediaController@fileAdd')->name('media.file.add');
-    Route::get('/file',             'MediaController@file');
-    Route::post('/file/delete',     'MediaController@fileDelete')->name('media.file.delete');
-    Route::post('/file/update',     'MediaController@fileUpdate')->name('media.file.update');
-    Route::post('/file/move',       'MediaController@fileMove')->name('media.file.move');
-    Route::post('/file/cropp',      'MediaController@cropp');
-    Route::get('/file/copy',        'MediaController@fileCopy')->name('media.file.copy');
+        Route::post('/file/store',      'MediaController@fileAdd')->name('media.file.add');
+        Route::get('/file',             'MediaController@file');
+        Route::post('/file/delete',     'MediaController@fileDelete')->name('media.file.delete');
+        Route::post('/file/update',     'MediaController@fileUpdate')->name('media.file.update');
+        Route::post('/file/move',       'MediaController@fileMove')->name('media.file.move');
+        Route::post('/file/cropp',      'MediaController@cropp');
+        Route::get('/file/copy',        'MediaController@fileCopy')->name('media.file.copy');
+    });
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
@@ -240,7 +246,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('log', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     //cache teste
-    Route::get('/clear-cache-all', function() {
+    Route::get('/clear-cache-all', function () {
         Artisan::call('cache:clear');
         dd("Cache Clear All");
     });

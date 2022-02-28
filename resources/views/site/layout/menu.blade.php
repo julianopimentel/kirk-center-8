@@ -20,9 +20,9 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="site/assets/img/coreui-base-white-228x81.png" class="logo logo-display" alt="Logo"
+                        <img src="{{ asset('site/assets/img/coreui-base-white-228x81.png')}}" class="logo logo-display" alt="Logo"
                             width="140" height="60">
-                        <img src="site/assets/img/logo.png" class="logo logo-scrolled" alt="Logo"
+                        <img src="{{ asset('site/assets/img/logo.png')}}" class="logo logo-scrolled" alt="Logo"
                             width="130" height="80">
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                             <a href="#" class="dropdown-toggle smooth-menu" data-toggle="dropdown">Suporte</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('contato')}}">Contato</a></li>
-                                <li><a href="#">Central de Ajuda</a></li>
+                                <li><a href="/wiki">Central de Ajuda</a></li>
                             </ul>
                         </li>
                     </ul>

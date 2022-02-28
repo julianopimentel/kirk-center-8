@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Spatie\Newsletter\NewsletterFacade as Newsletter;
+
 
 class WelcomeController extends Controller
 {
@@ -24,9 +25,8 @@ class WelcomeController extends Controller
             } else
                 //se tiver, volta para a tela do home
                 return redirect()->route('login');
-        }
-        else
-        return view('site.welcome');
+        } else
+            return view('site.welcome');
     }
 
     public function terms()
@@ -48,5 +48,34 @@ class WelcomeController extends Controller
     public function blog()
     {
         return view('site.blog');
+    }
+
+    public function adicionarnewsletter(Request $request)
+    {
+        if (!Newsletter::isSubscribed($request->user_email)) {
+            Newsletter::subscribe($request->user_email);
+            $request->session()->flash("success", 'Cadastrado com sucesso');
+            return redirect()->back();
+        }
+        else 
+        $request->session()->flash("info", 'Erro interno');
+        return redirect()->back();
+    }
+    //tela para se remover do newsletter
+    public function removenewsletter()
+    {
+        return view('site.removenewsletter');
+    }
+
+    public function deletenewsletter(Request $request)
+    {
+        if (Newsletter::isSubscribed($request->user_email)) {
+            Newsletter::unsubscribe($request->user_email);
+            $request->session()->flash("warning", 'Removido com sucesso');
+            return redirect()->route('welcome');
+        }
+        else 
+        $request->session()->flash("info", 'E-mail não encontrado');
+        return redirect()->back();
     }
 }

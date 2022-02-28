@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://kirk.deskapp.online'),
+    'url' => env('APP_URL', 'https://deskapp.online'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -216,6 +216,7 @@ return [
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
+        'Newsletter' => Spatie\Newsletter\NewsletterServiceProvider::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,

@@ -61,16 +61,22 @@
     </script>
 
     <!-- ========== Start Stylesheet ========== -->
-    <link href="site/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="site/assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="site/assets/css/flaticon-set.css" rel="stylesheet" />
-    <link href="site/assets/css/magnific-popup.css" rel="stylesheet" />
-    <link href="site/assets/css/owl.carousel.min.css" rel="stylesheet" />
-    <link href="site/assets/css/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="site/assets/css/animate.css" rel="stylesheet" />
-    <link href="site/assets/css/bootsnav.css" rel="stylesheet" />
-    <link href="site/style.css" rel="stylesheet">
-    <link href="site/assets/css/responsive.css" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/flaticon-set.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/magnific-popup.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/owl.carousel.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/owl.theme.default.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/animate.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/assets/css/bootsnav.css')}}" rel="stylesheet" />
+    <link href="{{ asset('site/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('site/assets/css/responsive.css')}}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
 
@@ -95,17 +101,11 @@
     ============================================= -->
     <header id="home">
         @include('site.layout.menu')
+        @include("layouts.shared.flash-message")
+        @yield('content')
 
     </header>
 
-    <div class="c-body">
-
-        <main class="c-main">
-            @include('layouts.shared.flash-message')
-            @yield('content')
-
-        </main>
-    </div>
 
     @include('site.layout.footer')
 
@@ -114,19 +114,22 @@
 
     <!-- jQuery Frameworks
     ============================================= -->
-    <script src="site/assets/js/jquery-1.12.4.min.js"></script>
-    <script src="site/assets/js/bootstrap.min.js"></script>
-    <script src="site/assets/js/equal-height.min.js"></script>
-    <script src="site/assets/js/jquery.appear.js"></script>
-    <script src="site/assets/js/jquery.easing.min.js"></script>
-    <script src="site/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="site/assets/js/modernizr.custom.13711.js"></script>
-    <script src="site/assets/js/owl.carousel.min.js"></script>
-    <script src="site/assets/js/count-to.js"></script>
-    <script src="site/assets/js/wow.min.js"></script>
-    <script src="site/assets/js/jquery.backgroundMove.js"></script>
-    <script src="site/assets/js/bootsnav.js"></script>
-    <script src="site/assets/js/main.js"></script>
+    <script src="{{ asset('site/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/equal-height.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/jquery.appear.js') }}"></script>
+    <script src="{{ asset('site/assets/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/modernizr.custom.13711.js') }}"></script>
+    <script src="{{ asset('site/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/count-to.js') }}"></script>
+    <script src="{{ asset('site/assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('site/assets/js/jquery.backgroundMove.js') }}"></script>
+    <script src="{{ asset('site/assets/js/bootsnav.js') }}"></script>
+    <script src="{{ asset('site/assets/js/main.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </body>
 

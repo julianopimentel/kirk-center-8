@@ -16,38 +16,17 @@
                                     Você pode ter na palma de sua mão as informações da membresia de sua igreja, gestão
                                     de grupos ou células, lançamento de entradas e saídas do financeiro.
                                 </p>
-                                <a class="btn circle btn-light border btn-md" href="/features">Conheça</a>
+                                <a class="btn circle btn-light border btn-md" href="{{ route('features')}}">Conheça</a>
                             </div>
                             <!-- Start Form -->
                             <div class="form col-md-6 col-md-offset-3">
                                 <div class="form-info">
-                                    <h4>Criar conta</h4>
                                     <form action="#">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <input class="form-control" placeholder="Name*" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <input class="form-control" placeholder="Email*" type="email">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <input class="form-control" placeholder="Password*" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <button type="submit">
-                                                    Cadastrar grátis
+                                                    Criar conta grátis
                                                 </button>
                                             </div>
                                         </div>
@@ -236,7 +215,7 @@
                             <li>Relatórios avançados</li>
                             <li>Monstre aos membros a movimentação financeira</li>
                         </ul>
-                        <a class="btn circle btn-light border btn-md" href="#">Conheça</a>
+                        <a class="btn circle btn-light border btn-md" href="{{ route('features')}}">Conheça</a>
                     </div>
                     <div class="col-md-6 video">
                         <img src="site/assets/img/financeiro.png" alt="Thumb">
@@ -432,7 +411,7 @@
                         </p>
                         <br>
                         <br>
-                        <a class="btn circle btn-dark border btn-md" href="/contato">Fale com a gente</a>
+                        <a class="btn circle btn-dark border btn-md" href="{{ route('contato')}}">Fale com a gente</a>
                     </div>
                 </div>
             </div>
