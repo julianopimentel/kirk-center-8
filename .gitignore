@@ -32,12 +32,6 @@ server_deploy.sh
 envio_email.sh
 laravel.log
 nohup.out
-composer.lock
-composer.json
-composer.lock
-config/app.php
-config/app.php
-composer.lock
 *.json
 composer.json
 composer.lock
