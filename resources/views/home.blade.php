@@ -19,7 +19,6 @@
 -->
 
 
-
         @if ($precadastro >= 1 and $appPermissao->edit_precadastro == true)
             <div class="card card-accent-success mb-12" style="max-width: 18rem;">
                 <div class="card-body text-success">

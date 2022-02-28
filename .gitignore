@@ -43,3 +43,4 @@ composer.json
 composer.lock
 config/app.php
 public/demo/
+public/wiki/
