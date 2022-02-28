@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 
-class ConfirmEvent extends Notification
+class ConfirmEvent extends Notification implements ShouldQueue
 {
     use Queueable;
 
