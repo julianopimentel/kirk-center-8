@@ -8,11 +8,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 
-class CancelEvent extends Notification
+class AlterarSenha extends Notification
 {
     use Queueable;
 
-  
     private $details;
    
     /**
@@ -51,16 +50,11 @@ class CancelEvent extends Notification
                     ->line($this->details['body'])
                     ->action($this->details['actionText'], $this->details['actionURL']);
     }
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
+
     public function toDatabase($notifiable)
     {
         return [
-            'event_id' => $this->details['event_id']
+            'user_id' => $this->details['user_id']
         ];
     }
 }

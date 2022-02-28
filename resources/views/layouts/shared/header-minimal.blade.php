@@ -25,13 +25,8 @@
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
-                    <a class="dropdown-item">
-                        <svg class="c-icon mr-2">
-                            <use xlink:href="{{ url('/icons/sprites/free.svg#cil-account-logout') }}"></use>
-                        </svg>
-                        <form action="{{ url('/logout') }}" method="POST"> @csrf
-                            <button type="submit" class="dropdown-item">{{ __('layout.logout') }}</button>
-                        </form>
+                    <a href="{{ route('logout.perform') }}" class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt"></i> {{ __('layout.logout') }}
                     </a>
                 </div>
             </li>

@@ -42,6 +42,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('/updates', function () {
         return view('updates');
     });
+    Route::get('logout', 'LogoutController@perform')->name('logout.perform');
+
     Route::resource('message', 'NotesController');
     Route::resource('prayer', 'Requests_PrayerController');
     Route::resource('sermons', 'SermonsController');

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use App\Http\Requests\PassRequest;
+use App\Notifications\AlterarSenha;
+use App\Notifications\DadosPessoas;
+use Illuminate\Support\Facades\Notification;
 
 class ProfileController extends Controller
 {
@@ -54,7 +57,7 @@ class ProfileController extends Controller
     {
         $validatedData = $request->validate([
             'name'       => 'required|min:1|max:256',
-           // 'email' => 'required|email|unique:user,email,' . $this->user->id,
+            // 'email' => 'required|email|unique:user,email,' . $this->user->id,
             'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -95,6 +98,18 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
+        //teste
+        $details = [
+            'subject' => 'Senha alterada - Kirk',
+            'greeting' => 'Olá, ' . auth()->user()->name,
+            'body' => 'Sua senha foi alterada, caso desconheça essa ação, por favor acesse a plataforma agora mesmo e em esqueceu a senha.',
+            'actionText' => 'Esqueci a senha',
+            'actionURL' => url('/password/reset'),
+            'user_id' => auth()->user()->id
+        ];
+
+        Notification::send($user, new AlterarSenha($details));
+
         return redirect()->back()->with('success', 'Senha atualizada!');
     }
 
@@ -130,6 +145,12 @@ class ProfileController extends Controller
             $people->lng = $request->input('lon-span');
         }
         $people->save();
+        //teste
+        $details = [
+            'user_id' => auth()->user()->id
+        ];
+
+        Notification::send(auth()->user(), new DadosPessoas($details));
 
         //adicionar log
         $this->adicionar_log('1', 'U', $people);
