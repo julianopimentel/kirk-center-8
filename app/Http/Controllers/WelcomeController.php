@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 
@@ -47,7 +48,8 @@ class WelcomeController extends Controller
     }
     public function blog()
     {
-        return view('site.blog');
+        $results = Blog::paginate('6');
+        return view('site.blog', compact('results'));
     }
 
     public function adicionarnewsletter(Request $request)

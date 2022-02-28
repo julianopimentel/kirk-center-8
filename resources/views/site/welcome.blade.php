@@ -21,16 +21,12 @@
                             <!-- Start Form -->
                             <div class="form col-md-6 col-md-offset-3">
                                 <div class="form-info">
-                                    <form action="#">
-
                                         <div class="col-md-12">
                                             <div class="row">
-                                                <button type="submit">
-                                                    Criar conta grátis
-                                                </button>
+                                                <a class="btn circle btn-dark border btn-md" href="{{ route('register')}}"> Criar conta grátis</a>
+
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                             <!-- End Form -->
