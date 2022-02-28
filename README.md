@@ -208,6 +208,7 @@ SQLSTATE[42P01]: Undefined table: 7 ERROR: relation "roles" does not exist LINE 
 ```
 
 Adicionar a linha em vendor\laravel\framework\src\Illuminate\Database\Migrations\Migration.php (nao e necessario)
+isso não é mais necessário.
 ``` bash
         class Role extends Model implements RoleContract
         {
@@ -217,6 +218,7 @@ $       +    protected $connection = 'adminaccount';
 ```
 
 Adicionar a linha em vendor\Spatie\MediaLibrary\MediaCollections\Models\media.php
+ainda necessario
 ``` bash
 class Media extends Model implements Responsable, Htmlable
 {
@@ -226,6 +228,17 @@ class Media extends Model implements Responsable, Htmlable
 
         -    
 $       +    protected $connection = 'tenant';
+
+```
+
+Adicionar a linha em vendor/laravel/framework/src/Illuminate/Notifications/DatabaseNotification.php
+ainda necessario
+``` bash
+class DatabaseNotification extends Model
+{
+   + protected $connection = 'tenant';
+
+    protected $keyType = 'string';
 
 ```
 
