@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 
-class CancelEvent extends Notification
+class ConfirmEvent extends Notification
 {
     use Queueable;
 
@@ -49,6 +49,7 @@ class CancelEvent extends Notification
                     ->subject($this->details['subject'])
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
+                    ->line($this->details['date'])
                     ->action($this->details['actionText'], $this->details['actionURL']);
     }
     /**

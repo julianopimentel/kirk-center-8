@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\EventConfirm;
 use Illuminate\Support\Facades\Mail;
 use App\Notifications\CancelEvent;
+use App\Notifications\ConfirmEvent;
 use Illuminate\Support\Facades\Notification as FacadesNotification;
 
 class FullCalenderController extends Controller
@@ -195,7 +196,23 @@ class FullCalenderController extends Controller
             $this->adicionar_log('18', 'C', $event);
             //disparar email
             $conta_name = session()->get('conta_name');
-            Mail::to($user->email)->queue(new SendMailConfirmarEvento($conta_name));
+            //Mail::to($user->email)->queue(new SendMailConfirmarEvento($conta_name));
+            //pesquisar sobre o evento
+            $evento = Event::find($id);
+
+            //teste
+            $details = [
+                'subject' => 'Evento cancelado - ' . $conta_name,
+                'greeting' => 'Presença confirmada no evento',
+                'body' => 'Sua presença foi confirmada no evento '. $evento->title.', acesse nossa plataforma para mais detalhes.',
+                'date' => 'Data do evento: '. $evento->start . ' até '. $evento->end,
+                'actionText' => 'Acessar',
+                'actionURL' => url('/eventos'),
+                'event_id' => $id
+            ];
+
+            FacadesNotification::send($user, new ConfirmEvent($details));
+
             $request->session()->flash('message', 'Presença confirmada');
             return redirect()->route('indexEventos');
         } else
@@ -210,24 +227,26 @@ class FullCalenderController extends Controller
         $user = auth()->user();
         //disparar email
         $conta_name = session()->get('conta_name');
-        Mail::to($user->email)->queue(new SendMailRemoveEvento($conta_name));
+        //Mail::to($user->email)->queue(new SendMailRemoveEvento($conta_name));
         //validar se ja possui evento cadastrado
         $event = EventConfirm::find($id);
-        $event->delete();
         //adicionar log
         $this->adicionar_log('18', 'D', $event);
-
+        //pesquisar sobre o evento
+        $evento = Event::select('title')->find($event->event_id);
         //teste
         $details = [
-            'greeting' => 'Hi Artisan',
-            'body' => 'This is my first notification from ItSolutionStuff.com',
-            'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
-            'actionText' => 'View My Site',
-            'actionURL' => url('/'),
-            'order_id' => 101
+            'subject' => 'Evento cancelado - ' . $conta_name,
+            'greeting' => 'Presença cancelada no evento ',
+            'body' => 'Sua presença foi cancelada no evento '. $evento->title. ', acesse nossa plataforma para mais detalhes.',
+            'actionText' => 'Acessar',
+            'actionURL' => url('/eventos'),
+            'event_id' => $id
         ];
-  
+
         FacadesNotification::send($user, new CancelEvent($details));
+
+        $event->delete();
 
         $request->session()->flash('danger', 'Presença retirada');
         return redirect()->route('indexEventos');
