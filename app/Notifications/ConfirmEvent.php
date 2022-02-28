@@ -12,7 +12,6 @@ class ConfirmEvent extends Notification implements ShouldQueue
 {
     use Queueable;
 
-  
     private $details;
    
     /**
