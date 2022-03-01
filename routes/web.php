@@ -132,9 +132,9 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('transaction/{id}', 'BalanceController@show')->name('transaction.show');
 
     //post e timeline em testes
-    Route::get('/timeline', [TimelineController::class, 'getArticles'])->name('timeline.index');
-    Route::get('timeline/{post}', [TimelineController::class, 'show'])->name('timeline.show');
-    Route::post('timeline/{post}/reaction', [ReactionsController::class, 'toggle'])->middleware('auth');
+    Route::get('/timeline', 'TimelineController@getArticles')->name('timeline.index');
+    Route::get('timeline/{post}', 'TimelineController@show')->name('timeline.show');
+    //Route::post('timeline/{post}/reaction', [ReactionsController::class, 'toggle'])->middleware('auth');
     Route::post('timeline', 'TimelineController@store')->name('post.store');
     Route::post('timeline/{post}', 'CommentController@store')->name('timeline.store');
     Route::delete('timeline/{id}', 'TimelineController@destroy')->name('timeline.destroy');
