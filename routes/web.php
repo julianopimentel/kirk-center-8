@@ -190,7 +190,7 @@ Route::group(['middleware' => ['role:user']], function () {
 
     Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
     Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
-
+    Route::get('integrador', 'InstitutionsController@integradorIndex')->name('integrador.index');
 
     Route::prefix('media')->group(function () {
         Route::get('/',                 'MediaController@index')->name('media.folder.index');

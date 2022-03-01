@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Account_Transations extends Model
+class Account_Integrador extends Model
 {
     use HasFactory;
-    protected $table = 'admin.transaction';
+    protected $table = 'admin.integrador';
     public $timestamps = false;
     /**
      * Get the notes for the status.
      */
-    public function getintegrador()
+    
+    public function status()
     {
-        return $this->belongsTo('App\Models\Account_Integrador', 'user_id_integrador');
+        return $this->belongsTo('App\Models\Status', 'status_id');
     }
 }

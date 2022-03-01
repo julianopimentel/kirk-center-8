@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account_Integrador;
 use App\Models\Account_Transations;
 use Illuminate\Http\Request;
 use App\Models\Institution;
@@ -69,9 +70,9 @@ class InstitutionsController extends Controller
         //user data
         $you = auth()->user();
         //consulta de contas ativas
-        $countinst = Institution::where('integrador', $you->id)->whereNull('deleted_at')->count();
+        $countinst = Institution::where('integrador', $you->integrador_id)->whereNull('deleted_at')->count();
         //consulta de contas ativas
-        $pagamentos = Account_Transations::where('user_id_integrador', $you->id)->orderby('id', 'desc')->paginate(6);
+        $pagamentos = Account_Transations::where('user_id_integrador', $you->integrador_id)->orderby('id', 'desc')->paginate(6);
         return view('account.License', compact('countinst', 'pagamentos'));
     }
     public function transactionsIndex()
@@ -79,9 +80,14 @@ class InstitutionsController extends Controller
         //user data
         $you = auth()->user();
         //consulta de contas ativas
-        $pagamentos = Account_Transations::with('getintegrador:id,name')->paginate(10);
+        $pagamentos = Account_Transations::with('getintegrador:id,name_company')->paginate(10);
         return view('account.Transations', compact('pagamentos'));
-
+    }
+    public function integradorIndex()
+    {
+        //consulta de contas ativas
+        $integradores = Account_Integrador::with('status')->paginate(10);
+        return view('account.Integrador', compact('integradores'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -98,7 +104,7 @@ class InstitutionsController extends Controller
         //carregar status
         $statuses = Status::all()->where("type", 'system');
         //se o usuario for integrador ele abre a edição da conta
-        if ($institution->integrador == $you->id and $institution->deleted_at == null) {
+        if ($institution->integrador == $you->integrador_id and $institution->deleted_at == null) {
             return view('account.EditForm', compact('institution'), ['statuses' => $statuses]);
         };
         //se não for, retorna um erro generico
@@ -115,7 +121,7 @@ class InstitutionsController extends Controller
         //user data
         $you = auth()->user();
         //consultar contas ativas do integrador
-        $countinst = Institution::where('integrador', $you->id)->whereNull('deleted_at')->count();
+        $countinst = Institution::where('integrador', $you->integrador_id)->whereNull('deleted_at')->count();
 
         //se tiver licença indisponivel, retorna com erro
         if ($countinst >= $you->license) {
@@ -133,7 +139,7 @@ class InstitutionsController extends Controller
         //user data
         $user = auth()->user();
         //consultar contas ativas do integrador
-        $countinst = Institution::where('integrador', $user->id)->whereNull('deleted_at')->count();
+        $countinst = Institution::where('integrador', $user->integrador_id)->whereNull('deleted_at')->count();
 
         //se tiver licença indisponivel, retorna com erro
         if ($countinst >= $user->license) {
@@ -179,7 +185,7 @@ class InstitutionsController extends Controller
         $institution->status_id = $request->input('type');
         $institution->country       = $request->input('country');
         $institution->compartilhar_link       = $request->has('compartilhar_link') ? 1 : 0;
-        $institution->integrador = $user->id;
+        $institution->integrador = $user->integrador_id;
         $institution->save();
         //adicionar log
         $this->adicionar_log_global('9', 'C', $institution);

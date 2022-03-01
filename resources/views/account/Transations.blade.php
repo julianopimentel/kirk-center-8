@@ -24,7 +24,7 @@
                         @foreach ($pagamentos as $pagamento)
                             <tr>
                                 <td>{{ datanormal($pagamento->created_at) }}
-                                    <td>{{ $pagamento->getintegrador->name }} </td>
+                                    <td>{{ $pagamento->getintegrador->name_company }} </td>
                                 <td>
                                     @if ($pagamento->type == 1)
                                         Normal
