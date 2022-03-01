@@ -52,7 +52,7 @@
                                 @endif
                                 </td>
                                 <td>{{ $pagamento->quantity }} </td>
-                                <td>{{ $pagamento->total }} </td>
+                                <td>{{ formattedMoney($pagamento->total) }} </td>
                             </tr>
                         @endforeach
                     </tbody>

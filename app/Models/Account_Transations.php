@@ -13,4 +13,8 @@ class Account_Transations extends Model
     /**
      * Get the notes for the status.
      */
+    public function getintegrador()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id_integrador');
+    }
 }

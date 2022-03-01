@@ -72,7 +72,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name       = $request->input('name');
         $user->email      = $request->input('email');
-        $user->mobile       = $request->input('mobile');
+        $user->phone       = $request->input('phone_full');
         $user->license       = $request->input('license');
         $user->save();
         $request->session()->flash("success", "Successfully updated user");

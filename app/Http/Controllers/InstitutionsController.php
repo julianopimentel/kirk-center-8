@@ -79,8 +79,9 @@ class InstitutionsController extends Controller
         //user data
         $you = auth()->user();
         //consulta de contas ativas
-        $pagamentos = Account_Transations::where('user_id_integrador', $you->id)->paginate(10);
+        $pagamentos = Account_Transations::with('getintegrador:id,name')->paginate(10);
         return view('account.Transations', compact('pagamentos'));
+
     }
     /**
      * Show the form for editing the specified resource.
