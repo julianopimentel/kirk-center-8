@@ -64,7 +64,7 @@ class WelcomeController extends Controller
     {
         if (Auth::check() == true) {
             if (Auth::user()->master == true) {
-                return view('site.blog.blogPost');
+                return view('site.blog.post');
             } else
                 session()->flash("info", 'Erro interno');
             return redirect()->back();
