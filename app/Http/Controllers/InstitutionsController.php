@@ -86,7 +86,7 @@ class InstitutionsController extends Controller
     public function integradorIndex()
     {
         //consulta de contas ativas
-        $integradores = Account_Integrador::with('status')->paginate(10);
+        $integradores = Account_Integrador::with('status')->with('getUser:id,name')->paginate(10);
         return view('account.Integrador', compact('integradores'));
     }
     /**

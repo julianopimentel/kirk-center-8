@@ -18,4 +18,8 @@ class Account_Integrador extends Model
     {
         return $this->belongsTo('App\Models\Status', 'status_id');
     }
+    public function getUser()
+    {
+        return $this->belongsTo('App\Models\User', 'user_integrador');
+    }
 }

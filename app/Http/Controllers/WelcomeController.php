@@ -28,7 +28,8 @@ class WelcomeController extends Controller
                 //se tiver, volta para a tela do home
                 return redirect()->route('login');
         } else
-            return view('site.welcome');
+            $results = Blog::orderby('id', 'desc')->limit(3)->get();
+        return view('site.welcome', ['results' => $results]);
     }
 
     public function terms()
@@ -88,9 +89,8 @@ class WelcomeController extends Controller
                 //$this->adicionar_log('19', 'C', $blog);
                 $request->session()->flash('success', 'Blog' . __('action.creat'));
                 return redirect()->route('blog');
-            }
-            else
-            session()->flash("info", 'Erro interno');
+            } else
+                session()->flash("info", 'Erro interno');
             return redirect()->back();
         }
     }

@@ -315,78 +315,32 @@
             </div>
             <div class="row">
                 <div class="blog-items">
+                    @foreach ($results as $result)
                     <!-- Single Item -->
                     <div class="col-md-4 single-item">
                         <div class="item">
                             <div class="thumb">
-                                <a href="#"><img src="site/assets/img/800x600.png" alt="Thumb"></a>
+                                <a href="#"><img src="{{ $result->image }}" alt="Thumb"></a>
                             </div>
                             <div class="info">
                                 <div class="content">
                                     <div class="date">
-                                        15 Aug, 2019
+                                        {{ datanormal($result->created_at) }}
                                     </div>
                                     <h4>
-                                        <a href="#">Direct wicket little of talked lasted formed</a>
+                                        <a href="{{ route('blog.show', $result->id) }}">{{ mb_strimwidth($result->title, 0, 63, '...') }}</a>
                                     </h4>
                                     <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
+                                        @php
+                                            echo mb_strimwidth($result->content, 0, 130, '...');
+                                        @endphp
                                     </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
+                                    <a href="{{ route('blog.show', $result->id) }}">Leia mais<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#"><img src="site/assets/img/800x600.png" alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        27 Nov, 2019
-                                    </div>
-                                    <h4>
-                                        <a href="#">Supported neglected met therefore unwilling</a>
-                                    </h4>
-                                    <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
-                                    </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                    <!-- Single Item -->
-                    <div class="col-md-4 single-item">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#"><img src="site/assets/img/800x600.png" alt="Thumb"></a>
-                            </div>
-                            <div class="info">
-                                <div class="content">
-                                    <div class="date">
-                                        18 Sep, 2019
-                                    </div>
-                                    <h4>
-                                        <a href="#">Concerns greatest margaret absolute entrance</a>
-                                    </h4>
-                                    <p>
-                                        Pronounce we attention admitting on assurance of suspicion conveying. That his
-                                        west quit had met till.
-                                    </p>
-                                    <a href="#">Read More <i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
+                    @endforeach
                 </div>
             </div>
         </div>

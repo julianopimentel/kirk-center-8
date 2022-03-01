@@ -31,7 +31,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 equal-height">
                         <div class="item">
                             <div class="thumb">
-                                <a href="#"><img src="site/assets/img/800x600.png" alt="Thumb"></a>
+                                <a href="#"><img src="{{ $result->image }}" alt="Thumb"></a>
                             </div>
                             <div class="info">
                                 <div class="content">

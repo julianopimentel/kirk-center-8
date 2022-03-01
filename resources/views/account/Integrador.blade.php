@@ -26,7 +26,7 @@
                                 <td>{{ $integrador->doc }}</td>
                                 <td>{{ $integrador->name_company }}</td>
                                 <td>{{ $integrador->email }}</td>
-                                <td>{{ $integrador->user_integrador }}</td>
+                                <td>{{ $integrador->getUser->name }}</td>
                                 <td>
                                     <span class="{{ $integrador->status->class }}">
                                         {{ $integrador->status->name }}

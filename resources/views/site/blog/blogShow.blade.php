@@ -28,7 +28,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="item">
                             <div class="thumb">
-                                <img src="{{ asset('site/assets/img/1500x700.png')}}" alt="Thumb">
+                                <img src="{{ $results->image }}" alt="Thumb">
                             </div>
                             <div class="info">
                                 <br>
