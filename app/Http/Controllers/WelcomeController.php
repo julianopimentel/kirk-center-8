@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 
 
@@ -48,15 +49,50 @@ class WelcomeController extends Controller
     }
     public function blog()
     {
-        $results = Blog::
-        orderby('id', 'desc')
-        ->paginate(6);
-        return view('site.blog', ['results' => $results]);
+        $results = Blog::orderby('id', 'desc')
+            ->paginate(6);
+        return view('site.blog.blog', ['results' => $results]);
     }
     public function blogShow($id)
     {
         $results = Blog::find($id);
-        return view('site.blogShow', compact('results'));
+        return view('site.blog.blogShow', compact('results'));
+    }
+
+    public function blogPost()
+    {
+        if (Auth::check() == true) {
+            if (Auth::user()->master == true) {
+                return view('site.blog.blogPost');
+            } else
+                session()->flash("info", 'Erro interno');
+            return redirect()->back();
+        } else
+            session()->flash("info", 'Erro interno');
+        return redirect()->back();
+    }
+    public function blogStore(Request $request)
+    {
+        if (Auth::check() == true) {
+            if (Auth::user()->master == true) {
+
+                $blog = new Blog;
+                $blog->title     = $request->input('title');
+                $blog->content   = $request->input('content');
+                $blog->status_id = $request->input('status_id');
+                $blog->image   = $request->input('image');
+                $blog->note_type = $request->input('note_type');
+                $blog->users_id = Auth::user()->id;
+                $blog->save();
+
+                //$this->adicionar_log('19', 'C', $blog);
+                $request->session()->flash('success', 'Blog' . __('action.creat'));
+                return redirect()->route('blog');
+            }
+            else
+            session()->flash("info", 'Erro interno');
+            return redirect()->back();
+        }
     }
 
     public function adicionarnewsletter(Request $request)
@@ -65,9 +101,8 @@ class WelcomeController extends Controller
             Newsletter::subscribe($request->user_email);
             $request->session()->flash("success", 'Cadastrado com sucesso');
             return redirect()->back();
-        }
-        else 
-        $request->session()->flash("info", 'Erro interno');
+        } else
+            $request->session()->flash("info", 'Erro interno');
         return redirect()->back();
     }
     //tela para se remover do newsletter
@@ -82,9 +117,8 @@ class WelcomeController extends Controller
             Newsletter::unsubscribe($request->user_email);
             $request->session()->flash("warning", 'Removido com sucesso');
             return redirect()->route('welcome');
-        }
-        else 
-        $request->session()->flash("info", 'E-mail não encontrado');
+        } else
+            $request->session()->flash("info", 'E-mail não encontrado');
         return redirect()->back();
     }
 }

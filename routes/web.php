@@ -25,9 +25,12 @@ Route::get('terms', 'WelcomeController@terms')->name('terms');
 Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
 Route::get('contato', 'WelcomeController@contato')->name('contato');
 Route::get('features', 'WelcomeController@features')->name('features');
+
+//blog simples
 Route::get('blog', 'WelcomeController@blog')->name('blog');
 Route::get('blog/{id}', 'WelcomeController@blogShow')->name('blog.show');
-
+Route::get('post/blog', 'WelcomeController@blogPost')->name('blog.post');
+Route::post('post', 'WelcomeController@blogStore')->name('blog.store');
 
 //inscrever no newsletter
 Route::post('subscribe', 'WelcomeController@adicionarnewsletter')->name('adicionar.newsletter');
@@ -248,7 +251,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('log', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     //cache teste
-    Route::get('/clear-cache-all', function () {
+    Route::get('/clear-cache-all-057878545112', function () {
         Artisan::call('cache:clear');
         dd("Cache Clear All");
     });

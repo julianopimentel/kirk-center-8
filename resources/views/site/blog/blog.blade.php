@@ -46,7 +46,7 @@
                                     </h4>
                                     <p>
                                         @php
-                                            echo mb_strimwidth($result->content, 0, 300, '...');
+                                            echo mb_strimwidth($result->content, 0, 130, '...');
                                         @endphp
                                     </p>
                                     <a href="{{ route('blog.show', $result->id) }}">Leia mais<i class="fas fa-angle-right"></i></a>
