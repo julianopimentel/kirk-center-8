@@ -8,8 +8,11 @@ $user = App\Models\User::find(auth()->user()->id);
 
         <ul class="c-header-nav ml-auto mr-4">
             <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                    class="nav-link notification-toggle nav-link-lg @if ($user->notifications()->count() > 0) beep @endif"><i
-                        class="far fa-bell"></i></a>
+                    class="nav-link notification-toggle nav-link-lg @if ($user->notifications()->count() > 0) beep @endif">
+                    <svg class="c-icon c-icon-lg">
+                        <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-bell"></use>
+                        </svg>
+                  </a>
                 <div class="dropdown-menu dropdown-list dropdown-menu-right">
                     <div class="dropdown-header">Notificações
                         <div class="float-right">
@@ -36,17 +39,16 @@ $user = App\Models\User::find(auth()->user()->id);
                         </div>
                     </div>
             </li>
-
             <li class="dropdown"><a href="#" data-toggle="dropdown"
                     class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                    @if (empty(Auth::user()->image))
-                        <img alt="image" src="{{ url('/public/user.png?v=1') }}" class="rounded-circle mr-1"
-                            style="width: 40px;height: 40px">
-                    @endif
-                    @if (!empty(Auth::user()->image))
-                        <img alt="image" src="{{ auth()->user()->image }}" class="rounded-circle mr-1"
-                            style="width: 40px;height: 40px">
-                    @endif
+                    <div class="avatar avatar-md">
+                        @if (empty(Auth::user()->image))
+                            <img class="c-avatar-img" src="{{ url('/public/user.png?v=1') }}" alt="user@email.com">
+                        @endif
+                        @if (!empty(Auth::user()->image))
+                            <img class="c-avatar-img" src="{{ auth()->user()->image }}" alt="user@email.com">
+                        @endif
+                    </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-title">Olá,
