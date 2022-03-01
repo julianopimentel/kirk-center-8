@@ -73,4 +73,8 @@ class User extends Authenticatable implements ReactsInterface
     {
         return $this->belongsTo(People::class, 'id', 'user_id');
     }
+    public function getListContas()
+    {
+        return $this->belongsTo('App\Models\Users_Account', 'id','user_id');
+    }
 }

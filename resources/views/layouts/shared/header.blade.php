@@ -11,8 +11,8 @@ $user = App\Models\User::find(auth()->user()->id);
                     class="nav-link notification-toggle nav-link-lg @if ($user->notifications()->count() > 0) beep @endif">
                     <svg class="c-icon c-icon-lg">
                         <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-bell"></use>
-                        </svg>
-                  </a>
+                    </svg>
+                </a>
                 <div class="dropdown-menu dropdown-list dropdown-menu-right">
                     <div class="dropdown-header">Notificações
                         <div class="float-right">
@@ -85,10 +85,12 @@ $user = App\Models\User::find(auth()->user()->id);
                             </svg> {{ __('layout.configuration') }}</a>
                     @endif
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('account.index') }}">
-                        <svg class="c-icon mr-2">
-                            <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>
-                        </svg>{{ __('layout.select_account') }}</a>
+                    @if (Auth::user()->getListContas()->count() > 1)
+                        <a class="dropdown-item" href="{{ route('account.index') }}">
+                            <svg class="c-icon mr-2">
+                                <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>
+                            </svg>{{ __('layout.select_account') }}</a>
+                    @endif
                     <a href="{{ route('logout.perform') }}" class="dropdown-item has-icon text-danger">
                         <i class="fas fa-sign-out-alt"></i> {{ __('layout.logout') }}
                     </a>

@@ -42,8 +42,9 @@ class TimelineController extends Controller
                 return $like->where('user_id', auth()->user()->id)
                     ->select('id', 'user_id', 'post_id');
             })
-            ->paginate(10);
+            ->paginate(3);
         $artilces = '';
+        
         if ($request->ajax()) {
             foreach ($results as $result) {
 
