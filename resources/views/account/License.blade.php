@@ -28,7 +28,37 @@
                     </div>
                 </div>
             </div>
-
+            <div class="card">
+                <div class="card-header">
+                        <h4><strong>Histórico de Pagamentos</strong></h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Type</th>
+                            <th>Quatidade</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pagamentos as $pagamento)
+                            <tr>
+                                <td>
+                                    {{ datanormal($pagamento->created_at) }}</td>
+                                <td>
+                                 @if ( $pagamento->type == 1)
+                                    Normal
+                                @endif
+                                </td>
+                                <td>{{ $pagamento->quantity }} </td>
+                                <td>{{ $pagamento->total }} </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $pagamentos->links() }}
+            </div>
         @endsection
 
         @section('javascript')

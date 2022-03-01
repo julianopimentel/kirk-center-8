@@ -35,7 +35,7 @@
             Integradores</a>
     </li>
     <li class="c-sidebar-nav-item">
-        <a class="c-sidebar-nav-link" href="{{ url('transations') }}">
+        <a class="c-sidebar-nav-link" href="{{ url('transactions') }}">
             <i class="c-icon cil-credit-card c-sidebar-nav-icon"></i>
             Transações</a>
     </li>

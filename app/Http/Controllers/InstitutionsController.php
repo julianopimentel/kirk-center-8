@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account_Transations;
 use Illuminate\Http\Request;
 use App\Models\Institution;
 use App\Models\Status;
@@ -63,14 +64,23 @@ class InstitutionsController extends Controller
             return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
 
-    public function license_index(Request $request)
+    public function license_index()
     {
         //user data
         $you = auth()->user();
         //consulta de contas ativas
         $countinst = Institution::where('integrador', $you->id)->whereNull('deleted_at')->count();
-
-        return view('account.License', compact('countinst'));
+        //consulta de contas ativas
+        $pagamentos = Account_Transations::where('user_id_integrador', $you->id)->orderby('id', 'desc')->paginate(6);
+        return view('account.License', compact('countinst', 'pagamentos'));
+    }
+    public function transactionsIndex()
+    {
+        //user data
+        $you = auth()->user();
+        //consulta de contas ativas
+        $pagamentos = Account_Transations::where('user_id_integrador', $you->id)->paginate(10);
+        return view('account.Transations', compact('pagamentos'));
     }
     /**
      * Show the form for editing the specified resource.

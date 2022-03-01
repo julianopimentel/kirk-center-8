@@ -36,10 +36,7 @@
                             <div class="info">
                                 <div class="content">
                                     <div class="date">
-                                        @php
-                                        $dateTime1 = new DateTime($result->created_at);
-                                        echo $dateTime1->format('F, Y ', );
-                                        @endphp
+                                        {{ datanormal($result->created_at) }}
                                     </div>
                                     <h4>
                                         <a href="{{ route('blog.show', $result->id) }}">{{ mb_strimwidth($result->title, 0, 63, '...') }}</a>

@@ -189,6 +189,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('report/peoplelocation', 'ReportController@Location')->name('location.index');
 
     Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
+    Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
+
 
     Route::prefix('media')->group(function () {
         Route::get('/',                 'MediaController@index')->name('media.folder.index');

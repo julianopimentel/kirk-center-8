@@ -65,3 +65,14 @@ function localidade()
 {
     return 'São José, Brazil';
 }
+
+function datanormal($value){
+    $dateTime1 = new DateTime($value);
+    $datanormal = $dateTime1->format('d F, Y ', );
+    return $datanormal;
+}
+function datarecente($value){
+    $dateTime1 = new DateTime($value);
+    $datanormal = $dateTime1->format('d F, Y ', );
+    return $datanormal;
+}
