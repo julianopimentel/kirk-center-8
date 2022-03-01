@@ -26,6 +26,8 @@ Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
 Route::get('contato', 'WelcomeController@contato')->name('contato');
 Route::get('features', 'WelcomeController@features')->name('features');
 Route::get('blog', 'WelcomeController@blog')->name('blog');
+Route::get('blog/{id}', 'WelcomeController@blogShow')->name('blog.show');
+
 
 //inscrever no newsletter
 Route::post('subscribe', 'WelcomeController@adicionarnewsletter')->name('adicionar.newsletter');

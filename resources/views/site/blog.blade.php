@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="blog-items">
 
-                    @foreach ($results as $results)
+                    @foreach ($results as $result)
                     <!-- Single Item -->
                     <div class="col-lg-4 col-md-4 col-sm-6 equal-height">
                         <div class="item">
@@ -37,17 +37,19 @@
                                 <div class="content">
                                     <div class="date">
                                         @php
-                                        $dateTime1 = new DateTime($results->created_at);
+                                        $dateTime1 = new DateTime($result->created_at);
                                         echo $dateTime1->format('F, Y ', );
                                         @endphp
                                     </div>
                                     <h4>
-                                        <a href="{{ url('blog/'). $results->id }}">{{ $results->title }}</a>
+                                        <a href="{{ route('blog.show', $result->id) }}">{{ mb_strimwidth($result->title, 0, 63, '...') }}</a>
                                     </h4>
                                     <p>
-                                        {{ $results->content }}
+                                        @php
+                                            echo mb_strimwidth($result->content, 0, 300, '...');
+                                        @endphp
                                     </p>
-                                    <a href="{{ url('blog/'). $results->id }}">Leia mais<i class="fas fa-angle-right"></i></a>
+                                    <a href="{{ route('blog.show', $result->id) }}">Leia mais<i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +59,7 @@
 
                     <div class="col-lg-12 col-md-12 pagi-area">
                         <nav aria-label="navigation">
+                            {{ $results->links() }}
                         </nav>
                     </div>
                 </div>

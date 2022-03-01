@@ -48,8 +48,15 @@ class WelcomeController extends Controller
     }
     public function blog()
     {
-        $results = Blog::paginate('6');
-        return view('site.blog', compact('results'));
+        $results = Blog::
+        orderby('id', 'desc')
+        ->paginate(6);
+        return view('site.blog', ['results' => $results]);
+    }
+    public function blogShow($id)
+    {
+        $results = Blog::find($id);
+        return view('site.blogShow', compact('results'));
     }
 
     public function adicionarnewsletter(Request $request)
