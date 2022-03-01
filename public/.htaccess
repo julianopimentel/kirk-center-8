@@ -25,8 +25,7 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
 RewriteCond %{HTTP_HOST} ^deskapp\.online$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.deskapp\.online$
-#RewriteRule ^(.*)$ "https\:\/\/www\.deskapp\.online\/$1" [R=301,L]
-#RewriteRule ^uploads(/|$) /public%{REQUEST_URI} [L,NC,R=301,NE]
+RewriteRule ^(.*)$ "https\:\/\/www\.deskapp\.online\/$1" [R=301,L]
 
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.
