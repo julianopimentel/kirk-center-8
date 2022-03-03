@@ -263,7 +263,7 @@ input {
 }
 
 .bg-gray {
-  background-color: #f4f7fc;
+  background-color: #f4f6f9;
 }
 
 .bg-theme-small {
@@ -275,7 +275,7 @@ input {
 }
 
 .bg-theme {
-  background-color: #2568ef;
+  background-color: #000000b5 ;
 }
 
 .text-light h1, 
@@ -331,7 +331,7 @@ input {
 }
 
 .shadow.theme::after {
-  background: #2568ef none repeat scroll 0 0;
+  background: #636f83 none repeat scroll 0 0;
   content: "";
   height: 100%;
   left: 0;
@@ -343,7 +343,7 @@ input {
 }
 
 .shadow.theme-hard::after {
-  background: #2568ef none repeat scroll 0 0;
+  background: #636f83 none repeat scroll 0 0;
   content: "";
   height: 100%;
   left: 0;
