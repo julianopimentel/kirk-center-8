@@ -10,7 +10,7 @@ $user = App\Models\User::find(auth()->user()->id);
             <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                     class="nav-link notification-toggle nav-link-lg @if ($user->notifications()->count() > 0) beep @endif">
                     <svg class="c-icon c-icon-lg">
-                        <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-bell"></use>
+                        <use xlink:href="{{ url('icons/coreui/free-symbol-defs.svg#cui-bell') }}"></use>
                     </svg>
                 </a>
                 <div class="dropdown-menu dropdown-list dropdown-menu-right">

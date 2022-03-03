@@ -29,11 +29,7 @@
     <meta name="msapplication-TileImage" content="{{ asset('assets/favicon/ms-icon-144x144.png') }}">
 
     <!-- Compartilhamento no whats-->
-    <meta property="og:site_name" content="DeskApps">
-    <meta property="og:title" content="Gestão de Igrejas">
-    <meta property="og:description" content="Desenvolvedora de sistemas web e app para a gestão de igrejas.">
-    <meta property="og:image" itemprop="image" content="https://deskapp.online/logo1.jpg">
-    <meta property="og:type" content="website">
+    @include('layouts.shared.whatsapp')
 
     <!-- Calendar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
