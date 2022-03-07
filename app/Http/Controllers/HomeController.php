@@ -66,18 +66,19 @@ class HomeController extends Controller
             $balance->amount = '0';
             $balance->save();
         }
-        //analise de visita
-        $validacao = Statistics::where('people_id', $you->people->id)
-            ->where('type', 'acess')
-            ->where('created_at', 'LIKE', '%' . date('Y-m-d') . '%')
-            ->count();
-        if ($validacao == 0) {
-            Statistics::create([
-                'people_id' => $you->people->id,
-                'type' => 'acess',
-            ]);
+        if (Auth::user()->isAdmin() == false) {
+            //analise de visita
+            $validacao = Statistics::where('people_id', $you->people->id)
+                ->where('type', 'acess')
+                ->where('created_at', 'LIKE', '%' . date('Y-m-d') . '%')
+                ->count();
+            if ($validacao == 0) {
+                Statistics::create([
+                    'people_id' => $you->people->id,
+                    'type' => 'acess',
+                ]);
+            }
         }
-
         //numero de pessoas ativas e no ano atual
         $precadastro = People_Precadastro::select('status_id')->where('status_id', '21')->count();;
 
@@ -96,8 +97,8 @@ class HomeController extends Controller
         $totalconversao = $people->where('is_conversion', true)->count();
         //total de visitas na página
         $totalvisitas = Statistics::where('type', 'acess')
-        // se for pelo o ano ->where('created_at', 'LIKE', '%' . date('Y') . '%')
-        ->count();
+            // se for pelo o ano ->where('created_at', 'LIKE', '%' . date('Y') . '%')
+            ->count();
 
         //consulta para a meta do mÊs atual do grafico
         $date = date('Y-m');
