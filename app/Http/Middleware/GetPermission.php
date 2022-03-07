@@ -33,7 +33,7 @@ class GetPermission
         //pegar permissao do grupo
         $roles = People::where('user_id', $you->id)->with('roleslocal')->first();
         if (Auth::user()->isAdmin() == true) {
-            $roles = People::where('user_id', '1')->with('roleslocal')->first();
+            $roles = People::where('id', '1')->with('roleslocal')->first();
             view()->share('appPermissao', $roles->roleslocal);
             return $next($request);
         }
