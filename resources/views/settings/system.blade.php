@@ -43,7 +43,7 @@
                                         <label class="control-label"><strong>Linguagem</strong></label>
                                         <select name="language" class="form-control">
                                             <option value="pt">Portuguese</option>
-                                            <option value="en">English</option>
+                                            <option value="en" disabled>English</option>
                                         </select>
                                     </div>
 

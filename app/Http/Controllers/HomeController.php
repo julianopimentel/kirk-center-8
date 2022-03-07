@@ -20,6 +20,7 @@ use App\Models\City;
 use App\Models\State;
 use App\Models\EventConfirm;
 use App\Models\Statistics;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -230,6 +231,15 @@ class HomeController extends Controller
         //consulta da message
         $prayers = Requests_Prayer::with('user')->with('status')->where('user_id', $you->id)->orderby('id', 'desc')->paginate(20);
         return view('oracao', ['prayers' => $prayers]);
+    }
+    public function indexNotification()
+    {
+        return view('notification');
+    }
+    public function Notificationread()
+    {
+        Auth::user()->unreadNotifications()->update(['read_at' => now()]);
+        return redirect()->back();
     }
     public function indexEventos()
     {

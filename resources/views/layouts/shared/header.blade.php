@@ -1,5 +1,5 @@
 @php
-$user = App\Models\User::find(auth()->user()->id);
+$user = auth()->user();
 @endphp
 <div class="c-wrapper">
     <header class="c-header c-header-light c-header-with-subheader">
@@ -8,21 +8,21 @@ $user = App\Models\User::find(auth()->user()->id);
 
         <ul class="c-header-nav ml-auto mr-4">
             <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                    class="nav-link notification-toggle nav-link-lg @if ($user->notifications()->count() > 0) beep @endif">
+                    class="nav-link notification-toggle nav-link-lg @if ($user->unreadNotifications()->count() > 0) beep @endif">
                     <svg class="c-icon c-icon-lg">
-                        <use xlink:href="{{ url('icons/coreui/free-symbol-defs.svg#cui-bell') }}"></use>
+                        <use xlink:href="{{ asset('assets/icons/coreui/free-symbol-defs.svg#cui-bell') }}"></use>
                     </svg>
                 </a>
                 <div class="dropdown-menu dropdown-list dropdown-menu-right">
                     <div class="dropdown-header">Notificações
                         <div class="float-right">
-                            <a href="#">Marcar todos como lida</a>
+                            <a href="{{ route('notificationread')}}">Marcar todos como lida</a>
                         </div>
                     </div>
                     <div class="dropdown-list-content dropdown-list-icons">
 
                         @include('layouts.shared.notification')
-                        @if ($user->notifications()->count() == 0)
+                        @if ($user->unreadNotifications()->count() == 0)
                             <a href="#" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-icon bg-info text-white">
                                     <i class="fas fa-heart"></i>
@@ -35,7 +35,7 @@ $user = App\Models\User::find(auth()->user()->id);
                         @endif
 
                         <div class="dropdown-footer text-center">
-                            <a href="#">Ver todas <i class="fas fa-chevron-right"></i></a>
+                            <a href="{{ route('indexNotification') }}">Ver todas <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
             </li>

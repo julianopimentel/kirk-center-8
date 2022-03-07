@@ -1,4 +1,4 @@
-@foreach ($user->notifications as $notification)
+@foreach ($user->unreadNotifications as $notification)
     @if ($notification->type == 'App\Notifications\ConfirmEvent')
         <a href="#" class="dropdown-item dropdown-item-unread">
             <div class="dropdown-item-icon bg-primary text-white">

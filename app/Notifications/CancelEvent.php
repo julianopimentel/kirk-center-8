@@ -60,7 +60,10 @@ class CancelEvent extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'event_id' => $this->details['event_id']
+            'event_id' => $this->details['event_id'],
+            'class' => 'bg-info',
+            'icon' => 'fa-calendar-day',
+            'mensagem' => 'notification.cancel_calendar',
         ];
     }
 }

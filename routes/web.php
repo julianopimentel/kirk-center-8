@@ -104,6 +104,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('dados/meus-dizimos', 'HomeController@indexDizimos')->name('indexDizimos');
     Route::get('dados/meus-grupos', 'HomeController@indexGrupos')->name('indexGrupos');
     Route::get('dados/meus-dados', 'HomeController@indexDados')->name('indexDados');
+    Route::get('notification', 'HomeController@indexNotification')->name('indexNotification');
+    Route::get('notification/read', 'HomeController@Notificationread')->name('notificationread');
     Route::put('dados/{id}', 'ProfileController@updateUser')->name('people.updateUser');
     Route::get('dados/oracoes', 'HomeController@indexOracao')->name('indexOracao');
     Route::get('eventos', 'HomeController@indexEventos')->name('indexEventos');

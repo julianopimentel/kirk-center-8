@@ -38,7 +38,10 @@ class DadosPessoas extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'user_id' => $this->details['user_id']
+            'user_id' => $this->details['user_id'],
+            'class' => 'bg-success',
+            'icon' => 'fa-calendar-check',
+            'mensagem' => 'notification.data_person',
         ];
     }
 }

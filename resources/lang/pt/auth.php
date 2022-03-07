@@ -40,7 +40,7 @@ return [
     'term' => 'Termos & Condições',
     'and' => ' e ',
     'privacy' => 'Política de Privacidade',
-    'welcome' => 'Bem-vindo a ',
+    'welcome' => 'Bem-vindo ao ',
 
     'loren' => 'Você pode ter na palma de sua mão as informações da membresia de sua igreja, gestão de grupos ou células, lançamento de entradas e saidas do financeiro',
 

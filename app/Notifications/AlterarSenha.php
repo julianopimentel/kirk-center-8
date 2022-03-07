@@ -54,7 +54,10 @@ class AlterarSenha extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'user_id' => $this->details['user_id']
+            'user_id' => $this->details['user_id'],
+            'class' => 'bg-danger',
+            'icon' => 'fa-calendar-check',
+            'mensagem' => 'notification.alter_password',
         ];
     }
 }
