@@ -15,14 +15,14 @@
             <i class="c-icon cil-building c-sidebar-nav-icon"></i>
             {{ __('layout.account') }}</a>
     </li>
-    @if(Auth::user()->menuroles == 'admin')
+    @if(Auth::user()->isAdmin() == true)
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('license') }}">
             <i class="c-icon cil-credit-card c-sidebar-nav-icon"></i>
             {{ __('layout.license') }}</a>
     </li>
     @endif
-    @if (Auth::user()->isAdmin() == true)
+    @if (Auth::user()->menuroles == 'admin')
     <li class="c-sidebar-nav-title">Admin</li>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ url('users') }}">

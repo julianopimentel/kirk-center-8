@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @if (Auth::user()->isAdmin() == true)
+                                    @if (Auth::user()->menuroles == 'admin')
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="name">CNPJ/CPF</label>

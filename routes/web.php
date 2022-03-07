@@ -191,8 +191,6 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('report/peoplelocation', 'ReportController@Location')->name('location.index');
 
     Route::get('/license', 'InstitutionsController@license_index')->name('license_index');
-    Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
-    Route::get('integrador', 'InstitutionsController@integradorIndex')->name('integrador.index');
 
     Route::prefix('media')->group(function () {
         Route::get('/',                 'MediaController@index')->name('media.folder.index');
@@ -213,6 +211,8 @@ Route::group(['middleware' => ['role:user']], function () {
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
+    Route::get('integrador', 'InstitutionsController@integradorIndex')->name('integrador.index');
     Route::resource('bread',  'BreadController');   //create BREAD (resource)
     Route::resource('users',        'UsersController')->except(['create', 'store']);
     Route::resource('mail',        'MailController');

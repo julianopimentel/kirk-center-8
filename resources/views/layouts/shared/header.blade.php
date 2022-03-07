@@ -16,7 +16,7 @@ $user = auth()->user();
                 <div class="dropdown-menu dropdown-list dropdown-menu-right">
                     <div class="dropdown-header">Notificações
                         <div class="float-right">
-                            <a href="{{ route('notificationread')}}">Marcar todos como lida</a>
+                            <a href="{{ route('notificationread') }}">Marcar todos como lida</a>
                         </div>
                     </div>
                     <div class="dropdown-list-content dropdown-list-icons">
@@ -35,7 +35,8 @@ $user = auth()->user();
                         @endif
 
                         <div class="dropdown-footer text-center">
-                            <a href="{{ route('indexNotification') }}">Ver todas <i class="fas fa-chevron-right"></i></a>
+                            <a href="{{ route('indexNotification') }}">Ver todas <i
+                                    class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
             </li>
@@ -66,13 +67,13 @@ $user = auth()->user();
                         <svg class="c-icon mr-2">
                             <use xlink:href="{{ url('/icons/sprites/free.svg#cil-lock-locked') }}"></use>
                         </svg> {{ __('layout.change_password') }}</a>
-                    @if (Auth::user()->menuroles === 'admin')
+                    @if (Auth::user()->isAdmin() == true)
                         <a class="dropdown-item" href="{{ route('license_index') }}">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-credit-card') }}"></use>
                             </svg>{{ __('layout.payments') }}</a>
                     @endif
-                    @if (Auth::user()->isAdmin() === true)
+                    @if (Auth::user()->menuroles == 'admin')
                         <a class="dropdown-item" href="{{ route('logs.index') }}">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-history') }}"></use>
