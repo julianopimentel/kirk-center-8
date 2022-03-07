@@ -49,7 +49,7 @@ class InstitutionsController extends Controller
             ->paginate($this->totalPagesPaginate);
 
         //integrador com acesso total
-        if (Auth::user()->isAdmin() == true) {
+        if (Auth::user()->menuroles == 'admin'){
             $institutions = Institution::wherenull('deleted_at')->With('status')
                 ->paginate($this->totalPagesPaginate);
 
