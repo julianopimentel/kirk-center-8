@@ -53,7 +53,7 @@ $user = auth()->user();
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-title">Olá,
-                        @if (session('key') and Auth::user()->people->name == !null)
+                        @if (session('key') and Auth::user()->people == !Null)
                             {{ ucwords(strtolower(Auth::user()->people->name)) }}
                         @else
                             {{ ucwords(strtolower(Auth::user()->name)) }}
