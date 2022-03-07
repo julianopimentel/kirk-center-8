@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label for="ccmonth">{{ __('account.license') }}</label><br>
-                        <label for="ccmonth">{{ Auth::user()->license }}</label>
+                        <label for="ccmonth">{{ $license->license }}</label>
                     </div>
                     <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label for="ccmonth">{{ __('account.used') }}</label><br>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label for="ccmonth">{{ __('account.available') }}</label><br>
-                        <label for="ccmonth">{{ Auth::user()->license - $countinst }}</label>
+                        <label for="ccmonth">{{ $license->license - $countinst }}</label>
                     </div>
                 </div>
             </div>

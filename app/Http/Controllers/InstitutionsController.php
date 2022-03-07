@@ -71,9 +71,11 @@ class InstitutionsController extends Controller
         $you = auth()->user();
         //consulta de contas ativas
         $countinst = Institution::where('integrador', $you->integrador_id)->whereNull('deleted_at')->count();
+        //mumero de licenças
+        $license = Account_Integrador::select('license','user_integrador')->where('user_integrador', $you->id)->first();
         //consulta de contas ativas
         $pagamentos = Account_Transations::where('user_id_integrador', $you->integrador_id)->orderby('id', 'desc')->paginate(6);
-        return view('account.License', compact('countinst', 'pagamentos'));
+        return view('account.License', compact('countinst', 'pagamentos', 'license'));
     }
     public function transactionsIndex()
     {
