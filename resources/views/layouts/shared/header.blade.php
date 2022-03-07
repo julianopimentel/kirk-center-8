@@ -86,7 +86,7 @@ $user = auth()->user();
                             </svg> {{ __('layout.configuration') }}</a>
                     @endif
                     <div class="dropdown-divider"></div>
-                    @if (Auth::user()->getListContas()->count() > 1)
+                    @if (Auth::user()->getListContas()->count() > 1 or Auth::user()->isAdmin() == true)
                         <a class="dropdown-item" href="{{ route('account.index') }}">
                             <svg class="c-icon mr-2">
                                 <use xlink:href="{{ url('/icons/sprites/free.svg#cil-building') }}"></use>
