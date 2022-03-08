@@ -7,6 +7,8 @@ use App\Models\Account_Transations;
 use Illuminate\Http\Request;
 use App\Models\Institution;
 use App\Models\Status;
+use App\Models\User;
+use App\Models\Users;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -86,13 +88,18 @@ class InstitutionsController extends Controller
         $you = auth()->user();
         //consulta de contas ativas
         $pagamentos = Account_Transations::with('getintegrador:id,name_company')->paginate(10);
-        return view('account.Transations', compact('pagamentos'));
+        //consultar integrador
+        $integrador = Account_Integrador::all();
+        return view('account.Transations', compact('pagamentos', 'integrador'));
     }
     public function integradorIndex()
     {
         //consulta de contas ativas
         $integradores = Account_Integrador::with('status')->with('getUser:id,name')->paginate(10);
-        return view('account.Integrador', compact('integradores'));
+        //consultar user integrador
+        $users = Users::all()->where('master', true);
+
+        return view('account.Integrador', compact('integradores', 'users'));
     }
     /**
      * Show the form for editing the specified resource.

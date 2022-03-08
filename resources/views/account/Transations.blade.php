@@ -7,7 +7,17 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4><strong>Histórico de Pagamentos</strong></h4>
+                    <div class="form-groups row">
+                        <div class="col-10">
+                            <h4><strong>Histórico de Pagamentos</strong></h4>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" type="submit" data-toggle="modal"
+                                data-target="#storeAddIntegrador"><i class="c-icon c-icon-sm cil-plus"></i>
+                                </button>
+                                @include('account.add.addFinanceiro')
+                        </div>
+                    </div>
                 </div>
                 <table class="table table-striped">
                     <thead>

@@ -7,7 +7,17 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4><strong>Integradores</strong></h4>
+                    <div class="form-group row">
+                        <div class="col-9">
+                            <h4>Integradores</h4>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" type="submit" data-toggle="modal"
+                                data-target="#storeAddIntegrador"><i class="c-icon c-icon-sm cil-plus"></i>
+                                </button>
+                                @include('account.add.addIntegrador')
+                        </div>
+                    </div>
                 </div>
                 <table class="table table-striped">
                     <thead>
