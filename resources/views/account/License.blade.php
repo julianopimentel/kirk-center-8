@@ -27,6 +27,26 @@
                         <label for="ccmonth">{{ $license->license - $countinst }}</label>
                     </div>
                 </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Documento</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Usuário Responsável</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{{ $license->doc }}</td>
+                                <td>{{ $license->name_company }}</td>
+                                <td>{{ $license->email }}</td>
+                                <td>{{ $license->getUser->name }}</td>
+                                <td>Status</td>
+                            </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="card">
                 <div class="card-header">

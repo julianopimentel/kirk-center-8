@@ -49,13 +49,16 @@ class InstitutionsController extends Controller
             ->paginate($this->totalPagesPaginate);
 
         //integrador com acesso total
-        if (Auth::user()->menuroles == 'admin'){
-            $institutions = Institution::wherenull('deleted_at')->With('status')
+        if (Auth::user()->menuroles == 'admin') {
+            $institutions = Institution::with('getIntegrador')
+                ->with('status')
+                ->wherenull('deleted_at')
+                ->orderby('name_company', 'asc')
                 ->paginate($this->totalPagesPaginate);
 
             return view('account.ListAdmin', compact('you', $you), ['institutions' => $institutions]);
             //caso o user possuia uma conta vinculado
-        } elseif ($institutions->count() == 1 and $you->menuroles == 'user') {
+        } elseif ($institutions->count() == 1 and $you->menuroles == 'user' and $you->master == false) {
             foreach ($institutions as $element) {
                 $a = $element->tenant;
             }
@@ -72,7 +75,7 @@ class InstitutionsController extends Controller
         //consulta de contas ativas
         $countinst = Institution::where('integrador', $you->integrador_id)->whereNull('deleted_at')->count();
         //mumero de licenças
-        $license = Account_Integrador::select('license','user_integrador')->where('user_integrador', $you->id)->first();
+        $license = Account_Integrador::where('user_integrador', $you->id)->first();
         //consulta de contas ativas
         $pagamentos = Account_Transations::where('user_id_integrador', $you->integrador_id)->orderby('id', 'desc')->paginate(6);
         return view('account.License', compact('countinst', 'pagamentos', 'license'));
@@ -125,8 +128,11 @@ class InstitutionsController extends Controller
         //consultar contas ativas do integrador
         $countinst = Institution::where('integrador', $you->integrador_id)->whereNull('deleted_at')->count();
 
+        //mumero de licenças
+        $license = Account_Integrador::select('license', 'user_integrador')->where('user_integrador', $you->id)->first();
+
         //se tiver licença indisponivel, retorna com erro
-        if ($countinst >= $you->license) {
+        if ($countinst >= $license->license) {
             $request->session()->flash("error", 'events.error_license');
             return redirect('account');
         };
@@ -143,8 +149,11 @@ class InstitutionsController extends Controller
         //consultar contas ativas do integrador
         $countinst = Institution::where('integrador', $user->integrador_id)->whereNull('deleted_at')->count();
 
+        //mumero de licenças
+        $license = Account_Integrador::select('license', 'user_integrador')->where('user_integrador', $user->id)->first();
+
         //se tiver licença indisponivel, retorna com erro
-        if ($countinst >= $user->license) {
+        if ($countinst >= $license->license) {
             $request->session()->flash("error", 'events.error_license');
             return redirect('account');
         };
@@ -289,22 +298,29 @@ class InstitutionsController extends Controller
     public function destroy(Request $request, $id)
     {
         $institution = Institution::find($id);
-        if ($institution) {
-            $institution = Institution::find($id);
-            //inativar a conta
-            $institution->deleted_at          = date('Y-m-d H:m:s');
-            //adicionar log
-            $this->adicionar_log_global('9', 'D', $institution);
-            $institution->save();
-        }
-        //consultar pessoas vinculadas
-        $User_account = Users_Account::where('account_id', '=', $id);
-        if ($User_account) {
-            //deletar vinculos de todas as pessoas
-            $User_account->delete();
-            $this->adicionar_log_global('11', 'D', '{"delete_account_list":"' . $id . '"}');
-        }
-        $request->session()->flash("warning", 'events.change_delete');
-        return redirect()->route('account.index');
+        //validar se você é o dono da conta
+        if (Auth::user()->integrador_id == $institution->integrador) {
+            if ($institution) {
+                $institution = Institution::find($id);
+                //inativar a conta
+                $institution->deleted_at          = date('Y-m-d H:m:s');
+                //adicionar log
+                $this->adicionar_log_global('9', 'D', $institution);
+                $institution->save();
+            }
+            //consultar pessoas vinculadas
+            $User_account = Users_Account::where('account_id', '=', $id);
+            if ($User_account) {
+                //deletar vinculos de todas as pessoas
+                $User_account->delete();
+                $this->adicionar_log_global('11', 'D', '{"delete_account_list":"' . $id . '"}');
+            }
+
+            $request->session()->flash("warning", 'events.change_delete');
+            return redirect()->route('account.index');
+        } else
+            //se não for, retorna um erro generico
+            session()->flash("error", 'Error interno');
+        return redirect('account');
     }
 }

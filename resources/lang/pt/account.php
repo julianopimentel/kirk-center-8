@@ -21,6 +21,7 @@ return [
     'used' => 'Usado',
     'name' => 'Nome',
     'type' => 'Tipo',
+    'integrador' => 'Integrador',
     'action' => 'Ações',
     'select' => 'Selecione uma conta',
     'doc' => 'CNPJ',

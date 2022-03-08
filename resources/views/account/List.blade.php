@@ -14,7 +14,7 @@
                         <tr>
                             <th>Código</th>
                             <th>{{ __('account.name') }}</th>
-                            @if (Auth::user()->isAdmin())
+                            @if (Auth::user()->isAdmin() == true)
                                 <th>{{ __('account.type') }}</th>
                             @endif
                             <th colspan="3">
@@ -27,7 +27,7 @@
                             <tr>
                                 <td width="10%">{{ $institution->AccountList->id }}</td>
                                 <td width="40%">{{ $institution->AccountList->name_company }} </td>
-                                @if (Auth::user()->isAdmin())
+                                @if (Auth::user()->isAdmin() == true)
                                     <td>
                                         <span class="{{ $institution->AccountList->status->class }}">
                                             {{ $institution->AccountList->status->name }}
@@ -35,14 +35,14 @@
                                     </td>
                                 @endif
                                 <td width="1%">
-                                    @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
+                                    @if ($you->integrador_id == $institution->AccountList->integrador)
                                         <a href="{{ route('account.edit', $institution->AccountList->id) }}"
                                             class="btn btn-primary-outline"><i
                                                 class="c-icon c-icon-sm cil-pencil text-success"></i></a>
                                     @endif
                                 </td>
                                 <td width="1%">
-                                    @if (Auth::user()->isAdmin() and $you->id == $institution->AccountList->integrador)
+                                    @if ($you->integrador_id == $institution->AccountList->integrador)
                                         <form action="{{ route('account.destroy', $institution->AccountList->id) }}"
                                             method="POST">
                                             @method('DELETE')

@@ -63,4 +63,8 @@ class Institution extends Model
         })
         ->paginate($totalPagesPaginate);
     }
+    public function getIntegrador()
+    {
+        return $this->belongsTo('App\Models\Account_integrador', 'integrador');
+    }
 }
