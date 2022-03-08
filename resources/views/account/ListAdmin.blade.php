@@ -1,4 +1,4 @@
-@if (Auth::user()->isAdmin() == true)
+@if (Auth::user()->menuroles == 'admin')
     @extends('layouts.baseminimal')
 
     @section('content')

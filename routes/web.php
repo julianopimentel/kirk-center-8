@@ -29,8 +29,6 @@ Route::get('features', 'WelcomeController@features')->name('features');
 //blog simples
 Route::get('blog', 'WelcomeController@blog')->name('blog');
 Route::get('blog/{id}', 'WelcomeController@blogShow')->name('blog.show');
-Route::get('post/blog', 'WelcomeController@blogPost')->name('blog.post');
-Route::post('post', 'WelcomeController@blogStore')->name('blog.store');
 
 //inscrever no newsletter
 Route::post('subscribe', 'WelcomeController@adicionarnewsletter')->name('adicionar.newsletter');
@@ -211,11 +209,16 @@ Route::group(['middleware' => ['role:user']], function () {
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
+    //admin
     Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
     Route::get('integrador', 'InstitutionsController@integradorIndex')->name('integrador.index');
     Route::resource('bread',  'BreadController');   //create BREAD (resource)
     Route::resource('users',        'UsersController')->except(['create', 'store']);
     Route::resource('mail',        'MailController');
+    //blog
+    Route::get('post/blog', 'WelcomeController@blogPost')->name('blog.post');
+    Route::post('post', 'WelcomeController@blogStore')->name('blog.store');
+
     Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
     Route::post('mailSend/{id}',        'MailController@send')->name('mailSend');
     Route::get('/roles/move/move-up',      'RolesController@moveUp')->name('roles.up');

@@ -20,7 +20,7 @@ class BreadController extends Controller
     {
         //var_dump(DB::getSchemaBuilder()->getColumnListing('model'));
 
-        return view('dashboard.form.index', ['forms' => Form::all()]);
+        return view('admin.form.index', ['forms' => Form::all()]);
     }
 
 
@@ -31,7 +31,7 @@ class BreadController extends Controller
      */
     public function create()
     {
-        return view('dashboard.form.create');
+        return view('admin.form.create');
     }
 
     /**
@@ -51,11 +51,11 @@ class BreadController extends Controller
             $model = DB::getSchemaBuilder()->getColumnListing($request->input('model'));
             if(empty($model)){
                 $request->session()->flash('message', 'Table not detected, or there is no columns in table');
-                return view('dashboard.form.create');
+                return view('admin.form.create');
             }else{
                 $rolesService = new RolesService();
 
-                return view('dashboard.form.create2', [
+                return view('admin.form.create2', [
                     'columns' => $formService->getFormDataByModel( $request->input('model') ),
                     'options' => $formService->getFormOptions(),
                     'model'   => $request->input('model'),
@@ -80,7 +80,7 @@ class BreadController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.form.show', [
+        return view('admin.form.show', [
             'form' => Form::find($id),
             'formFields' => FormField::where('form_id', '=', $id)->get(),    
         ]);
@@ -96,7 +96,7 @@ class BreadController extends Controller
     {
         $formService = new FormService();
         $rolesService = new RolesService();
-        return view('dashboard.form.edit', [
+        return view('admin.form.edit', [
             'form' => Form::find($id),
             'formFields' => FormField::where('form_id', '=', $id)->get(),
             'options' => $formService->getFormOptions(),
@@ -139,7 +139,7 @@ class BreadController extends Controller
             $request->session()->flash('message', 'Successfully deleted form: ' . $form->name);
             return redirect()->route('bread.index');
         }else{
-            return view('dashboard.form.delete', ['id' => $id, 'formName' => $form->name]);
+            return view('admin.form.delete', ['id' => $id, 'formName' => $form->name]);
         }
     }
 }

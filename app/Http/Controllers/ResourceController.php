@@ -42,7 +42,7 @@ class ResourceController extends Controller
         $form = Form::find( $table );
         $resourceService = new ResourceService();
         $data = $resourceService->getIndexDatas( $table );
-        return view('dashboard.resource.index', [
+        return view('admin.resource.index', [
             'form' => $form,
             'header' => $resourceService->getFullIndexHeader( $table ),
             'datas' => $data['data'],
@@ -82,7 +82,7 @@ class ResourceController extends Controller
             $formService = new FormService();
             $columns = $resourceService->getColumnsForAdd( $table );
             
-            return view('dashboard.resource.create', [
+            return view('admin.resource.create', [
                 'form' => $form,
                 'columns' => $columns,
                 'relations' => $resourceService->getRelations( $columns ),
@@ -163,7 +163,7 @@ class ResourceController extends Controller
         $form = Form::find( $table );
         if($form->read == 1){
             $resourceService = new ResourceService();
-            return view('dashboard.resource.show', [
+            return view('admin.resource.show', [
                 'form' => $form,
                 'columns' => $resourceService->show($form->id, $form->table_name, $id),
             ]);
@@ -201,7 +201,7 @@ class ResourceController extends Controller
         if($form->edit == 1){
             $resourceService = new ResourceService();
             $formService = new FormService();
-            return view('dashboard.resource.edit', [
+            return view('admin.resource.edit', [
                 'form' => $form,
                 'columns' => $resourceService->getColumnsForEdit( $form->table_name, $table, $id ),
                 'relations' => $resourceService->getRelations( FormField::where('form_id', '=', $table)->where('edit', '=', '1')->get()),
@@ -288,7 +288,7 @@ class ResourceController extends Controller
                 $request->session()->flash('message', 'Successfully deleted element from: ' . $form->name);
                 return redirect()->route('resource.index', $table);
             }else{
-                return view('dashboard.resource.delete', ['table' => $table, 'id' => $id, 'formName' => $form->name]);
+                return view('admin.resource.delete', ['table' => $table, 'id' => $id, 'formName' => $form->name]);
             }
         }else{
             abort('401');

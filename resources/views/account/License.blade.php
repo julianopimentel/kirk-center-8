@@ -30,11 +30,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Documento</th>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Usuário Responsável</th>
-                            <th>Status</th>
+                            <th>{{ __('account.doc') }}</th>
+                            <th>{{ __('account.name') }}</th>
+                            <th>{{ __('account.email') }}</th>
+                            <th>{{ __('account.user_integrador') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,22 +42,21 @@
                                 <td>{{ $license->name_company }}</td>
                                 <td>{{ $license->email }}</td>
                                 <td>{{ $license->getUser->name }}</td>
-                                <td>Status</td>
                             </tr>
                     </tbody>
                 </table>
             </div>
             <div class="card">
                 <div class="card-header">
-                        <h4><strong>Histórico de Pagamentos</strong></h4>
+                        <h4><strong>{{ __('account.hist_pag') }}</strong></h4>
                 </div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Type</th>
-                            <th>Quatidade</th>
-                            <th>Total</th>
+                            <th>{{ __('account.date') }}</th>
+                            <th>{{ __('account.type') }}</th>
+                            <th>{{ __('account.quantity') }}</th>
+                            <th>{{ __('account.total') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,7 +70,7 @@
                                 @endif
                                 </td>
                                 <td>{{ $pagamento->quantity }} </td>
-                                <td>{{ formattedMoney($pagamento->total) }} </td>
+                                <td>R$ {{ formattedMoney($pagamento->total) }} </td>
                             </tr>
                         @endforeach
                     </tbody>

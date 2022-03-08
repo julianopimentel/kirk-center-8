@@ -18,13 +18,19 @@ return [
     //menu
     'available' => 'Disponível',
     'id' => 'Código',
-    'used' => 'Usado',
+    'used' => 'Usando',
     'name' => 'Nome',
+    'email' => 'E-mail',
     'type' => 'Tipo',
     'integrador' => 'Integrador',
     'action' => 'Ações',
     'select' => 'Selecione uma conta',
     'doc' => 'CNPJ',
+    'user_integrador' => 'Usuário Integrador',
+    'date' => 'Data',
+    'quantity' => 'Quantidade',
+    'total' => 'Total',
+    'hist_pag' => 'Histórico de Pagamentos',
 
     //types
     'church' => 'Igreja',
