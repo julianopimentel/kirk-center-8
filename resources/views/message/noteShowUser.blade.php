@@ -14,7 +14,9 @@
                             </div>
                         @endif
                         <br>
-                        {{ $note->content }}
+                        @php
+                        echo $note->content;
+                        @endphp
                         <br>
                         <br>
                         Publicado em {{datarecente($note->created_at)}}

@@ -3,20 +3,20 @@
 
     <div class="container-fluid">
 
-    <!--
-        <div class="fade-in">
-            <div class="row">
-                <div class="col-12 mb-4">
-                    <div class="hero text-white hero-bg-image">
-                        <div class="hero-inner">
-                            <h2>Welcome, {{ auth()->user()->name }}!</h2>
-                            <p class="lead">This page is a place to view posts, their groups, and more.</p>
+        <!--
+            <div class="fade-in">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="hero text-white hero-bg-image">
+                            <div class="hero-inner">
+                                <h2>Welcome, {{ auth()->user()->name }}!</h2>
+                                <p class="lead">This page is a place to view posts, their groups, and more.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
--->
+    -->
 
 
 
@@ -49,94 +49,93 @@
                 @if (($social->facebook_link !== null) | ($social->twitter_link !== null) | ($social->linkedin_link !== null) | ($social->youtube_link !== null) | ($social->instagram_link !== null) | ($social->vk_link !== null) | ($social->site_link !== null) | ($social->telegram_link !== null) | ($social->whatsapp_link !== null))
                     <div class="row">
                         <div class="col-12">
-                        <h6>Rede Sociais</h6>
-                                <div class="card-body">
-                                    <p>
-                                        @if ($social->facebook_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="{{ $social->facebook_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-facebook-f">
-                                                    </use>
-                                                </svg><span>Facebook</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->twitter_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="{{ $social->twitter_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-twitter">
-                                                    </use>
-                                                </svg><span>Twitter</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->linkedin_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="{{ $social->linkedin_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-linkedin">
-                                                    </use>
-                                                </svg><span>LinkedIn</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->youtube_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="{{ $social->youtube_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-youtube">
-                                                    </use>
-                                                </svg><span>YouTube</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->instagram_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="{{ $social->instagram_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-instagram">
-                                                    </use>
-                                                </svg><span>Instagram</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->vk_link !== null)
-                                            <a class="btn btn-sm" type="button" href="{{ $social->vk_link }}"
-                                                target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-vk"></use>
-                                                </svg><span>VK</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->site_link !== null)
-                                            <a class="btn btn-sm" type="button" href="{{ $social->site_link }}"
-                                                target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use
-                                                        xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
-                                                    </use>
-                                                </svg><span>Website</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->telegram_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="https://t.me/{{ $social->telegram_link }}" target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-telegram">
-                                                    </use>
-                                                </svg><span>Telegram</span>
-                                            </a>
-                                        @endif
-                                        @if ($social->whatsapp_link !== null)
-                                            <a class="btn btn-sm" type="button"
-                                                href="https://api.whatsapp.com/send?phone={{ $social->whatsapp_link }}"
-                                                target="_blank">
-                                                <svg class="c-icon mr-2">
-                                                    <use xlink:href="/icons/sprites/brand.svg#cib-whatsapp">
-                                                    </use>
-                                                </svg><span>Whatsapp</span>
-                                            </a>
-                                        @endif
-                                    </p>
-                                </div>
+                            <h6>Rede Sociais</h6>
+                            <div class="card-body">
+                                <p>
+                                    @if ($social->facebook_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->facebook_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-facebook-f">
+                                                </use>
+                                            </svg><span>Facebook</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->twitter_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->twitter_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-twitter">
+                                                </use>
+                                            </svg><span>Twitter</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->linkedin_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->linkedin_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-linkedin">
+                                                </use>
+                                            </svg><span>LinkedIn</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->youtube_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->youtube_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-youtube">
+                                                </use>
+                                            </svg><span>YouTube</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->instagram_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->instagram_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-instagram">
+                                                </use>
+                                            </svg><span>Instagram</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->vk_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->vk_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-vk"></use>
+                                            </svg><span>VK</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->site_link !== null)
+                                        <a class="btn btn-sm" type="button" href="{{ $social->site_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
+                                                </use>
+                                            </svg><span>Website</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->telegram_link !== null)
+                                        <a class="btn btn-sm" type="button"
+                                            href="https://t.me/{{ $social->telegram_link }}" target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-telegram">
+                                                </use>
+                                            </svg><span>Telegram</span>
+                                        </a>
+                                    @endif
+                                    @if ($social->whatsapp_link !== null)
+                                        <a class="btn btn-sm" type="button"
+                                            href="https://api.whatsapp.com/send?phone={{ $social->whatsapp_link }}"
+                                            target="_blank">
+                                            <svg class="c-icon mr-2">
+                                                <use xlink:href="/icons/sprites/brand.svg#cib-whatsapp">
+                                                </use>
+                                            </svg><span>Whatsapp</span>
+                                        </a>
+                                    @endif
+                                </p>
                             </div>
+                        </div>
                     </div>
                 @endif
             @endif
@@ -145,15 +144,15 @@
                     <h6>Mural de Recados</h6>
                     <div class="row">
                         @foreach ($notes as $note)
-                       
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                                 <article class="article article-style-b">
                                     <div class="article-header">
                                         <div class="article-image">
                                             @if (!empty($note->image))
-                                            <img src="{{ $note->image }}" width="100%" height="100%">
+                                                <img src="{{ $note->image }}" width="100%" height="100%">
                                             @else
-                                            <img src="assets/img/img0{{ $loop->iteration }}.jpg" width="100%" height="100%">
+                                                <img src="assets/img/img0{{ $loop->iteration }}.jpg" width="100%"
+                                                    height="100%">
                                             @endif
                                         </div>
                                         @if ($note->status_id == 2)
@@ -169,7 +168,9 @@
                                                     href="recado/{{ $note->id }}">{{ mb_strimwidth($note->title, 0, 45, '...') }}</a>
                                             </h2>
                                         </div>
-                                        <p>{{ mb_strimwidth($note->content, 0, 130, '...') }}</p>
+                                        <p> @php
+                                            echo mb_strimwidth($note->content, 0, 120, '...');
+                                        @endphp</p>
                                     </div>
                                 </article>
                             </div>
@@ -288,8 +289,7 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="c-callout c-callout-warning"><small
-                                                        class="text-muted">Total
+                                                <div class="c-callout c-callout-warning"><small class="text-muted">Total
                                                         de Batismos</small>
                                                     <div class="text-value-lg">{{ $totalbatismo }}</div>
                                                 </div>
@@ -393,11 +393,9 @@
                 })
             </script>
 
-            
+
         </div>
     @endsection
 
     @section('javascript')
-
-
     @endsection

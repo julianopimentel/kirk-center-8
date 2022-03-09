@@ -75,42 +75,8 @@
                                                         </div>
                                                     @endif
                                                     <div class="media-title mb-1"> {{ $comment->user->name }}</div>
-                                                    <div class="text-time"> @php
-                                                        
-                                                        $dateTime1 = new DateTime($comment->updated_at);
-                                                        $dateTime2 = new DateTime();
-                                                        $interval = $dateTime1->diff($dateTime2);
-                                                        echo 'Publicado em ';
-                                                        if ($interval->format('%y') > 0) {
-                                                            if ($dateTime2 >= $interval->format('%y')) {
-                                                                echo $interval->format('%y anos') . PHP_EOL;
-                                                            }
-                                                        }
-                                                        if ($interval->format('%m') > 0) {
-                                                            if ($dateTime2 >= $interval->format('%m')) {
-                                                                echo $interval->format('%m meses') . PHP_EOL;
-                                                            }
-                                                        } else {
-                                                            if ($interval->format('%d') > 0) {
-                                                                if ($dateTime2 >= $interval->format('%d')) {
-                                                                    echo $interval->format('%d dias') . PHP_EOL;
-                                                                }
-                                                            } else {
-                                                                if ($dateTime2 >= $interval->format('%h')) {
-                                                                    if ($dateTime2 >= $interval->format('%h')) {
-                                                                        echo $interval->format('%h horas') . PHP_EOL;
-                                                                    }
-                                                                    if ($dateTime2 >= $interval->format('%i')) {
-                                                                        echo $interval->format('%i minutos') . PHP_EOL;
-                                                                    }
-                                                                    if ($dateTime2 >= $interval->format('%s')) {
-                                                                        echo $interval->format('%s segundos') . PHP_EOL;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                        
-                                                    @endphp
+                                                    <div class="text-time"> 
+                                                        Publica em {{ datarecente($comment->created_at) }}
                                                     </div>
                                                     <div class="media-description text-muted">
                                                         {{ $comment->comment }}
@@ -126,6 +92,5 @@
             </div>
         </div>
     @endsection
-
     @section('javascript')
     @endsection

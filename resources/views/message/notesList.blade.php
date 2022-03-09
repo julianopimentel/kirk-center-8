@@ -38,7 +38,11 @@
                                         <tr>
                                             <td><strong>{{ $note->user->name }}</strong></td>
                                             <td><strong>{{ $note->title }}</strong></td>
-                                            <td>{{ $note->content }}</td>
+                                            <td>
+                                                @php
+                                                echo mb_strimwidth($note->content, 0, 40, '...');
+                                            @endphp
+                                            </td>
                                             <td><strong>{{ datarecente($note->created_at) }}</strong></td>
                                             <td>{{ $note->applies_to_date }}</td>
                                             <td>

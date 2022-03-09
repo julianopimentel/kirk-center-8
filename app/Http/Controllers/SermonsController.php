@@ -341,36 +341,6 @@ class SermonsController extends Controller
 
         if ($request->ajax()) {
             foreach ($results as $result) {
-                $dateTime1 = new DateTime($result->updated_at);
-                $dateTime2 = new DateTime();
-                $interval = $dateTime1->diff($dateTime2);
-
-                if ($interval->format('%y') > 0) {
-                    if ($dateTime2 >= $interval->format('%y')) {
-                        $valorhora = $interval->format('%y anos') . PHP_EOL;
-                    }
-                }
-                if ($interval->format('%m') > 0) {
-                    if ($dateTime2 >= $interval->format('%m')) {
-                        $valorhora = $interval->format('%m meses') . PHP_EOL;
-                    }
-                } else {
-                    if ($interval->format('%d') > 0) {
-                        if ($dateTime2 >= $interval->format('%d')) {
-                            $valorhora = $interval->format('%d dias') . PHP_EOL;
-                        }
-                    } else {
-                        if ($dateTime2 >= $interval->format('%h')) {
-                            if ($interval->format('%h') > 0) {
-                                $valorhora = $interval->format('%h horas') . ' ' . $interval->format('%i minutos') . PHP_EOL;
-                            } else {
-                                $valorhora = $interval->format('%i minutos') . ' ' . $interval->format('%s segundos') . PHP_EOL;
-                            }
-                        }
-                    }
-                }
-
-
                 $artilces .= '
                 <!-- post title start -->
                 <div class="post-title d-flex align-items-center">
@@ -391,7 +361,7 @@ class SermonsController extends Controller
                 </div>
                 <!-- post title start -->
                 <div class="post-content">
-                <p class="card-text"><small class="text-medium-emphasis">Publicado em ' . $valorhora . '
+                <p class="card-text"><small class="text-medium-emphasis">Publicado em ' . datarecente($result->created_at) . '
                 </small> </p>
             </div>';
             }

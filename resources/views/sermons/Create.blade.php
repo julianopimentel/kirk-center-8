@@ -1,5 +1,6 @@
 @if ($appPermissao->add_sermons == true)
     @extends('layouts.base')
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
     @section('content')
         <div class="container-fluid">
             <div class="fade-in">
@@ -28,7 +29,8 @@
                                                 <label>URL do Youtube*</label>
                                                 <input class="form-control" type="text"
                                                     placeholder="https://www.youtube.com/watch?v=d8u9uL9Ilyk&t=20s"
-                                                    name="url" required autofocus><p class="card-text">
+                                                    name="url" required autofocus>
+                                                <p class="card-text">
                                             </div>
                                             <!-- /.row-->
                                             <div class="form-group">
@@ -36,7 +38,8 @@
                                                     Image da capa</label>
                                                 <div class="form-group col-sm-6">
                                                     <input id="image" type="file" class="form-control" name="image">
-                                                    <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
+                                                    <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480
+                                                    </small></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +69,7 @@
                                                         </svg>
                                                 </div>
                                                 <input class="form-control" name="applies_to_date" type="date"
-                                                    placeholder="date" value="{{date('Y-m-d')}}" required>
+                                                    placeholder="date" value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -105,6 +108,10 @@
                     </div>
                 </div>
             </div>
+            <!-- End Blog -->
+            <script>
+                CKEDITOR.replace('content');
+            </script>
         @endsection
 
         @section('javascript')

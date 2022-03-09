@@ -52,9 +52,9 @@
                                                             @endif
                                                         </div>
                                                         @php
-                                                        $dateTime1 = new DateTime($note->applies_to_date);
-                                                        $dateTime2 = new DateTime();
-                                                        $interval = $dateTime1->diff($dateTime2);
+                                                            $dateTime1 = new DateTime($note->applies_to_date);
+                                                            $dateTime2 = new DateTime();
+                                                            $interval = $dateTime1->diff($dateTime2);
                                                         @endphp
                                                         @if ($note->status_id == 2)
                                                             <div class="article-badge">
@@ -63,11 +63,11 @@
                                                                     Trending</div>
                                                             </div>
                                                         @elseif($interval->format('%d') < 7)
-                                                        <div class="article-badge">
-                                                            <div class="article-badge-item bg-info"><i
-                                                                    class="fas fa-fire"></i>
+                                                            <div class="article-badge">
+                                                                <div class="article-badge-item bg-info"><i
+                                                                        class="fas fa-fire"></i>
                                                                     {{ __('layout.new') }}</div>
-                                                        </div>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                     <div class="article-details">
@@ -76,7 +76,9 @@
                                                                     href="{{ route('sermons.show', $note->id) }}">{{ mb_strimwidth($note->title, 0, 45, '...') }}</a>
                                                             </h2>
                                                         </div>
-                                                        <p>{{ mb_strimwidth($note->content, 0, 130, '...') }}</p>
+                                                        @php
+                                                            echo mb_strimwidth($note->content, 0, 145, '...');
+                                                        @endphp
                                                     </div>
                                                 </article>
                                             </div>
@@ -90,17 +92,17 @@
     @endforeach
 
     @if ($category->count() == 0)
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                <h4><strong>Palavras</strong></h4>
-            </div>
-            <div class="container-fluid">
-                <div class="fade-in">
-                    Não possuiu estudos vinculado ao seu grupo, fale com o administrador da conta
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h4><strong>Palavras</strong></h4>
+                </div>
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        Não possuiu estudos vinculado ao seu grupo, fale com o administrador da conta
+                    </div>
                 </div>
             </div>
-        </div>
     @endif
 
     </div>
@@ -108,7 +110,6 @@
 
 @section('javascript')
 @endsection
-
 @else
 @include('errors.redirecionar')
 @endif

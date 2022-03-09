@@ -48,9 +48,6 @@ class TimelineController extends Controller
         if ($request->ajax()) {
             foreach ($results as $result) {
 
-                
-
-
                 $artilces .= '
                 <div class="card">
                 <!-- post title start -->

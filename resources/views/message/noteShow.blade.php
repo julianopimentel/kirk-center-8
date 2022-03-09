@@ -15,7 +15,12 @@
                         <h4>Title:</h4>
                         <p> {{ $note->title }}</p>
                         <h4>Content:</h4> 
-                        <p>{{ $note->content }}</p>
+                        <p>
+                          @php
+                            echo $note->content;
+                          @endphp
+                        </p>
+                        <br>
                         <h4>Applies to date:</h4> 
                         <p>{{ $note->applies_to_date }}</p>
                         <h4> Status: </h4>

@@ -1,5 +1,6 @@
 @if ($appPermissao->add_message == true)
     @extends('layouts.base')
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
     @section('content')
         <div class="container-fluid">
             <div class="fade-in">
@@ -38,7 +39,7 @@
                                                                     </svg>
                                                             </div>
                                                             <input class="form-control" name="applies_to_date" type="date"
-                                                                placeholder="date" value="{{date('Y-m-d')}}" required>
+                                                                placeholder="date" value="{{ date('Y-m-d') }}" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,8 +74,10 @@
                                                         <div class="form-group col-sm-6">
                                                             <input id="image" type="file" class="form-control"
                                                                 name="image">
-                                                                <p>
-                                                                    <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480 </small></p>
+                                                            <p>
+                                                                <small class="text-medium-emphasis">Recomendamos o tamanho
+                                                                    de 670 x 480 </small>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,11 +93,13 @@
                 </div>
             </div>
         </div>
-
+        <!-- End Blog -->
+        <script>
+            CKEDITOR.replace('content');
+        </script>
     @endsection
 
     @section('javascript')
-
     @endsection
 @else
     @include('errors.redirecionar')

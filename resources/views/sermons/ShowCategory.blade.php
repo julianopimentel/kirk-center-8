@@ -47,7 +47,6 @@
 
                                 </div>
                                 <button class="btn btn-sm btn-success" type="submit">Criar categoria</button>
-
                         </div>
                         </form>
 
