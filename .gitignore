@@ -38,5 +38,5 @@ composer.lock
 config/app.php
 public/demo/
 public/wiki/
-public/.htaccess
 public/error_log
+public/.htaccess
