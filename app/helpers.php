@@ -53,7 +53,7 @@ function translatedMonth($month)
 
 function contato()
 {
-    return 'contato@kirkapp.online';
+    return 'contato@kirk.digital';
 }
 
 function telefone()
