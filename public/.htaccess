@@ -23,9 +23,9 @@ RewriteRule . /index.php [L]
 # php -- END cPanel-generated handler, do not edit
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
-RewriteCond %{HTTP_HOST} ^deskapp\.online$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.deskapp\.online$
-RewriteRule ^(.*)$ "https\:\/\/www\.deskapp\.online\/$1" [R=301,L]
+RewriteCond %{HTTP_HOST} ^kirk\.digital$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.kirk\.digital$
+RewriteRule ^(.*)$ "https\:\/\/www\.kirk\.digital\/$1" [R=301,L]
 
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.

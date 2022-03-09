@@ -71,8 +71,35 @@ function datanormal($value){
     $datanormal = $dateTime1->format('d F, Y ', );
     return $datanormal;
 }
+
 function datarecente($value){
     $dateTime1 = new DateTime($value);
-    $datanormal = $dateTime1->format('d F, Y ', );
-    return $datanormal;
+    $dateTime2 = new DateTime();
+    $interval = $dateTime1->diff($dateTime2);
+    echo 'Publicado em ';
+    if ($interval->format('%y') > 0) {
+        if ($dateTime2 >= $interval->format('%y')) {
+            $valorhora = $interval->format('%y anos') . PHP_EOL;
+        }
+    }
+    if ($interval->format('%m') > 0) {
+        if ($dateTime2 >= $interval->format('%m')) {
+            $valorhora = $interval->format('%m meses') . PHP_EOL;
+        }
+    } else {
+        if ($interval->format('%d') > 0) {
+            if ($dateTime2 >= $interval->format('%d')) {
+                $valorhora = $interval->format('%d dias') . PHP_EOL;
+            }
+        } else {
+            if ($dateTime2 >= $interval->format('%h')) {
+                if ($interval->format('%h') > 0) {
+                    $valorhora = $interval->format('%h horas') . ' ' . $interval->format('%i minutos') . PHP_EOL;
+                } else {
+                    $valorhora = $interval->format('%i minutos') . ' ' . $interval->format('%s segundos') . PHP_EOL;
+                }
+            }
+        }
+    }
+    return $valorhora;
 }
