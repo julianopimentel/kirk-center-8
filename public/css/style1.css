@@ -119,7 +119,7 @@ p, ul:not(.list-unstyled), ol {
 .custom-file-label:after,
 .form-control[type="color"],
 select.form-control:not([size]):not([multiple]) {
-  height: calc(2.25rem + 6px);
+  height: calc(1.938rem + 2px);
 }
 
 .form-control.creditcard {

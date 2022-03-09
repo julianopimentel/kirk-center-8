@@ -7,8 +7,38 @@
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        @if (!$institutions->isEmpty())
-                            <h4><strong>{{ __('account.select') }}</strong></h4>
+                        <form action="{{ route('account.search') }}" method="POST" class="form form-inline">
+                            {!! csrf_field() !!}
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <h4><strong>{{ __('account.select') }}</strong></h4>
+                                </div>
+                                <div class="col-3">
+                                    <div class="inner">
+                                        <input type="text" id='name_company' name="name_company" class="form-control"
+                                            placeholder="Nome">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="inner">
+                                        <select class="form-control" id="integrador" name="integrador">
+                                            <option value="">Integrador</option>
+                                            @foreach ($integradores as $integrador)
+                                                <option value="{{ $integrador->id }}">{{ $integrador->name_company }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="box-header">
+                                        <button type="submit" class="btn btn-primary" title="Pesquisar"><i
+                                                class="c-icon c-icon-sm cil-zoom"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
                     <table class="table table-striped">
                         <thead>
@@ -70,23 +100,12 @@
                 </div>
             </div>
         </div>
-    @else
-        <h4><strong>Você não possui nenhum cadastro associado</strong></h4>
         </div>
-        <div class="card-body">
-            Seja Bem-vindo! <br>
-            Gostaria de criar um pré-cadastro a sua igreja?
-            <label for="ccmonth"><a href="{{ route('wizard.index') }}" class="btn btn-dark m-2">Associar</a><br>
-
         </div>
-    @endif
+    @endsection
 
-    </div>
-    </div>
-@endsection
-
-@section('javascript')
-@endsection
+    @section('javascript')
+    @endsection
 @else
-@include('errors.redirecionar')
+    @include('errors.redirecionar')
 @endif

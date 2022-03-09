@@ -48,17 +48,23 @@ class InstitutionsController extends Controller
         $institutions = Users_Account::where('user_id', $you->id)
             ->with('accountlist')
             ->with('status')
+          //  ->orderby('name_company', 'asc')
             ->paginate($this->totalPagesPaginate);
 
+            
         //integrador com acesso total
         if (Auth::user()->menuroles == 'admin') {
+            //consultar accounts
             $institutions = Institution::with('getIntegrador')
                 ->with('status')
                 ->wherenull('deleted_at')
                 ->orderby('name_company', 'asc')
                 ->paginate($this->totalPagesPaginate);
 
-            return view('account.ListAdmin', compact('you', $you), ['institutions' => $institutions]);
+            //consultar integradores
+            $integradores = Account_Integrador::get();
+
+            return view('account.ListAdmin', compact('you', 'integradores'), ['institutions' => $institutions]);
             //caso o user possuia uma conta vinculado
         } elseif ($institutions->count() == 1 and $you->menuroles == 'user' and $you->master == false) {
             foreach ($institutions as $element) {
@@ -67,9 +73,19 @@ class InstitutionsController extends Controller
             return redirect()->route('tenantget', $element->account_id);
             //user acima 
         } else
-            return view('account.List', compact('you', $you), ['institutions' => $institutions]);
+          return view('account.List', compact('you', $you), ['institutions' => $institutions]);
     }
-
+    public function searchAccount(Request $request, Institution $institutions)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        $dataForm = $request->except('_token');
+        //consulta da pesquisa
+        $institutions =  $institutions->search($dataForm, $this->totalPagesPaginate);
+        //pegar os integradores
+        $integradores = Account_Integrador::get();
+        return view('account.ListAdmin', compact('institutions', 'integradores'));
+    }
     public function license_index()
     {
         //user data
