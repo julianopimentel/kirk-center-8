@@ -38,7 +38,7 @@
                                             <td><strong>{{ $note->user->name }}</strong></td>
                                             <td><strong>{{ $note->title }}</strong></td>
                                             <td>{{ $note->content }}</td>
-                                            <td>{{ $note->applies_to_date }}</td>
+                                            <td>{{ datarecente($note->created_at) }}</td>
                                             <td>
                                                 <span class="{{ $note->status->class }}">
                                                     {{ $note->status->name }}

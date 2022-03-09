@@ -76,7 +76,6 @@ function datarecente($value){
     $dateTime1 = new DateTime($value);
     $dateTime2 = new DateTime();
     $interval = $dateTime1->diff($dateTime2);
-    echo 'Publicado em ';
     if ($interval->format('%y') > 0) {
         if ($dateTime2 >= $interval->format('%y')) {
             $valorhora = $interval->format('%y anos') . PHP_EOL;

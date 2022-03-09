@@ -5,6 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="p-5 card">
+                        <h6>Title: {{ $note->title }}</h6>
                         @if (!empty($note->image))
                             <div class="post-thumb-gallery">
                                 <figure class="post-thumb img-popup">
@@ -12,20 +13,20 @@
                                 </figure>
                             </div>
                         @endif
-                        <h6>Title:</h6>{{ $note->title }}
                         <br>
                         {{ $note->content }}
-
+                        <br>
+                        <br>
+                        Publicado em {{datarecente($note->created_at)}}
                     </div>
                 </div>
             </div>
-            
+
         </div>
     @endsection
 
 
     @section('javascript')
-
     @endsection
 @else
     @include('errors.redirecionar')

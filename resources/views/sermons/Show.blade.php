@@ -22,7 +22,7 @@
                             <p>Autor: {{ $note->user->name }}
                             </p>
     
-                                {{ datarecente($note->created_at) }}
+                                Publica em {{ datarecente($note->created_at) }}
                                 
                             <br> <br> <br>
                             <div class="form-group row">

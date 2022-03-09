@@ -26,6 +26,7 @@
                                         <th>Titulo</th>
                                         <th>Mensagem</th>
                                         <th>Data</th>
+                                        <th>Publicar em</th>
                                         <th>Status</th>
                                         <th colspan="3">
                                             <Center>{{ __('account.action') }}</Center>
@@ -38,6 +39,7 @@
                                             <td><strong>{{ $note->user->name }}</strong></td>
                                             <td><strong>{{ $note->title }}</strong></td>
                                             <td>{{ $note->content }}</td>
+                                            <td><strong>{{ datarecente($note->created_at) }}</strong></td>
                                             <td>{{ $note->applies_to_date }}</td>
                                             <td>
                                                 <span class="{{ $note->status->class }}">

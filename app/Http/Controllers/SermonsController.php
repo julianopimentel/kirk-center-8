@@ -58,6 +58,11 @@ class SermonsController extends Controller
 
     public function indexCategory($id)
     {
+        //se for master vai ignorar
+        if (Auth::user()->isAdmin() == true) {
+            $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
+            return view('sermons.ListCategory', ['notes' => $notes]);
+        }
         //consulta permissao da categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->where('id', $id)->first();
         //gabiarra para carregar somente os que tem a permissao
@@ -152,19 +157,24 @@ class SermonsController extends Controller
     {
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
-        //analise de visita
-        $validacao = Statistics::where('people_id', auth()->user()->people->id)
-                        ->where('type', 'view')
-                        ->where('sermons_id', $id)
-                        ->where('created_at','LIKE','%'.date('Y-m-d').'%')
-                        ->count();
-        if ($validacao == 0) {
-            Statistics::create([
-                'people_id' => auth()->user()->people->id,
-                'type' => 'view',
-                'sermons_id' => $id,
-            ]);
+
+        //se for master vai ignorar
+        if (Auth::user()->isAdmin() == false) {
+            //analise de visita
+            $validacao = Statistics::where('people_id', auth()->user()->people->id)
+                ->where('type', 'view')
+                ->where('sermons_id', $id)
+                ->where('created_at', 'LIKE', '%' . date('Y-m-d') . '%')
+                ->count();
+            if ($validacao == 0) {
+                Statistics::create([
+                    'people_id' => auth()->user()->people->id,
+                    'type' => 'view',
+                    'sermons_id' => $id,
+                ]);
+            }
         }
+
         //pegar essa statitica e jogar na view
         $view = Statistics::where('sermons_id', $id);
 

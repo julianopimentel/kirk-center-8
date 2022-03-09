@@ -22,6 +22,7 @@
                             <table class="table table-responsive-sm table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Data</th>
                                         <th>Autor</th>
                                         <th>Titulo</th>
                                         <th>Status</th>
@@ -33,6 +34,7 @@
                                 <tbody>
                                     @foreach ($prayers as $prayer)
                                         <tr>
+                                            <td><strong>{{ datarecente($prayer->created_at) }}</strong></td>
                                             <td><strong>{{ $prayer->user->name }}</strong></td>
                                             <td><strong>{{ $prayer->title }}</strong></td>
                                             <td>
