@@ -21,7 +21,7 @@ class People extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'birth_at', 'address', 'country', 'state', 'city', 'role', 'cep', 
+        'name', 'email', 'phone', 'birth_at', 'address', 'country', 'state', 'city', 'role', 'cep',
         'is_verify', 'is_visitor', 'is_transferred',
         'is_responsible',
         'is_conversion',
@@ -60,20 +60,20 @@ class People extends Model
     {
         return $this->belongsTo('App\Models\Status', 'status_id');
     }
-    
+
     public function historics()
     {
         return $this->hasMany(Historic::class);
     }
-    
+
     public function getSender($sender)
     {
         return $this->where('name', 'LIKE', "%$sender%")
-                    ->orWhere('email', $sender)
-                    ->whereNull('deleted_at')
-                    ->get()
-                    ->first();    
-    }   
+            ->orWhere('email', $sender)
+            ->whereNull('deleted_at')
+            ->get()
+            ->first();
+    }
 
     public function acesso()
     {
@@ -87,9 +87,9 @@ class People extends Model
     {
         return $this->belongsTo('App\Models\People_Groups', 'user_id');
     }
-    public function search(Array $data, $totalPagesPaginate)
+    public function search(array $data, $totalPagesPaginate)
     {
-        return $this->where(function ($query) use ($data){
+        return $this->where(function ($query) use ($data) {
             if (isset($data['statuses']))
                 $query->where('status_id', $data['statuses']);
 
@@ -108,20 +108,23 @@ class People extends Model
             if (isset($data['is_conversion']))
                 $query->where('is_conversion', $data['is_conversion']);
 
+            if (isset($data['is_verify']))
+                $query->where('is_verify', $data['is_verify']);
+
             if (isset($data['sex']))
                 $query->where('sex', $data['sex']);
 
             if (isset($data['name']))
-                $query->where('name',  'LIKE','%' . $data['name']. '%');
+                $query->where('name',  'LIKE', '%' . $data['name'] . '%');
 
             if (isset($data['address']))
-                $query->where('address',  'LIKE','%' . $data['address']. '%');
+                $query->where('address',  'LIKE', '%' . $data['address'] . '%');
 
             if (isset($data['datefrom'], $data['dateto']))
-                $query->whereBetween('created_at', [$data['datefrom'], $data['dateto']]); 
+                $query->whereBetween('created_at', [$data['datefrom'], $data['dateto']]);
         })
-        ->where('is_admin', false)
-        ->whereNull('deleted_at')
-        ->paginate($totalPagesPaginate);
+            ->where('is_admin', false)
+            ->whereNull('deleted_at')
+            ->paginate($totalPagesPaginate);
     }
 }

@@ -32,6 +32,11 @@ class ConfigSystemTable extends Migration
             $table->boolean('obg_city')->nullable()->default(0);
             $table->boolean('obg_state')->nullable()->default(0);
             $table->boolean('obg_note')->nullable()->default(0);
+            $table->boolean('visit_last_name')->nullable()->default(1);
+            $table->boolean('visit_email')->nullable()->default(0);
+            $table->boolean('visit_mobile')->nullable()->default(0);
+            $table->boolean('visit_birth')->nullable()->default(0);
+            $table->boolean('visit_sex')->nullable()->default(0);
 			$table->timestamps(10);
 		});
     }

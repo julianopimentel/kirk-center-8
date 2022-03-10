@@ -111,6 +111,44 @@
                                                 <label class="form-check-label" for="check1">Estado obrigatório</label>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><strong>Visitante </strong></label>
+                                        <div class="inner">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" name="visit_last_name" type="checkbox"
+                                                    {{ $settings->visit_last_name == true ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="check1">Mostrar Sobrenome</label>
+                                            </div>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" name="visit_email" type="checkbox"
+                                                    {{ $settings->visit_email == true ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="check1">Mostrar Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" name="visit_mobile" type="checkbox"
+                                                    {{ $settings->visit_mobile == true ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="check1">Mostrar Celular</label>
+                                            </div>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" name="visit_birth" type="checkbox"
+                                                    {{ $settings->visit_birth == true ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="check1">Mostrar Aniversário</label>
+                                            </div>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="form-check form-check-inline mr-1">
+                                                <input class="form-check-input" name="visit_sex" type="checkbox"
+                                                    {{ $settings->visit_sex == true ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="check1">Sexo obrigatório</label>
+                                            </div>
+                                        </div>
                                         <br>
                                         <label class="control-label"><strong>Localização</strong></label>
                                         <div class="inner">

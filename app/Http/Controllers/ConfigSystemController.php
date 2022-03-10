@@ -96,6 +96,12 @@ class ConfigSystemController extends Controller
         $settings->obg_city       = $request->has('obg_city') ? 1 : 0;
         $settings->obg_state       = $request->has('obg_state') ? 1 : 0;
         $settings->obg_note       = $request->has('obg_note') ? 1 : 0;
+        //visitante
+        $settings->visit_last_name       = $request->has('visit_last_name') ? 1 : 0;
+        $settings->visit_email       = $request->has('visit_email') ? 1 : 0;
+        $settings->visit_mobile       = $request->has('visit_mobile') ? 1 : 0;
+        $settings->visit_birth       = $request->has('visit_birth') ? 1 : 0;
+        $settings->visit_sex       = $request->has('visit_sex') ? 1 : 0;
         $settings->save();
         //adicionar log
         $this->adicionar_log('7', 'U', $settings);

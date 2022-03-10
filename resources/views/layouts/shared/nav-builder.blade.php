@@ -5,7 +5,6 @@
         height="36" alt="DeskApps">
 </div>
 <ul class="c-sidebar-nav">
-
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" href="{{ route('home.index') }}">
             <i class="c-icon cil-house c-sidebar-nav-icon"></i>
@@ -16,6 +15,13 @@
         <a class="c-sidebar-nav-link" href="{{ url('timeline') }}">
             <i class="c-icon cil-globe-alt c-sidebar-nav-icon"></i>
             {{ __('layout.timeline') }}</a>
+    </li>
+    @endif
+    @if ($appPermissao->home_cadastro_visitante == true)
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" href="{{ route('peoplevisit.create') }}">
+            <i class="c-icon cil-user-follow c-sidebar-nav-icon"></i>
+            {{ __('layout.visit') }}</a>
     </li>
     @endif
     @if ($appPermissao->home_financeiro_valores == true)

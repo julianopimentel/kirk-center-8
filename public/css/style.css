@@ -37,7 +37,7 @@
   --light: #9CF6F6;
   --dark: #636f83;
   color: #3c4b64;
-  background-color: #ebedef;
+  background-color: #f5f5f5;
   --color: #3c4b64;
 }
 
@@ -7369,7 +7369,7 @@ html:not([dir="rtl"]) .c-header-nav .c-header-nav-link .badge, html:not([dir="rt
 }
 
 .c-header {
-  background: #ebedef;
+  background: #f5f5f5;
 }
 
 .c-header .c-subheader {

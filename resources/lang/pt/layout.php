@@ -16,6 +16,7 @@ return [
     'timeline' => 'Timeline',
     'dashboard' => 'Dashboard',
     'new' => 'NEW',
+    'visit' => 'Cadastrar Visitante',
     'people' => 'Pessoas',
     'group' => 'Grupos',
     'message' => 'Mural de Recados',

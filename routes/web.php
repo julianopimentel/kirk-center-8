@@ -151,6 +151,9 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::put('people/{id}', 'PeoplesController@update')->name('people.update');
     Route::any('people-search', 'PeoplesController@searchHistoric')->name('people.search');
     Route::delete('people/{id}/{user_id}', 'PeoplesController@destroy')->name('people.destroy');
+    //visitante
+    Route::get('visit/create', 'Peoples_VisitController@create')->name('peoplevisit.create');
+    Route::post('visit', 'Peoples_VisitController@store')->name('peoplevisit.store');
 
     //pessoas_precadastro
     Route::get('peopleList', 'Peoples_PrecadastroController@index')->name('peopleList.index');

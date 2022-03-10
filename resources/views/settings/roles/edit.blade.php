@@ -593,6 +593,7 @@
                                                     <th>Eventos</th>
                                                     <th>Meus Grupos</th>
                                                     <th>Meus Dizimos</th>
+                                                    <th>Cadastrar Visitante</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -653,6 +654,16 @@
                                                             <input class="c-switch-input" name="home_financeiro_valores"
                                                                 type="checkbox"
                                                                 {{ $role->home_financeiro_valores == true ? 'checked' : '' }}><span
+                                                                class="c-switch-slider" data-checked="&#x2713"
+                                                                data-unchecked="&#x2715"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label
+                                                            class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                                            <input class="c-switch-input" name="home_cadastro_visitante"
+                                                                type="checkbox"
+                                                                {{ $role->home_cadastro_visitante == true ? 'checked' : '' }}><span
                                                                 class="c-switch-slider" data-checked="&#x2713"
                                                                 data-unchecked="&#x2715"></span>
                                                         </label>

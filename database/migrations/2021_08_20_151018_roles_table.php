@@ -24,7 +24,7 @@ class RolesTable extends Migration
 			$table->boolean('edit_people')->nullable()->default(0);
             $table->boolean('view_people')->nullable()->default(0);
             $table->boolean('delete_people')->nullable()->default(0);
-
+           
             //precadastro
             $table->boolean('edit_precadastro')->nullable()->default(0);
             $table->boolean('view_precadastro')->nullable()->default(0);
@@ -85,7 +85,7 @@ class RolesTable extends Migration
             $table->boolean('home_oracao')->nullable()->default(0);
             $table->boolean('home_eventos')->nullable()->default(0);
             $table->boolean('home_timeline')->nullable()->default(0);
-
+            $table->boolean('home_cadastro_visitante')->nullable()->default(0);
 
             //dash
             $table->boolean('view_periodo')->nullable()->default(0);
