@@ -38,7 +38,7 @@ class FullCalenderController extends Controller
             return response()->json($data);
         }
         //consulta de eventos
-        $eventos = Event::orderBy('start', 'desc')->paginate(6);
+        $eventos = Event::orderBy('start', 'desc')->paginate(9);
         return view('calender.fullcalender', compact('eventos'));
     }
 

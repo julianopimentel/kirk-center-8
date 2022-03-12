@@ -41,7 +41,7 @@
                                     <textarea class="form-control" id='comment' name="comment" rows="2"
                                         placeholder="Mensagem.."></textarea>
                                 </div>
-                                <button class="btn btn-sm btn-success" type="submit">Comentar</button>
+                                <button class="btn btn-sm btn-dark" type="submit">Comentar</button>
                         </div>
                         </form>
                     </div>

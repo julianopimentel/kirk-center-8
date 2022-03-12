@@ -40,14 +40,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($eventos as $eventos)
+                                                    @foreach ($eventos as $evento)
                                                         <tr>
-                                                            <td>{{ $eventos->title }}</td>
-                                                            <td>{{ $eventos->start }}</td>
-                                                            <td>{{ $eventos->end }}</td>
+                                                            <td>{{ $evento->title }}</td>
+                                                            <td>{{ $evento->start }}</td>
+                                                            <td>{{ $evento->end }}</td>
                                                             <td width="1%">
                                                                 @if ($appPermissao->edit_calendar == true)
-                                                                    <a href="{{ route('calender.edit', $eventos->id) }}"><i
+                                                                    <a href="{{ route('calender.edit', $evento->id) }}"><i
                                                                             class="c-icon c-icon-lg cil-calendar-check text-primary"></i></a>
                                                                 @endif
                                                             </td>
@@ -55,6 +55,7 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
+                                            {!! $eventos->links() !!}
                                         </div>
                                     </div>
                                 </div>

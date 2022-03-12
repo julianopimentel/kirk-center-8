@@ -82,7 +82,7 @@
           text-decoration: none;
           color: #fff; }
   .article .article-details {
-    background-color: #ced0d44a;
+    background-color: transparent;
     padding: 5px;
     line-height: 24px; }
     .article .article-details .article-cta {
@@ -100,7 +100,7 @@
       .article .article-header .article-badge .article-badge-item .ion, .article .article-header .article-badge .article-badge-item .fas, .article .article-header .article-badge .article-badge-item .far, .article .article-header .article-badge .article-badge-item .fab, .article .article-header .article-badge .article-badge-item .fal {
         margin-right: 3px; }
   .article.article-style-b .article-details .article-title {
-    margin-bottom: 10px; }
+    margin-bottom: 1px; }
     .article.article-style-b .article-details .article-title h2 {
       line-height: 22px; }
     .article.article-style-b .article-details .article-title a {

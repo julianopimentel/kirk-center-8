@@ -11,7 +11,7 @@
                     <div class="form-group row">
                         <textarea class="form-control" id='body' name="body" rows="2" placeholder="Mensagem.."></textarea>
                     </div>
-                    <button class="btn btn-sm btn-success" type="submit">Publicar</button>
+                    <button class="btn btn-sm btn-dark" type="submit">Publicar</button>
             </div>
             </form>
 

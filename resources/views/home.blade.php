@@ -4,19 +4,19 @@
     <div class="container-fluid">
 
         <!--
-            <div class="fade-in">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="hero text-white hero-bg-image">
-                            <div class="hero-inner">
-                                <h2>Welcome, {{ auth()->user()->name }}!</h2>
-                                <p class="lead">This page is a place to view posts, their groups, and more.</p>
+                    <div class="fade-in">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="hero text-white hero-bg-image">
+                                    <div class="hero-inner">
+                                        <h2>Welcome, {{ auth()->user()->name }}!</h2>
+                                        <p class="lead">This page is a place to view posts, their groups, and more.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-    -->
+            -->
 
 
 
@@ -53,7 +53,7 @@
                             <div class="card-body">
                                 <p>
                                     @if ($social->facebook_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->facebook_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->facebook_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-facebook-f">
@@ -62,7 +62,7 @@
                                         </a>
                                     @endif
                                     @if ($social->twitter_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->twitter_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->twitter_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-twitter">
@@ -71,7 +71,7 @@
                                         </a>
                                     @endif
                                     @if ($social->linkedin_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->linkedin_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->linkedin_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-linkedin">
@@ -80,7 +80,7 @@
                                         </a>
                                     @endif
                                     @if ($social->youtube_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->youtube_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->youtube_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-youtube">
@@ -89,7 +89,7 @@
                                         </a>
                                     @endif
                                     @if ($social->instagram_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->instagram_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->instagram_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-instagram">
@@ -98,7 +98,7 @@
                                         </a>
                                     @endif
                                     @if ($social->vk_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->vk_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->vk_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-vk"></use>
@@ -106,7 +106,7 @@
                                         </a>
                                     @endif
                                     @if ($social->site_link !== null)
-                                        <a class="btn btn-sm" type="button" href="{{ $social->site_link }}"
+                                        <a class="btn btn-sm btn-dark" type="button" href="{{ $social->site_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-globe-alt">
@@ -115,7 +115,7 @@
                                         </a>
                                     @endif
                                     @if ($social->telegram_link !== null)
-                                        <a class="btn btn-sm" type="button"
+                                        <a class="btn btn-sm btn-dark" type="button"
                                             href="https://t.me/{{ $social->telegram_link }}" target="_blank">
                                             <svg class="c-icon mr-2">
                                                 <use xlink:href="/icons/sprites/brand.svg#cib-telegram">
@@ -124,7 +124,7 @@
                                         </a>
                                     @endif
                                     @if ($social->whatsapp_link !== null)
-                                        <a class="btn btn-sm" type="button"
+                                        <a class="btn btn-sm btn-dark" type="button"
                                             href="https://api.whatsapp.com/send?phone={{ $social->whatsapp_link }}"
                                             target="_blank">
                                             <svg class="c-icon mr-2">
@@ -289,7 +289,8 @@
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="c-callout c-callout-warning"><small class="text-muted">Total
+                                                <div class="c-callout c-callout-warning"><small
+                                                        class="text-muted">Total
                                                         de Batismos</small>
                                                     <div class="text-value-lg">{{ $totalbatismo }}</div>
                                                 </div>
