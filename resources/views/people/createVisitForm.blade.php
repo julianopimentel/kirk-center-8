@@ -15,7 +15,7 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="name">Nome *</label>
+                                                        <label for="name">{{ __('people.name')}} *</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -32,7 +32,7 @@
                                                 @if ($appSystem->visit_last_name == true)
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="name">Sobrenome @if ($appSystem->obg_last_name == true)
+                                                        <label for="name">{{ __('people.last_name')}}  @if ($appSystem->obg_last_name == true)
                                                                 *
                                                             @endif
                                                         </label>
@@ -57,7 +57,7 @@
                                                 @if ($appSystem->visit_email == true)
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Email @if ($appSystem->obg_email == true)
+                                                        <label for="ccnumber">{{ __('people.email')}}  @if ($appSystem->obg_email == true)
                                                                 *
                                                             @endif
                                                         </label>
@@ -83,14 +83,14 @@
                                                 @if ($appSystem->visit_mobile == true)
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
+                                                        <label for="ccnumber">{{ __('people.mobile')}}  @if ($appSystem->obg_mobile == true)
                                                                 *
                                                             @endif
                                                         </label>
                                                         <div class="input-group">
                                                             <input class="form-control" id="phone" name="phone" type="tel"
                                                                 @if ($appSystem->obg_mobile == true) required @endif>
-                                                            <span id="valid-msg" class="hide">✓ Valid</span>
+                                                            <span id="valid-msg" class="hide">✓ {{ __('people.valid_phone')}} </span>
                                                             <span id="error-msg" class="hide"></span>
                                                         </div>
                                                     </div>
@@ -99,7 +99,7 @@
                                                 @if ($appSystem->visit_birth == true)
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
+                                                        <label for="ccnumber">{{ __('people.birth')}} @if ($appSystem->obg_birth == true)
                                                                 *
                                                             @endif
                                                         </label>
@@ -120,7 +120,7 @@
                                                 @endif
                                                 @if ($appSystem->visit_sex == true)
                                                 <div class="form-group col-sm-3">
-                                                    <label class="col-md-3 col-form-label">Sexo @if ($appSystem->obg_sex == true)
+                                                    <label class="col-md-3 col-form-label">{{ __('people.sex')}} @if ($appSystem->obg_sex == true)
                                                             *
                                                         @endif
                                                     </label>
@@ -134,7 +134,7 @@
                                                                     xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user">
                                                                 </use>
                                                             </svg>
-                                                            <label class="form-check-label" for="m">Masculino</label>
+                                                            <label class="form-check-label" for="m">{{ __('people.m')}}</label>
                                                         </div>
                                                         <div class="form-check form-check-inline mr-1">
                                                             <input class="form-check-input" type="radio" value="f"
@@ -145,7 +145,7 @@
                                                                     xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user-female">
                                                                 </use>
                                                             </svg>
-                                                            <label class="form-check-label" for="f">Feminino</label>
+                                                            <label class="form-check-label" for="f">{{ __('people.f')}}</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -171,10 +171,6 @@
             $("#last_name").on("input", function() {
                 $(this).val($(this).val().toUpperCase());
             });
-            $("#state").on("input", function() {
-                $(this).val($(this).val().toUpperCase());
-            });
-
             $("#name").on("input", function() {
                 $("#botao").prop('disabled', $(this).val().length < 3);
             });

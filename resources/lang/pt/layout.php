@@ -46,6 +46,13 @@ return [
     'select_account' => 'Selecionar a conta',
     'aud' => 'Auditoria',
     'payments' => 'Pagamentos',
+    'select' => 'Selecionar',
+    'clear' => 'Limpar',
     'logout' => 'Sair',
 
+    //geral
+    'note' => 'Anotações',
+    'content' => 'Observação',
+    'valid_phone' => 'Número válido',
+    'date' => 'Data',
 ];

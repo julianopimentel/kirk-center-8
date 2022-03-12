@@ -9,14 +9,14 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dados"
                                         role="tab" aria-controls="dados">
-                                        <i class="c-icon c-icon-sm cil-contact text-dark"></i> Dados Pessoais</a></li>
+                                        <i class="c-icon c-icon-sm cil-contact text-dark"></i> {{ __('people.personal_data')}}</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#endereco"
                                         role="tab" aria-controls="endereco"><i
                                             class="c-icon c-icon-sm cil-location-pin text-dark"></i>
-                                        Endereço</a></li>
+                                            {{ __('people.address')}}</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#membro"
                                         role="tab" aria-controls="membro"><i
-                                            class="c-icon c-icon-sm cil-book text-dark"></i> Membresia</a>
+                                            class="c-icon c-icon-sm cil-book text-dark"></i> {{ __('people.access_data')}}</a>
                                 </li>
                             </ul>
                             <form method="POST" action="{{ route('people.store') }}">
@@ -28,7 +28,7 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="name">Nome *</label>
+                                                        <label for="name">{{ __('people.name')}} *</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -44,9 +44,10 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="name">Sobrenome @if ($appSystem->obg_last_name == true)
+                                                        <label for="name">{{ __('people.last_name')}} @if ($appSystem->obg_last_name == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -66,9 +67,10 @@
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Email @if ($appSystem->obg_email == true)
+                                                        <label for="ccnumber">{{ __('people.email')}} @if ($appSystem->obg_email == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -89,22 +91,24 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Celular @if ($appSystem->obg_mobile == true)
+                                                        <label for="ccnumber">{{ __('people.mobile')}} @if ($appSystem->obg_mobile == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <input class="form-control" id="phone" name="phone" type="tel"
-                                                                 @if ($appSystem->obg_mobile == true) required @endif>
-                                                            <span id="valid-msg" class="hide">✓ Valid</span>
+                                                                @if ($appSystem->obg_mobile == true) required @endif>
+                                                            <span id="valid-msg" class="hide">✓ {{ __('people.valid_phone')}}</span>
                                                             <span id="error-msg" class="hide"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="ccnumber">Data de Nascimento @if ($appSystem->obg_birth == true)
+                                                        <label for="ccnumber">{{ __('people.birth')}} @if ($appSystem->obg_birth == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -120,9 +124,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-3">
-                                                    <label class="col-md-3 col-form-label">Sexo @if ($appSystem->obg_sex == true)
+                                                    <label class="col-md-3 col-form-label">{{ __('people.sex')}} @if ($appSystem->obg_sex == true)
                                                             *
-                                                        @endif</label>
+                                                        @endif
+                                                    </label>
                                                     <div class="col-md-12 col-form-label">
                                                         <div class="form-check form-check-inline mr-1">
                                                             <input class="form-check-input" type="radio" value="m"
@@ -133,7 +138,7 @@
                                                                     xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user">
                                                                 </use>
                                                             </svg>
-                                                            <label class="form-check-label" for="m">Masculino</label>
+                                                            <label class="form-check-label" for="m">{{ __('people.m')}}</label>
                                                         </div>
                                                         <div class="form-check form-check-inline mr-1">
                                                             <input class="form-check-input" type="radio" value="f"
@@ -144,24 +149,26 @@
                                                                     xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-user-female">
                                                                 </use>
                                                             </svg>
-                                                            <label class="form-check-label" for="f">Feminino</label>
+                                                            <label class="form-check-label" for="f">{{ __('people.f')}}</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="name">Permissão *</label>
+                                                        <label for="name">{{ __('people.role')}} *</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
                                                                         <use
-                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-face">
+                                                                            xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-lock-locked">
                                                                         </use>
                                                                     </svg>
                                                             </div>
                                                             <select class="form-control" name="role">
                                                                 @foreach ($roles as $roles)
-                                                                    <option value="{{ $roles->id }}">
+                                                                    <option value="{{ $roles->id }}" @if ($roles->id == 2)
+                                                                        selected
+                                                                    @endif>
                                                                         {{ $roles->name }}</option>
                                                                 @endforeach
                                                             </select>
@@ -172,7 +179,7 @@
                                             <div class="form-check checkbox">
                                                 <input class="form-check-input" id="criar_acesso" name="criar_acesso"
                                                     type="checkbox">
-                                                <label class="form-check-label" for="check1">Criar acesso</label>
+                                                <label class="form-check-label" for="check1">{{ __('people.create_access')}}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -183,14 +190,14 @@
                                                 <ul id="geoData">
                                                     <div class="row">
                                                         <div class="form-group col-sm-6">
-                                                            <label for="city">Latitude</label>
+                                                            <label for="city">{{ __('people.lat')}}</label>
                                                             <div class="input-group-prepend">
                                                                 <span name="lat-span" id="lat-span"></span>
                                                             </div>
                                                             <input class="form-control" name="lat-span" type="text">
                                                         </div>
                                                         <div class="form-group col-sm-6">
-                                                            <label for="city">Longitude</label>
+                                                            <label for="city">{{ __('people.long')}}</label>
                                                             <div class="input-group-prepend">
                                                                 <span name="lon-span" id="lon-span"></span>
                                                             </div>
@@ -203,7 +210,7 @@
                                             @else
                                                 <div class="row">
                                                     <div class="form-group col-sm-8">
-                                                        <label for="street">Street</label>
+                                                        <label for="street">{{ __('people.street')}}</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -213,11 +220,11 @@
                                                                     </svg>
                                                             </div>
                                                             <input class="form-control" name="address" type="text"
-                                                                placeholder="Enter street name">
+                                                                placeholder="{{ __('people.enter_street')}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-sm-4">
-                                                        <label for="postal-code">Postal Code</label>
+                                                        <label for="postal-code">{{ __('people.postal_code')}}</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text">
                                                                     <svg class="c-icon">
@@ -227,16 +234,17 @@
                                                                     </svg>
                                                             </div>
                                                             <input class="form-control" name="cep" type="text"
-                                                                placeholder="Postal Code" pattern="[0-9]{5}-[0-9]{3}"
+                                                                placeholder="{{ __('people.enter_postal')}}" pattern="[0-9]{5}-[0-9]{3}"
                                                                 maxlength="9">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-4">
-                                                        <label for="city">Country @if ($appSystem->obg_city == true)
+                                                        <label for="city">{{ __('people.country')}} @if ($appSystem->obg_city == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text">
@@ -248,7 +256,7 @@
                                                             </div>
                                                             <select id="country-dd" name="country-dd"
                                                                 class="form-control">
-                                                                <option value="">Select Country</option>
+                                                                <option value="">{{ __('layout.select')}} {{ __('people.country')}}</option>
                                                                 @foreach ($countries as $data)
                                                                     <option value="{{ $data->id }}">
                                                                         {{ $data->name }}
@@ -258,9 +266,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-sm-4">
-                                                        <label for="country">State @if ($appSystem->obg_state == true)
+                                                        <label for="country">{{ __('people.state')}} @if ($appSystem->obg_state == true)
                                                                 *
-                                                            @endif</label>
+                                                            @endif
+                                                        </label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span
                                                                     class="input-group-text">
@@ -278,9 +287,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-4">
-                                        <label for="city">City @if ($appSystem->obg_city == true)
+                                        <label for="city">{{ __('people.city')}} @if ($appSystem->obg_city == true)
                                                 *
-                                            @endif</label>
+                                            @endif
+                                        </label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text">
                                                     <svg class="c-icon">
@@ -302,39 +312,82 @@
     </div>
     <div class="tab-pane" id="membro" role="tabpanel">
         <div class="card-body">
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Status</label>
-                <div class="col-md-9 col-form-label">
-                    <div class="form-check checkbox">
-                        <input class="form-check-input" name="is_responsible" type="checkbox">
-                        <label class="form-check-label" for="check1">Responsável</label>
-                    </div>
-                    <div class="form-check checkbox">
-                        <input class="form-check-input" name="is_visitor" type="checkbox">
-                        <label class="form-check-label" for="check2">Visitante</label>
-                    </div>
-                    <div class="form-check checkbox">
-                        <input class="form-check-input" name="is_baptism" type="checkbox">
-                        <label class="form-check-label" for="check4">Batismo</label>
-                    </div>
-                    <div class="form-check checkbox">
-                        <input class="form-check-input" name="is_transferred" type="checkbox">
-                        <label class="form-check-label" for="check5">Transferido</label>
-                    </div>
-                    <div class="form-check checkbox">
-                        <input class="form-check-input" name="is_conversion" type="checkbox">
-                        <label class="form-check-label" for="check6">Convertido</label>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>{{ __('people.visit')}}</th>
+                        <th>{{ __('people.responsible')}}</th>
+                        <th>{{ __('people.baptized')}}</th>
+                        <th>{{ __('people.convert')}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ __('people.status_membre')}}</td>
+                        <td>
+                            <label class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                <input class="c-switch-input" name="is_visitor" type="checkbox"><span
+                                    class="c-switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                <input class="c-switch-input" name="is_responsible" type="checkbox"><span
+                                    class="c-switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                <input class="c-switch-input" name="is_baptism" type="checkbox"><span
+                                    class="c-switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                <input class="c-switch-input" name="is_conversion" type="checkbox"><span
+                                    class="c-switch-slider" data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Status</label>
+                    <div class="col-md-9 col-form-label">
+                        <div class="form-check checkbox">
+                            <input class="form-check-input" name="is_responsible" type="checkbox">
+                            <label class="form-check-label" for="check1">Responsável</label>
+                        </div>
+                        <div class="form-check checkbox">
+                            <input class="form-check-input" name="is_visitor" type="checkbox">
+                            <label class="form-check-label" for="check2">Visitante</label>
+                        </div>
+                        <div class="form-check checkbox">
+                            <input class="form-check-input" name="is_baptism" type="checkbox">
+                            <label class="form-check-label" for="check4">Batismo</label>
+                        </div>
+                        <div class="form-check checkbox">
+                            <input class="form-check-input" name="is_transferred" type="checkbox">
+                            <label class="form-check-label" for="check5">Transferido</label>
+                        </div>
+                        <div class="form-check checkbox">
+                            <input class="form-check-input" name="is_conversion" type="checkbox">
+                            <label class="form-check-label" for="check6">Convertido</label>
+                        </div>
                     </div>
                 </div>
-            </div>
+            -->
+            <br>
             <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="textarea-input">Anotações
+                <label class="col-md-3 col-form-label" for="textarea-input">{{ __('layout.note')}}
                     @if ($appSystem->obg_note == true)
                         *
                     @endif
                 </label>
                 <div class="col-md-9">
-                    <textarea class="form-control" name="note" rows="9" placeholder="Content.."
+                    <textarea class="form-control" name="note" rows="3" placeholder="{{ __('layout.content')}}"
                         @if ($appSystem->obg_note == true) required @endif></textarea>
                 </div>
             </div>
@@ -427,12 +480,12 @@
                     },
                     dataType: 'json',
                     success: function(result) {
-                        $('#state-dd').html('<option value="">Select State</option>');
+                        $('#state-dd').html('<option value="">{{ __('layout.select')}} {{ __('people.state')}}</option>');
                         $.each(result.states, function(key, value) {
                             $("#state-dd").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                         });
-                        $('#city-dd').html('<option value="">Select City</option>');
+                        $('#city-dd').html('<option value="">{{ __('layout.select')}} {{ __('people.city')}}</option>');
                     }
                 });
             });
@@ -448,7 +501,7 @@
                     },
                     dataType: 'json',
                     success: function(res) {
-                        $('#city-dd').html('<option value="">Select City</option>');
+                        $('#city-dd').html('<option value="">{{ __('layout.select')}} {{ __('people.city')}}</option>');
                         $.each(res.cities, function(key, value) {
                             $("#city-dd").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
