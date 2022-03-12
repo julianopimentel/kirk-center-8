@@ -38,7 +38,7 @@ class FullCalenderController extends Controller
             return response()->json($data);
         }
         //consulta de eventos
-        $eventos = Event::orderBy('start', 'desc')->limit(10)->get();
+        $eventos = Event::orderBy('start', 'desc')->paginate(6);
         return view('calender.fullcalender', compact('eventos'));
     }
 
@@ -119,7 +119,10 @@ class FullCalenderController extends Controller
         $event->body     = $request->input('body');
         $event->start   = $request->input('start');
         $event->end = $request->input('end');
+        $event->hora_inicio = $request->input('hora_inicio');
+        $event->hora_fim = $request->input('hora_fim');
         $event->status       = $request->has('status') ? 1 : 0;
+        $event->requer_aprovacao       = $request->has('requer_aprovacao') ? 1 : 0;
         $event->user_id = $user->id;
 
         $event->save();
@@ -171,14 +174,17 @@ class FullCalenderController extends Controller
         $event->body     = $request->input('body');
         $event->start   = $request->input('start');
         $event->end = $request->input('end');
+        $event->hora_inicio = $request->input('hora_inicio');
+        $event->hora_fim = $request->input('hora_fim');
         $event->status       = $request->has('status') ? 1 : 0;
-
+        $event->requer_aprovacao       = $request->has('requer_aprovacao') ? 1 : 0;
         $event->save();
         //adicionar log
         $this->adicionar_log('4', 'U', $event);
         $request->session()->flash('message', 'Successfully edited event');
-        return redirect()->route('calender.index');
+        return redirect()->back();
     }
+
     public function storeConfirm(Request $request, $id)
     {
         //pegar tenant
@@ -188,37 +194,63 @@ class FullCalenderController extends Controller
         //validar se ja possui evento cadastrado
         $validar = EventConfirm::where('event_id', $id)->where('people_id', $user->people->id)->count();
         if ($validar == 0) {
-            $event = new EventConfirm();
-            $event->event_id = $id;
-            $event->people_id = $user->people->id;
-            $event->save();
-            //adicionar log
-            $this->adicionar_log('18', 'C', $event);
-            //disparar email
-            $conta_name = session()->get('conta_name');
-            //Mail::to($user->email)->queue(new SendMailConfirmarEvento($conta_name));
             //pesquisar sobre o evento
             $evento = Event::find($id);
+            $event = new EventConfirm();
+            if ($evento->requer_aprovacao == false) {
+                $event->event_id = $id;
+                $event->people_id = $user->people->id;
+                $event->aprovado = true;
+                $event->save();
+                //adicionar log
+                $this->adicionar_log('18', 'C', $event);
+                //disparar email
+                $conta_name = session()->get('conta_name');
+                //Mail::to($user->email)->queue(new SendMailConfirmarEvento($conta_name));
+                //teste
+                $details = [
+                    'subject' => 'Evento Confirmado - ' . $conta_name,
+                    'greeting' => 'Presença confirmada no evento',
+                    'body' => 'Sua presença foi confirmada no evento ' . $evento->title . ', acesse nossa plataforma para mais detalhes.',
+                    'date' => 'Data do evento: ' . $evento->start . ' até ' . $evento->end,
+                    'actionText' => 'Acessar',
+                    'actionURL' => url('/eventos'),
+                    'event_id' => $id
+                ];
+                FacadesNotification::send($user, new ConfirmEvent($details));
 
-            //teste
-            $details = [
-                'subject' => 'Evento cancelado - ' . $conta_name,
-                'greeting' => 'Presença confirmada no evento',
-                'body' => 'Sua presença foi confirmada no evento '. $evento->title.', acesse nossa plataforma para mais detalhes.',
-                'date' => 'Data do evento: '. $evento->start . ' até '. $evento->end,
-                'actionText' => 'Acessar',
-                'actionURL' => url('/eventos'),
-                'event_id' => $id
-            ];
+                $request->session()->flash('message', 'Presença confirmada');
+                return redirect()->route('indexEventos');
+            } else {
+                $event->event_id = $id;
+                $event->people_id = $user->people->id;
+                $event->aprovado = false;
+                $event->save();
+                //adicionar log
+                $this->adicionar_log('18', 'C', $event);
+                //disparar email
+                $conta_name = session()->get('conta_name');
+                //Mail::to($user->email)->queue(new SendMailConfirmarEvento($conta_name));
+                //teste
+                $details = [
+                    'subject' => 'Evento Cadastrado - ' . $conta_name,
+                    'greeting' => 'Presença confirmada no evento',
+                    'body' => 'Sua presença foi confirmada no evento ' . $evento->title . ', mas requer a aprovação de um administrador, acesse nossa plataforma para mais detalhes.',
+                    'date' => 'Data do evento: ' . $evento->start . ' até ' . $evento->end,
+                    'actionText' => 'Acessar',
+                    'actionURL' => url('/eventos'),
+                    'event_id' => $id
+                ];
+                FacadesNotification::send($user, new ConfirmEvent($details));
 
-            FacadesNotification::send($user, new ConfirmEvent($details));
-
-            $request->session()->flash('message', 'Presença confirmada');
-            return redirect()->route('indexEventos');
+                $request->session()->flash('message', 'Presença confirmada, aguarde aprovação');
+                return redirect()->route('indexEventos');
+            }
         } else
             $request->session()->flash('info', 'Presença já confirmada');
         return redirect()->route('indexEventos');
     }
+
     public function storeRemove(Request $request, $id)
     {
         //pegar tenant
@@ -238,7 +270,7 @@ class FullCalenderController extends Controller
         $details = [
             'subject' => 'Evento cancelado - ' . $conta_name,
             'greeting' => 'Presença cancelada no evento ',
-            'body' => 'Sua presença foi cancelada no evento '. $evento->title. ', acesse nossa plataforma para mais detalhes.',
+            'body' => 'Sua presença foi cancelada no evento ' . $evento->title . ', acesse nossa plataforma para mais detalhes.',
             'actionText' => 'Acessar',
             'actionURL' => url('/eventos'),
             'event_id' => $id
@@ -250,5 +282,29 @@ class FullCalenderController extends Controller
 
         $request->session()->flash('danger', 'Presença retirada');
         return redirect()->route('indexEventos');
+    }
+
+    public function aprovar($id)
+    {
+        $event = EventConfirm::find($id);
+        $event->aprovado = true;
+        $event->save();
+        //adicionar log
+        $this->adicionar_log('18', 'U', $event);
+        //adicionar log
+        session()->flash('success', 'Aprovado comm sucesso!');
+        return redirect()->back();
+    }
+
+    public function reprovar($id)
+    {
+        $event = EventConfirm::find($id);
+        $event->aprovado = false;
+        $event->save();
+        //adicionar log
+        $this->adicionar_log('18', 'U', $event);
+        //adicionar log
+        session()->flash('success', 'Reprovado comm sucesso!');
+        return redirect()->back();
     }
 }

@@ -88,7 +88,7 @@
                                         <td width="1%">
                                             @if ($appPermissao->view_people == true)
                                                 <a href="{{ route('people.show', $people->id) }}"><i
-                                                        class="c-icon c-icon-sm cil-notes text-primary"></i></a>
+                                                        class="c-icon c-icon-sm cil-notes text-info"></i></a>
                                             @endif
                                         </td>
                                         <td width="1%">

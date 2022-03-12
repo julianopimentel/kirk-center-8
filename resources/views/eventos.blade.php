@@ -10,53 +10,29 @@
                         </div>
                         @if (!$eventos->isEmpty())
                             @foreach ($eventos as $eventos)
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $eventos->title }}</h5>
-                                        <p class="card-text">Data Inicio: {{ $eventos->start }}<br> Data Fim:
-                                            {{ $eventos->end }}</p>
+                                        <p class="card-text"><strong>Periodo</strong> entre
+                                            {{ datalimpa($eventos->start) }} e
+                                            {{ datalimpa($eventos->end) }}
+                                            <strong>Horário:</strong> {{ hora($eventos->hora_inicio) }}
+                                            às {{ hora($eventos->hora_final) }}
+                                        </p>
+                                        <p class="card-text">Requer Aprovação: @if ($eventos->requer_aprovacao == true)
+                                                Sim
+                                            @else
+                                                Não
+                                            @endif
+                                        </p>
                                         <form method="POST" action="{{ route('calendar.storeConfirm', $eventos->id) }}">
                                             @csrf
                                             <button class="btn btn-sm btn-success" type="submit">Confirmar
                                                 presença</button>
                                         </form>
-                                        <p class="card-text"><small class="text-medium-emphasis">Ultima
-                                                atualização
-                                                :@php
-                                                    
-                                                    $dateTime1 = new DateTime($eventos->created_at);
-                                                    $dateTime2 = new DateTime();
-                                                    $interval = $dateTime1->diff($dateTime2);
-                                                    if ($interval->format('%y') > 0) {
-                                                        if ($dateTime2 >= $interval->format('%y')) {
-                                                            echo $interval->format('%y anos') . PHP_EOL;
-                                                        }
-                                                    }
-                                                    if ($interval->format('%m') > 0) {
-                                                        if ($dateTime2 >= $interval->format('%m')) {
-                                                            echo $interval->format('%m meses') . PHP_EOL;
-                                                        }
-                                                    } else {
-                                                        if ($interval->format('%d') > 0) {
-                                                            if ($dateTime2 >= $interval->format('%d')) {
-                                                                echo $interval->format('%d dias') . PHP_EOL;
-                                                            }
-                                                        } else {
-                                                            if ($dateTime2 >= $interval->format('%h')) {
-                                                                if ($dateTime2 >= $interval->format('%h')) {
-                                                                    echo $interval->format('%h horas') . PHP_EOL;
-                                                                }
-                                                                if ($dateTime2 >= $interval->format('%i')) {
-                                                                    echo $interval->format('%i minutos') . PHP_EOL;
-                                                                }
-                                                                if ($dateTime2 >= $interval->format('%s')) {
-                                                                    echo $interval->format('%s segundos') . PHP_EOL;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    
-                                                @endphp</small></p>
+                                        <p class="card-text"><small class="text-medium-emphasis">
+                                                Cadastrado em {{ datarecente($eventos->created_at) }}
+                                            </small></p>
                                     </div>
                                 </div>
                             @endforeach
@@ -78,12 +54,22 @@
                             <h4><strong>Eventos Confirmados</strong></h4>
                         </div>
                         @foreach ($eventos_confirm as $eventos_confirm)
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $eventos_confirm->eventoorigem->title }}</h5>
-                                    <p class="card-text">Data Inicio: {{ $eventos_confirm->eventoorigem->start }}<br>
-                                        Data Fim:
-                                        {{ $eventos_confirm->eventoorigem->end }}</p>
+                                    <p class="card-text"><strong>Periodo</strong> entre
+                                        {{ datalimpa($eventos_confirm->eventoorigem->start) }} e
+                                        {{ datalimpa($eventos_confirm->eventoorigem->end) }}
+                                        <strong>Horário:</strong> {{ hora($eventos_confirm->eventoorigem->hora_inicio) }}
+                                        às {{ hora($eventos_confirm->eventoorigem->hora_final) }}
+                                    </p>
+                                    <p class="card-text"><strong>Status:</strong>
+                                        @if ($eventos_confirm->aprovado == true)
+                                            Aprovado
+                                        @else
+                                            Não aprovado
+                                        @endif
+                                    </p>
                                     @if ($eventos_confirm->eventoorigem->status == true)
                                         <form method="POST"
                                             action="{{ route('calendar.storeRemove', $eventos_confirm->id) }}">
@@ -93,41 +79,8 @@
                                         </form>
                                     @endif
                                     <p class="card-text"><small class="text-medium-emphasis">Confirmado em
-                                            @php
-                                                
-                                                $dateTime1 = new DateTime($eventos_confirm->created_at);
-                                                $dateTime2 = new DateTime();
-                                                $interval = $dateTime1->diff($dateTime2);
-                                                if ($interval->format('%y') > 0) {
-                                                    if ($dateTime2 >= $interval->format('%y')) {
-                                                        echo $interval->format('%y anos') . PHP_EOL;
-                                                    }
-                                                }
-                                                if ($interval->format('%m') > 0) {
-                                                    if ($dateTime2 >= $interval->format('%m')) {
-                                                        echo $interval->format('%m meses') . PHP_EOL;
-                                                    }
-                                                } else {
-                                                    if ($interval->format('%d') > 0) {
-                                                        if ($dateTime2 >= $interval->format('%d')) {
-                                                            echo $interval->format('%d dias') . PHP_EOL;
-                                                        }
-                                                    } else {
-                                                        if ($dateTime2 >= $interval->format('%h')) {
-                                                            if ($dateTime2 >= $interval->format('%h')) {
-                                                                echo $interval->format('%h horas') . PHP_EOL;
-                                                            }
-                                                            if ($dateTime2 >= $interval->format('%i')) {
-                                                                echo $interval->format('%i minutos') . PHP_EOL;
-                                                            }
-                                                            if ($dateTime2 >= $interval->format('%s')) {
-                                                                echo $interval->format('%s segundos') . PHP_EOL;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                
-                                            @endphp</small></p>
+                                            {{ datarecente($eventos_confirm->created_at) }}
+                                        </small></p>
                                 </div>
                             </div>
                         @endforeach

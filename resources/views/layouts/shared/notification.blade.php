@@ -6,7 +6,7 @@
             </div>
             <div class="dropdown-item-desc">
                 Presença confirmada no evento
-                <div class="time text-primary">2 Min Ago</div>
+                <div class="time text-primary">{{datarecente($notification->created_at)}}</div>
             </div>
         </a>
     @endif
@@ -17,7 +17,7 @@
             </div>
             <div class="dropdown-item-desc">
                 Presença cancelada no evento
-                <div class="time text-primary">2 Min Ago</div>
+                <div class="time text-primary">{{datarecente($notification->created_at)}}</div>
             </div>
         </a>
     @endif
@@ -28,7 +28,7 @@
             </div>
             <div class="dropdown-item-desc">
                 Sua senha foi alterada
-                <div class="time text-primary">2 Min Ago</div>
+                <div class="time text-primary">{{datarecente($notification->created_at)}}</div>
             </div>
         </a>
     @endif
@@ -39,7 +39,7 @@
         </div>
         <div class="dropdown-item-desc">
             Seus dados pessoas foram atualizados.
-            <div class="time text-primary">2 Min Ago</div>
+            <div class="time text-primary">{{datarecente($notification->created_at)}}</div>
         </div>
     </a>
 @endif

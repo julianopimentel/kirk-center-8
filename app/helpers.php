@@ -72,6 +72,18 @@ function datanormal($value){
     return $datanormal;
 }
 
+function datalimpa($value){
+    $dateTime1 = new DateTime($value);
+    $datanormal = $dateTime1->format('d/m/Y', );
+    return $datanormal;
+}
+
+function hora($value){
+    $dateTime1 = new DateTime($value);
+    $hora = $dateTime1->format('H:i');
+    return $hora;
+}
+
 function datarecente($value){
     $dateTime1 = new DateTime($value);
     $dateTime2 = new DateTime();

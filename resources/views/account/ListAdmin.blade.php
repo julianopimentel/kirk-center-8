@@ -96,7 +96,11 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $institutions->links() }}
+                    @if (isset($dataForm))
+                        {!! $institutions->appends($dataForm)->links() !!}
+                    @else
+                        {!! $institutions->links() !!}
+                    @endif
                 </div>
             </div>
         </div>

@@ -12,6 +12,6 @@ class Event extends Model
     protected $connection = 'tenant';
 
     protected $fillable = [
-        'title', 'start', 'end'
+        'title', 'start', 'end', 'status', 'requer_aprovacao', 'hora_inicio', 'hora_fim'
     ];
 }

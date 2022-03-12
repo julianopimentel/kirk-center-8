@@ -19,12 +19,12 @@ $user = auth()->user();
                                     </div>
                                     <div class="activity-detail">
                                         <div class="mb-2">
-                                            <span class="text-job text-primary">2 min ago</span>
+                                            <span class="text-job text-primary">{{datarecente($notification->created_at)}}</span>
                                             <div class="float-right dropdown">
                                                 <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu">
                                                     <div class="dropdown-title">Options</div>
-                                                    <a href="{{$user->unreadNotifications->markAsRead()}}" class="dropdown-item has-icon"><i
+                                                    <a href="#" class="dropdown-item has-icon"><i
                                                             class="fas fa-eye"></i>
                                                         View</a>
                                                     <a href="#" class="dropdown-item has-icon"><i
@@ -49,7 +49,7 @@ $user = auth()->user();
                                     </div>
                                     <div class="activity-detail">
                                         <div class="mb-2">
-                                            <span class="text-job text-primary">2 min ago</span>
+                                            <span class="text-job text-primary">{{datarecente($notification->created_at)}}</span>
                                             <div class="float-right dropdown">
                                                 <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu">
@@ -79,7 +79,7 @@ $user = auth()->user();
                                     </div>
                                     <div class="activity-detail">
                                         <div class="mb-2">
-                                            <span class="text-job text-primary">2 min ago</span>
+                                            <span class="text-job text-primary">{{datarecente($notification->created_at)}}</span>
                                             <div class="float-right dropdown">
                                                 <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu">
@@ -109,7 +109,7 @@ $user = auth()->user();
                                     </div>
                                     <div class="activity-detail">
                                         <div class="mb-2">
-                                            <span class="text-job text-primary">2 min ago</span>
+                                            <span class="text-job text-primary">{{datarecente($notification->created_at)}}</span>
                                             <div class="float-right dropdown">
                                                 <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu">

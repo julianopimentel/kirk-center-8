@@ -46,7 +46,7 @@
                                                 <i class="fas fa-envelope"></i>
                                             </div>
                                             <div class="card-body">
-                                                <h4>Email</h4>
+                                                <h4>Email <span class="badge badge-info">Beta</span></h4>
                                                 <p>Configuração do SMTP personalizado para o disparo dos e-mails</p>
                                                 <a href="{{ route('indexEmail') }}" class="card-cta">Alterar configuração <i
                                                         class="fas fa-chevron-right"></i></a>

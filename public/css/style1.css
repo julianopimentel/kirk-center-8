@@ -673,7 +673,6 @@ select.form-control:not([size]):not([multiple]) {
 .card .card-header .form-control {
   height: 31px;
   font-size: 13px;
-  border-radius: 30px;
 }
 
 .card .card-header .form-control+.input-group-btn .btn {

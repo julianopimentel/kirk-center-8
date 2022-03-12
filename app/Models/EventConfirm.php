@@ -15,7 +15,8 @@ class EventConfirm extends Model
     
     protected $fillable = [
         'people_id',
-        'event_id'
+        'event_id',
+        'aprovado'
     ];
 
     public function user()

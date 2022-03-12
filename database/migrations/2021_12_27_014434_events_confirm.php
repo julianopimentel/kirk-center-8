@@ -18,6 +18,7 @@ class EventsConfirm extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('event_id');
+            $table->boolean('aprovado')->nullable()->default(1);
             $table->timestamps();
         });
     }

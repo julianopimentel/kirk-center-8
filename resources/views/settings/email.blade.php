@@ -11,6 +11,10 @@
                             <form action="{{ route('settings.updateEmail') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
+                                    Recurso desativaddo temporariamente!
+                                    <br>
+                                    @if (Auth::user()->menuroles == 'admin')
+                                   
                                     <label class="control-label">Email From/ Reply to</label>
                                     <input type="text" class="form-control" name="email_from"
                                         placeholder="no-reply@domain.com" value="{{ $settings->email_from }}" required>
@@ -36,12 +40,13 @@
                                         value="" required>
                                 </div>
                                 <!-- /.row-->
-
+                              
                                 <!-- /.row-->
                                 <button class="btn btn-success" type="submit" title="Salvar"><i
                                     class="c-icon c-icon-sm cil-save"></i></button>
                             <a class="btn btn-primary" href="{{ route('settings') }}" title="Voltar"><i
                                     class="c-icon c-icon-sm cil-action-undo"></i></a>
+                                    @endif
                             </form>
                         </div>
                     </div>

@@ -123,6 +123,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::post('calender', 'FullCalenderController@store')->name('calender.store');
     Route::get('calender/{id}', 'FullCalenderController@edit')->name('calender.edit');
     Route::put('calender/{id}', 'FullCalenderController@update')->name('calender.update');
+    Route::get('calender/aprovar/{id}', 'FullCalenderController@aprovar')->name('calendar.aprovar');
+    Route::get('calender/reprovar/{id}', 'FullCalenderController@reprovar')->name('calendar.reprovar');
 
     Route::post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
     Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');

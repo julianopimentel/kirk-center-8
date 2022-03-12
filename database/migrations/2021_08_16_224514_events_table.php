@@ -21,6 +21,9 @@ class eventsTable extends Migration {
 			$table->string('body')->nullable();
 			$table->date('start');
 			$table->date('end');
+			$table->string('hora_inicio', 5)->nullable();
+			$table->string('hora_fim', 5)->nullable();
+			$table->boolean('requer_aprovacao')->nullable()->default(0);
             $table->integer('user_id')->nullable();
 			$table->boolean('status')->nullable()->default(1);
 			$table->timestamps(10);
