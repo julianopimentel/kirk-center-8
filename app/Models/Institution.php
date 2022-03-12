@@ -68,6 +68,6 @@ class Institution extends Model
     }
     public function getIntegrador()
     {
-        return $this->belongsTo('App\Models\Account_integrador', 'integrador');
+        return $this->belongsTo('App\Models\Account_Integrador', 'integrador');
     }
 }
