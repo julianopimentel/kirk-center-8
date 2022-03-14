@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'DeskApps'),
+    'name' => env('APP_NAME', 'Kirk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://deskapp.online'),
+    'url' => env('APP_URL', 'https://kirk.digital'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -178,6 +178,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Overtrue\LaravelLike\LikeServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class
     ],
 
     /*
@@ -218,6 +219,7 @@ return [
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'Newsletter' => Spatie\Newsletter\NewsletterServiceProvider::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
