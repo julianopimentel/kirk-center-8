@@ -29,12 +29,9 @@
                             </div>
 
                             <div class="form-group">
-                              {!! NoCaptcha::displaySubmit('submit', 'Enter', ['class' => 'btn-dark btn-lg btn-block']) !!}
-                              <!--
-                                <button type="submit" class="btn btn-dark btn-lg btn-block" tabindex="4">
+                                <button type="submit" data-sitekey="{{ config('app.recaptcha_site_key') }}" class="g-recaptcha btn btn-dark btn-lg btn-block" tabindex="4">
                                     {{ __('auth.reset_password') }}
                                 </button>
-                              -->
                             </div>
                            
                         </form>
