@@ -147,7 +147,7 @@ return [
     */
 
     'attributes' => [
-        'captcha' => 'The :attribute answer is invalid.',
+        'captcha' => 'Captcha',
     ],
 
 ];

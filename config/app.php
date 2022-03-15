@@ -178,7 +178,8 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Overtrue\LaravelLike\LikeServiceProvider::class,
-        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class
     ],
 
     /*
@@ -206,6 +207,7 @@ return [
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'Date' => Illuminate\Support\Facades\Date::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,

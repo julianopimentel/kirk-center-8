@@ -24,6 +24,7 @@
         "spatie/laravel-medialibrary": "^8.7.2",
         "spatie/laravel-newsletter": "^4.11",
         "spatie/laravel-permission": "^3.17",
+        "yajra/laravel-datatables-oracle": "^9.19",
         "yoeunes/toastr": "^1.2"
     },
     "require-dev": {

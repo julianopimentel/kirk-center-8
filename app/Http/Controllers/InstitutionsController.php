@@ -7,7 +7,6 @@ use App\Models\Account_Transations;
 use Illuminate\Http\Request;
 use App\Models\Institution;
 use App\Models\Status;
-use App\Models\User;
 use App\Models\Users;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Models\Users_Account;
 use App\Models\Users_Account_Aud;
 use Illuminate\Support\Facades\Auth;
+use DataTables;
 
 class InstitutionsController extends Controller
 {
@@ -48,10 +48,10 @@ class InstitutionsController extends Controller
         $institutions = Users_Account::where('user_id', $you->id)
             ->with('accountlist')
             ->with('status')
-          //  ->orderby('name_company', 'asc')
+            //  ->orderby('name_company', 'asc')
             ->paginate($this->totalPagesPaginate);
 
-            
+
         //integrador com acesso total
         if (Auth::user()->menuroles == 'admin') {
             //consultar accounts
@@ -73,7 +73,32 @@ class InstitutionsController extends Controller
             return redirect()->route('tenantget', $element->account_id);
             //user acima 
         } else
-          return view('account.List', compact('you', $you), ['institutions' => $institutions]);
+            return view('account.List', compact('you', $you), ['institutions' => $institutions]);
+    }
+    public function indexAdmin(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Institution::with('integrador')
+                ->with('status')
+                //->wherenull('deleted_at')
+               // ->orderby('name_company', 'asc')
+                ->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="account/' . $row->id . '/edit" class="btn btn-primary-outline"><i
+                        class="c-icon c-icon-sm cil-pencil text-success"></i></a>';
+                    $btn = $btn . '<a href="account/' . $row->id . '/delete" class="btn btn-primary-outline"><i
+                        class="c-icon c-icon-sm cil-trash text-danger"></i></a>';
+                    $btn = $btn . '<a href="tenant/' . $row->id . '" class="btn btn-primary-outline"><i
+                        class="c-icon c-icon-sm cil-room text-dark"></i></a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('account.ListAdminTeste');
     }
     public function searchAccount(Request $request, Institution $institutions)
     {
@@ -278,6 +303,7 @@ class InstitutionsController extends Controller
         $request->session()->flash("danger", 'Erro ao rodar migrations');
         return redirect()->route('account.index');
     }
+
     /**
      * Update the specified resource in storage.
      *

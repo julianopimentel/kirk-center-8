@@ -19,7 +19,7 @@ class Institution extends Model
      * @var array
      */
     protected $fillable = [
-        'name_company', 'integrador', 'email', 'mobile', 'address1', 'address2', 'tenant', 'type', 'doc', 'cep', 'state', 'city', 'country',
+        'id','name_company', 'integrador', 'email', 'mobile', 'address1', 'address2', 'tenant', 'type', 'doc', 'cep', 'state', 'city', 'country',
     ];
 
     protected $primaryKey = 'id';
@@ -29,9 +29,7 @@ class Institution extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'id',
-    ];
+
 
     /**
      * The attributes that should be cast to native types.
@@ -67,6 +65,10 @@ class Institution extends Model
             ->paginate($totalPagesPaginate);
     }
     public function getIntegrador()
+    {
+        return $this->belongsTo('App\Models\Account_Integrador', 'integrador');
+    }
+    public function integrador()
     {
         return $this->belongsTo('App\Models\Account_Integrador', 'integrador');
     }

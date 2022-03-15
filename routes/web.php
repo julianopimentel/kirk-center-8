@@ -216,6 +216,7 @@ Route::group(['middleware' => ['role:user']], function () {
 Route::group(['middleware' => ['role:admin']], function () {
     //admin
     Route::any('account/search', 'InstitutionsController@searchAccount')->name('account.search');
+    Route::get('accounts', 'InstitutionsController@indexAdmin')->name('account.indexAdmin');
     Route::get('transactions', 'InstitutionsController@transactionsIndex')->name('transactions.index');
     Route::get('integrador', 'InstitutionsController@integradorIndex')->name('integrador.index');
     Route::resource('bread',  'BreadController');   //create BREAD (resource)
