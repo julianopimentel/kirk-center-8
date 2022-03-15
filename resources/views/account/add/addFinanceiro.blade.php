@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('withdraw.store') }}" method="post">
+                <form action="{{ route('transactions.store') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="row">
                         <div class="col-sm-4">
@@ -27,8 +27,8 @@
                         <div class="form-group col-sm-4">
                             <label for="text">Tipo</label>
                             <select class="form-control" name="type">
-                                    <option value="1">Normal
-                                    </option>
+                                <option value="1">Normal
+                                </option>
                             </select>
                         </div>
                         <div class="form-group col-sm-4">
@@ -41,20 +41,18 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Observação</label>
-                                <input class="form-control" type="text"
-                                    name="note">
+                                <input class="form-control" type="text" name="note">
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <label>Total</label>
-                                <input class="form-control" name="text" type="total"
-                                    maxlength="200">
+                                <input class="form-control" type="number" name="total" maxlength="200">
                             </div>
                         </div>
                     </div>
                     <button class="btn btn-success" type="submit" title="Adicionar"><i
-                            class="c-icon c-icon-sm cil-minus"></i> Adicionar</button>
+                            class="c-icon c-icon-sm cil-plus"></i> Adicionar</button>
             </div>
 
             </form>

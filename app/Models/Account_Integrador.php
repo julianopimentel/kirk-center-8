@@ -9,7 +9,7 @@ class Account_Integrador extends Model
 {
     use HasFactory;
     protected $table = 'admin.integrador';
-    public $timestamps = false;
+    public $timestamps = true;
     /**
      * Get the notes for the status.
      */

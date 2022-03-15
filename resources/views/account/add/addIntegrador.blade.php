@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('withdraw.store') }}" method="post">
+                <form action="{{ route('integrador.store') }}" method="post">
                     {!! csrf_field() !!}
                     <div class="row">
                         <div class="col-sm-4">

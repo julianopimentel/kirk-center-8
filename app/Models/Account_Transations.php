@@ -9,10 +9,19 @@ class Account_Transations extends Model
 {
     use HasFactory;
     protected $table = 'admin.transaction';
-    public $timestamps = false;
-    /**
-     * Get the notes for the status.
-     */
+    public $timestamps = true;
+
+    protected $fillable = [
+        'id', 'user_id_integrador', 'quantity', 'type', 'total', 'user_id'
+    ];
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
+
+    protected $dates = [
+        'deleted_at', 'updated_at',
+    ];
+
     public function getintegrador()
     {
         return $this->belongsTo('App\Models\Account_Integrador', 'user_id_integrador');
