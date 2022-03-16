@@ -9,14 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Overtrue\LaravelLike\Traits\Liker;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Qirolab\Laravel\Reactions\Contracts\ReactsInterface;
-use Qirolab\Laravel\Reactions\Traits\Reacts;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements ReactsInterface
+class User extends Authenticatable
 {
     use Liker;
-    use Reacts;
     use Notifiable;
     use SoftDeletes;
     use HasRoles;
