@@ -6,6 +6,7 @@ use App\Models\Account_Integrador;
 use App\Models\Account_Transations;
 use Illuminate\Http\Request;
 use App\Models\Institution;
+use App\Models\User;
 use App\Models\Users;
 use DataTables;
 use Illuminate\Support\Facades\Date;
@@ -112,12 +113,29 @@ class AdminController extends Controller
         ]);
         //user data
         $user = auth()->user();
-        $posts = new Post();
-        $posts->body     = $request->input('body');
-        $posts->user_id = $user->id;
-        $posts->save();
-        //adicionar log
-        $this->adicionar_log('17', 'C', $posts);
-        return redirect()->route('timeline.index');
+        //salvar integrador
+        $integrador = new Account_Integrador();
+        $integrador->name_company      = $request->input('name_company');
+        $integrador->doc      = $request->input('doc');
+        $integrador->email      = $request->input('email');
+        $integrador->mobile      = $request->input('phone_full');
+        $integrador->address1       = $request->input('address1');
+        $integrador->city       = $request->input('city');
+        $integrador->state       = $request->input('state');
+        $integrador->lat       = $request->input('lat');
+        $integrador->lng       = $request->input('lng');
+        $integrador->cep       = $request->input('cep');
+        $integrador->status_id = $request->input('type');
+        $integrador->doc     = $request->input('doc');
+        $integrador->user_integrador     = $request->input('user_integrador');
+        $integrador->save();
+        //atualizar o user
+        $user = User::find($integrador->user_integrador);
+        $user->integrador_id       = $integrador->id;
+        $user->master      = true;
+        $user->save();
+
+        $request->session()->flash("success", 'Adicionado integrador com sucesso, favor vincular ao usuário');
+        return redirect()->back();
     }
 }

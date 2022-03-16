@@ -18,7 +18,7 @@
                                 <label for="ccnumber">Integrador</label>
                                 <select class="form-control" name="user_id_integrador">
                                     @foreach ($integrador as $integrador)
-                                        <option value="{{ $integrador->id }}">{{ $integrador->name_company }}
+                                        <option value="{{ $integrador->id }}">{{ $integrador->name_company }} | {{ $integrador->license }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -38,13 +38,13 @@
                     </div>
                     <!-- /.row-->
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-8">
                             <div class="form-group">
                                 <label>Observação</label>
                                 <input class="form-control" type="text" name="note">
                             </div>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Total</label>
                                 <input class="form-control" type="number" name="total" maxlength="200">

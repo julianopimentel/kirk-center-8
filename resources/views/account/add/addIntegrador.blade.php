@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <button class="btn btn-success" type="submit" title="Adicionar"><i
-                            class="c-icon c-icon-sm cil-minus"></i> Adicionar</button>
+                            class="c-icon c-icon-sm cil-plus"></i> Adicionar</button>
             </div>
 
             </form>
