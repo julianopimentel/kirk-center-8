@@ -74,8 +74,6 @@ class BalanceController extends Controller
     //autocompletar pessoa em ajax
     public function dataAjax(Request $request)
     {
-        //pegar tenant
-        $this->get_tenant();
         //consultar pessoas
         $data = People::select("id", "name", "email")
             ->orderby('name', 'asc')

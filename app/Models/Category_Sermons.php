@@ -13,4 +13,9 @@ class Category_Sermons extends Model
     /**
      * Get the notes for the status.
      */
+
+    public function getCatAttribute($value)
+    {
+        return $this->attributes['cat'] = json_decode($value);
+    }
 }

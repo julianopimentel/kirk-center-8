@@ -311,6 +311,25 @@ class SermonsController extends Controller
         $request->session()->flash('success', __('general.category') . __('action.creat'));
         return redirect()->back();
     }
+    public function updateCategory(Request $request, $id)
+    {
+        //pegar tenant
+        $this->get_tenant();
+        $validatedData = $request->validate([
+            'name'             => 'required',
+            'body'           => 'required',
+            'roles'         => 'required',
+        ]);
+        $note = Category_Sermons::find($id);
+        $note->name     = $request->input('name');
+        $note->body   = $request->input('body');
+        $note->roles   = implode(',', $request->input('roles'));
+        $note->save();
+        //adicionar log
+        $this->adicionar_log('20', 'C', $note);
+        $request->session()->flash('success', __('general.category') . __('action.update'));
+        return redirect()->back();
+    }
     public function destroyCategory($id)
     {
         //pegar tenant

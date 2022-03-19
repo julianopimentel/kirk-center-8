@@ -62,6 +62,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('sermons/category/{id}', 'SermonsController@indexCategory')->name('sermons.indexCategory');
     Route::get('category/sermons', 'SermonsController@showCategory')->name('sermons.showCategory');
     Route::post('category/sermons', 'SermonsController@storeCategory')->name('sermons.storeCategory');
+    Route::post('category/sermons/{id}', 'SermonsController@updateCategory')->name('sermons.updateCategory');
     Route::delete('category/sermons/{id}', 'SermonsController@destroyCategory')->name('sermons.destroyCategory');
     Route::post('sermons/comment/{post}', 'SermonsController@storecomentario')->name('sermons.storecomentario');
     Route::get('/sermons/comment/{id}', [SermonsController::class, 'getArticles']);
@@ -129,7 +130,7 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
     Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');
 
-    Route::get('/select2-autocomplete-people', 'BalanceController@dataAjax');
+    Route::get('select2-autocomplete-people', 'BalanceController@dataAjax')->name('select.people');
     Route::get('transaction', 'BalanceController@index')->name('transaction.index');
     Route::get('transaction/{id}', 'BalanceController@show')->name('transaction.show');
 
