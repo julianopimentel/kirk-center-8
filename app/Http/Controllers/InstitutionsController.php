@@ -54,7 +54,7 @@ class InstitutionsController extends Controller
         //integrador com acesso total
         if (Auth::user()->menuroles == 'admin') {
             //consultar accounts
-            $institutions = Institution::with('integrador:id,name_company')
+            $institutions = Institution::with('getintegrador')
                 ->with('status')
                 ->wherenull('deleted_at')
                 ->orderby('name_company', 'asc')

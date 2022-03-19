@@ -38,9 +38,9 @@ class AdminController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="account/' . $row->id . '/edit" class="btn btn-primary-outline"><i
-                        class="c-icon c-icon-sm cil-pencil text-success"></i></a>';
-                    $btn = $btn . '<a href="account/' . $row->id . '/delete" class="btn btn-primary-outline"><i
+                    $btn = '<a href="'. route("account.edit", $row->id) .'" class="btn btn-primary-outline"><i
+                    class="c-icon c-icon-sm cil-pencil text-success"></i></a>';
+                    $btn = $btn . '<a href="'. route("account.destroy", $row->id) . '" class="btn btn-primary-outline"><i
                         class="c-icon c-icon-sm cil-trash text-danger"></i></a>';
                     $btn = $btn . '<a href="tenant/' . $row->id . '" class="btn btn-primary-outline"><i
                         class="c-icon c-icon-sm cil-room text-dark"></i></a>';

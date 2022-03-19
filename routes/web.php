@@ -73,7 +73,6 @@ Route::group(['middleware' => ['role:user']], function () {
 
     // account e tenant
     Route::post('/tenant/{id}', 'TenantController@tenant')->name('tenant');
-    Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
     Route::resources([
         'account' => InstitutionsController::class,
     ]);
@@ -215,6 +214,8 @@ Route::group(['middleware' => ['role:user']], function () {
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
+
     //admin
     Route::any('account/search', 'AdminController@searchAccount')->name('account.search');
     Route::get('accounts', 'AdminController@indexAdmin')->name('account.indexAdmin');

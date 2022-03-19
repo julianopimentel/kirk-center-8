@@ -16,7 +16,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                    <h4><strong>{{ __('account.select') }}</strong></h4>
+                                <h4><strong>{{ __('account.select') }}</strong></h4>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped data-table">
@@ -39,55 +39,55 @@
                 </div>
             </div>
         </div>
-                    <script type="text/javascript">
-                        $(function() {
+        <script type="text/javascript">
+            $(function() {
 
-                            var table = $('.data-table').DataTable({
-                                processing: true,
-                                serverSide: true,
-                                ajax: "{{ route('account.indexAdmin') }}",
-                                columns: [{
-                                        data: 'id',
-                                        name: 'id',
-                                        orderable: true,
-                                        searchable: true
-                                    },
-                                    {
-                                        data: 'name_company',
-                                        name: 'name_company',
-                                        orderable: true,
-                                        searchable: true
-                                    },
-                                    {
-                                        data: 'integrador.name_company',
-                                        name: 'integrador',
-                                        orderable: true,
-                                        searchable: true
-                                    },
-                                    {
-                                        data: 'integrador.inadiplente',
-                                        name: true,
+                var table = $('.data-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('account.indexAdmin') }}",
+                    columns: [{
+                            data: 'id',
+                            name: 'id',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'name_company',
+                            name: 'name_company',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'integrador.name_company',
+                            name: 'integrador',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'integrador.inadiplente',
+                            name: true,
 
-                                    },
-                                    {
-                                        data: 'status.name',
-                                        name: 'status'
-                                    },
-                                    {
-                                        data: 'action',
-                                        name: 'action',
-                                        orderable: false,
-                                        searchable: false
-                                    },
-                                ]
-                            });
+                        },
+                        {
+                            data: 'status.name',
+                            name: 'status'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: false,
+                            searchable: false
+                        },
+                    ]
+                });
 
-                        });
-                    </script>
-                @endsection
+            });
+        </script>
+    @endsection
 
-                @section('javascript')
-                @endsection
-            @else
-                @include('errors.redirecionar')
+    @section('javascript')
+    @endsection
+@else
+    @include('errors.redirecionar')
 @endif

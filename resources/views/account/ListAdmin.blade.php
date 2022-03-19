@@ -24,9 +24,9 @@
                                             <div class="inner">
                                                 <select class="form-control" id="integrador" name="integrador">
                                                     <option value="">Integrador</option>
-                                                    @foreach ($integradores as $integrador)
-                                                        <option value="{{ $integrador->id }}">
-                                                            {{ $integrador->name_company }}
+                                                    @foreach ($integradores as $integradores)
+                                                        <option value="{{ $integradores->id }}">
+                                                            {{ $integradores->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -60,7 +60,7 @@
                                             <tr>
                                                 <td width="10%">{{ $institution->id }}</td>
                                                 <td width="40%">{{ $institution->name_company }} </td>
-                                                <td width="40%">{{ $institution->getintegrador->name_company }} </td>
+                                                <td width="40%">{{ $institution->getIntegrador->name_company }} </td>
                                                 <td>
                                                     <span class="{{ $institution->status->class }}">
                                                         {{ $institution->status->name }}

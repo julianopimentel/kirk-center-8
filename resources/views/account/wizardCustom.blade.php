@@ -1,11 +1,10 @@
 @extends('layouts.authBase')
-
-
+{!! NoCaptcha::renderJs() !!}
 @section('content')
     <div class="container mt-2">
         <div class="row justify-content-center">
 
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <br>
                 <div class="card mx-4">
                     <div class="card-body p-4">
@@ -64,6 +63,14 @@
                                         <span id="error-msg" class="hide"></span>
 
                                     </div>
+                                    <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                                        {!! app('captcha')->display() !!}
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -80,7 +87,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-dark btn-lg btn-block">
+                                    <button type="submit" data-sitekey="{{ config('app.recaptcha_site_key') }}" class="g-recaptcha btn btn-dark btn-lg btn-block" tabindex="4">
                                         {{ __('auth.register') }}
                                     </button>
                                 </div>

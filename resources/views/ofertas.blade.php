@@ -4,16 +4,16 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h4><strong>Seus valores</strong></h4>
+                    <h4><strong>Meus dízimos e ofertas</strong></h4>
                 </div>
                 @if (!$dizimos->isEmpty())
                     <table class="table table-responsive-sm table-striped">
                         <thead>
                             <tr>
-                                <th>Value</th>
-                                <th>Type</th>
+                                <th>Valor</th>
+                                <th>Tipo</th>
                                 <th>Forma de pagamento</th>
-                                <th>Date</th>
+                                <th>Data</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,7 @@
         @else
             <div class="container-fluid">
                 <div class="fade-in">
-                    Você ainda não possui dizimos/ofertas associados ao seu usuário!
+                    Você ainda não possui dízimos/ofertas associados ao seu usuário!
                 </div>
             </div>
     @endif
