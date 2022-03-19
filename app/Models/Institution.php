@@ -70,6 +70,6 @@ class Institution extends Model
     }
     public function integrador()
     {
-        return $this->belongsTo('App\Models\Account_Integrador', 'integrador');
+        return $this->hasMany('App\Models\Account_Integrador', 'user_integrador', 'id');
     }
 }

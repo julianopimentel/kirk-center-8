@@ -221,6 +221,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('integrador', 'AdminController@integradorIndex')->name('integrador.index');
     Route::post('transactions', 'AdminController@transactionsStore')->name('transactions.store');
     Route::post('integrador', 'AdminController@integradorStore')->name('integrador.store');
+    Route::patch('integrador/{id}', 'AdminController@integradorUpdate')->name('integrador.update');
+
 
     Route::resource('bread',  'BreadController');   //create BREAD (resource)
     Route::resource('users',        'UsersController')->except(['create', 'store']);
@@ -270,7 +272,6 @@ Route::group(['middleware' => ['role:admin']], function () {
     //cache teste
     Route::get('/clear-cache-all-057878545112', function () {
         Artisan::call('cache:clear');
-        error_log('Cache Clear All');
         session()->flash("success", 'Cache Clear All');
         return redirect()->back();
     });

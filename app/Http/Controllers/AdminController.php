@@ -126,8 +126,10 @@ class AdminController extends Controller
         $integrador->city       = $request->input('city');
         $integrador->state       = $request->input('state');
         $integrador->cep       = $request->input('cep');
+        $integrador->country       = $request->input('country');
+        $integrador->license       = '0';
+        $integrador->inadiplente       = false;
         $integrador->status_id = '14';
-        $integrador->doc     = $request->input('doc');
         $integrador->user_integrador     = $request->input('user_integrador');
         $integrador->save();
         //atualizar o user
@@ -136,8 +138,27 @@ class AdminController extends Controller
         $user->master      = true;
         $user->save();
 
-        $request->session()->flash("success", 'Adicionado integrador com sucesso, favor vincular ao usuário');
+        $request->session()->flash("success", 'Criado com sucesso');
         return redirect()->back();
+    }
+    public function IntegradorUpdate(Request $request, $id)
+    {
+        $integrador = Account_Integrador::find($id);
+        $integrador->name_company      = $request->input('name_company');
+        $integrador->doc      = $request->input('doc');
+        $integrador->email      = $request->input('email');
+        $integrador->mobile      = $request->input('phone_full');
+        $integrador->address1       = $request->input('address');
+        $integrador->city       = $request->input('city');
+        $integrador->state       = $request->input('state');
+        $integrador->cep       = $request->input('cep');
+        $integrador->country       = $request->input('country');
+        $integrador->license       = $request->input('license');
+        $integrador->inadiplente       = $request->has('inadiplente') ? 1 : 0;
+        $integrador->status_id = '14';
+        $integrador->save();
+
+        return redirect()->back()->with('success', 'Editado com sucesso!');
     }
 
     public function blogShow($id)

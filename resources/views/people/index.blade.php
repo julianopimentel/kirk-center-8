@@ -6,16 +6,16 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2">
-                            <h4>{{ __('layout.people')}}</h4>
+                            <h4>{{ __('layout.people') }}</h4>
                         </div>
 
                         @if ($appPermissao->add_people == true)
                             <a href="{{ route('people.create') }}" class="add_button btn btn-sm btn-primary"
-                                title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i>{{ __('people.people')}}</a>
+                                title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i>{{ __('people.people') }}</a>
                         @endif
                         <p>&nbsp;
-                        <a href="{{ route('peoplevisit.create') }}" class="add_button btn btn-sm btn-dark"
-                            title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i>{{ __('people.visit')}}</a>
+                            <a href="{{ route('peoplevisit.create') }}" class="add_button btn btn-sm btn-dark"
+                                title="Adicionar"><i class="c-icon c-icon-sm cil-plus"></i>{{ __('people.visit') }}</a>
 
                     </div>
                     <form action="{{ route('people.search') }}" method="POST" class="form form-inline">
@@ -24,21 +24,22 @@
                             <div class="form-group row">
                                 <div class="col-sm-12 col-md-2 col-lg-2 col-xl-3">
                                     <div class="inner">
-                                        <input type="text" id='name' name="name" class="form-control" placeholder="{{ __('people.name')}}">
+                                        <input type="text" id='name' name="name" class="form-control"
+                                            placeholder="{{ __('people.name') }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-md-2 col-lg-2 col-xl-2">
                                     <div class="inner">
                                         <select class="form-control" id="is_verify" name="is_verify">
-                                                <option value="true">{{ __('people.people')}}</option>
-                                                <option value="false">{{ __('people.visit')}}</option>
+                                            <option value="true">{{ __('people.people') }}</option>
+                                            <option value="false">{{ __('people.visit') }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-md-2 col-lg-2 col-xl-2">
                                     <div class="inner">
                                         <select class="form-control" id="statuses" name="statuses">
-                                            <option value="">{{ __('people.status')}}</option>
+                                            <option value="">{{ __('people.status') }}</option>
                                             @foreach ($statuses as $statuses)
                                                 <option value="{{ $statuses->id }}">{{ $statuses->name }}
                                                 </option>
@@ -59,11 +60,11 @@
                         <table class="table table-responsive-sm table-striped">
                             <thead>
                                 <tr>
-                                    <th>{{ __('people.name')}}</th>
-                                    <th>{{ __('people.email')}}</th>
-                                    <th>{{ __('people.mobile')}}</th>
-                                    <th>{{ __('people.role')}}</th>
-                                    <th>{{ __('people.status')}}</th>
+                                    <th>{{ __('people.name') }}</th>
+                                    <th>{{ __('people.email') }}</th>
+                                    <th>{{ __('people.mobile') }}</th>
+                                    <th>{{ __('people.role') }}</th>
+                                    <th>{{ __('people.status') }}</th>
                                     <th colspan="3">
                                         <Center>{{ __('account.action') }}</Center>
                                     </th>
@@ -72,9 +73,17 @@
                             <tbody>
                                 @forelse($peoples as $people)
                                     <tr>
-                                        <td><strong>{{ $people->name }}</strong>
+                                        <td><strong>
+                                                @if ($appPermissao->edit_people == true)
+                                                <a href="" target="_blank" data-toggle="modal"
+                                                    data-target="#ViewPeople{{ $people->id }}">{{ $people->name }}</a>
+                                                @include('people.view')
+                                                @else
+                                                {{ $people->name }}
+                                                @endif
+                                            </strong>
                                             @if ($people->is_verify == false)
-                                                <span class="badge badge-info"> {{ __('people.visit')}}</span>
+                                                <span class="badge badge-info"> {{ __('people.visit') }}</span>
                                             @endif
                                         </td>
                                         <td>{{ $people->email }}</td>

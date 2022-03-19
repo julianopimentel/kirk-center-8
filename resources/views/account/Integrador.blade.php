@@ -14,8 +14,8 @@
                         <div class="col-2">
                             <button class="btn btn-primary" type="submit" data-toggle="modal"
                                 data-target="#storeAddIntegrador"><i class="c-icon c-icon-sm cil-plus"></i>
-                                </button>
-                                @include('account.add.addIntegrador')
+                            </button>
+                            @include('account.add.addIntegrador')
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,10 @@
                                         {{ $integrador->status->name }}
                                     </span>
                                 </td>
-                                <td>Botão de bloquear</td>
+                                <td> <a href="" target="_blank" data-toggle="modal"
+                                        data-target="#updateIntegrador{{ $integrador->id }}"><i
+                                        class="c-icon c-icon-sm cil-pencil text-success"></i></a>
+                                    @include('account.add.EditIntegrador')</td>
                             </tr>
                         @endforeach
                     </tbody>
