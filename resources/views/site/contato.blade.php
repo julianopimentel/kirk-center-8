@@ -1,9 +1,9 @@
 @extends('site.layout.base')
 @section('content')
-
-     <!-- Start Breadcrumb 
-    ============================================= -->
-    <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light" style="background-image: url(site/site/assets/img/2440x1578.png);">
+    <!-- Start Breadcrumb
+        ============================================= -->
+    <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light"
+        style="background-image: url(site/site/assets/img/2440x1578.png);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -15,7 +15,7 @@
     <!-- End Breadcrumb -->
 
     <!-- Start Contact
-    ============================================= -->
+        ============================================= -->
     <div id="contact" class="contact-area bg-gray default-padding">
         <div class="container">
             <div class="row">
@@ -26,30 +26,30 @@
                         <img src="site/assets/img/illustrations/5.png" alt="Thumb">
                     </div>
                     <!-- End Thumb -->
-                    
+
                     <!-- Contact Form -->
                     <div class="col-md-7 col-md-offset-1 contact-form">
-                        <form action="{{ route('contato.envio') }}" method="POST" class="contact-form">
+                        <form method="POST" action="{{ route('envio') }}">
                             @csrf
-                            <div class="col-md-12">
+                            @method('PUT')
+                                                        <div class="col-md-12">
                                 <div class="row">
                                     <div class="form-group">
                                         <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                        <span class="alert-error"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="form-control" id="email" name="email" placeholder="Email*" type="email">
-                                        <span class="alert-error"></span>
+                                        <input class="form-control" id="email" name="email" placeholder="Email*"
+                                            type="email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                        <span class="alert-error"></span>
+                                        <input class="form-control" id="phone" name="phone" placeholder="Phone"
+                                            type="text">
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +66,9 @@
                                         Enviar <i class="fa fa-paper-plane"></i>
                                     </button>
                                 </div>
+                                <button class="btn btn-success" type="submit" title="Salvar"><i
+                                        class="c-icon c-icon-sm cil-save"></i></button>
+
                             </div>
                         </form>
                     </div>
@@ -114,11 +117,7 @@
         </div>
     </div>
     <!-- End Contact -->
+@endsection
 
-
-    @endsection
-
-    @section('javascript')
-    
-    @endsection
-    
+@section('javascript')
+@endsection

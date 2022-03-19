@@ -7,20 +7,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContatoEnvio extends Mailable
+class SendMailLiberar extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    protected $conta_name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(string $details)
+    public function __construct(string $conta_name)
     {
         //
-        $this->details = $details;
+        $this->conta_name = $conta_name;
+        $this->subject('Bem-vindo a plataforma Kirk - '. $conta_name);
     }
 
     /**
@@ -30,6 +31,6 @@ class ContatoEnvio extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contato SITE')->view('emails.Acesso_Liberado');
+        return $this->view('emails.Acesso_Liberado');
     }
 }

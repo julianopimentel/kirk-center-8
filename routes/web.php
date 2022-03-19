@@ -24,7 +24,7 @@ Route::get('/', 'WelcomeController@welcome')->name('welcome');
 Route::get('terms', 'WelcomeController@terms')->name('terms');
 Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
 Route::get('contato', 'WelcomeController@contato')->name('contato');
-Route::post('contato/envio', 'WelcomeController@contatoEnvio')->name('contato.envio');
+Route::put('contato/envio', 'WelcomeController@contatoEnvio')->name('envio');
 Route::get('features', 'WelcomeController@features')->name('features');
 
 //blog simples
