@@ -15,18 +15,18 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="ccnumber">Documento</label>
+                                <label for="ccnumber">Documento *</label>
                                 <input class="form-control" type="text" placeholder="01.452.25/0001-19"
                                     pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" name="doc">
                             </div>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label for="text">Nome do Integrador</label>
+                            <label for="text">Nome do Integrador *</label>
                             <input class="form-control" type="text" placeholder="{{ __('Name') }}"
                                 id="name_company" name="name_company" required>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label>Usuário Integrador</label>
+                            <label>Usuário Integrador *</label>
                             <select class="form-control" name="user_integrador">
                                 @foreach ($users as $users)
                                     <option value="{{ $users->id }}">{{ $users->name }}
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="text">Contato</label>
+                                <label for="text">Contato *</label>
                                 <input class="form-control" id="phone" name="phone" type="tel">
                                 <span id="valid-msg" class="hide">✓ Valid</span>
                                 <span id="error-msg" class="hide"></span>

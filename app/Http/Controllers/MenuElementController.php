@@ -36,7 +36,7 @@ class MenuElementController extends Controller
             }
         }
         $getSidebarMenu = new GetSidebarMenu();
-        return view('dashboard.editmenu.index', array(
+        return view('admin.editmenu.index', array(
             'menulist'      => Menulist::all(),
             'role'          => 'admin',
             'roles'         => RolesService::get(),
@@ -86,7 +86,7 @@ class MenuElementController extends Controller
     }
 
     public function create(){
-        return view('dashboard.editmenu.create',[
+        return view('admin.editmenu.create',[
             'roles'    => RolesService::get(),
             'menulist' => Menulist::all(),
         ]);
@@ -146,7 +146,7 @@ class MenuElementController extends Controller
     public function edit(Request $request){
 
 
-        return view('dashboard.editmenu.edit',[
+        return view('admin.editmenu.edit',[
             'roles'    => RolesService::get(),
             'menulist' => Menulist::all(),
             'menuElement' => Menus::where('id', '=', $request->input('id'))->first(),
@@ -200,7 +200,7 @@ class MenuElementController extends Controller
         if(empty($menuElement)){
             $menuElement = Menus::where('id', '=', $request->input('id'))->first();
         }
-        return view('dashboard.editmenu.show',[
+        return view('admin.editmenu.show',[
             'menulist' => Menulist::all(),
             'menuElement' => $menuElement,
             'menuroles' => Menurole::where('menus_id', '=', $request->input('id'))->get()
@@ -215,7 +215,7 @@ class MenuElementController extends Controller
         $request->session()->flash('message', 'Successfully deleted menu element');
         $request->session()->flash('back', 'menu.index');
         $request->session()->flash('backParams', ['menu' => $menuId]);
-        return view('dashboard.shared.universal-info');
+        return redirect()->back();
     }
 
 }

@@ -21,14 +21,13 @@ class GetMenu
      */
     public function handle($request, Closure $next)
     {
-        
         if (Auth::check()){
             $role = 'guest';
             //$role =  Auth::user()->menuroles;
             $userRoles = Auth::user()->getRoleNames();
             //$userRoles = $userRoles['items'];
             $roleHierarchy = RoleHierarchy::select('role_hierarchy.role_id', 'roles.name')
-            ->join('admin.roles', 'roles.id', '=', 'role_hierarchy.role_id')
+            ->join('roles', 'roles.id', '=', 'role_hierarchy.role_id')
             ->orderBy('role_hierarchy.hierarchy', 'asc')->get();
             $flag = false;
             foreach($roleHierarchy as $roleHier){
@@ -54,7 +53,6 @@ class GetMenu
             $result[ $menulist->name ] = $menus->get( $role, $menulist->id );
         }
         view()->share('appMenus', $result );
-        
         return $next($request);
     }
 }

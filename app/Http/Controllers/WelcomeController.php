@@ -54,46 +54,6 @@ class WelcomeController extends Controller
             ->paginate(6);
         return view('site.blog.blog', ['results' => $results]);
     }
-    public function blogShow($id)
-    {
-        $results = Blog::find($id);
-        return view('site.blog.blogShow', compact('results'));
-    }
-
-    public function blogPost()
-    {
-        if (Auth::check() == true) {
-            if (Auth::user()->master == true) {
-                return view('site.blog.post');
-            } else
-                session()->flash("info", 'Erro interno');
-            return redirect()->back();
-        } else
-            session()->flash("info", 'Erro interno');
-        return redirect()->back();
-    }
-    public function blogStore(Request $request)
-    {
-        if (Auth::check() == true) {
-            if (Auth::user()->master == true) {
-
-                $blog = new Blog;
-                $blog->title     = $request->input('title');
-                $blog->content   = $request->input('content');
-                $blog->status_id = $request->input('status_id');
-                $blog->image   = $request->input('image');
-                $blog->note_type = $request->input('note_type');
-                $blog->users_id = Auth::user()->id;
-                $blog->save();
-
-                //$this->adicionar_log('19', 'C', $blog);
-                $request->session()->flash('success', 'Blog' . __('action.creat'));
-                return redirect()->route('blog');
-            } else
-                session()->flash("info", 'Erro interno');
-            return redirect()->back();
-        }
-    }
 
     public function adicionarnewsletter(Request $request)
     {

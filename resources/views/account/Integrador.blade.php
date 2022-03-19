@@ -22,6 +22,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Documento</th>
                             <th>Nome</th>
                             <th>E-mail</th>
@@ -33,6 +34,7 @@
                     <tbody>
                         @foreach ($integradores as $integrador)
                             <tr>
+                                <td>{{ $integrador->id }}</td>
                                 <td>{{ $integrador->doc }}</td>
                                 <td>{{ $integrador->name_company }}</td>
                                 <td>{{ $integrador->email }}</td>

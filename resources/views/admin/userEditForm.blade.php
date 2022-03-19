@@ -4,10 +4,10 @@
     <div class="container-fluid">
         <div class="animated fadeIn">
             <div class="row">
-                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-12">
                     <div class="card">
                         <div class="card-header">
-                            <i class="fa fa-align-justify"></i> {{ __('Edit') }} {{ $user->name }}
+                            {{ __('Editar o usuário') }} {{ $user->name }}
                         </div>
                         <div class="card-body">
                             <br>
@@ -38,20 +38,24 @@
                                     <span id=" valid-msg" class="hide">✓ Valid</span>
                                     <span id="error-msg" class="hide"></span>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <svg class="c-icon c-icon-sm">
-                                                <use xlink:href="/assets/icons/coreui/free-symbol-defs.svg#cui-plus"></use>
-                                            </svg>
-                                        </span>
+                                <div class="row">
+                                    <div class="form-group col-sm-3">Master?
+                                        <label class="c-switch c-switch-label c-switch-pill c-switch-primary c-switch-sm">
+                                            <input class="c-switch-input" name="master" type="checkbox"
+                                                {{ $user->master == true ? 'checked' : '' }} @if ( $user->integrador_id == !null)
+                                                    disabled
+                                                @endif><span class="c-switch-slider"
+                                                data-checked="&#x2713" data-unchecked="&#x2715"></span>
+                                        </label>
                                     </div>
-                                    <input class="form-control" type="number" placeholder="{{ __('License') }}"
-                                        name="license" value="{{ $user->license }}" required autofocus>
+                                    <div class="form-group col-sm-4">
+                                        Integrador:
+                                        {{ $user->integrador_id }}
+                                    </div>
                                 </div>
-                                <button class="btn btn-block btn-success" type="submit">{{ __('Save') }}</button>
-                                <a href="{{ route('users.index') }}"
-                                    class="btn btn-block btn-primary">{{ __('Return') }}</a>
+                                    <button class="btn btn-block btn-success" type="submit">{{ __('Save') }}</button>
+                                    <a href="{{ route('users.index') }}"
+                                        class="btn btn-block btn-primary">{{ __('Return') }}</a>
                             </form>
                         </div>
                     </div>

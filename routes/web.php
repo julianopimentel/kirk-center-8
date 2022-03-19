@@ -226,8 +226,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('users',        'UsersController')->except(['create', 'store']);
     Route::resource('mail',        'MailController');
     //blog
-    Route::get('post/blog', 'WelcomeController@blogPost')->name('blog.post');
-    Route::post('post', 'WelcomeController@blogStore')->name('blog.store');
+    Route::get('post/blog', 'AdminController@blogPost')->name('blog.post');
+    Route::post('post', 'AdminController@blogStore')->name('blog.store');
 
     Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
     Route::post('mailSend/{id}',        'MailController@send')->name('mailSend');
@@ -270,6 +270,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     //cache teste
     Route::get('/clear-cache-all-057878545112', function () {
         Artisan::call('cache:clear');
-        dd("Cache Clear All");
+        error_log('Cache Clear All');
+        session()->flash("success", 'Cache Clear All');
+        return redirect()->back();
     });
 });

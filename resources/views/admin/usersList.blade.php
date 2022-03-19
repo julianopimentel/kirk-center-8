@@ -16,11 +16,9 @@
                             <th>Username</th>
                             <th>E-mail</th>
                             <th>Roles</th>
-                            <th>Mobile</th>
-                            <th>License</th>
+                            <th>Integrador</th>
                             <th>Update at</th>
-                            <th></th>
-                            <th></th>
+                            <th>Termo</th>
                             <th></th>
                           </tr>
                         </thead>
@@ -30,23 +28,16 @@
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->email }}</td>
                               <td>{{ $user->menuroles }}</td>
-                              <td>{{ $user->mobile }}</td>
-                              <td>{{ $user->license }}</td>
-                              <td>{{ $user->updated_at }}</td>
                               <td>
-                                <a href="{{ url('/users/' . $user->id) }}" class="btn btn-block btn-primary">View</a>
-                              </td>
+                                @if ($user->master == true)
+                                  Sim
+                                @else
+                                  Não
+                                @endif</td>
+                              <td>{{ $user->updated_at }}</td>
+                              <td>{{ $user->agree }}</td>
                               <td>
                                 <a href="{{ url('/users/' . $user->id . '/edit') }}" class="btn btn-block btn-primary">Edit</a>
-                              </td>
-                              <td>
-                                @if( $you->id !== $user->id )
-                                <form action="{{ route('users.destroy', $user->id ) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-block btn-danger">Delete</button>
-                                </form>
-                                @endif
                               </td>
                             </tr>
                           @endforeach

@@ -27,9 +27,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $you = auth()->user();
         $users = User::all();
-        return view('admin.usersList', compact('users', 'you'));
+        return view('admin.usersList', compact('users'));
     }
 
     /**
@@ -37,13 +36,13 @@ class UsersController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $user = User::find($id);
-        return view('admin.userShow', compact( 'user' ));
-    }
-
+     
+ *   public function show($id)
+ *   {
+ *       $user = User::find($id);
+ *       return view('admin.userShow', compact( 'user' ));
+ *   }
+*/
     /**
      * Show the form for editing the specified resource.
      *
@@ -73,7 +72,7 @@ class UsersController extends Controller
         $user->name       = $request->input('name');
         $user->email      = $request->input('email');
         $user->phone       = $request->input('phone_full');
-        $user->license       = $request->input('license');
+        $user->master       = $request->has('master') ? 1 : 0;
         $user->save();
         $request->session()->flash("success", "Successfully updated user");
         return redirect()->route('users.index');
@@ -84,13 +83,14 @@ class UsersController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        if($user){
-            $user->delete();
-        }
-        return redirect()->route('users.index');
-    }
+     
+    *public function destroy($id)
+    *{
+       * $user = User::find($id);
+      *  if($user){
+       *     $user->delete();
+      *  }
+     *   return redirect()->route('users.index');
+    *}
+    */
 }

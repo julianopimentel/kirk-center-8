@@ -21,13 +21,13 @@ class MenuController extends Controller
     }
 
     public function index(Request $request){
-        return view('dashboard.editmenu.menu.index', array(
+        return view('admin.editmenu.menu.index', array(
             'menulist'  => Menulist::all()
         ));
     }
 
     public function create(){
-        return view('dashboard.editmenu.menu.create',[]);
+        return view('admin.editmenu.menu.create',[]);
     }
 
     public function store(Request $request){
@@ -42,7 +42,7 @@ class MenuController extends Controller
     }
 
     public function edit(Request $request){
-        return view('dashboard.editmenu.menu.edit',[
+        return view('admin.editmenu.menu.edit',[
             'menulist'  => Menulist::where('id', '=', $request->input('id'))->first()
         ]);
     }
@@ -61,7 +61,7 @@ class MenuController extends Controller
 
     /*
     public function show(Request $request){
-        return view('dashboard.editmenu.menu.show',[
+        return view('admin.editmenu.menu.show',[
             'menulist'  => Menulist::where('id', '=', $request->input('id'))->first()
         ]);
     }
@@ -72,12 +72,12 @@ class MenuController extends Controller
         if(!empty($menus)){
             $request->session()->flash('message', "Can't delete. This menu have assigned menu elements");
             $request->session()->flash('back', 'menu.menu.index');
-            return view('dashboard.shared.universal-info');
+            return view('admin.shared.universal-info');
         }else{
             Menulist::where('id', '=', $request->input('id'))->delete();
             $request->session()->flash('message', 'Successfully deleted menu');
             $request->session()->flash('back', 'menu.menu.index');
-            return view('dashboard.shared.universal-info');
+            return redirect()->back();
         }
     }
 

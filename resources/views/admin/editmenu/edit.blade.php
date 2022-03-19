@@ -1,4 +1,5 @@
-@extends('dashboard.base')
+@extends('layouts.baseminimal')
+
 
 @section('content')
 

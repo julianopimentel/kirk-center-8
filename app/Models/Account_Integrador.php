@@ -13,7 +13,8 @@ class Account_Integrador extends Model
     /**
      * Get the notes for the status.
      */
-    
+    protected $primaryKey = 'id';
+
     public function status()
     {
         return $this->belongsTo('App\Models\Status', 'status_id');

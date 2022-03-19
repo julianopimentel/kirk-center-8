@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Account_Integrador;
 use App\Models\Account_Transations;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Institution;
 use App\Models\User;
 use App\Models\Users;
 use DataTables;
-use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('throttle:1,0.001');
+        $this->middleware('admin');
     }
 
     public function indexAdmin(Request $request)
@@ -31,7 +32,7 @@ class AdminController extends Controller
         if ($request->ajax()) {
             $data = Institution::with('integrador')
                 ->with('status')
-                //->wherenull('deleted_at')
+                ->wherenull('deleted_at')
                 // ->orderby('name_company', 'asc')
                 ->get();
             return DataTables::of($data)
@@ -80,7 +81,7 @@ class AdminController extends Controller
         //consulta de contas ativas
         $integradores = Account_Integrador::with('status')->with('getUser:id,name')->paginate(10);
         //consultar user integrador
-        $users = Users::all()->where('master', true);
+        $users = Users::all()->where('master', true)->wherenull('integrador_id');
 
         return view('account.Integrador', compact('integradores', 'users'));
     }
@@ -106,10 +107,12 @@ class AdminController extends Controller
 
     public function integradorStore(Request $request)
     {
-        //pegar tenant
-        $this->get_tenant();
         $validatedData = $request->validate([
-            'body'           => 'required',
+            'user_integrador'           => 'required',
+            'doc'           => 'required',
+            'email'           => 'required',
+            'name_company'           => 'required',
+            'phone_full'           => 'required',
         ]);
         //user data
         $user = auth()->user();
@@ -119,13 +122,11 @@ class AdminController extends Controller
         $integrador->doc      = $request->input('doc');
         $integrador->email      = $request->input('email');
         $integrador->mobile      = $request->input('phone_full');
-        $integrador->address1       = $request->input('address1');
+        $integrador->address1       = $request->input('address');
         $integrador->city       = $request->input('city');
         $integrador->state       = $request->input('state');
-        $integrador->lat       = $request->input('lat');
-        $integrador->lng       = $request->input('lng');
         $integrador->cep       = $request->input('cep');
-        $integrador->status_id = $request->input('type');
+        $integrador->status_id = '14';
         $integrador->doc     = $request->input('doc');
         $integrador->user_integrador     = $request->input('user_integrador');
         $integrador->save();
@@ -137,5 +138,46 @@ class AdminController extends Controller
 
         $request->session()->flash("success", 'Adicionado integrador com sucesso, favor vincular ao usuário');
         return redirect()->back();
+    }
+
+    public function blogShow($id)
+    {
+        $results = Blog::find($id);
+        return view('site.blog.blogShow', compact('results'));
+    }
+
+    public function blogPost()
+    {
+        if (Auth::check() == true) {
+            if (Auth::user()->master == true) {
+                return view('site.blog.post');
+            } else
+                session()->flash("info", 'Erro interno');
+            return redirect()->back();
+        } else
+            session()->flash("info", 'Erro interno');
+        return redirect()->back();
+    }
+    public function blogStore(Request $request)
+    {
+        if (Auth::check() == true) {
+            if (Auth::user()->master == true) {
+
+                $blog = new Blog();
+                $blog->title     = $request->input('title');
+                $blog->content   = $request->input('content');
+                $blog->status_id = $request->input('status_id');
+                $blog->image   = $request->input('image');
+                $blog->note_type = $request->input('note_type');
+                $blog->users_id = Auth::user()->id;
+                $blog->save();
+
+                //$this->adicionar_log('19', 'C', $blog);
+                $request->session()->flash('success', 'Blog' . __('action.creat'));
+                return redirect()->route('blog');
+            } else
+                session()->flash("info", 'Erro interno');
+            return redirect()->back();
+        }
     }
 }

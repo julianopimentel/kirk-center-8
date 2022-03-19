@@ -616,7 +616,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .card .card-header, .card .card-body, .card .card-footer {
   background-color: transparent;
-  padding: 12px 5px;
+  padding: 15px 15px;
 }
 
 .card .navbar {
@@ -624,8 +624,8 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .card .card-body {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .card .card-body .section-title {

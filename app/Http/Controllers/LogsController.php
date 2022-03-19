@@ -17,8 +17,8 @@ class LogsController extends Controller
         $this->middleware('auth');
         $this->middleware('permission');
         $this->middleware('system');
+        $this->middleware('admin');
     }
-
     /**
      * Display a listing of the resource.
      *
