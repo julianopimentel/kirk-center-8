@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendContato;
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 
 
@@ -43,6 +44,26 @@ class WelcomeController extends Controller
     public function contato()
     {
         return view('site.contato');
+    }
+    public function contatoEnvio(Request $request)
+    {
+        $validatedData = $request->all([
+            'name'             => 'required|min:1|max:255',
+            'email'             => 'required|min:1|max:255',
+            'comments'             => 'required|min:1|max:255',
+        ]);
+
+        $details = [
+            'name' =>  $request->input('name'),
+            'email' =>  $request->input('email'),
+            'phone' =>  $request->input('phone'),
+            'comments' =>  $request->input('comments')
+        ];
+
+        Mail::to('contato@kirk.digital')->send(new SendContato($details));
+
+        session()->flash("success","Email is Sent.");
+        return redirect()->url('/');
     }
     public function features()
     {

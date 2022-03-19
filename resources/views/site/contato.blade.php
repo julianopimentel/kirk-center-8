@@ -29,7 +29,8 @@
                     
                     <!-- Contact Form -->
                     <div class="col-md-7 col-md-offset-1 contact-form">
-                        <form action="site/assets/mail/contact.php" method="POST" class="contact-form">
+                        <form action="{{ route('contato.envio') }}" method="POST" class="contact-form">
+                            @csrf
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="form-group">
@@ -65,10 +66,6 @@
                                         Enviar <i class="fa fa-paper-plane"></i>
                                     </button>
                                 </div>
-                            </div>
-                            <!-- Alert Message -->
-                            <div class="col-md-12 alert-notification">
-                                <div id="message" class="alert-msg"></div>
                             </div>
                         </form>
                     </div>
