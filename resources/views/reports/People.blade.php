@@ -113,7 +113,7 @@
                             </form>
                             <div class="box-body">
                                 @if (!$peoples->isEmpty())
-                                    <table class="table table-responsive-sm table-striped">
+                                    <table class="table table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>

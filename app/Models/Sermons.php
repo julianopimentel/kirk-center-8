@@ -12,7 +12,7 @@ class Sermons extends Model
     
     protected $connection = 'tenant';
     protected $table = 'sermons';
-
+    
     /**
      * Get the User that owns the Notes.
      */

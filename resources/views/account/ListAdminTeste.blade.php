@@ -19,7 +19,7 @@
                                 <h4><strong>{{ __('account.select') }}</strong></h4>
                             </div>
                             <div class="card-body">
-                                <table class="table table-striped data-table">
+                                <table class="table table-responsive data-table">
                                     <thead>
                                         <tr>
                                             <th>Código</th>

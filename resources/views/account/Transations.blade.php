@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped">
+                <table class="table table-responsive">
                     <thead>
                         <tr>
                             <th>Data</th>

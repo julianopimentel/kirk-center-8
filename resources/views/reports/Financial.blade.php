@@ -92,7 +92,7 @@
                             </form>
                             <div class="box-body">
                                 @if (!$historics->isEmpty())
-                                    <table class="table table-responsive-sm table-striped">
+                                    <table class="table table-responsive">
                                         <thead>
                                             <tr>
                                                 <th style="width: 35px">Recibo</th>

@@ -19,7 +19,7 @@
                                 </div>
                             </div>
 
-                            <table class="table table-responsive-sm table-striped">
+                            <table class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th>Autor</th>

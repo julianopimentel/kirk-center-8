@@ -11,16 +11,16 @@
                                 <form action="{{ route('account.search') }}" method="POST" class="form form-inline">
                                     {!! csrf_field() !!}
                                     <div class="form-group row">
-                                        <div class="col-5">
+                                        <div class="col-sm-12 col-md-4 col-lg-5 col-xl-5">
                                             <h4><strong>{{ __('account.select') }}</strong></h4>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
                                             <div class="inner">
                                                 <input type="text" id='name_company' name="name_company"
                                                     class="form-control" placeholder="Nome">
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
                                             <div class="inner">
                                                 <select class="form-control" id="integrador" name="integrador">
                                                     <option value="">Integrador</option>
@@ -32,7 +32,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-1">
+                                        <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1">
                                             <div class="box-header">
                                                 <button type="submit" class="btn btn-primary" title="Pesquisar"><i
                                                         class="c-icon c-icon-sm cil-zoom"></i></button>
@@ -43,7 +43,7 @@
                                 </form>
                             </div>
                             <div class="card-body">
-                                <table class="table table-striped">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr>
                                             <th>{{ __('account.id') }}</th>

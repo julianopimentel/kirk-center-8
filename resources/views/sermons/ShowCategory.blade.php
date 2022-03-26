@@ -14,7 +14,7 @@
                             @include('sermons.add.AddCategory')
                         </div>
                             <div class="card-body">
-                                <table class="table table-responsive-sm table-striped">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>

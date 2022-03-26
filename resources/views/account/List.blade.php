@@ -9,7 +9,7 @@
                     @if (!$institutions->isEmpty())
                         <h4><strong>{{ __('account.select') }}</strong></h4>
                 </div>
-                <table class="table table-striped">
+                <table class="table table-responsive table-responsive-xl">
                     <thead>
                         <tr>
                             <th>{{ __('account.id') }}</th>
@@ -28,7 +28,7 @@
                                 <td width="10%">{{ $institution->AccountList->id }}</td>
                                 <td width="40%">{{ $institution->AccountList->name_company }} </td>
                                 @if (Auth::user()->isAdmin() == true)
-                                    <td>
+                                    <td class="visually-hidden">
                                         <span class="{{ $institution->AccountList->status->class }}">
                                             {{ $institution->AccountList->status->name }}
                                         </span>

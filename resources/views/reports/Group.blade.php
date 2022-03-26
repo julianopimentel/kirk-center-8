@@ -34,7 +34,7 @@
                             </form>
 
                             <div class="box-body">
-                                <table class="table table-responsive-sm table-striped">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
