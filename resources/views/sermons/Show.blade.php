@@ -27,10 +27,18 @@
 
 
                                 <strong>Tags:</strong>
-                                @foreach ($video->snippet->tags as $group => $name)
-                                <div class="chip">{{ $name }}</div>
-                                @endforeach
-                              
+                                <div class="bg-white border rounded-5">
+
+                                    <section class="section-preview">
+
+                                        @foreach ($video->snippet->tags as $group => $name)
+                                        <div class="chip mt-2 mb-0 waves-effect">
+                                            {{ $name }}
+                                        </div>
+                                    @endforeach
+
+                                    </section>
+                               </div>
                                 <br>
                                 <p>Autor: {{ $note->user->name }}
                                 </p>
