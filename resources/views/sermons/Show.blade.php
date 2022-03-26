@@ -24,16 +24,13 @@
                                     echo $note->content;
                                 @endphp
                                 <br><br>
-                               
+
 
                                 <strong>Tags:</strong>
-                                    <select multiple data-role="tagsinput">
-                                        @foreach ($video->snippet->tags as $group => $name)
-                                        <option value="{{ $name }}">{{ $name }}</option>
-                                        @endforeach
-                                    </select>
-                                  
-                                </label>
+                                @foreach ($video->snippet->tags as $group => $name)
+                                <div class="chip">{{ $name }}</div>
+                                @endforeach
+                              
                                 <br>
                                 <p>Autor: {{ $note->user->name }}
                                 </p>
@@ -131,7 +128,6 @@
                     });
             }
         </script>
-        <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
     @endsection
     @section('javascript')
     @endsection

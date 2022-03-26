@@ -58,14 +58,15 @@ class SermonsController extends Controller
         //se for master vai ignorar
         if (Auth::user()->isAdmin() == true) {
             $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
-            return view('sermons.ListCategory', ['notes' => $notes]);
+            $category = Category_Sermons::find($id)->first();
+            return view('sermons.ListCategory', compact('category'), ['notes' => $notes]);
         }
         //consulta permissao da categoria
         $category = Category_Sermons::where('roles', 'like', '%' . auth()->user()->people->role . '%')->where('id', $id)->first();
         //gabiarra para carregar somente os que tem a permissao
         if ($category == !null) {
             $notes = Sermons::with('user')->with('status')->where('type', $id)->paginate(20);
-            return view('sermons.ListCategory', ['notes' => $notes]);
+            return view('sermons.ListCategory', compact('category'), ['notes' => $notes]);
         }
         session()->flash("danger",  __('action.error'));
         return redirect()->route('sermons.index');

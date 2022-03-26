@@ -7,7 +7,7 @@
                     <div class="card-header">
                         <div class="form-groups row">
                             <div class="col-sm-2 col-md-2 col-lg-4 col-xl-10">
-                                <h4>Palavra</h4>
+                                <h4>{{ $category->name }}</h4>
                             </div>
                             <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
                                 @if ($appPermissao->add_sermons == true)
@@ -22,8 +22,9 @@
                     <table class="table table-responsive-sm table-striped">
                         <thead>
                             <tr>
-                                <th>Autor</th>
+                                <th>Previsão</th>
                                 <th>Titulo</th>
+                                <th>Visualizações</th>
                                 <th>Mensagem</th>
                                 <th>Data</th>
                                 <th>Status</th>
@@ -34,20 +35,27 @@
                         </thead>
                         <tbody>
                             @foreach ($notes as $note)
+                                @php
+                                    $video = Youtube::getVideoInfo($note->codigo_url);
+                                @endphp
                                 <tr>
-                                    <td><strong>{{ $note->user->name }}</strong></td>
+                                    <td><img src="{{ $video->snippet->thumbnails->default->url }}"
+                                        ></td>
                                     <td><strong>{{ $note->title }}</strong></td>
+                                    <td><strong>{{ $video->statistics->viewCount }}</strong></td>
                                     <td>
                                         @php
                                             echo mb_strimwidth($note->content, 0, 45, '...');
                                         @endphp
                                     </td>
+                                    @if ($appPermissao->view_sermons == true)
                                     <td>{{ datarecente($note->created_at) }}</td>
                                     <td>
                                         <span class="{{ $note->status->class }}">
                                             {{ $note->status->name }}
                                         </span>
                                     </td>
+                                    @endif
                                     <td width="1%">
                                         @if ($appPermissao->view_sermons == true)
                                             <a href="{{ route('sermons.show', $note->id) }}"><i
