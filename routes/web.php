@@ -1,10 +1,8 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FullCalenderController;
-use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\SermonsController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalidadeController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -23,8 +21,8 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 Route::get('terms', 'WelcomeController@terms')->name('terms');
 Route::get('privacy', 'WelcomeController@privacy')->name('privacy');
-Route::get('contato', 'WelcomeController@contato')->name('contato');
-Route::put('contato/envio', 'WelcomeController@contatoEnvio')->name('envio');
+Route::get('contato', 'ContactUsFormController@createForm')->name('contato');
+Route::post('contato', 'ContactUsFormController@ContactUsForm')->name('contact.store');
 Route::get('features', 'WelcomeController@features')->name('features');
 
 //blog simples
@@ -74,6 +72,7 @@ Route::group(['middleware' => ['role:user']], function () {
 
     // account e tenant
     Route::post('/tenant/{id}', 'TenantController@tenant')->name('tenant');
+    Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
     Route::resources([
         'account' => InstitutionsController::class,
     ]);
@@ -215,8 +214,6 @@ Route::group(['middleware' => ['role:user']], function () {
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/tenant/{id}', 'TenantController@tenant')->name('tenantget');
-
     //admin
     Route::any('account/search', 'AdminController@searchAccount')->name('account.search');
     Route::get('accounts', 'AdminController@indexAdmin')->name('account.indexAdmin');

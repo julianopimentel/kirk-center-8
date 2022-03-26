@@ -14,7 +14,7 @@ class Sermons extends Migration
             $table->text('title');
 			$table->text('content');
             $table->text('url_video');
-            $table->string('image')->nullable();
+            $table->string('codigo_url')->nullable();
 			$table->string('type')->nullable();
 			$table->date('applies_to_date');
             $table->integer('users_id');

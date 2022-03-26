@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Category_Sermons;
 use App\Models\Comment;
-use App\Models\People;
 use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Models\Sermons;
 use App\Models\Statistics;
-use Illuminate\Support\Str;
 use App\Models\Status;
 use Illuminate\Support\Facades\URL;
 use App\Traits\UploadTrait;
-use CategorySermons;
-use DateTime;
+use Alaouy\Youtube\Facades\Youtube;
 use Illuminate\Support\Facades\Auth;
 
 class SermonsController extends Controller
@@ -105,7 +102,6 @@ class SermonsController extends Controller
             'status_id'         => 'required',
             'applies_to_date'   => 'required|date_format:Y-m-d',
             'url' => 'required|url',
-
         ]);
         //user data
         $user = auth()->user();
@@ -117,30 +113,8 @@ class SermonsController extends Controller
         $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
         $note->users_id = $user->id;
-
-        //tratamento da imagem se tiver
-        if ($request->has('image')) {
-            // Get image file
-            $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-
-            $name = session()->get('key') . '_' . time();
-            // Define folder path
-            $folder = '';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'sermons', $name);
-            // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
-            $note->save();
-            //adicionar log
-            $this->adicionar_log('19', 'C', $note);
-            $request->session()->flash('success', __('general.sermon') . __('action.creat'));
-            return redirect()->route('sermons.index');
-        } else
-            //salva sem o tratamento da imagem
-            $note->save();
+        $note->codigo_url = Youtube::parseVidFromURL($note->url_video);
+        $note->save();
         //adicionar log
         $this->adicionar_log('19', 'C', $note);
         $request->session()->flash('success', __('general.sermon') . __('action.creat'));
@@ -157,6 +131,8 @@ class SermonsController extends Controller
     {
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
+        $videourl = Youtube::parseVidFromURL($note->url_video);
+        $video = Youtube::getVideoInfo($videourl);
 
         //se for master vai ignorar
         if (Auth::user()->isAdmin() == false) {
@@ -179,7 +155,7 @@ class SermonsController extends Controller
         $view = Statistics::where('sermons_id', $id);
 
 
-        return view('sermons.Show', compact('view'), ['note' => $note]);
+        return view('sermons.Show', compact('view', 'video'), ['note' => $note]);
     }
     /**
      * Show the form for editing the specified resource.
@@ -229,31 +205,13 @@ class SermonsController extends Controller
         $note->content   = $request->input('content');
         $note->status_id = $request->input('status_id');
         $note->url_video   = $request->input('url');
+        $note->codigo_url = Youtube::parseVidFromURL($note->url_video);
         $note->type = $request->input('type');
         $note->applies_to_date = $request->input('applies_to_date');
         $note->users_id = $user->id;
-        //tratamento na imagem
-        if ($request->has('image')) {
-            // Get image file
-            $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-            $name = session()->get('key') . '_' . time();
-            // Define folder path
-            $folder = '';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'sermons', $name);
-            // Set user profile image path in database to filePath
-            $note->image = URL::to('/') . '/storage/sermons/' . $filePath;
-            $note->save();
-            //adicionar log
-            $this->adicionar_log('19', 'U', $note);
-            $request->session()->flash('success', __('general.sermon') . __('action.edit'));
-            return redirect()->route('sermons.index');
-        } else
-            //se nao tiver imagem, salva novamente
-            $note->save();
+
+        //se nao tiver imagem, salva novamente
+        $note->save();
         //adicionar log
         $this->adicionar_log('19', 'U', $note);
         $request->session()->flash('success', __('general.sermon') . __('action.edit'));

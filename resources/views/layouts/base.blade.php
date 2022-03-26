@@ -109,7 +109,6 @@
     <script src="{{ asset('js/prism.js') }}"></script>
     <script src="{{ asset('js/intlTelInput.js?1638200991544') }}"></script>
     <script src="{{ asset('js/isValidNumber.js?1638200991544') }}"></script>
-
     <script type="text/javascript">
         $('.show_confirm').click(function(event) {
             var form = $(this).closest("form");

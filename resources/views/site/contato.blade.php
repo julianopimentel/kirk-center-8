@@ -1,7 +1,11 @@
 @extends('site.layout.base')
 @section('content')
+@section('head')
+<meta name="csrf_token" content="{{ csrf_token() }}" />
+@endsection
+
     <!-- Start Breadcrumb
-        ============================================= -->
+                ============================================= -->
     <div class="breadcrumb-area shadow dark bg-fixed text-center padding-xl text-light"
         style="background-image: url(site/site/assets/img/2440x1578.png);">
         <div class="container">
@@ -15,7 +19,7 @@
     <!-- End Breadcrumb -->
 
     <!-- Start Contact
-        ============================================= -->
+                ============================================= -->
     <div id="contact" class="contact-area bg-gray default-padding">
         <div class="container">
             <div class="row">
@@ -29,47 +33,62 @@
 
                     <!-- Contact Form -->
                     <div class="col-md-7 col-md-offset-1 contact-form">
-                        <form method="POST" action="{{ route('envio') }}">
-                            @csrf
-                            @method('PUT')
-                                                        <div class="col-md-12">
-                                <div class="row">
-                                    <div class="form-group">
-                                        <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                    </div>
-                                </div>
+                        @if (Session::has('success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success') }}
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input class="form-control" id="email" name="email" placeholder="Email*"
-                                            type="email">
-                                    </div>
+                        @endif
+                        <form action="" method="POST" action="{{ route('contact.store') }}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}" name="name" id="name">
+                                <!-- Error -->
+                                @if ($errors->has('name'))
+                                <div class="error">
+                                    {{ $errors->first('name') }}
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input class="form-control" id="phone" name="phone" placeholder="Phone"
-                                            type="text">
-                                    </div>
-                                </div>
+                                @endif
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="form-group comments">
-                                        <textarea class="form-control" id="comments" name="comments" placeholder="Mensagem *"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
+                                @if ($errors->has('email'))
+                                <div class="error">
+                                    {{ $errors->first('email') }}
                                 </div>
+                                @endif
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <button type="submit" name="submit" id="submit">
-                                        Enviar <i class="fa fa-paper-plane"></i>
-                                    </button>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="text" class="form-control {{ $errors->has('phone') ? 'error' : '' }}" name="phone" id="phone">
+                                @if ($errors->has('phone'))
+                                <div class="error">
+                                    {{ $errors->first('phone') }}
                                 </div>
-                                <button class="btn btn-success" type="submit" title="Salvar"><i
-                                        class="c-icon c-icon-sm cil-save"></i></button>
-
+                                @endif
                             </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}" name="subject"
+                                    id="subject">
+                                @if ($errors->has('subject'))
+                                <div class="error">
+                                    {{ $errors->first('subject') }}
+                                </div>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control {{ $errors->has('message') ? 'error' : '' }}" name="message" id="message"
+                                    rows="4"></textarea>
+                                @if ($errors->has('message'))
+                                <div class="error">
+                                    {{ $errors->first('message') }}
+                                </div>
+                                @endif
+                            </div>
+                            <input type="submit" name="submit" value="Enviar" class="btn btn-dark btn-block"></i>
                         </form>
                     </div>
                     <!-- End Contact Form -->
