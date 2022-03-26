@@ -1,5 +1,5 @@
 <div class="c-sidebar-brand">
-    <img class="c-sidebar-brand-full" src="{{ url('/assets/brand/coreui-base-white.svg') }}" width="400" height="60"
+    <img class="c-sidebar-brand-full" src="{{ url('assets/brand/coreui-base-white.svg') }}" width="400" height="60"
         alt="DeskApps">
     <img class="c-sidebar-brand-minimized" src="{{ url('assets/brand/coreui-signet-white.svg') }}" width="70"
         height="36" alt="DeskApps">
