@@ -17,8 +17,6 @@ class SetDefaultLocaleForUrls
      */
     public function handle($request, Closure $next)
     {
-        //URL::defaults(['locale' => 'junior']);
-
         $base = explode('.', $_SERVER['HTTP_HOST'])[0];
        // echo explode('.', url()->current())[0];
         $url_skin = Account_Integrador_Skin::where('dominio', $base)->first();
@@ -29,7 +27,7 @@ class SetDefaultLocaleForUrls
             return $next($request);
         }
         else
-        $url_skin = Account_Integrador_Skin::where('id', '2')->first();
+        $url_skin = Account_Integrador_Skin::where('id', '1')->first();
       //  echo $url_skin;
         view()->share('appSkin', $url_skin);
         return $next($request);
