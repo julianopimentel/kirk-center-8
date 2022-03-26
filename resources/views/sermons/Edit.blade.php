@@ -27,13 +27,13 @@
                                                     name="content" rows="5" placeholder="{{ __('Content..') }}"
                                                     required>{{ $note->content }}</textarea>
                                             </div>
-                                            <!-- /.row-->
+                                          
                                             <div class="form-group">
                                                 <label>URL do Youtube*</label>
                                                 <input class="form-control" type="text" value="{{ $note->url_video }}"
                                                     name="url" id="url" required autofocus>
                                             </div>
-
+                                             <!-- /.row
                                             <div class="form-group ">
                                                 <div class="form-group">
                                                     <label for="image" class="col-md-4 col-form-label text-md-right">
@@ -47,6 +47,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            -->
 
                                             <button class="btn btn-success" type="submit" title="Salvar"><i
                                                     class="c-icon c-icon-sm cil-save"></i></button>

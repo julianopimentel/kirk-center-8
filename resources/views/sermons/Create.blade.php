@@ -32,7 +32,7 @@
                                                     name="url" required autofocus>
                                                 <p class="card-text">
                                             </div>
-                                            <!-- /.row-->
+                                            <!-- /.row
                                             <div class="form-group">
                                                 <label for="image" class="col-md-4 col-form-label text-md-right">
                                                     Image da capa</label>
@@ -41,7 +41,7 @@
                                                     <small class="text-medium-emphasis">Recomendamos o tamanho de 670 x 480
                                                     </small></p>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                     <button class="btn btn-sm btn-success" type="submit" title="Salvar"><i
