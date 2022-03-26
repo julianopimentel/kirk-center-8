@@ -131,8 +131,8 @@ class SermonsController extends Controller
     {
         //consulta
         $note = Sermons::with('user')->with('status')->find($id);
-        $videourl = Youtube::parseVidFromURL($note->url_video);
-        $video = Youtube::getVideoInfo($videourl);
+       // $videourl = Youtube::parseVidFromURL($note->url_video);
+        $video = Youtube::getVideoInfo($note->codigo_url);
 
         //se for master vai ignorar
         if (Auth::user()->isAdmin() == false) {

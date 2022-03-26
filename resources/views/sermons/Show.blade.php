@@ -23,7 +23,7 @@
                                 @php
                                     echo $note->content;
                                 @endphp
-                                <br>
+                                <br><br>
                                
 
                                 <strong>Tags:</strong>
@@ -34,7 +34,7 @@
                                     </select>
                                   
                                 </label>
-
+                                <br>
                                 <p>Autor: {{ $note->user->name }}
                                 </p>
 
