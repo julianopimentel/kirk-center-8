@@ -48,7 +48,7 @@
                                 <br> <br> <br>
                                 <div class="form-group row">
                                     <a class="btn btn-primary" href="{{ route('sermons.index') }}" title="Voltar"><i
-                                            class="c-icon c-icon-sm cil-action-undo"></i></a>
+                                            class="c-icon c-icon-sm cil-action-undo"></i> Voltar</a> &nbsp;
                                     @if ($appPermissao->edit_sermons == true)
                                         <a class="btn btn-success" href="{{ route('sermons.edit', $note->id) }}"
                                             type="submit" title="Editar"><i class="c-icon c-icon-sm cil-pencil"></i></a>
