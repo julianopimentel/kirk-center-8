@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="form-groups row">
-                            <div class="col-sm-2 col-md-2 col-lg-4 col-xl-10">
+                            <div class="col-sm-4 col-md-8 col-lg-8 col-xl-10">
                                 <h4>{{ $category->name }}</h4>
                             </div>
                             <div class="col-sm-2 col-md-2 col-lg-4 col-xl-2">
