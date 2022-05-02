@@ -40,9 +40,10 @@
                                                     <div class="article-image">
                                                         @php
                                                             $video = Youtube::getVideoInfo($note->codigo_url);
-                                                        @endphp
+                                                        @endphp 
+                                                        <a href="{{ route('sermons.show', $note->id) }}">
                                                         <img src="{{ $video->snippet->thumbnails->high->url }}"
-                                                            width="100%" height="100%">
+                                                            width="100%" height="100%" > </a>
                                                     </div>
                                                     @php
                                                         $dateTime1 = new DateTime($note->applies_to_date);
